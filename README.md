@@ -1,31 +1,52 @@
-## direction le dossier du challenge
-cd mon-challenge
+# React-model and dependences install
+## locate in the project repo
+```shell
+cd repo-name
+```
 
-## copie des fichiers cachés et non-cachés présents à la racine du modèle
-### note : des alertes sont affichées à propos de dossiers ignorés, c'est normal
+## copy of hidden and non-hidden files present at the root of the model
+### note: alerts are displayed about ignored folders, this is normal
+```shell
 cp -n ../React-modele/{.*,*} .
+```
 
-## copie (récursive) des dossiers src/, config/ et public/
-### note : des alertes sont affichées à propos de dossiers ignorés, c'est normal
+## (recursive) copy of src/, config/ and public/ folders
+### note: alerts are displayed about ignored folders, this is normal
+```shell
 cp -rn ../React-modele/{src,config,public} .
+```
 
-## installation des dépendances listées dans le package.json
+## package.json's dependences install
+```shell
 yarn
+```
 
-## lancement du serveur de dev
+## development server start
+```shell
 yarn start
+```
 
-## Renommer et changer les informations du projet
+## rename and change projects informations
+```shell
 yarn init
+```
 
-## Installer React Router DOM
+## React Router DOM install
+```shell
 yarn add react-router-dom
+```
 
-## Installer Redux
+## Redux install
+```shell
 yarn add redux
+```
 
-## Installer React Redux
+## React Redux install
+```shell
 yarn add react-redux
+```
 
-## Installer le redux devtool
+## redux devtool install
+```shell
 yarn add redux-devtools-extension
+```
