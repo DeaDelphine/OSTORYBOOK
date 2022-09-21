@@ -60,6 +60,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:O-clock-Einstein/07-le-site-dont-vous-etes-le-heros-front.git",
+<<<<<<< HEAD
   "author": "DeaDelphine <dealbadelphine@gmail.com>",
+=======
+  "author": "yamamotocamille <yamamotocamillejp@gmail.com>",
+>>>>>>> edd80d66c67698ffcb209df319783e7a3ef633ae
   "license": "MIT"
 }
