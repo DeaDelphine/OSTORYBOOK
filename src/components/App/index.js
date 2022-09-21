@@ -1,7 +1,7 @@
 // == Import
-import Navbar from '../Navbar';
-import Home from '../Home';
-import Footer from '../Footer';
+import Navbar from 'src/components/Navbar';
+import Home from 'src/components/Home';
+import Footer from 'src/components/Footer';
 import './styles.scss';
 
 // == Composant
