@@ -1,3 +1,4 @@
+import './styles.scss';
 /* eslint-disable react/button-has-type */
 function Home() {
   return (
