@@ -3,13 +3,24 @@ import './styles.scss';
 function Navbar() {
   return (
     <div className="navbar">
-      <button className="navbar__button">
-        Mon compte
+      <ul className="navbar__links">
+        <li className="navbar__item">
+          <a href="#" className="navbar__link">
+            Mon compte
+          </a>
+        </li>
+        <li className="navbar__item">
+          <a href="#" className="navbar__link">
+            Se déconnecter
+          </a>
+        </li>
+      </ul>
+      <button className="navbar__burger">
+        <span className="burger-bar" />
       </button>
-      <button className="navbar__button">
-        Se déconnecter
-      </button>
+
     </div>
+
   );
 }
 

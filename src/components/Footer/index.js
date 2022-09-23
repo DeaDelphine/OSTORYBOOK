@@ -4,11 +4,23 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer__item">
-        <a href="#">Nous contacter</a>
-        <a href="#">Mentions Légales</a>
-        <a href="#">Crédits</a>
-        <a href="#">Règles du jeu</a>
-        <a href="#">Conditions générales</a>
+        <ul className="footer__links">
+          <li className="footer__item">
+            <a href="#" className="footer__link">Nous contacter</a>
+          </li>
+          <li className="footer__item">
+            <a href="#" className="footer__link">Mentions Légales</a>
+          </li>
+          <li className="footer__item">
+            <a href="#" className="footer__link">Crédits</a>
+          </li>
+          <li className="footer__item">
+            <a href="#" className="footer__link">Règles du jeu</a>
+          </li>
+          <li className="footer__item">
+            <a href="#" className="footer__link">Conditions générales</a>
+          </li>
+        </ul>
       </div>
     </div>
   );
