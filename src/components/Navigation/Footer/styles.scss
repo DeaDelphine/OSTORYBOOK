@@ -18,7 +18,7 @@
  .contact__form__item{
    display: flex;
    flex-direction: column;
-   margin: 0 auto;
+   margin: auto;
  }
  .contact__form{
    width: 900px;
@@ -33,7 +33,7 @@
   width: 686px;
   height: 300px;
   border-radius: 30px;
-  margin-top: 10px;
+  margin: 10px auto;
  }
  .contact__form__title{
    margin: 20px;
@@ -63,15 +63,27 @@
   font-family: 'Pompiere', sans-serif, Arial;
 }
  .cgu {
-   background-color: aqua;
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 40px 40px;
+ }
+ .cgu__title{
+   font-size: 2em;
+   color: #fff;
+ }
+ .legal__mentions {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 40px 40px;
+ }
+ .legal__mentions__title{
+   font-size: 2em;
+   color: #fff;
  }
 
  .game-rules{
   background-color: aqua;
  }
 .credits{
-  background-color: aqua;
-}
-.legal-mentions{
   background-color: aqua;
 }
