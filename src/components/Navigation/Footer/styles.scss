@@ -1,8 +1,13 @@
+@use 'src/styles/vars';
+@use 'sass:color';
+
+
 /* FOOTER */
 
 .footer{
   position: absolute;
   bottom: 0;
+  
  }
  .footer__links{
    font-size: 2rem;
@@ -10,12 +15,57 @@
    padding: 5px 5px;
    color: #fff;
  }
+ .contact__form__item{
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+ }
+ .contact__form{
+   width: 900px;
+   height: 500px;
+   background-color: #000;
+   opacity: 0.8;
+   background-size: 200px;
+   flex-direction: row;
+   border-radius: 40px;
+ }
+ .contact__form__message{
+  width: 686px;
+  height: 300px;
+  border-radius: 30px;
+  margin-top: 10px;
+ }
+ .contact__form__title{
+   margin: 20px;
+   color: #fff;
+   font-size: 2rem;
+   font-weight: 1rem;
+   text-align: center;
+ }
+ input::placeholder {
+  color: #000;
+  font-size: 2em;
+  font-family: 'Pompiere', sans-serif, Arial;
+}
+ .contact__form__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 80px;
+  background-color: vars.$dark-color;
+  color: vars.$light-color;
+  border: none;
+  border-radius: 50px;
+  font-size: 2rem;
+  box-shadow: 1px 1px 10px vars.$dark-color ;
+  text-align: center;
+  font-family: 'Pompiere', sans-serif, Arial;
+}
  .cgu {
    background-color: aqua;
  }
- .contact-form{
-  background-color: aqua;
- }
+
  .game-rules{
   background-color: aqua;
  }
