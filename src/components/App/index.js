@@ -33,7 +33,6 @@ function App() {
         <Route path="/regles-du-jeu" element={<GameRules />} />
         <Route path="/histoires" element={<HistoryList />} />
       </Routes>
-
     </div>
   );
 }
