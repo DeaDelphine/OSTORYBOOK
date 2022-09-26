@@ -1,6 +1,7 @@
+// == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function CGU() {
   return (
     <div className="cgu">

@@ -4,7 +4,7 @@ import Home from '../Home';
 import Footer from '../Navigation/Footer';
 import './styles.scss';
 
-// == Composant
+// == Component
 function App() {
   return (
     <div className="app">

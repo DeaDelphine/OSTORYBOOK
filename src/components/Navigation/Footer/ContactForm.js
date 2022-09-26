@@ -1,6 +1,7 @@
+// == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function ContactForm() {
   return (
     <div className="contact-form">

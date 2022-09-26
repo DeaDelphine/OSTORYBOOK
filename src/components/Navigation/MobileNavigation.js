@@ -1,6 +1,7 @@
+// == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function MobileNavigation() {
   return (
     <div className="mobile-navigation">

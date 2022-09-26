@@ -3,7 +3,7 @@ import './styles.scss';
 
 import History from './History';
 
-// == Composant
+// == Component
 function HistoryList() {
   return (
     <div className="history history-list">

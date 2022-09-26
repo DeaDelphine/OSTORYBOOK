@@ -1,6 +1,7 @@
+// == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function GameRules() {
   return (
     <div className="game-rules">

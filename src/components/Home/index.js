@@ -1,5 +1,8 @@
+// == Import
 import './styles.scss';
 /* eslint-disable react/button-has-type */
+
+// == Component
 function Home() {
   return (
     <div className="home">
@@ -12,4 +15,5 @@ function Home() {
   );
 }
 
+// == Export
 export default Home;

@@ -1,5 +1,8 @@
+// == Import
 import './styles.scss';
 /* eslint-disable react/button-has-type */
+
+// == Component
 function Header() {
   return (
     <div className="navbar header">
@@ -24,4 +27,5 @@ function Header() {
   );
 }
 
+// == Export
 export default Header;
