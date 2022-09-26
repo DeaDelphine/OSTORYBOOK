@@ -1,14 +1,14 @@
 // == Import
-import Navbar from 'src/components/Navbar';
-import Home from 'src/components/Home';
-import Footer from 'src/components/Footer';
+import Header from '../Navigation/Header';
+import Home from '../Home';
+import Footer from '../Navigation/Footer';
 import './styles.scss';
 
-// == Composant
+// == Component
 function App() {
   return (
     <div className="app">
-      <Navbar />
+      <Header />
       <Home />
       <Footer />
     </div>
