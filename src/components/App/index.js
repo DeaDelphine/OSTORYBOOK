@@ -1,14 +1,16 @@
 // == Import
-import Navbar from '../Navbar';
+import Header from '../Navigation/Header';
 import Home from '../Home';
+import Footer from '../Navigation/Footer';
 import './styles.scss';
 
 // == Composant
 function App() {
   return (
     <div className="app">
-      <Navbar />
+      <Header />
       <Home />
+      <Footer />
     </div>
   );
 }
