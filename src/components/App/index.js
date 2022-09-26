@@ -6,6 +6,7 @@ import ConnectForm from '../ConnectForm';
 import Profil from '../Profil';
 import Home from '../Home';
 import Footer from '../Navigation/Footer';
+import HistoryList from '../HistoryList';
 import ContactForm from '../Navigation/Footer/ContactForm';
 import LegalMentions from '../Navigation/Footer/LegalMentions';
 import GameRules from '../Navigation/Footer/GameRules';
@@ -30,7 +31,8 @@ function App() {
         <Route path="/nous-contacter" element={<ContactForm />} />
         <Route path="/mention-legales" element={<LegalMentions />} />
         <Route path="/credits" element={<Credits />} />
-        <Route path="/regle-du-jeu" element={<GameRules />} />
+        <Route path="/regles-du-jeu" element={<GameRules />} />
+        <Route path="/histoires" element={<HistoryList />} />
       </Routes>
 
     </div>

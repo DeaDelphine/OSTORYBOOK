@@ -31,10 +31,10 @@ function Footer() {
         Crédits
       </NavLink>
       <NavLink
-        to="/regle-du-jeu"
+        to="/regles-du-jeu"
         className="footer__links"
       >
-        Règle du jeu
+        Règles du jeu
       </NavLink>
     </div>
   );
