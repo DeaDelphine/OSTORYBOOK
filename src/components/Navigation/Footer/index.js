@@ -1,7 +1,8 @@
+// == Import
 import './styles.scss';
 import { NavLink } from 'react-router-dom';
 
-// == Composant
+// == Component
 function Footer() {
   return (
     <div className="footer">

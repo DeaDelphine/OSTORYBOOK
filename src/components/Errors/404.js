@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function Error404() {
   return (
     <div className="error error-404">

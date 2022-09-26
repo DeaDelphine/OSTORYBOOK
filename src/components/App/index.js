@@ -15,7 +15,7 @@ import './styles.scss';
 import MobileNavigation from '../Navigation/MobileNavigation';
 import CGU from '../Navigation/Footer/CGU';
 
-// == Composant
+// == Component
 function App() {
   return (
     <div className="app">

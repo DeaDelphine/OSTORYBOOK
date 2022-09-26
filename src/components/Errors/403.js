@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function Error403() {
   return (
     <div className="error error-403">

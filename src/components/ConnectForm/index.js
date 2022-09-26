@@ -1,7 +1,7 @@
 // == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function ConnectForm() {
   return (
     <div className="connect-form">

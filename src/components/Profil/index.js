@@ -1,6 +1,7 @@
+// == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function Profil() {
   return (
     <div className="profil">

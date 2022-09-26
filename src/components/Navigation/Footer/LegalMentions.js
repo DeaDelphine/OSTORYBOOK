@@ -1,6 +1,7 @@
+// == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function LegalMentions() {
   return (
     <div className="legal-mentions">

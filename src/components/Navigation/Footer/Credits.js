@@ -1,6 +1,7 @@
+// == Import
 import './styles.scss';
 
-// == Composant
+// == Component
 function Credits() {
   return (
     <div className="credits">
