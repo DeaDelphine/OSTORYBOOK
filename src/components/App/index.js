@@ -1,7 +1,6 @@
 // == Import
-import Navbar from 'src/components/Navbar';
-import Home from 'src/components/Home';
-import Footer from 'src/components/Footer';
+import Navbar from '../Navbar';
+import Home from '../Home';
 import './styles.scss';
 
 // == Composant
@@ -10,7 +9,6 @@ function App() {
     <div className="app">
       <Navbar />
       <Home />
-      <Footer />
     </div>
   );
 }

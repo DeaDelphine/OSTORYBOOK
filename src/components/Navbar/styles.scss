@@ -1,3 +1,5 @@
+/* NAVBAR */
+
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -10,19 +12,19 @@
   margin: 10px  10px;
 }
 
-.navbar__links{
+.header__links{
   display: flex;
   display: block;
   padding: 1.5rem;
   font-size: 5vw;
 }
-.navbar__link {
+.header__link {
   padding: 0 0.3rem;
   color: #fff;
   font-size: 2rem;
 }
 
-.navbar__burger {
+.header__burger {
   width: 40px;
   height: 40px;
   background: transparent;
@@ -32,7 +34,7 @@
 }
 
 @media screen and (max-width:767px) {
-  .navbar__links{
+  .header__links{
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -45,13 +47,13 @@
     background-color: #000;
     color: #fff;
   }
-  .navbar__burger{
+  .header__burger{
     display: block;
     position: fixed;
     top: 1rem;
     right: 1rem;
   }
-  .navbar__burger:hover{
+  .header__burger:hover{
     cursor: pointer;
   }
   .burger-bar, 
@@ -76,3 +78,19 @@
     transform: translateY(12px);
   }
 }
+
+/* HEADER */
+
+/* FOOTER */
+
+.footer{
+  position: absolute;
+  bottom: 0;
+ }
+ .footer__item{
+   font-size: 2rem;
+   font-weight: 1rem;
+   padding: 5px 5px;
+   color: #fff;
+ }
+ 
