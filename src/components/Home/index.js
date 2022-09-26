@@ -1,19 +1,19 @@
 // == Import
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
+import logo from 'src/assets/images/logo.png';
 /* eslint-disable react/button-has-type */
 
 // == Component
 function Home() {
   return (
     <div className="home">
-      <h1 className="home__title">O'Story Book</h1>
+      <img className="home home__logo" src={logo} alt="logo" />
       <NavLink
         to="/histoires"
-        className="home__button"
+        className="home home__button"
       > Commencer l'aventure
       </NavLink>
-
     </div>
   );
 }

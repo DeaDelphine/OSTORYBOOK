@@ -8,10 +8,15 @@
 
 body {
   font-family:'Pompiere', sans-serif;
-  background: url(../assets/images/home-backgroud-tawatchai07.jpg);
+  background: url(src/assets/images/home-backgroud-tawatchai07.jpg) no-repeat center;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: 100vw 150vh;
-  
+  min-height: 100vh;
+  overflow-x: hidden; 
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }  // or you can import your own font
  
 
