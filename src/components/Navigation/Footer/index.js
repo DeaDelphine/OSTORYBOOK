@@ -1,15 +1,42 @@
 // == Import
 import './styles.scss';
+import { NavLink } from 'react-router-dom';
 
 // == Component
 function Footer() {
   return (
     <div className="footer">
-      <a className="footer__links" href="">Nous contacter</a>
-      <a className="footer__links" href="">CGU</a>
-      <a className="footer__links" href="">Mentions légales</a>
-      <a className="footer__links" href="">Crédits</a>
-      <a className="footer__links" href="">Règle du jeu</a>
+      <NavLink
+        to="/nous-contacter"
+        className="footer__links"
+      >
+        Nous contacter
+      </NavLink>
+
+      <NavLink
+        to="/cgu"
+        className="footer__links"
+      >
+        CGU
+      </NavLink>
+      <NavLink
+        to="/mention-legales"
+        className="footer__links"
+      >
+        Mentions légales
+      </NavLink>
+      <NavLink
+        to="/credits"
+        className="footer__links"
+      >
+        Crédits
+      </NavLink>
+      <NavLink
+        to="/regles-du-jeu"
+        className="footer__links"
+      >
+        Règles du jeu
+      </NavLink>
     </div>
   );
 }
