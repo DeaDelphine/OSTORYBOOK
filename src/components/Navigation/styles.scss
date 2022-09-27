@@ -45,15 +45,16 @@
     opacity: 1;
 
     & ul {
+      line-height: 1.5;
       text-align: center;
       position: absolute;
       width: 100%;
-      height: 100%;
       right: 0;
       top: 140px;
-      border-top: solid 5px #b6463e;
+      border-top: solid 3px #b6463e;
       display: flex;
       flex-direction: column;
+      background-color: rgba(0,0,0,0.8);
     }
 
     &_hamburger {
