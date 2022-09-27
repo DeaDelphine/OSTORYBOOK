@@ -1,0 +1,43 @@
+/* FOOTER */
+.footer {
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+  right: 0;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,0.8580474426098564) 0%, rgba(0,0,0,0) 100%);
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+
+  &-navigation{
+    display: flex;
+    justify-content: space-around;
+    align-self: flex-end;
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  &__links {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+ 
+ .cgu {
+   background-color: aqua;
+ }
+ .contact-form{
+  background-color: aqua;
+ }
+ .game-rules{
+  background-color: aqua;
+ }
+.credits{
+  background-color: aqua;
+}
+.legal-mentions{
+  background-color: aqua;
+}

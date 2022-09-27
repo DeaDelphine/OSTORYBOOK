@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 function Footer() {
   return (
     <div className="footer">
-      <div className="navigation navigation-footer">
+      <div className="footer-navigation">
         <NavLink
           to="/nous-contacter"
           className="footer__links"
