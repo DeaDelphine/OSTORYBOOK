@@ -1,6 +1,8 @@
 // == Import
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Routes, Route } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
 
 import Navigation from '../Navigation';
 import Home from '../Home';
@@ -14,9 +16,17 @@ import Credits from '../Navigation/Footer/Credits';
 import CGU from '../Navigation/Footer/CGU';
 
 import './styles.scss';
+import { fetchStories } from '../../actions/stories';
 
 // == Component
 function App() {
+  const dispatch = useDispatch();
+  const storiesLoaded = useSelector((state) => state.stories.storiesLoaded);
+
+  useEffect(() => {
+    dispatch(fetchStories());
+  }, []);
+
   return (
     <div className="app">
       <Navigation />
