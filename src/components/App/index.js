@@ -1,9 +1,10 @@
 // == Import
 import { Routes, Route } from 'react-router-dom';
 
-import Header from '../Header';
+import NavBar from '../Navigation/NavBar';
+import HeaderNavLinks from '../Navigation/HeaderNavLinks';
 import Home from '../Home';
-import Footer from '../Footer';
+import Footer from '../Navigation/FooterNavigation';
 import ConnectForm from '../ConnectForm';
 import Profil from '../Profil';
 import HistoryList from '../HistoryList';
@@ -14,12 +15,13 @@ import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
 
 import './styles.scss';
+import FooterNavLinks from '../Navigation/FooterNavLinks';
 
 // == Component
 function App() {
   return (
     <div className="app">
-      <Header />
+      <NavBar />
       <div className="container">
         <Routes>
           <Route 

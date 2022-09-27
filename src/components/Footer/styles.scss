@@ -10,13 +10,12 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  color: white;
+  font-size: 2rem;
 
   &-navigation{
     display: flex;
-    justify-content: space-around;
     align-self: flex-end;
-    font-size: 2rem;
-    color: #fff;
   }
 
   &__links {
@@ -40,4 +39,11 @@
 }
 .legal-mentions{
   background-color: aqua;
+}
+
+@media (max-width:990px) {
+
+  .footer-navigation {
+    display: none;
+  }
 }
