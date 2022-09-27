@@ -20,6 +20,20 @@
     padding-right: 2rem;
   }
 
+  &__logo {
+    max-width: 25%;
+    background: none;
+    margin: 0 auto;
+    margin-top: -25px;
+    justify-content: center;
+
+    &--active {
+      background-color: #f0f;
+    }
+  }
+
+  
+
 }
 
 

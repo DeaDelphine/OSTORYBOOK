@@ -22,7 +22,10 @@ function App() {
       <Header />
       <div className="container">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route 
+            path="/"
+            element={<Home />} 
+          />
           <Route path="/connexion" element={<ConnectForm />} />
           <Route path="/mon-compte" element={<Profil />} />
           <Route path="/cgu" element={<CGU />} />
