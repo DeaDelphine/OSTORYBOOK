@@ -1,5 +1,6 @@
 // == Import
 import { Routes, Route } from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css';
 
 import NavBar from '../Navigation/NavBar';
 import HeaderNavLinks from '../Navigation/HeaderNavLinks';
