@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // == Import
 import React from 'react';
 import { Button, Card, Image } from 'semantic-ui-react';

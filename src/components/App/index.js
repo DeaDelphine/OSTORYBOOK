@@ -27,6 +27,9 @@ function App() {
   useEffect(() => {
     dispatch(fetchStories());
   }, []);
+  if (!storiesLoaded) {
+    return <h1>Bijour</h1>;
+  }
 
   return (
     <div className="app">

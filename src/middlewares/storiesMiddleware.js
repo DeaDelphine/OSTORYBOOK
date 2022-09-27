@@ -14,7 +14,7 @@ const storiesMiddleware = (store) => (next) => (action) => {
           // avec un console.log avant d'écrire le dispatch
           // console.log(response.data);
 
-          store.dispatch(response.data);
+          store.dispatch(response);
         })
         .catch((error) => {
           console.log(error);
