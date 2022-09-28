@@ -7,16 +7,20 @@
 }
 
 body {
-  font-family:'Pompiere', sans-serif !important;
-  background: url(src/assets/images/home-backgroud-tawatchai07.jpg) no-repeat center !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  min-height: 100vh !important;
-  overflow-x: hidden !important; 
-  overflow-y: hidden !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important; 
+  position: relative;
+  font-family:'Pompiere', sans-serif;
+  background: url(src/assets/images/home-backgroud-tawatchai07.jpg) no-repeat center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  overflow-x: hidden; 
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+
 }  // or you can import your own font
  
 
