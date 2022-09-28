@@ -26,4 +26,5 @@ const storiesMiddleware = (store) => (next) => (action) => {
 
   next(action);
 };
+
 export default storiesMiddleware;

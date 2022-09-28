@@ -16,6 +16,8 @@ import GameRules from '../Navigation/Footer/GameRules';
 import Credits from '../Navigation/Footer/Credits';
 import CGU from '../Navigation/Footer/CGU';
 
+import Loading from './Loading';
+
 import './styles.scss';
 import { fetchStories } from '../../actions/stories';
 
@@ -28,7 +30,7 @@ function App() {
     dispatch(fetchStories());
   }, []);
   if (!storiesLoaded) {
-    return <h1>Bijour</h1>;
+    return <Loading />;
   }
 
   return (
