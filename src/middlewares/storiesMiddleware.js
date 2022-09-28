@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_STORIES } from '../actions/stories';
+import { FETCH_STORIES, saveStories } from '../actions/stories';
 
 const storiesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -14,7 +14,7 @@ const storiesMiddleware = (store) => (next) => (action) => {
           // avec un console.log avant d'écrire le dispatch
           // console.log(response.data);
 
-          store.dispatch(response);
+          store.dispatch(saveStories(response.data));
         })
         .catch((error) => {
           console.log(error);
