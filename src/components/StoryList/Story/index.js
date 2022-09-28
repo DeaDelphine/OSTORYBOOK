@@ -21,7 +21,11 @@ function Story({
 }
 
 Story.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
+};
+
+Story.defaultProps = {
+  title: null,
 };
 // == Export
 export default Story;

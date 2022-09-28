@@ -19,7 +19,7 @@ function StoryList() {
   return (
     <div className="history history-list">
       <div className="story">
-        <p>Veuillez choisir une histoire</p>
+        <p className="story story-subtitle">Veuillez choisir une histoire</p>
         <Story
           name={title}
 
