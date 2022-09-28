@@ -3,8 +3,7 @@ import { FETCH_STORIES, SAVE_STORIES } from '../actions/stories';
 export const initialState = {
   list: [],
   storiesLoaded: false,
-  story: [],
-
+  stories: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -15,7 +14,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: action.stories,
         storiesLoaded: true,
-        story: action.stories,
+        stories: action.stories,
       };
     default:
       return state;

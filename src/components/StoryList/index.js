@@ -8,10 +8,11 @@ import Story from './Story';
 import './styles.scss';
 
 // == Component
-function StoryList() {
+
   // const { slug } = useParams();
 
-  const title = useSelector((state) => state.stories.story.title);
+  const StoryList = () => {
+    const stories = useSelector((state) => state.stories);
 
   // if (!storylist) {
   //   return <Navigate to="/error" replace />;
@@ -20,14 +21,18 @@ function StoryList() {
     <div className="history history-list">
       <div className="story">
         <p className="story story-subtitle">Veuillez choisir une histoire</p>
+        {stories.map((story) => (
         <Story
-          name={title}
-
+          key={story.id}
+          title={story.title}
+          content={story.content}
+          image={story.image}
         />
-      </div>
+        ))}
+        </div>
     </div>
   );
-}
+};
 
 // == Export
 export default StoryList;

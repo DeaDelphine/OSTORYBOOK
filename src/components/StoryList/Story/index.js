@@ -7,25 +7,29 @@ import storyIMG from 'src/assets/images/logo.png';
 import './styles.scss';
 
 // == Composant
-function Story({
-  title,
-}) {
-  return (
-    <div className="story story-container">
-      <img className="story story-container__img" src={storyIMG} alt="story-img" />
-      <h2 className="story story-container__title">{title}</h2>
-      <p className="story story-container__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolorem consectetur, deleniti est nam aliquid facere accusantium quasi odit culpa repudiandae rem sapiente at, laudantium eaque natus distinctio, debitis in.</p>
-      <button className="story story-container__button" type="button">Commencer</button>
-    </div>
-  );
-}
+const Story = ({ stories }) => (
+  
+  <div>
+    {stories.map((story) => (
+      <><div className="story story-container" key={story.id}>
+        <img className="story story-container__img" src={story.image} alt="story-img" />
+        <h2 className="story story-container__title">{story.title}</h2>
+        <p className="story story-container__excerpt">{story.content}</p>
+      </div><button className="story story-container__button">Commencer</button></>
+    ))} 
+  </div>
+);
 
 Story.propTypes = {
-  title: PropTypes.string,
+  stories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      content: PropTypes.string,
+      image: PropTypes.string,
+    }).isRequired,
+  ).isRequired,
 };
 
-Story.defaultProps = {
-  title: null,
-};
 // == Export
 export default Story;
