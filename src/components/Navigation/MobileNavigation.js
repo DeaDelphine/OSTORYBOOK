@@ -1,40 +1,44 @@
 // == Import
 import './styles.scss';
-import HeaderNavLinks from './HeaderNavLinks';
+import { FiMenu } from 'react-icons/fi';
+import { MdOutlineClose } from 'react-icons/md';
+import { useState } from 'react';
 import FooterNavLinks from './FooterNavLinks';
-import {FiMenu} from 'react-icons/fi'
-import {MdOutlineClose} from 'react-icons/md'
-import {useState} from 'react'
+import HeaderNavLinks from './HeaderNavLinks';
 
 function MobileNavigation() {
-
   const [open, setOpen] = useState(false);
 
-  const hamburgerIcon = <FiMenu 
-                          className='mobile-navigation_hamburger'
-                          size='30px'
-                          onClick={() => setOpen(!open)}
-                        />
-  
-  const closeIcon = <MdOutlineClose 
-                      className='mobile-navigation_close'
-                      size='30px'
-                      onClick={() => setOpen(!open)}
-                    />
+  const hamburgerIcon = (
+    <FiMenu
+      className="mobile-navigation_hamburger"
+      size="30px"
+      onClick={() => setOpen(!open)}
+    />
+  );
+
+  const closeIcon = (
+    <MdOutlineClose
+      className="mobile-navigation_close"
+      size="30px"
+      onClick={() => setOpen(!open)}
+    />
+  );
   const closeMobileMenu = () => setOpen(false);
 
-  return(
+  return (
     <nav className="mobile-navigation">
       {open ? closeIcon : hamburgerIcon}
-      {open && 
+      {open
+      && (
       <div
-        isMobile={true}
+        isMobile
         closeMobileMenu={closeMobileMenu}
       >
         <HeaderNavLinks className="header-navlinks" />
-        <FooterNavLinks className="footer-navlinks"/>
+        <FooterNavLinks className="footer-navlinks" />
       </div>
-      }
+      )}
     </nav>
   );
 }
