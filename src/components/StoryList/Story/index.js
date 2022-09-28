@@ -24,12 +24,12 @@ function Story({
   );
 }
 
-// Story.propTypes = {
-//       id: PropTypes.number.isRequired
-//       title: PropTypes.string.isRequired
-//       content: PropTypes.string.isRequired
-//       image: PropTypes.string.isRequired
-//     };
+Story.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 // == Export
 export default Story;
