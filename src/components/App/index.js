@@ -1,9 +1,7 @@
 // == Import
 import { Routes, Route } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
 
 import NavBar from '../Navigation/NavBar';
-import HeaderNavLinks from '../Navigation/HeaderNavLinks';
 import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import ConnectForm from '../ConnectForm';
@@ -16,7 +14,6 @@ import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
 
 import './styles.scss';
-import FooterNavLinks from '../Navigation/FooterNavLinks';
 
 // == Component
 function App() {
