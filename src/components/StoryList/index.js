@@ -8,11 +8,10 @@ import Story from './Story';
 import './styles.scss';
 
 // == Component
+// const { slug } = useParams();
 
-  // const { slug } = useParams();
-
-  const StoryList = () => {
-    const stories = useSelector((state) => state.stories);
+function StoryList() {
+  const stories = useSelector((state) => state.stories.stories);
 
   // if (!storylist) {
   //   return <Navigate to="/error" replace />;
@@ -22,17 +21,12 @@ import './styles.scss';
       <div className="story">
         <p className="story story-subtitle">Veuillez choisir une histoire</p>
         {stories.map((story) => (
-        <Story
-          key={story.id}
-          title={story.title}
-          content={story.content}
-          image={story.image}
-        />
+          <Story {...story} />
         ))}
-        </div>
+      </div>
     </div>
   );
-};
+}
 
 // == Export
 export default StoryList;
