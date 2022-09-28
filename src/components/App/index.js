@@ -2,7 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../Navigation/NavBar';
-import HeaderNavLinks from '../Navigation/HeaderNavLinks';
+
 import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import ConnectForm from '../ConnectForm';
@@ -15,7 +15,6 @@ import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
 
 import './styles.scss';
-import FooterNavLinks from '../Navigation/FooterNavLinks';
 
 // == Component
 function App() {
@@ -24,9 +23,9 @@ function App() {
       <NavBar />
       <div className="container">
         <Routes>
-          <Route 
+          <Route
             path="/"
-            element={<Home />} 
+            element={<Home />}
           />
           <Route path="/connexion" element={<ConnectForm />} />
           <Route path="/mon-compte" element={<Profil />} />
