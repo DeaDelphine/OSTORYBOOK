@@ -11,7 +11,7 @@ import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import ConnectForm from '../ConnectForm';
 import Profil from '../Profil';
-
+import Pages from '../StoryList/Pages';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/ContactForm';
 import LegalMentions from '../Footer/LegalMentions';
@@ -54,6 +54,7 @@ function App() {
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
+          <Route path="/histoire/:slug" element={<Pages />} />
         </Routes>
       </div>
       <Footer />
