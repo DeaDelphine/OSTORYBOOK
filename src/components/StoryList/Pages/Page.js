@@ -18,7 +18,6 @@ function Page({
 
         <Link to="/histoire">
           <Button className="story story-container__button">Aller à la page XX </Button>
-          <Button className="story story-container__button">Aller à la page XX </Button>
         </Link>
       </div>
     </div>
@@ -26,10 +25,13 @@ function Page({
 }
 
 Page.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   Image: PropTypes.string.isRequired,
+};
+Page.defaultValue = {
+  id: '',
 };
 
 export default Page;
