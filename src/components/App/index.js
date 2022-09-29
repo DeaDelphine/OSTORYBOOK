@@ -13,12 +13,11 @@ import ConnectForm from '../ConnectForm';
 import Profil from '../Profil';
 
 import StoryList from '../StoryList';
-import ContactForm from '../Navigation/Footer/ContactForm';
-import LegalMentions from '../Navigation/Footer/LegalMentions';
-import GameRules from '../Navigation/Footer/GameRules';
-import Credits from '../Navigation/Footer/Credits';
-import CGU from '../Navigation/Footer/CGU';
-
+import ContactForm from '../Footer/ContactForm';
+import LegalMentions from '../Footer/LegalMentions';
+import GameRules from '../Footer/GameRules';
+import Credits from '../Footer/Credits';
+import CGU from '../Footer/CGU';
 
 import Loading from './Loading';
 
