@@ -1,6 +1,6 @@
 // == Import
 import './styles.scss';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import NavLinks from './FooterNavLinks';
 /* eslint-disable react/button-has-type */
 
@@ -9,7 +9,7 @@ function Footer() {
   return (
     <div className="footer">
       <nav>
-          <NavLinks />
+        <NavLinks />
       </nav>
     </div>
   );
