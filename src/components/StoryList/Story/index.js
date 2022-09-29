@@ -4,6 +4,9 @@
 // == Import
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+import Page from '../Pages/Page';
+
 import './styles.scss';
 
 // == Composant
@@ -17,7 +20,10 @@ function Story({
         <img className="story story-container__img" src={image} alt="story-img" />
         <h2 className="story story-container__title">{title}</h2>
         <p className="story story-container__excerpt">{content}</p>
-        <button className="story story-container__button">Commence </button>
+
+        <Link to="/lhistoire1" element={<Page />}>
+          <button className="story story-container__button">Commence </button>
+        </Link>
       </div>
     </div>
   );
