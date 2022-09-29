@@ -1,24 +1,24 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-import { FETCH_PAGES, fetchPages } from '../actions/pages';
+// import { FETCH_PAGES, fetchPages } from '../actions/pages';
 
-const pagesMiddleware = (store) => (next) => (action) => {
-  switch (action.type) {
-    case FETCH_PAGES:
+// const pagesMiddleware = (store) => (next) => (action) => {
+//   switch (action.type) {
+//     case FETCH_PAGES:
 
-      axios.get('http://0.0.0.0:8000/api/histoire{/id}/page{/page_id}')
-        .then((response) => {
-          store.dispatch(fetchPages(response.data));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+//       axios.get('http://0.0.0.0:8000/api/histoire{/id}/page{/page_id}')
+//         .then((response) => {
+//           store.dispatch(fetchPages(response.data));
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         });
 
-      break;
-    default:
-  }
+//       break;
+//     default:
+//   }
 
-  next(action);
-};
+//   next(action);
+// };
 
-export default pagesMiddleware;
+// export default pagesMiddleware;

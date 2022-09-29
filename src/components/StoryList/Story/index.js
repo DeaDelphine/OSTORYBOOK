@@ -3,15 +3,17 @@
 
 // == Import
 import PropTypes from 'prop-types';
-
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchStories } from 'src/actions/stories';
 
 import './styles.scss';
 
 // == Composant
 function Story({
-  id, image, title, content,
+  id, image, title, content, pages_id,
 }) {
+  const dispatch = useDispatch();
   return (
     <div>
 
@@ -21,7 +23,13 @@ function Story({
         <p className="story story-container__excerpt">{content}</p>
 
         <Link to="/histoire">
-          <button className="story story-container__button">Commence </button>
+          <button
+            className="story story-container__button"
+            onClick={(event) => {
+              dispatch(fetchStories(id, pages[id]));
+            }}
+          >Commencer
+          </button>
         </Link>
       </div>
     </div>

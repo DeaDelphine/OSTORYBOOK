@@ -1,6 +1,7 @@
 export const FETCH_PAGES = 'FETCH_PAGES';
 
-export const fetchPages = (pages) => ({
+export const fetchPages = (id, page) => ({
   type: FETCH_PAGES,
-  pages: pages,
+  id: id,
+  page_id: page,
 });

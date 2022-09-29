@@ -25,13 +25,10 @@ function Page({
 }
 
 Page.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   Image: PropTypes.string.isRequired,
-};
-Page.defaultValue = {
-  id: '',
 };
 
 export default Page;

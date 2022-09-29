@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { FETCH_STORIES, saveStories } from '../actions/stories';
+import { FETCH_PAGES, fetchPages } from '../actions/pages';
 
 const storiesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -15,6 +16,18 @@ const storiesMiddleware = (store) => (next) => (action) => {
           // console.log(response.data);
 
           store.dispatch(saveStories(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      break;
+    case FETCH_PAGES:
+
+      axios.get(`http://0.0.0.0:8000/api/histoire${action.id}/page${action.page_id}`)
+        .then((response) => {
+          console.log(response);
+          // store.dispatch(fetchPages(response.data));
         })
         .catch((error) => {
           console.log(error);
