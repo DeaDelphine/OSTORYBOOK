@@ -1,14 +1,46 @@
 // == Import
 import './styles.scss';
+import { FiMenu } from 'react-icons/fi';
+import { MdOutlineClose } from 'react-icons/md';
+import { useState } from 'react';
+import FooterNavLinks from './FooterNavLinks';
+import HeaderNavLinks from './HeaderNavLinks';
 
-// == Component
 function MobileNavigation() {
+  const [open, setOpen] = useState(false);
+
+  const hamburgerIcon = (
+    <FiMenu
+      className="mobile-navigation_hamburger"
+      size="30px"
+      onClick={() => setOpen(!open)}
+    />
+  );
+
+  const closeIcon = (
+    <MdOutlineClose
+      className="mobile-navigation_close"
+      size="30px"
+      onClick={() => setOpen(!open)}
+    />
+  );
+  const closeMobileMenu = () => setOpen(false);
+
   return (
-    <div className="mobile-navigation">
-      <p>MobileNavigation Component</p>
-    </div>
+    <nav className="mobile-navigation">
+      {open ? closeIcon : hamburgerIcon}
+      {open
+      && (
+      <div
+        isMobile
+        closeMobileMenu={closeMobileMenu}
+      >
+        <HeaderNavLinks className="header-navlinks" />
+        <FooterNavLinks className="footer-navlinks" />
+      </div>
+      )}
+    </nav>
   );
 }
 
-// == Export
 export default MobileNavigation;
