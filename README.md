@@ -50,3 +50,7 @@ yarn add react-redux
 ```shell
 yarn add redux-devtools-extension
 ```
+## axios install
+```shell
+yarn add axios
+```
