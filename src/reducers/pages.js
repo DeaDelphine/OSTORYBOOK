@@ -1,18 +1,16 @@
-import { SAVE_STORIES } from '../actions/stories';
+import { FETCH_PAGES } from '../actions/pages';
 
 export const initialState = {
-  storiesLoaded: false,
-  stories: [],
+  pages: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
   console.log(action);
   switch (action.type) {
-    case SAVE_STORIES:
+    case FETCH_PAGES:
       return {
         ...state,
-        storiesLoaded: true,
-        stories: action.stories,
+        pages: action.pages,
       };
     default:
       return state;

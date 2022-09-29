@@ -10,7 +10,7 @@ import './styles.scss';
 
 // == Composant
 function Story({
-  id, image, title, content, slug,
+  id, image, title, content,
 }) {
   return (
     <div>
@@ -20,7 +20,7 @@ function Story({
         <h2 className="story story-container__title">{title}</h2>
         <p className="story story-container__excerpt">{content}</p>
 
-        <Link to={`/histoire/${slug}`}>
+        <Link to="/histoire">
           <button className="story story-container__button">Commence </button>
         </Link>
       </div>
@@ -33,7 +33,6 @@ Story.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
 };
 
 // == Export

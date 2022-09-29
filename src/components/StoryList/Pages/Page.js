@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react';
 
 /* eslint-disable max-len */
 function Page({
-  id, pageid, title, content, Image,
+  id, title, content, Image,
 }) {
   return (
     <div>
@@ -16,7 +16,7 @@ function Page({
         <h2 className="page page-container__title">{title}</h2>
         <p className="page page-container__excerpt">{content}</p>
 
-        <Link to={`/histoire/${pageid}`}>
+        <Link to="/histoire">
           <Button className="story story-container__button">Aller à la page XX </Button>
           <Button className="story story-container__button">Aller à la page XX </Button>
         </Link>
@@ -27,7 +27,6 @@ function Page({
 
 Page.propTypes = {
   id: PropTypes.number.isRequired,
-  pageid: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   Image: PropTypes.string.isRequired,

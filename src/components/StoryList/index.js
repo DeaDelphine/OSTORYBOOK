@@ -7,11 +7,10 @@ import Story from './Story';
 import './styles.scss';
 
 // == Component
-// const { slug } = useParams();
 
 function StoryList() {
   const stories = useSelector((state) => state.stories.stories);
-
+  // const { slug } = useParams();
   // if (!storylist) {
   //   return <Navigate to="/error" replace />;
   // }
