@@ -40,7 +40,7 @@ function App() {
     <div className="app">
 
       <NavBar />
-      <div className="container">
+      <div className="app-container">
         <Routes>
           <Route
             path="/"
