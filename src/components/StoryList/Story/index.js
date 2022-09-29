@@ -3,7 +3,6 @@
 
 // == Import
 import PropTypes from 'prop-types';
-import storyIMG from 'src/assets/images/logo.png';
 
 import './styles.scss';
 
