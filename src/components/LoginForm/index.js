@@ -2,7 +2,7 @@
 import './styles.scss';
 
 // == Component
-function ConnectForm() {
+function LoginForm() {
   return (
     <div className="connect-form">
       <p>ConnectForm Component</p>
@@ -11,4 +11,4 @@ function ConnectForm() {
 }
 
 // == Export
-export default ConnectForm;
+export default LoginForm;

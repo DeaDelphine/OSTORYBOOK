@@ -23,10 +23,10 @@
 
 
   &__logo {
-    max-width: 10%;
+    max-width: 25%;
     background: none;
     margin: 0 auto;
-    margin-top: -40px;
+    margin-top: -25px;
     justify-content: center;
   }
 
@@ -97,6 +97,14 @@
 
     .header__link {
       margin-top: -30px;
+    }
+
+    &__logo {
+      max-width: 10%;
+      background: none;
+      margin: 0 auto;
+      margin-top: -40px;
+      justify-content: center;
     }
   
   }
