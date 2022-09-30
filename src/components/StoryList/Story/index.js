@@ -22,7 +22,7 @@ function Story({
         <h2 className="story story-container__title">{title}</h2>
         <p className="story story-container__excerpt">{content}</p>
 
-        <Link to="/histoire/id/startPage">
+        <Link to="/histoire">
           <button
             className="story story-container__button"
             onClick={(event) => {

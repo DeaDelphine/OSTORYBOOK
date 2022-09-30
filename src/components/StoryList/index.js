@@ -10,7 +10,7 @@ import './styles.scss';
 
 function StoryList() {
   const stories = useSelector((state) => state.stories.stories);
-  console.log(stories);
+  // console.log(stories);
   // const { slug } = useParams();
   // if (!storylist) {
   //   return <Navigate to="/error" replace />;
