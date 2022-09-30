@@ -54,7 +54,7 @@ function App() {
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
-          <Route path="/histoire" element={<Pages />} />
+          <Route path="/histoire/id/startPage" element={<Pages />} />
         </Routes>
       </div>
       <Footer />

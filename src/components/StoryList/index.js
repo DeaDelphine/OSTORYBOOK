@@ -20,7 +20,7 @@ function StoryList() {
       <div className="story">
         <p className="story story-subtitle">Veuillez choisir une histoire</p>
         {stories.map((story) => (
-          <Story {...story} />
+          <Story key={story.id} {...story} />
         ))}
       </div>
     </div>

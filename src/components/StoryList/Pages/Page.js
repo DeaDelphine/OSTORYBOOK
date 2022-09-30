@@ -6,13 +6,13 @@ import { Button } from 'semantic-ui-react';
 
 /* eslint-disable max-len */
 function Page({
-  id, title, content, Image,
+  id, title, content, image,
 }) {
   return (
     <div>
 
       <div className="page page-container" key={id}>
-        <img className="page page-container__img" src={Image} alt="story-img" />
+        <img className="page page-container__img" src={image} alt="story-img" />
         <h2 className="page page-container__title">{title}</h2>
         <p className="page page-container__excerpt">{content}</p>
 
@@ -28,7 +28,7 @@ Page.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  Image: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default Page;

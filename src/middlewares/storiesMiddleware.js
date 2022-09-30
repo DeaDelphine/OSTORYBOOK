@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 import { FETCH_STORIES, saveStories } from '../actions/stories';
-import { FETCH_PAGES, fetchPages } from '../actions/pages';
+import { FETCH_PAGES } from '../actions/pages';
 
 const storiesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_STORIES:
 
-      axios.get('http://0.0.0.0:8000/api/histoire')
+      axios.get('http://localhost:8000/api/histoire')
         .then((response) => {
           // console.log(response);
 
@@ -23,8 +23,16 @@ const storiesMiddleware = (store) => (next) => (action) => {
 
       break;
     case FETCH_PAGES:
-
-      axios.get(`http://0.0.0.0:8000/api/histoire${action.id}/page${action.page_id}`)
+      axios.get(
+        `http://localhost:8000/api/histoire/${action.id}/page/${action.startPage}`,
+        {
+          histoire: action.id,
+          page: action.startPage,
+        },
+        {
+          // options : token
+        },
+      )
         .then((response) => {
           console.log(response);
           // store.dispatch(fetchPages(response.data));

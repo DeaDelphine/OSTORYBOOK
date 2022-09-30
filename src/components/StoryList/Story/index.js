@@ -5,13 +5,13 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchStories } from 'src/actions/stories';
+import { fetchPages } from 'src/actions/pages';
 
 import './styles.scss';
 
 // == Composant
 function Story({
-  id, image, title, content, pages_id,
+  id, image, title, content, startPage,
 }) {
   const dispatch = useDispatch();
   return (
@@ -22,11 +22,11 @@ function Story({
         <h2 className="story story-container__title">{title}</h2>
         <p className="story story-container__excerpt">{content}</p>
 
-        <Link to="/histoire">
+        <Link to="/histoire/id/startPage">
           <button
             className="story story-container__button"
             onClick={(event) => {
-              dispatch(fetchStories(id, pages[id]));
+              dispatch(fetchPages(id, startPage));
             }}
           >Commencer
           </button>
@@ -41,6 +41,7 @@ Story.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  startPage: PropTypes.number.isRequired,
 };
 
 // == Export
