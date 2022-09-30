@@ -38,10 +38,10 @@ function Story({
 
 Story.propTypes = {
   id: PropTypes.number.isRequired,
+  startPage: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  startPage: PropTypes.number.isRequired,
 };
 
 // == Export

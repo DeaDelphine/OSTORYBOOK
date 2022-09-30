@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react';
 
 /* eslint-disable max-len */
 function Page({
-  id, title, content, image,
+  id, title, content, image, choices,
 }) {
   return (
     <div>
@@ -16,9 +16,13 @@ function Page({
         <h2 className="page page-container__title">{title}</h2>
         <p className="page page-container__excerpt">{content}</p>
 
-        <Link to="/histoire">
-          <Button className="story story-container__button">Aller à la page XX </Button>
-        </Link>
+        {choices ? choices.map((choice) => (
+          <Link to="/histoire">
+            <div>{choice.description}</div>
+            <Button className="story story-container__button"> Aller à la page {choice.page_to_redirect} </Button>
+          </Link>
+        )) : 'Nothing to show'}
+
       </div>
     </div>
   );
@@ -29,6 +33,11 @@ Page.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  choices: PropTypes.array,
+};
+
+Page.defaultProps = {
+  choices: null,
 };
 
 export default Page;

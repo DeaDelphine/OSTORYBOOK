@@ -7,7 +7,7 @@ const storiesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_STORIES:
 
-      axios.get('http://localhost:8000/api/histoire')
+      axios.get('http://0.0.0.0:8000/api/histoire')
         .then((response) => {
           // console.log(response);
 
@@ -18,19 +18,16 @@ const storiesMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveStories(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
 
       break;
     case FETCH_PAGES:
-      axios.get(
-        `http://localhost:8000/api/histoire/${action.id}/page/${action.startPage}`,
-      )
+      // console.log(action.page_id);
+      axios.get(`http://0.0.0.0:8000/api/histoire/${action.story}/page/${action.startPage}`)
         .then((response) => {
+          // console.log(response.data);
           store.dispatch(savePage(response.data));
-          // console.log(response);
-
-          // store.dispatch(fetchPages(response.data));
         })
         .catch((error) => {
           // console.log(error);
