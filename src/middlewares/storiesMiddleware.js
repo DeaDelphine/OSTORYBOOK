@@ -26,8 +26,9 @@ const storiesMiddleware = (store) => (next) => (action) => {
       axios.get(
         `http://localhost:8000/api/histoire/${action.id}/page/${action.startPage}`,
         {
-          histoire: action.id,
-          page: action.startPage,
+          storePage: store.getState(action.id, action.startPage),
+          // histoire: action.id,
+          // page: action.startPage,
         },
         {
           // options : token
