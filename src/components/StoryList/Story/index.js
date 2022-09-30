@@ -14,6 +14,7 @@ function Story({
   id, image, title, content, startPage,
 }) {
   const dispatch = useDispatch();
+
   return (
     <div>
 
