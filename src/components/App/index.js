@@ -38,7 +38,6 @@ function App() {
 
   return (
     <div className="app">
-
       <NavBar />
       <div className="app-container">
         <Routes>
