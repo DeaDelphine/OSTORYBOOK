@@ -42,7 +42,7 @@ function App() {
     <div className="app">
       <NavLink
         to="/"
-        className="header__link"
+        className="header__link-logo--mobile"
         onClick={() => props.isMobile && props.closeMobileMenu()}
       >
         <img className="header header__logo" src={logo} alt="logo" />

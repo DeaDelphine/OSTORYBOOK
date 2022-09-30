@@ -17,20 +17,26 @@
     display: flex;
     padding-left: 2rem;
     padding-right: 2rem;
-    padding: 75px 0;
+    padding: 75px;
   }
 
+
+
   &__logo {
-    max-width: 25%;
+    max-width: 10%;
     background: none;
     margin: 0 auto;
-    margin-top: -25px;
+    margin-top: -40px;
     justify-content: center;
   }
 
 }
 
 .mobile-navigation {
+  display: none;
+}
+
+.header__link-logo {
   display: none;
 }
 
@@ -76,20 +82,32 @@
     }
   }
 
-
 }
 
 @media (min-width:990px) {
   .header {
+
     &-navigation {
       display: flex;
       justify-content: space-between;
       padding-left: 2rem;
       padding-right: 2rem;
+      padding-top: 80px;
+    }
+
+    .header__link {
+      margin-top: -30px;
     }
   
   }
 
+  .header__link-logo--mobile {
+    display: none;
+  }
+
+  .header__link-logo {
+    display: flex;
+  }
 
 }
 

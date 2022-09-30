@@ -17,6 +17,13 @@ function HeaderNavLinks() {
         Mon compte
       </NavLink>
       <NavLink
+        to="/"
+        className="header__link-logo"
+        onClick={() => props.isMobile && props.closeMobileMenu()}
+      >
+        <img className="header header__logo" src={logo} alt="logo" />
+      </NavLink>
+      <NavLink
         to="/connexion"
         className="header__link"
         onClick={() => props.isMobile && props.closeMobileMenu()}
