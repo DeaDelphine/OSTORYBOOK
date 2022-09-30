@@ -4,8 +4,10 @@ import './styles.scss';
 // == Component
 function LegalMentions() {
   return (
-    <div className="legal-mentions">
-      <p>legal-mentions Component</p>
+    <div className="container" >
+      <div className="legal-mentions">
+        <p>legal-mentions Component</p>
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from '../Navigation/NavBar';
 import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
-import ConnectForm from '../ConnectForm';
+import LoginForm from '../LoginForm';
 import Profil from '../Profil';
 
 import StoryList from '../StoryList';
@@ -45,7 +45,7 @@ function App() {
             path="/"
             element={<Home />}
           />
-          <Route path="/connexion" element={<ConnectForm />} />
+          <Route path="/connexion" element={<LoginForm />} />
           <Route path="/mon-compte" element={<Profil />} />
           <Route path="/cgu" element={<CGU />} />
           <Route path="/nous-contacter" element={<ContactForm />} />
