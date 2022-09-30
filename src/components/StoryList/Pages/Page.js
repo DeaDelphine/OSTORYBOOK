@@ -17,9 +17,13 @@ function Page({
         <p className="page page-container__excerpt">{content}</p>
 
         {choices ? choices.map((choice) => (
-          <Link to="/histoire">
+          <Link to="/storypage">
             <div>{choice.description}</div>
-            <Button className="story story-container__button"> Aller à la page {choice.page_to_redirect} </Button>
+            <Button
+              className="story story-container__button"
+
+            > Aller à la page {choice.page_to_redirect}
+            </Button>
           </Link>
         )) : 'Nothing to show'}
 
