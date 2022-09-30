@@ -1,4 +1,6 @@
 // == Import
+import { NavLink } from 'react-router-dom';
+import logo from 'src/assets/images/logo.png';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,6 +40,13 @@ function App() {
 
   return (
     <div className="app">
+      <NavLink
+        to="/"
+        className="header__link"
+        onClick={() => props.isMobile && props.closeMobileMenu()}
+      >
+        <img className="header header__logo" src={logo} alt="logo" />
+      </NavLink>
       <NavBar />
       <div className="app-container">
         <Routes>

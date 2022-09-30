@@ -17,13 +17,6 @@ function HeaderNavLinks() {
         Mon compte
       </NavLink>
       <NavLink
-        to="/"
-        className="header__link"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
-      >
-        Accueil
-      </NavLink>
-      <NavLink
         to="/connexion"
         className="header__link"
         onClick={() => props.isMobile && props.closeMobileMenu()}
