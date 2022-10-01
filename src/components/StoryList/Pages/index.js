@@ -8,6 +8,8 @@ import './styles.scss';
 /* eslint-disable max-len */
 function Pages() {
   const pages = useSelector((state) => (state.pages.pages));
+
+  // console.log(pageLoaded);
   // const page = pages[1];
 
   // console.log(story);
