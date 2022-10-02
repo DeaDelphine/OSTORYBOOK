@@ -27,6 +27,7 @@ const storiesMiddleware = (store) => (next) => (action) => {
       axios.get(`http://0.0.0.0:8000/api/histoire/${action.story}/page/${action.startPage}`)
         .then((response) => {
           // console.log(response.data);
+
           store.dispatch(savePage(response.data));
         })
         .catch((error) => {
@@ -34,6 +35,7 @@ const storiesMiddleware = (store) => (next) => (action) => {
         });
 
       break;
+
     default:
   }
 

@@ -15,7 +15,7 @@ function Page({
         <h2 className="page page-container__title">{title}</h2>
         <p className="page page-container__excerpt">{content}</p>
 
-        {choices ? choices.map((choice) => (
+        { choices ? choices.map((choice) => (
           <Link to="/storypage">
             <div>{choice.description}</div>
             <button
@@ -23,7 +23,7 @@ function Page({
             > Aller à la page {choice.page_to_redirect}
             </button>
           </Link>
-        )) : 'Nothing to show'}
+        )) : 'wrong way sorry ! '}
 
       </div>
     </div>
@@ -31,15 +31,19 @@ function Page({
 }
 
 Page.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  id: PropTypes.number,
+  title: PropTypes.string,
+  content: PropTypes.string,
+  image: PropTypes.string,
   choices: PropTypes.array,
 };
 
 Page.defaultProps = {
   choices: null,
+  id: null,
+  title: null,
+  content: null,
+  image: null,
 };
 
 export default Page;

@@ -9,4 +9,5 @@ export const fetchPages = (story, startPage) => ({
 export const savePage = (page) => ({
   type: SAVE_PAGE,
   page: page,
+
 });

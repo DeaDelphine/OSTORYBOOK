@@ -1,8 +1,9 @@
 import { SAVE_PAGE } from '../actions/pages';
 
 export const initialState = {
-  // pageLoaded: false,
-  pages: [],
+  pageLoaded: false,
+  page: [],
+  // startPage: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -11,8 +12,8 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_PAGE:
       return {
         ...state,
-        // pageLoaded: true,
-        pages: action.page,
+        pageLoaded: true,
+        page: action.page,
       };
     default:
       return state;

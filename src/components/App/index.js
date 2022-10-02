@@ -33,6 +33,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchStories());
   }, []);
+
   if (!storiesLoaded) {
     return <Loading />;
   }
