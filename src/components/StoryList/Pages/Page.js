@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import PropTypes from 'prop-types';
 import './styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 /* eslint-disable max-len */
 function Page({
@@ -27,6 +27,11 @@ function Page({
             </Link>
           )) : 'wrong way sorry ! '}
         </div>
+        <NavLink
+        to="/histoires"
+        className="page-container--choice__button-return"
+      > Retour à la liste des histoires
+      </NavLink>
       </div>
     </div>
   );
