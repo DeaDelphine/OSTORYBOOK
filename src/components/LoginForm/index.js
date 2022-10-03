@@ -170,4 +170,5 @@ LoginForm.defaultProps = {
   loggedMessage: 'Connecté',
 };
 
+// == Export
 export default LoginForm;

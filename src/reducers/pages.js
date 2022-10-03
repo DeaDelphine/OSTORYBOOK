@@ -1,18 +1,19 @@
-import { SAVE_STORIES } from '../actions/stories';
+import { SAVE_PAGE } from '../actions/pages';
 
 export const initialState = {
-  storiesLoaded: false,
-  stories: [],
+  pageLoaded: false,
+  page: [],
+  // startPage: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
   // console.log(action);
   switch (action.type) {
-    case SAVE_STORIES:
+    case SAVE_PAGE:
       return {
         ...state,
-        storiesLoaded: true,
-        stories: action.stories,
+        pageLoaded: true,
+        page: action.page,
       };
     default:
       return state;

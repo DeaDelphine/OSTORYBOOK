@@ -3,27 +3,43 @@
 
 // == Import
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { fetchPages } from 'src/actions/pages';
 
 import './styles.scss';
 
 // == Composant
 function Story({
-  id, image, title, content,
+  id, image, title, content, startPage,
 }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="story story-container" key={id}>
       <div className="story story-container__img">
         <img className="story story-container__img" src={image} alt="story-img" />
-      </div>
-      <h2 className="story story-container__title">{title}</h2>
-      <p className="story story-container__excerpt">{content}</p>
-      <button className="story story-container__button">Commencer</button>
-    </div>
+
+        <h2 className="story story-container__title">{title}</h2>
+        <p className="story story-container__excerpt">{content}</p>
+
+        <Link to="/histoire">
+          <button
+            className="story story-container__button"
+            onClick={(event) => {
+              localStorage.setItem('id', id);
+              localStorage.setItem('startPage', startPage);
+              dispatch(fetchPages(id, startPage));
+            }}
+          >Commencer
+          </button>
+        </Link>
   );
 }
 
 Story.propTypes = {
   id: PropTypes.number.isRequired,
+  startPage: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,

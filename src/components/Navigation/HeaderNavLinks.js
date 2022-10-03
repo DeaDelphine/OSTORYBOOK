@@ -18,10 +18,10 @@ function HeaderNavLinks() {
       </NavLink>
       <NavLink
         to="/"
-        className="header__link"
+        className="header__link-logo"
         onClick={() => props.isMobile && props.closeMobileMenu()}
       >
-        Accueil
+        <img className="header header__logo" src={logo} alt="logo" />
       </NavLink>
       <NavLink
         to="/connexion"
