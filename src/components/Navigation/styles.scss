@@ -2,7 +2,8 @@
 /* HEADER */
 .header {
   position: absolute;
-  top: 0; left: 0;
+  top: 0; 
+  left: 0;
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8580474426098564) 100%);
   padding-top: 70px;
@@ -10,7 +11,6 @@
   display: flex;
   width: 100%;
   color: white;
-  top: 0;
   right: 0;
 
   &-navigation {
@@ -108,15 +108,6 @@
     }
   
   }
-
-  .header__link-logo--mobile {
-    display: none;
-  }
-
-  .header__link-logo {
-    display: flex;
-  }
-
 }
 
 
