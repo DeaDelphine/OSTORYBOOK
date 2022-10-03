@@ -8,7 +8,6 @@ import './styles.scss';
 function Home() {
   return (
     <div className="home">
-      <img className="header header__logo" src={logo} alt="logo" />
       <NavLink
         to="/histoires"
         className="home home__button"

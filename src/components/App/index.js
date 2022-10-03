@@ -1,4 +1,6 @@
 // == Import
+import { NavLink } from 'react-router-dom';
+import logo from 'src/assets/images/logo.png';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,10 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../Navigation/NavBar';
-
 import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
-import ConnectForm from '../ConnectForm';
+import LoginForm from '../LoginForm';
 import Profil from '../Profil';
 import Storypage from '../StoryList/Pages/Storypage';
 import Pages from '../StoryList/Pages';
@@ -23,6 +24,7 @@ import CGU from '../Footer/CGU';
 import Loading from './Loading';
 
 import './styles.scss';
+
 import { fetchStories } from '../../actions/stories';
 
 // == Component
@@ -40,15 +42,21 @@ function App() {
 
   return (
     <div className="app">
-
+      <NavLink
+        to="/"
+        className="header__link-logo--mobile"
+        onClick={() => props.isMobile && props.closeMobileMenu()}
+      >
+        <img className="header header__logo" src={logo} alt="logo" />
+      </NavLink>
       <NavBar />
-      <div className="container">
+      <div className="app-container">
         <Routes>
           <Route
             path="/"
             element={<Home />}
           />
-          <Route path="/connexion" element={<ConnectForm />} />
+          <Route path="/connexion" element={<LoginForm />} />
           <Route path="/mon-compte" element={<Profil />} />
           <Route path="/cgu" element={<CGU />} />
           <Route path="/nous-contacter" element={<ContactForm />} />

@@ -5,9 +5,8 @@
   top: 0; left: 0;
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8580474426098564) 100%);
-  padding: 50px 0;
+  padding-top: 70px;
   font-size: 2rem;
-
   display: flex;
   width: 100%;
   color: white;
@@ -18,7 +17,10 @@
     display: flex;
     padding-left: 2rem;
     padding-right: 2rem;
+    padding: 75px;
   }
+
+
 
   &__logo {
     max-width: 25%;
@@ -31,6 +33,10 @@
 }
 
 .mobile-navigation {
+  display: none;
+}
+
+.header__link-logo {
   display: none;
 }
 
@@ -52,11 +58,11 @@
       position: absolute;
       width: 100%;
       right: 0;
-      top: 140px;
+      top: 130px;
       border-top: solid 3px #b6463e;
       display: flex;
       flex-direction: column;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0,0,0,0.95);
     }
 
     &_hamburger {
@@ -76,20 +82,40 @@
     }
   }
 
-
 }
 
 @media (min-width:990px) {
   .header {
+
     &-navigation {
       display: flex;
       justify-content: space-between;
       padding-left: 2rem;
       padding-right: 2rem;
+      padding-top: 80px;
+    }
+
+    .header__link {
+      margin-top: -30px;
+    }
+
+    &__logo {
+      max-width: 10%;
+      background: none;
+      margin: 0 auto;
+      margin-top: -40px;
+      justify-content: center;
     }
   
   }
 
+  .header__link-logo--mobile {
+    display: none;
+  }
+
+  .header__link-logo {
+    display: flex;
+  }
 
 }
 
