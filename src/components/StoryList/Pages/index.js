@@ -22,11 +22,9 @@ function Pages() {
 
   return (
     <div className="container">
-      <div className="page-list">
-        <p className="page-title">C'est Histoire d'un Yokaï pas content qui trouvait pas comment dynamiser son endpoint</p>
-        <div className="page-list__list">
+      <div className="page">
+        <div className="page page-list">
           <Page {...pages} />
-          <div className="scrollbar" />
         </div>
       </div>
     </div>

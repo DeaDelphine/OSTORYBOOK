@@ -11,20 +11,22 @@ function Page({
 
     <div>
       <div className="page page-container" key={id}>
-        <img className="page page-container__img" src={image} alt="story-img" />
-        <h2 className="page page-container__title">{title}</h2>
-        <p className="page page-container__excerpt">{content}</p>
-
-        { choices ? choices.map((choice) => (
-          <Link to="/storypage">
-            <div>{choice.description}</div>
-            <button
-              className="story story-container__button"
-            > Aller à la page {choice.page_to_redirect}
-            </button>
-          </Link>
-        )) : 'wrong way sorry ! '}
-
+        <p className="page page-container--title">{title}</p>
+        <div className="page-container--content">
+          <p className="page page-container--content__subtitle">{content}</p>
+          <img className="page page-container--content__img" src={image} alt="story-img" />
+        </div>
+        <div className="page page-container--choice">
+          { choices ? choices.map((choice) => (
+            <Link to="/storypage">
+              <div className="page-container--choice__content">{choice.description}</div>
+              <button
+                className="page-container--choice__button"
+              > Aller à la page {choice.page_to_redirect}
+              </button>
+            </Link>
+          )) : 'wrong way sorry ! '}
+        </div>
       </div>
     </div>
   );
