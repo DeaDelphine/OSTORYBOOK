@@ -1,0 +1,30 @@
+/* NAVBAR */
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  padding: 1rem;
+  width: 100%;
+  min-height: 75px;
+  margin: 10px  10px;
+}
+
+.header__links{
+  display: flex;
+  display: block;
+  padding: 1.5rem;
+  font-size: 5vw;
+}
+.header__link {
+  padding: 0 0.3rem;
+  color: #fff;
+  font-size: 2rem;
+}
+
+
+
+/* HEADER */
+ 

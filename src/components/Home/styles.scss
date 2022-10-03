@@ -1,0 +1,34 @@
+@use 'src/styles/vars';
+@use 'sass:color';
+
+.home {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &__logo {
+    max-width: 80%;
+    padding-bottom: 150px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 80px;
+    background-color: vars.$dark-color;
+    color: vars.$light-color;
+    border: none;
+    border-radius: 50px;
+    font-size: 24px;
+    box-shadow: 1px 1px 10px vars.$dark-color ;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    &:hover {
+      background-color: vars.$medium-color;
+    }
+  }
+  
+}
