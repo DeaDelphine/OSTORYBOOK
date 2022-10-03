@@ -1,10 +1,6 @@
 // == Import
-import { NavLink } from 'react-router-dom';
-import logo from 'src/assets/images/logo.png';
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../Navigation/NavBar';
@@ -12,50 +8,36 @@ import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import LoginForm from '../LoginForm';
 import Profil from '../Profil';
-import Storypage from '../StoryList/Pages/Storypage';
-import Pages from '../StoryList/Pages';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/ContactForm';
 import LegalMentions from '../Footer/LegalMentions';
 import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
-
 import Loading from './Loading';
 
+// == Styles
 import './styles.scss';
-
+// == Actions
 import { fetchStories } from '../../actions/stories';
 
 // == Component
 function App() {
   const dispatch = useDispatch();
   const storiesLoaded = useSelector((state) => state.stories.storiesLoaded);
-
   useEffect(() => {
     dispatch(fetchStories());
   }, []);
-
   if (!storiesLoaded) {
     return <Loading />;
   }
 
   return (
     <div className="app">
-      <NavLink
-        to="/"
-        className="header__link-logo--mobile"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
-      >
-        <img className="header header__logo" src={logo} alt="logo" />
-      </NavLink>
       <NavBar />
       <div className="app-container">
         <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<LoginForm />} />
           <Route path="/mon-compte" element={<Profil />} />
           <Route path="/cgu" element={<CGU />} />
@@ -64,14 +46,11 @@ function App() {
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
-          <Route path="/histoire" element={<Pages />} />
-          <Route path="/storypage" element={<Storypage />} />
         </Routes>
       </div>
       <Footer />
     </div>
   );
 }
-
 // == Export
 export default App;

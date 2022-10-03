@@ -1,9 +1,9 @@
 // == Import
 import './styles.scss';
-import React, {useState} from 'react';
-import HeaderNavigation from './HeaderNavigation.js';
-import MobileNavigation from './MobileNavigation.js';
-import FooterNavigation from './FooterNavigation.js';
+
+import HeaderNavigation from './HeaderNavigation';
+import MobileNavigation from './MobileNavigation';
+import FooterNavigation from './FooterNavigation';
 /* eslint-disable react/button-has-type */
 
 // == Component

@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import axios from 'axios';
-import { fetchStories } from '../actions/stories';
+import { fetchPages } from '../actions/pages';
 // import { fetchFavorites } from '../actions/stories';
 import { LOG_IN, saveUserData } from '../actions/user';
 
@@ -9,7 +10,7 @@ const authMiddleware = (store) => (next) => (action) => {
     case LOG_IN:
       // console.log('authMiddleware voit passer une action LOG_IN');
       axios.post(
-        'http://localhost:3001/login',
+        'http://0.0.0.0:8000/login',
         {
           email: store.getState().user.email,
           password: store.getState().user.password,
@@ -19,11 +20,11 @@ const authMiddleware = (store) => (next) => (action) => {
           // console.log(response);
           // console.log(`nickname: ${response.data.pseudo}, token: ${response.data.token}, logged: ${response.data.logged}`);
           store.dispatch(
-            saveUserData(response.data.pseudo, response.data.token, response.data.logged),
+            saveUserData(response.data.nickname, response.data.token, response.data.logged),
           );
 
           // on dispatch une action pour aller chercher les recettes préférées de l'utilisateur
-          // store.dispatch(fetchFavorites());
+          store.dispatch(fetchPages());
         })
         .catch((error) => {
           console.log(error);

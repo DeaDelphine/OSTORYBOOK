@@ -34,6 +34,8 @@ function Story({
           >Commencer
           </button>
         </Link>
+      </div>
+    </div>
   );
 }
 

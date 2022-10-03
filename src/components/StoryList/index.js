@@ -16,10 +16,10 @@ function StoryList() {
   //   return <Navigate to="/error" replace />;
   // }
   return (
-    <div className="container" >
-      <div className="story-list" >
+    <div className="container">
+      <div className="story-list">
         <p className="story-subtitle">Veuillez choisir une histoire</p>
-        <div className="story-list__list"> 
+        <div className="story-list__list">
           <div className="scrollbar">
             {stories.map((story) => (
               <Story {...story} />
