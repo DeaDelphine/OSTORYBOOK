@@ -17,23 +17,22 @@ function Story({
 
   return (
     <div className="story story-container" key={id}>
-      <div className="story story-container__img">
-        <img className="story story-container__img" src={image} alt="story-img" />
+      <img className="story story-container__img" src={image} alt="story-img" />
+      <h2 className="story story-container__title">{title}</h2>
+      <p className="story story-container__excerpt">{content}</p>
 
-        <h2 className="story story-container__title">{title}</h2>
-        <p className="story story-container__excerpt">{content}</p>
-
-        <Link to="/histoire">
-          <button
-            className="story story-container__button"
-            onClick={(event) => {
-              localStorage.setItem('id', id);
-              localStorage.setItem('startPage', startPage);
-              dispatch(fetchPages(id, startPage));
-            }}
-          >Commencer
-          </button>
-        </Link>
+      <Link to="/histoire">
+        <button
+          className="story story-container__button"
+          onClick={(event) => {
+            localStorage.setItem('id', id);
+            localStorage.setItem('startPage', startPage);
+            dispatch(fetchPages(id, startPage));
+          }}
+        >Commencer
+        </button>
+      </Link>
+    </div>
   );
 }
 
