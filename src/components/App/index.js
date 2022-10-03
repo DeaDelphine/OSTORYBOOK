@@ -12,7 +12,8 @@ import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import LoginForm from '../LoginForm';
 import Profil from '../Profil';
-
+import Storypage from '../StoryList/Pages/Storypage';
+import Pages from '../StoryList/Pages';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/ContactForm';
 import LegalMentions from '../Footer/LegalMentions';
@@ -34,6 +35,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchStories());
   }, []);
+
   if (!storiesLoaded) {
     return <Loading />;
   }
@@ -62,6 +64,8 @@ function App() {
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
+          <Route path="/histoire" element={<Pages />} />
+          <Route path="/storypage" element={<Storypage />} />
         </Routes>
       </div>
       <Footer />
