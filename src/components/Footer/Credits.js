@@ -4,8 +4,10 @@ import './styles.scss';
 // == Component
 function Credits() {
   return (
-    <div className="credits">
-      <p>credits Component</p>
+    <div className="container" >
+      <div className="credits">
+        <p>credits Component</p>
+      </div>
     </div>
   );
 }

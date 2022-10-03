@@ -1,9 +1,4 @@
-.container {
-  background-color: rgba($color: #000000, $alpha: 0.5);
-  width: 100vw;
-  height: 95vh;  
-  margin-top: -50px;
-}
+@use 'src/styles/vars';
 
 .story-list {
   opacity: 1;
@@ -19,23 +14,6 @@
     width: 90%;
     height: 100%;
   }
-}
-
-
-.story-list::-webkit-scrollbar {
-  width: 16px;
-}
-
-.story-list::-webkit-scrollbar-track {
-  background: black;
-  border-radius: 50px;
-}
-
-.story-list::-webkit-scrollbar-thumb {
-  background-color: #b6463e;
-  border: 4px solid transparent;
-  border-radius: 8px;
-  background-clip: padding-box;  
 }
 
 .story {
@@ -93,7 +71,7 @@
       }
       
       &__excerpt::-webkit-scrollbar-thumb {
-        background-color: #b6463e;
+        background-color: vars.$element-color;
         border: 4px solid transparent;
         border-radius: 8px;
         background-clip: padding-box;  
@@ -101,19 +79,19 @@
     
       &__button {
         margin: 0 auto;
-        font-size: 18px;
+        font-size: 1em;
         width: 150px;
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #b6463e;
+        background-color: vars.$element-color;
         border: none;
         border-radius: 50px;
       }
 
       &__button:hover {
-        background-color: #8b3731;
+        background-color: vars.$element-color-hover;
         color: #fff;
       }
     }
@@ -176,7 +154,7 @@
     }
     
     .story-list::-webkit-scrollbar-thumb {
-      background-color: #b6463e;
+      background-color: vars.$element-color;
       border: 4px solid transparent;
       border-radius: 8px;
       background-clip: padding-box;  
