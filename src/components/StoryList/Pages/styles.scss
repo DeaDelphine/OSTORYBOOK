@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .page {
 
   opacity: 1;
@@ -7,13 +9,14 @@
 
   &-list {
     margin-top: 6rem;
+
   }
   
 
   &-container {
     opacity: 2;
     width: 95%;
-    height: 80vh;
+    height: 100vh;
     border-radius: 40px;
 
     &--title {
@@ -27,16 +30,14 @@
 
       &__subtitle {
         text-align: justify;
-        margin: 2rem;
         font-size: 20px;
         width: 90%;
-        height: 100%;
+        margin-bottom: 2rem;
       }
     
       &__img {
         background-color: none;
-        margin: 2rem;
-        width: 90%;
+        width: 100%;
         height: 10rem;
         object-fit: cover;
         border-radius: 30px;
@@ -44,7 +45,7 @@
     }
 
     &--choice {
-      padding-bottom: 2rem;
+      padding-bottom: 1rem;
 
 
       &__content {
@@ -53,11 +54,35 @@
 
       &__button {
         margin: 0 auto;
-        width: 100px;
+        width: 300px;
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: vars.$element-color;
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+      }
+
+      &__button:hover {
+        background-color: vars.$element-color-hover;
+      }
+
+      &__button-return {
+        margin: 0 auto;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: vars.$element-color;
+        color: #fff;
+        border: none;
+      }
+
+      &__button-return:hover {
+        background-color: vars.$element-color-hover;
       }
 
     }
@@ -107,7 +132,7 @@
           text-align: justify;
           margin: 2rem;
           font-size: 20px;
-          width: 50%;
+          height: 10rem;
         }
       
         &__img {
@@ -123,7 +148,6 @@
       &--choice {
   
         display: flex;
-        margin: 2rem;
   
         &__content {
           margin: 2rem;
@@ -159,8 +183,4 @@
       background-clip: padding-box;  
     }
   }
-}
-
-@media (min-width:990px) {
-
 }
