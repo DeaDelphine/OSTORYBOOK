@@ -14,46 +14,31 @@ function ProfilForm() {
                 htmlFor="#"
                 className="field-left"
               >
-                Pseudo* :
+                Pseudo :
               </label>
               <input
                 type="text"
                 className="field-input-text"
                 name="nickname"
-                placeholder="Pseudonyme (non modifiable)"
+                placeholder="Pseudonyme"
               />
               <label 
                 htmlFor="#"
                 className="field-left"
               >
-                Adresse mail* :
+                Adresse mail :
               </label>
               <input
                 type="email"
                 className="field-input-email"
                 name="email"
-                placeholder="Email (non modifiable)"
+                placeholder="Email"
               />
               <label 
                 htmlFor="#"
                 className="field-left"
               >
-                Rôle* :
-              </label>
-              <select
-                type="select"
-                className="field-input-select"
-                name="role"
-              >
-                <option value="option1">Option 1</option>
-                <option value="option1">Option 2</option>
-                <option value="option1">Option 3</option>
-              </select>
-              <label 
-                htmlFor="#"
-                className="field-left"
-              >
-                Mot de passe* :
+                Mot de passe :
               </label>
               <input
                 type="password"
@@ -65,7 +50,7 @@ function ProfilForm() {
                 htmlFor="#"
                 className="field-left"
               >
-                Confirmez le mot de passe* :
+                Confirmez le mot de passe :
               </label>
               <input
                 type="password"
@@ -73,18 +58,20 @@ function ProfilForm() {
                 name="password"
                 placeholder="**********"
               />
-              <button
-                className="profil-form-button"
-                type="submit"
-              >
-                VALIDER
-              </button>
-              <button
-                className="profil-form-button"
-                type="submit"
-              >
-                SUPPRIMER MON COMPTE
-              </button>
+              <div className="profil-form-button">
+                <button
+                  className="profil-form-button--left"
+                  type="submit"
+                >
+                  VALIDER LES MODIFICATIONS
+                </button>
+                <button
+                  className="profil-form-button--right"
+                  type="submit"
+                >
+                  SUPPRIMER MON COMPTE
+                </button>
+              </div>
               </div>
             </form>
           </div>
