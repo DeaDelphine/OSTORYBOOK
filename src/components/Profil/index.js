@@ -1,13 +1,12 @@
 // == Import
 import './styles.scss';
+import ProfilForm from './ProfilForm';
 
 // == Component
 function Profil() {
   return (
     <div className="container" >
-      <div className="profil">
-        <p>Profil Component</p>
-      </div>
+        <ProfilForm />
     </div>
   );
 }
