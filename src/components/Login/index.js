@@ -17,22 +17,27 @@ const Login = () => {
 
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
+  const loggedValue = useSelector((state) => state.user.logged);
+  const nicknameValue = useSelector((state) => state.user.nickname);
   console.log(emailValue);
+  console.log(passwordValue);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="container">
       <LoginForm 
         email={emailValue}
         password={passwordValue}
-        nickname=""
-        isLogged={false}
-        loggedMessage="Bienvenue"
+        isLogged={loggedValue}
+        loggedMessage={`Bienvenue ${nicknameValue}`}
         changeField={(newValue, identifier) => {
-          console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
+          // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
           // on veut aller enregistrer la nouvelle valeur dans le state
+          dispatch(changeLoginField(newValue, identifier));
         }}
-        handleLogin={(event) => {
-          console.log('handleLogin', event);
+        handleLogin={() => {
+          dispatch(logIn());
         }}
         handleLogout={(event) => {
           console.log('handleLogout', event);
