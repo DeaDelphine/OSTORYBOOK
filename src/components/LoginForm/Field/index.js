@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Composant
-const Field = ({
+function Field({
   value,
   type,
   name,
   placeholder,
   onChange,
-}) => {
+}) {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
   };
@@ -40,7 +40,7 @@ const Field = ({
       </label>
     </div>
   );
-};
+}
 
 Field.propTypes = {
   value: PropTypes.string,
