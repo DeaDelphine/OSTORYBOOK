@@ -3,6 +3,8 @@ import LoginForm from './LoginForm';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import { changeLoginField, logIn } from '../../actions/user';
+
 import './styles.scss';
 
 /**
@@ -11,26 +13,23 @@ import './styles.scss';
  *   - "connected": displays a message and a button to disconnect
  *   - "not connected": displays the form and a button to connect
  */
-function Login() {
+const Login = () => {
 
-  const dispatch = useDispatch();
-
-  const changeField = (newValue, identifier) => {
-    dispatch(changeLoginField(newValue, identifier));
-  };
-
-  console.log(changeField);
+  const emailValue = useSelector((state) => state.user.email);
+  const passwordValue = useSelector((state) => state.user.password);
+  console.log(emailValue);
 
   return (
     <div className="container">
       <LoginForm 
-        email=""
-        password=""
+        email={emailValue}
+        password={passwordValue}
         nickname=""
         isLogged={false}
         loggedMessage="Bienvenue"
         changeField={(newValue, identifier) => {
           console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
+          // on veut aller enregistrer la nouvelle valeur dans le state
         }}
         handleLogin={(event) => {
           console.log('handleLogin', event);

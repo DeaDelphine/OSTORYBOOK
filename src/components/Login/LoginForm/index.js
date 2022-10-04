@@ -44,7 +44,7 @@ function LoginForm({
               </div>
               )}
               {!isLogged && (
-              <><form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+              <>{/**<form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
                 <h2 className="login-form-left-title">INSCRIPTION</h2>
                 <p className="login-form-left-message">Pas encore de compte ? Inscrivez-vous pour pouvoir jouer.</p>
                 <div className="login-form-left">
@@ -79,15 +79,15 @@ function LoginForm({
                     </button>
                   </div>
                 </div>
-              </form>
+              </form>*/}
               <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
                 <div className="login-form-right">
                   <h2 className="login-form-left-title">CONNEXION</h2>
                   <p className="login-form-left-message">Veuillez vous connecter pour jouer.</p>
                   <div className="login-form-right-container">
                     <Field
-                      name="email-nickname"
-                      placeholder="Email ou pseudonyme"
+                      name="email"
+                      placeholder="Email"
                       onChange={changeField}
                       value={email} />
                     <Field
