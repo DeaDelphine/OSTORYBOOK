@@ -44,7 +44,7 @@ function LoginForm({
               </div>
               )}
               {!isLogged && (
-              <>{/**<form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+              <><form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
                 <h2 className="login-form-left-title">INSCRIPTION</h2>
                 <p className="login-form-left-message">Pas encore de compte ? Inscrivez-vous pour pouvoir jouer.</p>
                 <div className="login-form-left">
@@ -71,19 +71,21 @@ function LoginForm({
                       placeholder="Confirmez le mot de passe"
                       onChange={changeField}
                       value={password} />
-                    <button
-                      type="submit"
-                      className="login-form-button"
-                    >
-                      S'INSCRIRE
-                    </button>
+                    <div className="login-form-button">
+                      <button
+                        type="submit"
+                        className="login-form-button--button"
+                      >
+                        S'INSCRIRE
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </form>*/}
+              </form>
               <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-                <div className="login-form-right">
-                  <h2 className="login-form-left-title">CONNEXION</h2>
-                  <p className="login-form-left-message">Veuillez vous connecter pour jouer.</p>
+              <div className="login-form-right">
+                  <h2 className="login-form-right-title">CONNEXION</h2>
+                  <p className="login-form-right-message">Veuillez vous connecter pour jouer.</p>
                   <div className="login-form-right-container">
                     <Field
                       name="email"
@@ -96,12 +98,20 @@ function LoginForm({
                       placeholder="Mot de passe"
                       onChange={changeField}
                       value={password} />
-                    <button
-                      type="submit"
-                      className="login-form-button"
-                    >
-                      SE CONNECTER
-                    </button>
+                    <div className="login-form-button">
+                      <a
+                        href={`$process.env.REACT_APP_SERVER_BACK}/reset-password`}
+                        className="text-sm underline text-gray-100 hover:text-orange-300"
+                      >
+                        Mot de passe perdu
+                      </a>
+                      <button
+                        type="submit"
+                        className="login-form-button--button"
+                      >
+                        SE CONNECTER
+                      </button>
+                    </div>
                   </div>
                 </div>
               </form></>

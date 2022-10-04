@@ -2,38 +2,59 @@
 
 .login-form {
 
+  height: 100%; 
+  color: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
   &-container {
     overflow-y: scroll;
     width: 100%;
   }
 
   &-left {
+    text-align: center;
     margin: 0 auto;
     padding-top: 3rem;
     width: 80%;
-    height: 60vh;
+    height: 50vh;
     border-bottom: 3px solid vars.$element-color;
 
     &-title {
-      text-align: center;
       font-size: 28px;
       font-weight: bold;
+      padding-top: 3rem;
       padding-bottom: 1rem;
     }
 
     &-message {
-      text-align: center;
       font-size: 20px;
-      padding-bottom: 1rem;
     }
   }
 
   &-right {
+    text-align: center;
     margin: 0 auto;
-    padding-top:2rem;
     width: 80%;
     height: 50vh;
     border-top: 3px solid vars.$element-color;
+
+    &-title {
+      font-size: 28px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+      padding-top: 3rem;
+    }
+
+    &-message {
+      font-size: 20px;
+      padding-bottom: 1rem;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &-element {
@@ -53,30 +74,36 @@
   }
 
   &-button {
-    margin-top: 1rem;
-    font-size: 1em;
-    color: #fff;
-    background-color: vars.$element-color;
-    border-radius: .3em;
-    border: 0;
-    padding: .7em;
-    width: 170px;
-    height: 50px;
-    border-radius: 50px;
-  }
-  &-button:hover {
-    background-color: vars.$element-color-hover;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+
+    &--button {
+      margin-top: 1rem;
+      font-size: 1em;
+      color: #fff;
+      background-color: vars.$element-color;
+      border-radius: .3em;
+      border: 0;
+      padding: 0.7em;
+      width: 170px;
+      height: 50px;
+      border-radius: 50px;
+    }
+
+    &--button:hover {
+      background-color: vars.$element-color-hover;
+    }
+
+    & a {
+      font-size: 20px;
+      padding-top: 1rem;
+    }
   }
 }
 
-.login-form {
 
-  height: 100%; 
-  color: #fff;
-  overflow-y: scroll;
-  overflow-x: hidden;
-
-}
 
 @media (min-width:600px) {
 
