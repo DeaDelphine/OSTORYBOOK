@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import LoginForm from './LoginForm';
-
 import { useSelector, useDispatch } from 'react-redux';
+import LoginForm from './LoginForm';
 
 import { changeLoginField, logIn } from '../../actions/user';
 
@@ -13,27 +12,24 @@ import './styles.scss';
  *   - "connected": displays a message and a button to disconnect
  *   - "not connected": displays the form and a button to connect
  */
-const Login = () => {
-
+function Login() {
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
   const loggedValue = useSelector((state) => state.user.logged);
   const nicknameValue = useSelector((state) => state.user.nickname);
-  console.log(emailValue);
-  console.log(passwordValue);
+  // console.log(emailValue);
+  // console.log(passwordValue);
 
   const dispatch = useDispatch();
 
   return (
     <div className="container">
-      <LoginForm 
+      <LoginForm
         email={emailValue}
         password={passwordValue}
         isLogged={loggedValue}
         loggedMessage={`Bienvenue ${nicknameValue}`}
         changeField={(newValue, identifier) => {
-          // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
-          // on veut aller enregistrer la nouvelle valeur dans le state
           dispatch(changeLoginField(newValue, identifier));
         }}
         handleLogin={() => {
@@ -41,9 +37,6 @@ const Login = () => {
         }}
         handleLogout={(event) => {
           console.log('handleLogout', event);
-          // TODO pour se déconnecter il faudrait dispatch une action qui serait
-          // traitée par le reducer user et qui mettrait logged à false dans le
-          // state
         }}
       />
     </div>
