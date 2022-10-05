@@ -7,6 +7,7 @@ import NavBar from '../Navigation/NavBar';
 import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import LoginForm from '../LoginForm';
+import Pages from '../StoryList/Pages';
 import Profil from '../Profil';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/ContactForm';
@@ -46,6 +47,7 @@ function App() {
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
+          <Route path="/histoire" element={<Pages />} />
         </Routes>
       </div>
       <Footer />
