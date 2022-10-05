@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
+
 import LoginForm from './LoginForm';
+import SigninForm from './SigninForm';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -7,13 +9,18 @@ import { changeLoginField, logIn } from '../../actions/user';
 
 import './styles.scss';
 
+
 /**
  * Display a form to log in, with inputs email and password.
  * It has two modes: "connected" and "not connected"
  *   - "connected": displays a message and a button to disconnect
  *   - "not connected": displays the form and a button to connect
  */
-const Login = () => {
+const Login = ({
+  handleLogout,
+  isLogged,
+  loggedMessage,
+}) => {
 
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
@@ -26,61 +33,59 @@ const Login = () => {
 
   return (
     <div className="container">
-      <LoginForm 
-        email={emailValue}
-        password={passwordValue}
-        isLogged={loggedValue}
-        loggedMessage={`Bienvenue ${nicknameValue}`}
-        changeField={(newValue, identifier) => {
-          // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
-          // on veut aller enregistrer la nouvelle valeur dans le state
-          dispatch(changeLoginField(newValue, identifier));
-        }}
-        handleLogin={() => {
-          dispatch(logIn());
-        }}
-        handleLogout={(event) => {
-          console.log('handleLogout', event);
-          // TODO pour se déconnecter il faudrait dispatch une action qui serait
-          // traitée par le reducer user et qui mettrait logged à false dans le
-          // state
-        }}
-      />
+      <div className="login-form">
+        <div className="login-form-container">
+          {isLogged && (
+          <div className="login-form-logged">
+            <p className="login-form-message">
+              {loggedMessage}
+            </p>
+            <button
+              type="button"
+              className="login-form-button"
+              onClick={handleLogout}
+            >
+              Déconnexion
+            </button>
+          </div>
+          )}
+          {!isLogged && (
+            <div className="login-form-container--container">
+              <SigninForm />
+              <LoginForm 
+                email={emailValue}
+                password={passwordValue}
+                isLogged={loggedValue}
+                loggedMessage={`Bienvenue ${nicknameValue}`}
+                changeField={(newValue, identifier) => {
+                  // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
+                  // on veut aller enregistrer la nouvelle valeur dans le state
+                  dispatch(changeLoginField(newValue, identifier));
+                }}
+                handleLogin={() => {
+                  dispatch(logIn());
+                }}
+                handleLogout={(event) => {
+                  console.log('handleLogout', event);
+                  // TODO pour se déconnecter il faudrait dispatch une action qui serait
+                  // traitée par le reducer user et qui mettrait logged à false dans le                    // state
+                }}
+              />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
 
-LoginForm.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  /**
-   * Traitement déclenché quand on saisit un caractère dans l'un des deux champs.
-   * Deux paramètres :
-   * - nouvelle valeur en prenant en compte le caractère saisi
-   * - identifiant du champ, 'email' ou 'password'
-   */
-  changeField: PropTypes.func.isRequired,
-  /**
-   * Traitement déclenché quand on est en mode non connecté et qu'on clique sur le
-   * bouton OK.
-   * Pas de paramètre.
-   */
-  handleLogin: PropTypes.func.isRequired,
-  /**
-   * Traitement déclenché quand on est mode connecté et qu'on clique sur le bouton
-   * de déconnexion.
-   * Un paramètre : les infos de l'événement clic
-   */
+Login.propTypes = {
   handleLogout: PropTypes.func.isRequired,
-  /** Choix entre le mode connecté (affichage d'un message) et le mode non connecté
-   * (affichage du formulaire)
-   */
   isLogged: PropTypes.bool,
-  /** Message affiché à la place du formulaire quand on est en mode connecté */
   loggedMessage: PropTypes.string,
 };
 
-LoginForm.defaultProps = {
+Login.defaultProps = {
   isLogged: false,
   loggedMessage: 'Connecté',
 };

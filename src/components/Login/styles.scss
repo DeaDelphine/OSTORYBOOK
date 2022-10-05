@@ -109,16 +109,17 @@
 
 
 @media (min-width:600px) {
-
   .login-form {
 
+    overflow-y: hidden;
     padding: 0 2rem;
     width: 100%;
 
     &-container {
-
+      overflow-y: hidden;
       &--container {
         display: flex;
+
       }
 
       
@@ -139,11 +140,6 @@
         padding-top: 0rem;
         padding-bottom: 1rem;
       }
-
-      &-message {
-        font-size: 20px;
-        padding-bottom: 1rem;
-      }
     }
   
     &-right {  
@@ -159,11 +155,6 @@
         font-size: 28px;
         font-weight: bold;
         padding-top: 0rem;
-        padding-bottom: 1rem;
-      }
-
-      &-message {
-        font-size: 20px;
         padding-bottom: 1rem;
       }
     }
