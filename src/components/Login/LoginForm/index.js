@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Field from './Field';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import '../styles.scss';
 
@@ -17,9 +17,13 @@ function LoginForm({
   changeField,
   handleLogin,
 }) {
+
+  const navigate = useNavigate();
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
+    navigate('/histoires');
   };
 
   return (
@@ -40,15 +44,15 @@ function LoginForm({
               onChange={changeField}
               value={password} />
             <div className="login-form-button">
-              <Link>
-                Mot de passe oublié ?
-              </Link>
               <button
                 type="submit"
                 className="login-form-button--button"
               >
                 SE CONNECTER
               </button>
+              <Link>
+                Mot de passe oublié ?
+              </Link>
             </div>
           </div>
         </div>

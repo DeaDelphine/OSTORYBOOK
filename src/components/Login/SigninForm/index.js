@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Field from './Field';
+import { useNavigate } from 'react-router-dom';
 
 import '../styles.scss';
 
@@ -17,9 +18,12 @@ function SigninForm({
   handleLogin,
 }) {
 
+  const navigate = useNavigate();
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
+    navigate('/histoires');
   };
 
   return (
