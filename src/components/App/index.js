@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../Navigation/NavBar';
+import Pages from '../StoryList/Pages';
 import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import Login from '../Login';
@@ -46,6 +47,7 @@ function App() {
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
+          <Route path="/histoire" element={<Pages />} />
         </Routes>
       </div>
       <Footer />

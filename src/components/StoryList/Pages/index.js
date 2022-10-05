@@ -16,7 +16,7 @@ function Pages() {
 
   useEffect(() => {
     const id = localStorage.getItem('id');
-    const startPage = localStorage.getItem('startPage');
+    const startPage = localStorage.getItem('page');
     dispatch(fetchPages(id, startPage));
   }, []);
 
