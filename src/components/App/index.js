@@ -1,6 +1,5 @@
 // == Import
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../Navigation/NavBar';
@@ -15,20 +14,18 @@ import LegalMentions from '../Footer/LegalMentions';
 import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
-import Loading from './Loading';
 
 // == Styles
 import './styles.scss';
 // == Actions
-import { fetchStories } from '../../actions/stories';
 
 // == Component
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const storiesLoaded = useSelector((state) => state.stories.storiesLoaded);
-  useEffect(() => {
-    dispatch(fetchStories());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchStories());
+  // }, []);
   // if (!storiesLoaded) {
   //   return <Loading />;
   // }

@@ -1,7 +1,12 @@
 // == Import
-import { useSelector } from 'react-redux';
 
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Story from './Story';
+
+import Loading from '../App/Loading';
+
+import { fetchStories } from '../../actions/stories';
 
 // Style
 import './styles.scss';
@@ -10,11 +15,17 @@ import './styles.scss';
 
 function StoryList() {
   const stories = useSelector((state) => state.stories.stories);
-  // console.log(stories);
-  // const { slug } = useParams();
-  // if (!storylist) {
-  //   return <Navigate to="/error" replace />;
+  const dispatch = useDispatch();
+
+  // const storiesLoaded = useSelector((state) => state.stories.storiesLoaded);
+
+  useEffect(() => {
+    dispatch(fetchStories());
+  }, []);
+  // if (!storiesLoaded) {
+  //   return <Loading />;
   // }
+
   return (
     <div className="container">
       <div className="story-list">

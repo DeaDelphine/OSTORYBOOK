@@ -1,14 +1,13 @@
+/* eslint-disable no-lone-blocks */
 import PropTypes from 'prop-types';
-
+import { Navigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import LoginForm from './LoginForm';
 import SigninForm from './SigninForm';
-
-import { useSelector, useDispatch } from 'react-redux';
 
 import { changeLoginField, logIn } from '../../actions/user';
 
 import './styles.scss';
-
 
 /**
  * Display a form to log in, with inputs email and password.
@@ -17,15 +16,17 @@ import './styles.scss';
  *   - "not connected": displays the form and a button to connect
  */
 
-const Login = ({
+function Login({
   handleLogout,
   isLogged,
   loggedMessage,
-}) => {
+}) {
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
   const loggedValue = useSelector((state) => state.user.logged);
   const nicknameValue = useSelector((state) => state.user.nickname);
+  // const patate = useSelector((state) => state.user);
+  // console.log(patate);
 
   const dispatch = useDispatch();
 
@@ -49,7 +50,7 @@ const Login = ({
           )}
           {!isLogged && (
             <div className="login-form-container--container">
-              <LoginForm 
+              <LoginForm
                 email={emailValue}
                 password={passwordValue}
                 nickname={nicknameValue}
@@ -59,14 +60,14 @@ const Login = ({
                   // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
                   // on veut aller enregistrer la nouvelle valeur dans le state
                   dispatch(changeLoginField(newValue, identifier));
+                  console.log(changeLoginField);
                 }}
                 handleLogin={() => {
                   dispatch(logIn());
+                  console.log(logIn);
                 }}
                 handleLogout={(event) => {
                   console.log('handleLogout', event);
-                  // TODO pour se déconnecter il faudrait dispatch une action qui serait
-                  // traitée par le reducer user et qui mettrait logged à false dans le                    // state
                 }}
               />
               <SigninForm />
@@ -78,15 +79,13 @@ const Login = ({
   );
 }
 
-
 Login.propTypes = {
-  handleLogout: PropTypes.func,
-  isLogged: PropTypes.bool,
+  handleLogout: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
   loggedMessage: PropTypes.string,
 };
 
 Login.defaultProps = {
-  isLogged: false,
   loggedMessage: 'Connecté',
 };
 

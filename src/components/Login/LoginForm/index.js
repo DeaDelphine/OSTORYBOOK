@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Field from './Field';
-
-import { Link, useNavigate } from 'react-router-dom';
 
 import '../styles.scss';
 
@@ -16,55 +15,58 @@ function LoginForm({
   password,
   changeField,
   handleLogin,
+  isLogged,
 }) {
-
-  const navigate = useNavigate();
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
-    navigate('/histoires');
   };
 
   return (
-      <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-        <div className="login-form-right">
-          <h2 className="login-form-right-title">CONNEXION</h2>
-          <p className="login-form-right-message">Veuillez vous connecter pour jouer.</p>
-          <div className="login-form-right-container">
-            <Field
-              name="email"
-              placeholder="Email"
-              onChange={changeField}
-              value={email} />
-            <Field
-              name="password"
-              type="password"
-              placeholder="Mot de passe"
-              onChange={changeField}
-              value={password} />
-            <div className="login-form-button">
-              <button
-                type="submit"
-                className="login-form-button--button"
-              >
-                SE CONNECTER
-              </button>
-              <Link>
-                Mot de passe oublié ?
-              </Link>
-            </div>
+    <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+      <div className="login-form-right">
+        <h2 className="login-form-right-title">CONNEXION</h2>
+        <p className="login-form-right-message">Veuillez vous connecter pour jouer.</p>
+        <div className="login-form-right-container">
+
+          <Field
+            name="email"
+            placeholder="Email"
+            onChange={changeField}
+            value={email}
+          />
+          <Field
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            onChange={changeField}
+            value={password}
+          />
+          <div className="login-form-button">
+            <button
+              type="submit"
+              className="login-form-button--button"
+              to="/histoires"
+            >
+              SE CONNECTER
+            </button>
+            <Link
+              to="/passwordclear"
+            >
+              Mot de passe oublié ?
+            </Link>
           </div>
         </div>
-      </form>
+      </div>
+    </form>
   );
 }
-
 LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 // == Export

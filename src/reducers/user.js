@@ -8,6 +8,7 @@ export const initialState = {
   password: '',
   // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
+  passwordcheck: '',
   token: '',
 };
 

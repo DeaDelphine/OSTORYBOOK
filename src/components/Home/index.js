@@ -1,6 +1,7 @@
 // == Import
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import logo from '../../assets/images/logo.png';
 
 import './styles.scss';
@@ -8,6 +9,16 @@ import './styles.scss';
 
 // == Component
 function Home({ isLogged }) {
+  // const dispatch = useDispatch();
+
+  // const storiesLoaded = useSelector((state) => state.stories.storiesLoaded);
+
+  // useEffect(() => {
+  //   dispatch(fetchStories());
+  // }, []);
+  // if (!storiesLoaded) {
+  //   return <Loading />;
+  // }
   return (
     <div className="home">
       <NavLink
@@ -22,7 +33,7 @@ function Home({ isLogged }) {
           <NavLink
             to="/histoires"
             className="home home__button"
-          > Commencer l'aventure
+          > Patate
           </NavLink>
         )
         : (
