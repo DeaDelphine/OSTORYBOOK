@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import Field from './Field';
 
+import { Link } from 'react-router-dom';
+
 import '../styles.scss';
 
 /**
@@ -38,12 +40,9 @@ function LoginForm({
               onChange={changeField}
               value={password} />
             <div className="login-form-button">
-              <a
-                href={`$process.env.REACT_APP_SERVER_BACK}/reset-password`}
-                className="text-sm underline text-gray-100 hover:text-orange-300"
-              >
-                Mot de passe perdu
-              </a>
+              <Link>
+                Mot de passe oublié ?
+              </Link>
               <button
                 type="submit"
                 className="login-form-button--button"

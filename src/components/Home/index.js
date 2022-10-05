@@ -10,6 +10,13 @@ import './styles.scss';
 function Home({ isLogged }) {
   return (
     <div className="home">
+      <NavLink
+        to="/"
+        className="header__link-logo"
+        onClick={() => props.isMobile && props.closeMobileMenu()}
+      >
+        <img className="header header__logo" src={logo} alt="logo" />
+      </NavLink>
       { isLogged
         ? (
           <NavLink

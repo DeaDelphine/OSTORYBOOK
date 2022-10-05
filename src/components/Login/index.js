@@ -4,7 +4,6 @@ import LoginForm from './LoginForm';
 import SigninForm from './SigninForm';
 
 import { useSelector, useDispatch } from 'react-redux';
-import LoginForm from './LoginForm';
 
 import { changeLoginField, logIn } from '../../actions/user';
 
@@ -23,8 +22,6 @@ const Login = ({
   isLogged,
   loggedMessage,
 }) => {
-
-function Login() {
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
   const loggedValue = useSelector((state) => state.user.logged);
@@ -54,10 +51,30 @@ function Login() {
           )}
           {!isLogged && (
             <div className="login-form-container--container">
-              <SigninForm />
+              <SigninForm 
+                email={emailValue}
+                password={passwordValue}
+                nickname={nicknameValue}
+                isLogged={loggedValue}
+                loggedMessage={`Bienvenue ${nicknameValue}`}
+                changeField={(newValue, identifier) => {
+                  // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
+                  // on veut aller enregistrer la nouvelle valeur dans le state
+                  dispatch(changeLoginField(newValue, identifier));
+                }}
+                handleLogin={() => {
+                  dispatch(logIn());
+                }}
+                handleLogout={(event) => {
+                  console.log('handleLogout', event);
+                  // TODO pour se déconnecter il faudrait dispatch une action qui serait
+                  // traitée par le reducer user et qui mettrait logged à false dans le                    // state
+                }}
+              />
               <LoginForm 
                 email={emailValue}
                 password={passwordValue}
+                nickname={nicknameValue}
                 isLogged={loggedValue}
                 loggedMessage={`Bienvenue ${nicknameValue}`}
                 changeField={(newValue, identifier) => {
@@ -82,8 +99,9 @@ function Login() {
   );
 }
 
+
 Login.propTypes = {
-  handleLogout: PropTypes.func.isRequired,
+  handleLogout: PropTypes.func,
   isLogged: PropTypes.bool,
   loggedMessage: PropTypes.string,
 };
