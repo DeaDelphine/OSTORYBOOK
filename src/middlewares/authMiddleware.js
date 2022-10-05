@@ -1,30 +1,34 @@
 /* eslint-disable max-len */
 import axios from 'axios';
-import { fetchPages } from '../actions/pages';
+import jwtDecode from 'jwt-decode';
+import Cookies from 'universal-cookie';
 // import { fetchFavorites } from '../actions/stories';
 import { LOG_IN, saveUserData } from '../actions/user';
+
+const cookies = new Cookies();
+
+const api = axios.create({
+  baseURL: 'http://0.0.0.0:8000',
+});
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case LOG_IN:
+
       // console.log('authMiddleware voit passer une action LOG_IN');
-      axios.post(
-        'http://0.0.0.0:8000/login',
+      api.post(
+        '/login',
         {
           email: store.getState().user.email,
           password: store.getState().user.password,
         },
       )
         .then((response) => {
-          // console.log(response);
-          // console.log(`nickname: ${response.data.pseudo}, token: ${response.data.token}, logged: ${response.data.logged}`);
-          store.dispatch(
-            saveUserData(response.data.nickname, response.data.token, response.data.logged),
-          );
-
-          // on dispatch une action pour aller chercher les recettes préférées de l'utilisateur
-          store.dispatch(fetchPages());
+          api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+          console.log(api.defaults.headers.common.Authorization);
+          store.dispatch(saveUserData(jwtDecode(response.data.token)));
+          cookies.set('cookies', response.data.token);
         })
         .catch((error) => {
           console.log(error);

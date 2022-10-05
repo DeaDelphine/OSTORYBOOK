@@ -1,13 +1,22 @@
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 import { FETCH_STORIES, saveStories } from '../actions/stories';
 import { FETCH_PAGES, savePage } from '../actions/pages';
+
+const cookies = new Cookies();
 
 const storiesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_STORIES:
 
       axios.get('http://0.0.0.0:8000/api/histoire')
+      // , {
+      // headers: {
+      //   Authorization: `bearer ${cookies}`,
+      // },
+
+      // })
         .then((response) => {
           // console.log(response);
 

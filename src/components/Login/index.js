@@ -4,6 +4,7 @@ import LoginForm from './LoginForm';
 import SigninForm from './SigninForm';
 
 import { useSelector, useDispatch } from 'react-redux';
+import LoginForm from './LoginForm';
 
 import { changeLoginField, logIn } from '../../actions/user';
 
@@ -16,18 +17,20 @@ import './styles.scss';
  *   - "connected": displays a message and a button to disconnect
  *   - "not connected": displays the form and a button to connect
  */
+
 const Login = ({
   handleLogout,
   isLogged,
   loggedMessage,
 }) => {
 
+function Login() {
   const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
   const loggedValue = useSelector((state) => state.user.logged);
   const nicknameValue = useSelector((state) => state.user.nickname);
-  console.log(emailValue);
-  console.log(passwordValue);
+  // console.log(emailValue);
+  // console.log(passwordValue);
 
   const dispatch = useDispatch();
 
