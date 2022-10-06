@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+
 import Field from '../Field';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import '../Login/styles.scss';
 
@@ -12,19 +14,18 @@ import '../Login/styles.scss';
  *   - "not connected": displays the form and a button to connect
  */
 function LoginForm({
-  email,
-  password,
   changeField,
-  handleLogin,
 }) {
 
-  const navigate = useNavigate();
+  const emailValue = useSelector((state) => state.user.email);
+  const passwordValue = useSelector((state) => state.user.password);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleLogin();
-    navigate('/histoires');
   };
+  
+
+
 
   return (
       <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
@@ -36,13 +37,15 @@ function LoginForm({
               name="email"
               placeholder="Email"
               onChange={changeField}
-              value={email} />
+              value={emailValue} />
             <Field
               name="password"
               type="password"
               placeholder="Mot de passe"
+              value={passwordValue}
               onChange={changeField}
-              value={password} />
+              />
+
             <div className="login-form-button">
               <button
                 type="submit"
@@ -61,10 +64,7 @@ function LoginForm({
 }
 
 LoginForm.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -1,44 +1,52 @@
-import { CHANGE_LOGIN_FIELD, SAVE_USER_DATA } from '../actions/user';
+import { CHANGE_SIGNIN_FIELD, SAVE_NEW_USER } from '../actions/user';
 
 export const initialState = {
-  logged: false,
-  // contenu du champ email du formulaire de login
   email: '',
-  // contenu du champ password du formulaire de login
-  password: '',
-  // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
-  token: '',
+  password: '',
+  passwordcheck: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_LOGIN_FIELD:
-      // si le champ concerné par le changement est celui de l'e-mail
-      if (action.fieldIdentifier === 'email') {
+
+    case CHANGE_SIGNIN_FIELD:
+        // si le champ concerné par le changement est celui de l'e-mail
+        if (action.fieldIdentifier === 'email') {
+          return {
+            ...state,
+            email: action.value,
+          };
+        }
+
+        if (action.fieldIdentifier === 'nickname') {
+          return {
+            ...state,
+            nickname: action.value,
+          };
+        }
+
+        if (action.fieldIdentifier === 'password') {
+          return {
+            ...state,
+            password: action.value,
+          };
+        }
+
         return {
           ...state,
-          email: action.value,
+          passwordcheck: action.value,
         };
-      }
-      // else implicite : si on arrive à cette ligne c'est que forcément on n'est pas
-      // passé dans le if
-      return {
-        ...state,
-        password: action.value,
-      };
+    
 
-    case SAVE_USER_DATA:
+    case SAVE_NEW_USER:
       return {
         ...state,
         nickname: action.nickname,
-        token: action.token,
-        logged: action.logged,
-        // pour la sécurité, on en profite pour effacer email
-        // et password (ils ne sont plus nécessaires)
         email: '',
         password: '',
-      };
+        passwordcheck: '',
+        };
 
     default:
       return state;

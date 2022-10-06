@@ -3,7 +3,8 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import Cookies from 'universal-cookie';
 // import { fetchFavorites } from '../actions/stories';
-import { LOG_IN, saveUserData } from '../actions/user';
+import { LOG_IN, saveUserData } from '../actions/auth';
+import { SIGN_IN, saveNewUser } from '../actions/user';
 
 const cookies = new Cookies();
 
@@ -35,6 +36,23 @@ const authMiddleware = (store) => (next) => (action) => {
         });
 
       break;
+      case SIGN_IN:
+        api.post(
+          '/signin', 
+          {
+            nickname: state.logout.nickname.toLowerCase().trim(),
+            email: state.logout.email.toLowerCase().trim(),
+            password: state.logout.password.trim(),
+            passwordcheck: state.logout.passwordcheck.trim(),
+          })
+          .then((response) => {
+            store.dispatch(saveNewUser(response.data))
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+  
+        break;
 
     default:
   }
