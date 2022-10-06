@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import '../Login/styles.scss';
-
 /**
  * Display a form to log in, with inputs email and password.
  * It has two modes: "connected" and "not connected"
@@ -15,6 +14,7 @@ import '../Login/styles.scss';
  */
 function LoginForm({
   changeField,
+  handleLogin,
 }) {
 
   const emailValue = useSelector((state) => state.user.email);
@@ -22,11 +22,9 @@ function LoginForm({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    handleLogin();
   };
   
-
-
-
   return (
       <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
         <div className="login-form-right">
@@ -37,19 +35,21 @@ function LoginForm({
               name="email"
               placeholder="Email"
               onChange={changeField}
-              value={emailValue} />
+              value={emailValue}
+            />
             <Field
               name="password"
               type="password"
               placeholder="Mot de passe"
               value={passwordValue}
               onChange={changeField}
-              />
+            />
 
             <div className="login-form-button">
               <button
                 type="submit"
                 className="login-form-button--button"
+                to="/histoires"
               >
                 SE CONNECTER
               </button>
@@ -65,6 +65,7 @@ function LoginForm({
 
 LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
 };
 
 // == Export

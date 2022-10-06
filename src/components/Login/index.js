@@ -44,13 +44,16 @@ function Login() {
           </div>
           )}
           {isLogged && <Navigate to="/histoires" replace /> }
-          {!isLogged && (
-            <div className="login-form-container--container">
+            {!isLogged && (
+              <div className="login-form-container--container">
               <LoginForm
                 changeField={(newValue, identifier) => {
                   // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
                   // on veut aller enregistrer la nouvelle valeur dans le state
                   dispatch(changeLoginField(newValue, identifier));
+                }}
+                handleLogin={() => {
+                  dispatch(logIn());
                 }}
               />
               <SigninForm 
@@ -59,9 +62,12 @@ function Login() {
                   // on veut aller enregistrer la nouvelle valeur dans le state
                   dispatch(changeSigninField(newValue, identifier));
                 }}
+                handleSignin={() => {
+                  dispatch(signIn());
+                }}
               />
-            </div>
-          )}
+              </div>
+              )}   
         </div>
       </div>
     </div>

@@ -43,7 +43,8 @@ function Page({
           to="/histoires"
           className="page-container--choice__button-return"
           onClick={(event) => {
-            localStorage.clear();
+            localStorage.removeItem('id');
+            localStorage.removeItem('page');
           }}
         > Retour à la liste des histoires
         </NavLink>

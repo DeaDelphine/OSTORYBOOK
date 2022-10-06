@@ -22,13 +22,6 @@ const reducer = (state = initialState, action = {}) => {
           email: action.value,
         };
       }
-
-      if (action.fieldIdentifier === 'password') {
-        return {
-          ...state,
-          password: action.value,
-        };
-      }
       // else implicite : si on arrive à cette ligne c'est que forcément on n'est pas
       // passé dans le if
       return {

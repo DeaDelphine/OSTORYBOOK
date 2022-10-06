@@ -14,6 +14,7 @@ import '../Login/styles.scss';
  */
 function SigninForm({
   changeField,
+  handleSignin,
 }) {
 
   const emailValue = useSelector((state) => state.auth.email);
@@ -23,6 +24,7 @@ function SigninForm({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    handleSignin();
   };
 
 
@@ -70,6 +72,7 @@ function SigninForm({
 
 SigninForm.propTypes = {
   changeField: PropTypes.func.isRequired,
+  handleSignin: PropTypes.func.isRequired,
 };
 
 

@@ -24,11 +24,7 @@ import { fetchStories } from '../../actions/stories';
 
 // == Component
 function App() {
-  const dispatch = useDispatch();
   // const storiesLoaded = useSelector((state) => state.stories.storiesLoaded);
-  useEffect(() => {
-    dispatch(fetchStories());
-  }, []);
   // if (!storiesLoaded) {
   //   return <Loading />;
   // }
