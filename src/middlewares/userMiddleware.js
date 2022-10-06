@@ -4,13 +4,8 @@ import jwtDecode from 'jwt-decode';
 import { redirect } from 'react-router-dom';
 // import Cookies from 'universal-cookie';
 // import { fetchFavorites } from '../actions/stories';
-import {
-  LOG_IN, 
-  RedirectLogin, 
-  REDIRECT_LOGIN, 
-  saveUserData,
-  SAVE_LOGIN
-} from '../actions/auth';
+import { FETCH_USER, setUser, USER_EDIT, clearEdit} from '../actions/user';
+import { saveUser } from '../actions/auth';
 
 // const cookies = new Cookies();
 
@@ -23,45 +18,50 @@ const authMiddleware = (store) => (next) => (action) => {
   const state = store.getState();
 
   switch (action.type) {
-    case LOG_IN:
+    case FETCH_USER:
 
       // console.log('authMiddleware voit passer une action LOG_IN');
-      api.post(
-        '/login',
+      api.get(
+        '/api/user',
         {
-          email: state.user.email,
-          password: state.user.password,
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("user")}`,
+          },
         },
 
       )
       .then((response) => {
-        api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
-        localStorage.setItem('token', response.data.token);
-        const dataUser = response.data;
-        store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
-        store.dispatch(RedirectLogin());
-        // return redirect('/histoires');
+        store.dispatch(setUser(response.data))
       })
       .catch((error) => {
         console.log(error);
       });
       break;
 
-    case SAVE_LOGIN:
-      api.get(
-        '/api/user/me'
+    case USER_EDIT:
+      api.put(
+        '/api/user/edit',
+        {
+          newName: state.user.username.toLowerCase().trim(),
+          newMail: state.user.email.toLowerCase().trim(),
+          oldPassword: state.user.password.trim(),
+          newPassword: state.user.newPassword.trim(),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("user")}`,
+          },
+        }
       )
-      .then(
-        (response) => console.log(response.data)
+      .then((response) => {
+        console.log(response);
+      }
       )
       .catch((error) => {
         console.log(error);
       });
       break;
 
-    case REDIRECT_LOGIN:
-      redirect('/histoires');
-      break;
     default:
   }
   // on passe l'action au suivant (middleware suivant ou reducer)
