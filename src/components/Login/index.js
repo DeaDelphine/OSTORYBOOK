@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
-import LoginForm from './LoginForm';
-import SigninForm from './SigninForm';
+import LoginForm from '../LoginForm';
+import SigninForm from '../SigninForm';
 
 import { useSelector, useDispatch } from 'react-redux';
 

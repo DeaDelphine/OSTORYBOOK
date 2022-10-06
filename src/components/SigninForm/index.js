@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import Field from './Field';
+import Field from '../Field';
 import { useNavigate } from 'react-router-dom';
 
-import '../styles.scss';
+import '../Login/styles.scss';
 
 /**
  * Display a form to log in, with inputs email and password.
