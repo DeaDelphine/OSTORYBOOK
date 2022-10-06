@@ -14,10 +14,8 @@ function Home() {
     <div className="home">
       <NavLink
         to="/"
-        className="header__link-logo"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
       >
-        <img className="header header__logo" src={logo} alt="logo" />
+        <img className="home home__logo" src={logo} alt="logo" />
       </NavLink>
       { isLogged
         ? (

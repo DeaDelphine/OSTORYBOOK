@@ -1,5 +1,9 @@
 @use 'src/styles/vars';
 
+.header__link--home {
+  display: block;
+}
+
 .login-form {
 
   height: 100%; 

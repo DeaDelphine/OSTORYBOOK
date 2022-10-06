@@ -13,12 +13,9 @@ import './styles.scss';
 // == Component
 
 function StoryList() {
-
-
   const stories = useSelector((state) => state.stories.stories);
   const dispatch = useDispatch();
 
- 
   useEffect(() => {
     dispatch(fetchStories());
   }, []);
