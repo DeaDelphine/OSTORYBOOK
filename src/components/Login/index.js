@@ -8,7 +8,7 @@ import SigninForm from '../SigninForm';
 import { useDispatch } from 'react-redux';
 
 import { changeLoginField, logIn } from '../../actions/auth';
-import { changeSigninField, signIn } from '../../actions/user';
+import { FETCH_USER, setUser, USER_EDIT, clearEdit } from '../../actions/user';
 
 import './styles.scss';
 

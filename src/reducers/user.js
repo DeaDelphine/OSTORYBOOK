@@ -1,4 +1,4 @@
-import { CHANGE_SIGNIN_FIELD, SAVE_NEW_USER } from '../actions/user';
+import { CHANGE_USER_INPUT, FETCH_USER, setUser, USER_EDIT, clearEdit } from '../actions/user';
 
 export const initialState = {
   email: '',
@@ -10,7 +10,7 @@ export const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
 
-    case CHANGE_SIGNIN_FIELD:
+    case CHANGE_USER_INPUT:
         // si le champ concerné par le changement est celui de l'e-mail
         if (action.fieldIdentifier === 'email') {
           return {
@@ -39,7 +39,7 @@ const reducer = (state = initialState, action = {}) => {
         };
     
 
-    case SAVE_NEW_USER:
+    case FETCH_USER:
       return {
         ...state,
         nickname: action.nickname,
