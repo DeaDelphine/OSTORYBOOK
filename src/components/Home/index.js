@@ -1,21 +1,21 @@
 // == Import
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import logo from '../../assets/images/logo.png';
 
 import './styles.scss';
 /* eslint-disable react/button-has-type */
 
 // == Component
-function Home({ isLogged }) {
+function Home() {
+
+  const isLogged = localStorage.getItem('token') ?? false;
+
   return (
     <div className="home">
       <NavLink
         to="/"
-        className="header__link-logo"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
       >
-        <img className="header header__logo" src={logo} alt="logo" />
+        <img className="home home__logo" src={logo} alt="logo" />
       </NavLink>
       { isLogged
         ? (
@@ -35,11 +35,6 @@ function Home({ isLogged }) {
     </div>
   );
 }
-Home.propTypes = {
-  isLogged: PropTypes.bool,
-};
-Home.defaultProps = {
-  isLogged: false,
-};
+
 // == Export
 export default Home;

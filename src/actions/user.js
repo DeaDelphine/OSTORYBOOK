@@ -1,20 +1,18 @@
-export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
-export const LOG_IN = 'LOG_IN';
-export const SAVE_USER_DATA = 'SAVE_USER_DATA';
+export const CHANGE_SIGNIN_FIELD = 'CHANGE_SIGNIN_FIELD';
+export const SIGN_IN = 'SIGN_IN';
+export const SAVE_NEW_USER = 'SAVE_NEW_USER';
 
-export const changeLoginField = (newValue, fieldIdentifier) => ({
-  type: CHANGE_LOGIN_FIELD,
+
+export const changeSigninField = (newValue, fieldIdentifier) => ({
+  type: CHANGE_SIGNIN_FIELD,
   value: newValue,
   fieldIdentifier: fieldIdentifier,
 });
 
-export const logIn = () => ({
-  type: LOG_IN,
+export const signIn = () => ({
+  type: SIGN_IN,
 });
 
-export const saveUserData = (nickname, token, logged) => ({
-  type: SAVE_USER_DATA,
-  nickname: nickname,
-  token: token,
-  logged: logged,
+export const saveNewUser = () => ({
+  type: SAVE_NEW_USER,
 });

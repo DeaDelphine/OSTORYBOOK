@@ -1,11 +1,14 @@
 /* eslint-disable max-len */
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import Cookies from 'universal-cookie';
+import { redirect } from 'react-router-dom';
+// import Cookies from 'universal-cookie';
 // import { fetchFavorites } from '../actions/stories';
-import { LOG_IN, saveUserData } from '../actions/user';
+import {
+  LOG_IN, RedirectLogin, REDIRECT_LOGIN, saveUserData,
+} from '../actions/auth';
 
-const cookies = new Cookies();
+// const cookies = new Cookies();
 
 const api = axios.create({
   baseURL: 'http://0.0.0.0:8000',
@@ -13,6 +16,8 @@ const api = axios.create({
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
+  const state = store.getState();
+
   switch (action.type) {
     case LOG_IN:
 
@@ -20,22 +25,29 @@ const authMiddleware = (store) => (next) => (action) => {
       api.post(
         '/login',
         {
-          email: store.getState().user.email,
-          password: store.getState().user.password,
+          email: state.user.email,
+          password: state.user.password,
         },
+
       )
         .then((response) => {
           api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
-          console.log(api.defaults.headers.common.Authorization);
-          store.dispatch(saveUserData(jwtDecode(response.data.token)));
-          cookies.set('cookies', response.data.token);
+          localStorage.setItem('token', response.data.token);
+
+          api.get('/api/user/me')
+            .then((response) => console.log(response.data));
+          const dataUser = response.data;
+          store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
+          store.dispatch(RedirectLogin());
+          // return redirect('/histoires');
         })
         .catch((error) => {
           console.log(error);
         });
-
       break;
-
+    case REDIRECT_LOGIN:
+      redirect('/histoires');
+      break;
     default:
   }
   // on passe l'action au suivant (middleware suivant ou reducer)

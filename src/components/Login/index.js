@@ -1,14 +1,16 @@
-import PropTypes from 'prop-types';
+/* eslint-disable no-lone-blocks */
 
-import LoginForm from './LoginForm';
-import SigninForm from './SigninForm';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import LoginForm from '../LoginForm';
+import SigninForm from '../SigninForm';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { changeLoginField, logIn } from '../../actions/user';
+import { changeLoginField, logIn } from '../../actions/auth';
+import { changeSigninField, signIn } from '../../actions/user';
 
 import './styles.scss';
-
 
 /**
  * Display a form to log in, with inputs email and password.
@@ -17,15 +19,10 @@ import './styles.scss';
  *   - "not connected": displays the form and a button to connect
  */
 
-const Login = ({
-  handleLogout,
-  isLogged,
-  loggedMessage,
-}) => {
-  const emailValue = useSelector((state) => state.user.email);
-  const passwordValue = useSelector((state) => state.user.password);
-  const loggedValue = useSelector((state) => state.user.logged);
-  const nicknameValue = useSelector((state) => state.user.nickname);
+function Login() {
+
+  const isLogged = useSelector((state) => state.user.logged);
+  const loggedMessage = useSelector((state) => state.user.loggedMessage);
 
   const dispatch = useDispatch();
 
@@ -41,20 +38,15 @@ const Login = ({
             <button
               type="button"
               className="login-form-button"
-              onClick={handleLogout}
             >
               Déconnexion
             </button>
           </div>
           )}
-          {!isLogged && (
-            <div className="login-form-container--container">
-              <LoginForm 
-                email={emailValue}
-                password={passwordValue}
-                nickname={nicknameValue}
-                isLogged={loggedValue}
-                loggedMessage={`Bienvenue ${nicknameValue}`}
+          {isLogged && <Navigate to="/histoires" replace /> }
+            {!isLogged && (
+              <div className="login-form-container--container">
+              <LoginForm
                 changeField={(newValue, identifier) => {
                   // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
                   // on veut aller enregistrer la nouvelle valeur dans le state
@@ -63,32 +55,24 @@ const Login = ({
                 handleLogin={() => {
                   dispatch(logIn());
                 }}
-                handleLogout={(event) => {
-                  console.log('handleLogout', event);
-                  // TODO pour se déconnecter il faudrait dispatch une action qui serait
-                  // traitée par le reducer user et qui mettrait logged à false dans le                    // state
+              />
+              <SigninForm 
+                changeField={(newValue, identifier) => {
+                  // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
+                  // on veut aller enregistrer la nouvelle valeur dans le state
+                  dispatch(changeSigninField(newValue, identifier));
+                }}
+                handleSignin={() => {
+                  dispatch(signIn());
                 }}
               />
-              <SigninForm />
-            </div>
-          )}
+              </div>
+              )}   
         </div>
       </div>
     </div>
   );
 }
-
-
-Login.propTypes = {
-  handleLogout: PropTypes.func,
-  isLogged: PropTypes.bool,
-  loggedMessage: PropTypes.string,
-};
-
-Login.defaultProps = {
-  isLogged: false,
-  loggedMessage: 'Connecté',
-};
 
 // == Export
 export default Login;

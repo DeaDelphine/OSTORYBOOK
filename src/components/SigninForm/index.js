@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
-import Field from './Field';
-import { useNavigate } from 'react-router-dom';
 
-import '../styles.scss';
+import Field from '../Field';
+
+import { useSelector } from 'react-redux';
+
+import '../Login/styles.scss';
 
 /**
  * Display a form to log in, with inputs email and password.
@@ -11,20 +13,20 @@ import '../styles.scss';
  *   - "not connected": displays the form and a button to connect
  */
 function SigninForm({
-  email,
-  nickname,
-  password,
   changeField,
-  handleLogin,
+  handleSignin,
 }) {
 
-  const navigate = useNavigate();
+  const emailValue = useSelector((state) => state.auth.email);
+  const nicknameValue = useSelector((state) => state.auth.nickname);
+  const passwordValue = useSelector((state) => state.auth.password);
+  const passwordCheckValue = useSelector((state) => state.auth.passwordcheck);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleLogin();
-    navigate('/histoires');
+    handleSignin();
   };
+
 
   return (
     <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
@@ -36,24 +38,24 @@ function SigninForm({
             name="email"
             placeholder="Email"
             onChange={changeField}
-            value={email} />
+            value={emailValue} />
           <Field
             name="nickname"
             placeholder="Pseudonyme"
             onChange={changeField}
-            value={nickname} />
+            value={nicknameValue} />
           <Field
             name="password"
             type="password"
             placeholder="Mot de passe"
             onChange={changeField}
-            value={password} />
+            value={passwordValue} />
           <Field
-            name="password"
+            name="passwordcheck"
             type="password"
             placeholder="Confirmez le mot de passe"
             onChange={changeField}
-            value={password} />
+            value={passwordCheckValue} />
           <div className="login-form-button">
             <button
               type="submit"
@@ -69,12 +71,10 @@ function SigninForm({
 }
 
 SigninForm.propTypes = {
-  email: PropTypes.string.isRequired,
-  nickname: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired,
+  handleSignin: PropTypes.func.isRequired,
 };
+
 
 // == Export
 export default SigninForm;

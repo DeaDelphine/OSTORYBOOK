@@ -1,5 +1,9 @@
 // == Import
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+import { fetchStories } from '../../actions/stories';
 
 import Story from './Story';
 
@@ -10,6 +14,11 @@ import './styles.scss';
 
 function StoryList() {
   const stories = useSelector((state) => state.stories.stories);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchStories());
+  }, []);
   // console.log(stories);
   // const { slug } = useParams();
   // if (!storylist) {
