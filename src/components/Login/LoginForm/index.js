@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import Field from './Field';
+import Field from '../../Field';
 
 import '../styles.scss';
 
@@ -15,7 +15,6 @@ function LoginForm({
   password,
   changeField,
   handleLogin,
-  isLogged,
 }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -46,7 +45,6 @@ function LoginForm({
             <button
               type="submit"
               className="login-form-button--button"
-              to="/histoires"
             >
               SE CONNECTER
             </button>
@@ -66,7 +64,6 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool.isRequired,
 };
 
 // == Export

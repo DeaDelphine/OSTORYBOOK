@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import Field from './Field';
 import { useNavigate } from 'react-router-dom';
+import Field from './Field';
 
-import '../styles.scss';
+import './styles.scss';
 
 /**
  * Display a form to log in, with inputs email and password.
@@ -17,7 +17,6 @@ function SigninForm({
   changeField,
   handleLogin,
 }) {
-
   const navigate = useNavigate();
 
   const handleSubmit = (evt) => {
@@ -36,24 +35,28 @@ function SigninForm({
             name="email"
             placeholder="Email"
             onChange={changeField}
-            value={email} />
+            value={email}
+          />
           <Field
             name="nickname"
             placeholder="Pseudonyme"
             onChange={changeField}
-            value={nickname} />
+            value={nickname}
+          />
           <Field
             name="password"
             type="password"
             placeholder="Mot de passe"
             onChange={changeField}
-            value={password} />
+            value={password}
+          />
           <Field
             name="password"
             type="password"
             placeholder="Confirmez le mot de passe"
             onChange={changeField}
-            value={password} />
+            value={password}
+          />
           <div className="login-form-button">
             <button
               type="submit"

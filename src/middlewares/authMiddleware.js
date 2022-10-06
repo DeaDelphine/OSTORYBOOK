@@ -23,7 +23,7 @@ const authMiddleware = (store) => (next) => (action) => {
 
       // console.log('authMiddleware voit passer une action LOG_IN');
       api.post(
-        '/login',
+        '/api/login',
         {
           email: state.user.email,
           password: state.user.password,

@@ -1,11 +1,9 @@
 /* eslint-disable no-lone-blocks */
-import PropTypes from 'prop-types';
-import { Navigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import LoginForm from './LoginForm';
-import SigninForm from './SigninForm';
 
-import { changeLoginField, logIn } from '../../actions/user';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import LoginForm from './LoginForm';
+import SigninForm from '../SigninForm';
 
 import './styles.scss';
 
@@ -16,20 +14,9 @@ import './styles.scss';
  *   - "not connected": displays the form and a button to connect
  */
 
-function Login({
-  handleLogout,
-  isLogged,
-  loggedMessage,
-}) {
-  const emailValue = useSelector((state) => state.user.email);
-  const passwordValue = useSelector((state) => state.user.password);
-  const loggedValue = useSelector((state) => state.user.logged);
-  const nicknameValue = useSelector((state) => state.user.nickname);
-  // const patate = useSelector((state) => state.user);
-  // console.log(patate);
-
-  const dispatch = useDispatch();
-
+function Login() {
+  const isLogged = useSelector((state) => state.login.logged);
+  const loggedMessage = useSelector((state) => state.login.loggedMessage);
   return (
     <div className="container">
       <div className="login-form">
@@ -42,34 +29,15 @@ function Login({
             <button
               type="button"
               className="login-form-button"
-              onClick={handleLogout}
             >
               Déconnexion
             </button>
           </div>
           )}
+          {!isLogged && <Navigate to="/histoires" replace /> }
           {!isLogged && (
             <div className="login-form-container--container">
-              <LoginForm
-                email={emailValue}
-                password={passwordValue}
-                nickname={nicknameValue}
-                isLogged={loggedValue}
-                loggedMessage={`Bienvenue ${nicknameValue}`}
-                changeField={(newValue, identifier) => {
-                  // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
-                  // on veut aller enregistrer la nouvelle valeur dans le state
-                  dispatch(changeLoginField(newValue, identifier));
-                  console.log(changeLoginField);
-                }}
-                handleLogin={() => {
-                  dispatch(logIn());
-                  console.log(logIn);
-                }}
-                handleLogout={(event) => {
-                  console.log('handleLogout', event);
-                }}
-              />
+              <LoginForm />
               <SigninForm />
             </div>
           )}
@@ -78,16 +46,6 @@ function Login({
     </div>
   );
 }
-
-Login.propTypes = {
-  handleLogout: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool.isRequired,
-  loggedMessage: PropTypes.string,
-};
-
-Login.defaultProps = {
-  loggedMessage: 'Connecté',
-};
 
 // == Export
 export default Login;
