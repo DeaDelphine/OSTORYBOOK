@@ -4,7 +4,9 @@ import jwtDecode from 'jwt-decode';
 import { redirect } from 'react-router-dom';
 // import Cookies from 'universal-cookie';
 // import { fetchFavorites } from '../actions/stories';
-import { FETCH_USER, setUser, USER_EDIT, clearEdit} from '../actions/user';
+import {
+  FETCH_USER, setUser, USER_EDIT, clearEdit,
+} from '../actions/user';
 import { saveUser } from '../actions/auth';
 
 // const cookies = new Cookies();
@@ -25,17 +27,17 @@ const authMiddleware = (store) => (next) => (action) => {
         '/api/user',
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("user")}`,
+            Authorization: `Bearer ${localStorage.getItem('user')}`,
           },
         },
 
       )
-      .then((response) => {
-        store.dispatch(setUser(response.data))
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          store.dispatch(setUser(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       break;
 
     case USER_EDIT:
@@ -49,17 +51,16 @@ const authMiddleware = (store) => (next) => (action) => {
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("user")}`,
+            Authorization: `Bearer ${localStorage.getItem('user')}`,
           },
-        }
+        },
       )
-      .then((response) => {
-        console.log(response);
-      }
-      )
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       break;
 
     default:

@@ -5,11 +5,11 @@ import { redirect } from 'react-router-dom';
 // import Cookies from 'universal-cookie';
 // import { fetchFavorites } from '../actions/stories';
 import {
-  LOG_IN, 
-  RedirectLogin, 
-  REDIRECT_LOGIN, 
+  LOG_IN,
+  RedirectLogin,
+  REDIRECT_LOGIN,
   saveUserData,
-  SAVE_LOGIN
+  SAVE_LOGIN,
 } from '../actions/auth';
 
 // const cookies = new Cookies();
@@ -34,29 +34,29 @@ const authMiddleware = (store) => (next) => (action) => {
         },
 
       )
-      .then((response) => {
-        api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
-        localStorage.setItem('token', response.data.token);
-        const dataUser = response.data;
-        store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
-        store.dispatch(RedirectLogin());
+        .then((response) => {
+          api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+          localStorage.setItem('token', response.data.token);
+          const dataUser = response.data;
+          store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
+          store.dispatch(RedirectLogin());
         // return redirect('/histoires');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       break;
 
     case SAVE_LOGIN:
       api.get(
-        '/api/user/me'
+        '/api/user/me',
       )
-      .then(
-        (response) => console.log(response.data)
-      )
-      .catch((error) => {
-        console.log(error);
-      });
+        .then(
+          (response) => console.log(response.data),
+        )
+        .catch((error) => {
+          console.log(error);
+        });
       break;
 
     case REDIRECT_LOGIN:
