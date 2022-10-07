@@ -20,9 +20,7 @@
     padding: 75px;
   }
 
-.mobile-navigation {
-  display: none;
-}
+
 
 }
 
@@ -32,11 +30,7 @@
   }
 
   .mobile-navigation {
-    font-size: 20px;
-    padding: 1rem;
-    align-items: center;
-    display: flex;
-    opacity: 1;
+
 
     & ul {
       line-height: 1.5;
@@ -85,6 +79,7 @@
     &__link--home {
       display: none;
     }
+
   
   }
 }
@@ -97,7 +92,6 @@
       padding-left: 2rem;
       padding-right: 2rem;
       background: none;
-
       padding-top: 20px;
 
     }

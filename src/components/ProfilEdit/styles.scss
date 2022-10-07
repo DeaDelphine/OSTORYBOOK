@@ -3,11 +3,8 @@
 /* PROFIL EDIT FORM */
 .container {
   overflow: hidden;
-  position: relative;
 
   &-button--return {
-      position: absolute;
-      bottom: 0;
       margin-top: 1rem;
       font-size: 1em;
       color: #fff;
@@ -124,24 +121,6 @@
   }
 
   &-input-password {
-    width: 100%;
-    padding: .7em;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: .3em;
-    height: 2.5em;
-    margin-bottom: 1rem;
-
-    &:focus {
-      border-color: vars.$color;
-
-      & + .field-label {
-        color: vars.$color;
-      }
-    }
-  }
-
-  &-input-select {
     width: 100%;
     padding: .7em;
     font-size: 1em;

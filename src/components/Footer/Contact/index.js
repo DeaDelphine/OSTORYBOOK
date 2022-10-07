@@ -6,7 +6,9 @@ import './styles.scss';
 function Contact() {
   return (
     <div className="container" >
-      <ContactForm />
+      <div className="contact-form">
+        <ContactForm />
+      </div>
     </div>
   );
 }
