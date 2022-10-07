@@ -1,15 +1,7 @@
 /* eslint-disable max-len */
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
-import { redirect } from 'react-router-dom';
-// import Cookies from 'universal-cookie';
-// import { fetchFavorites } from '../actions/stories';
-import {
-  FETCH_USER, setUser, USER_EDIT, clearEdit,
-} from '../actions/user';
-import { saveUser } from '../actions/auth';
 
-// const cookies = new Cookies();
+import { FETCH_USER, setUser, USER_EDIT } from '../actions/user';
 
 const api = axios.create({
   baseURL: 'http://0.0.0.0:8000',
@@ -44,8 +36,8 @@ const authMiddleware = (store) => (next) => (action) => {
       api.put(
         '/api/user/edit',
         {
-          newName: state.user.username.toLowerCase().trim(),
-          newMail: state.user.email.toLowerCase().trim(),
+          newName: state.user.username.trim(),
+          newMail: state.user.email.trim(),
           oldPassword: state.user.password.trim(),
           newPassword: state.user.newPassword.trim(),
         },

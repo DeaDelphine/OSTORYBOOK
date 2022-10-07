@@ -7,7 +7,6 @@ import './styles.scss';
 
 // == Component
 function Home() {
-
   const isLogged = localStorage.getItem('token') ?? false;
 
   return (
