@@ -7,25 +7,24 @@ import React, { useState } from 'react';
 
 // == Component
 function HeaderNavLinks() {
-
   const isLogged = localStorage.getItem('token') ?? false;
 
   const handleLogout = () => {
     console.log('handleLogout');
     localStorage.clear();
-  }
+  };
 
   return (
     <ul className="header header-navigation">
       { isLogged && (
         <NavLink
-          onClick={() =>props.isMobile && props.closeMobileMenu()}
+          onClick={() => props.isMobile && props.closeMobileMenu()}
           to="/mon-compte"
           className="header__link"
-        > 
+        >
           Mon compte
-        </NavLink>)
-      }
+        </NavLink>
+      )}
       <NavLink
         to="/"
         className="header__link"
@@ -35,13 +34,13 @@ function HeaderNavLinks() {
       </NavLink>
       { !isLogged && (
         <NavLink
-          onClick={() =>props.isMobile && props.closeMobileMenu()}
+          onClick={() => props.isMobile && props.closeMobileMenu()}
           to="/connexion"
           className="header__link"
-        > 
+        >
           Connexion
-        </NavLink>)
-      }
+        </NavLink>
+      )}
       { isLogged && (
         <NavLink
           onClick={(event) => {
@@ -50,7 +49,7 @@ function HeaderNavLinks() {
           }}
           to="/"
           className="header__link"
-        > 
+        >
           Déconnexion
         </NavLink>
       )}

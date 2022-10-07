@@ -1,20 +1,22 @@
 // == Import
 import './styles.scss';
-
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import ProfilForm from './ProfilForm';
+import { NavLink } from 'react-router-dom';
+import MyProfil from './MyProfil/index';
+import EditProfil from './MyProfil/EditProfil';
 
 // == Component
 function Profil() {
-  const emailValue = useSelector((state) => state.user.email);
-  const passwordValue = useSelector((state) => state.user.password);
-  const loggedValue = useSelector((state) => state.user.logged);
-  const nicknameValue = useSelector((state) => state.user.nickname);
-
   return (
     <div className="container">
-      <ProfilForm />
+      <MyProfil />
+      <EditProfil />
+      <NavLink
+        to="/mon-compte"
+        className="container-button--return"
+        style={{ fontFamily: 'arial', display: 'flex', justifyContent: 'center' }}
+      >
+        Retour à mon profil
+      </NavLink>
     </div>
   );
 }

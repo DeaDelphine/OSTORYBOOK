@@ -10,19 +10,8 @@ const storiesMiddleware = (store) => (next) => (action) => {
     case FETCH_STORIES:
 
       axios.get('http://0.0.0.0:8000/api/histoire', headers)
-      // , {
-      // headers: {
-      //   Authorization: `bearer ${cookies}`,
-      // },
 
-      // })
         .then((response) => {
-          // console.log(response);
-
-          // conseil : vérifier qu'on cible bien les infos dans la réponse
-          // avec un console.log avant d'écrire le dispatch
-          // console.log(response.data);
-
           store.dispatch(saveStories(response.data));
         })
         .catch((error) => {

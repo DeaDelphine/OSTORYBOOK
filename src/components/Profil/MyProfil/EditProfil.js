@@ -2,15 +2,15 @@
 import './styles.scss';
 
 // == Component
-function ProfilEdit() {
+function EditProfil() {
   return (
     <div className="profil-form">
       <div className="profil-form-container">
         <h2 className="profil-form-title">MODIFIER MON PROFIL</h2>
-          <div className="profil-form-element">
-            <form className="profil-form--form">
-              <div className="field">
-              <label 
+        <div className="profil-form-element">
+          <form className="profil-form--form">
+            <div className="field">
+              <label
                 htmlFor="#"
                 className="field-left"
               >
@@ -22,7 +22,7 @@ function ProfilEdit() {
                 name="nickname"
                 placeholder="Pseudonyme"
               />
-              <label 
+              <label
                 htmlFor="#"
                 className="field-left"
               >
@@ -34,7 +34,7 @@ function ProfilEdit() {
                 name="email"
                 placeholder="Email"
               />
-              <label 
+              <label
                 htmlFor="#"
                 className="field-left"
               >
@@ -46,7 +46,7 @@ function ProfilEdit() {
                 name="password"
                 placeholder="**********"
               />
-              <label 
+              <label
                 htmlFor="#"
                 className="field-left"
               >
@@ -72,13 +72,13 @@ function ProfilEdit() {
                   SUPPRIMER MON COMPTE
                 </button>
               </div>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
+    </div>
   );
 }
 
 // == Export
-export default ProfilEdit;
+export default EditProfil;

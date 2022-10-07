@@ -1,0 +1,20 @@
+@use 'src/styles/vars';
+
+/* PROFIL EDIT FORM */
+.container {
+  overflow: hidden;
+  position: relative;
+
+  &-button--return {
+      position: absolute;
+      bottom: 0;
+      margin-top: 1rem;
+      font-size: 1em;
+      color: #fff;
+      background-color: vars.$element-color;
+      border: 0;
+      width: 100%;
+      padding: 1rem;
+  }
+
+}

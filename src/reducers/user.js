@@ -1,4 +1,7 @@
-import { CHANGE_USER_INPUT } from '../actions/user';
+import {
+  CHANGE_USER_INPUT, SET_USER, CLEAR_EDIT,
+  CLEAR_USER_INPUT,
+} from '../actions/user';
 import { SIGN_IN } from '../actions/auth';
 
 export const initialState = {
@@ -38,6 +41,27 @@ const reducer = (state = initialState, action = {}) => {
         passwordcheck: action.value,
       };
 
+    case SET_USER: {
+      return {
+        ...state,
+        nickname: action.nickname,
+        email: action.mail,
+        password: '',
+        passwordcheck: '',
+      };
+    }
+    case CLEAR_EDIT: {
+      return {
+        ...state,
+        password: '',
+      };
+    }
+    case CLEAR_USER_INPUT: {
+      return {
+        ...state,
+        [action.key]: '',
+      };
+    }
     case SIGN_IN:
       return {
         ...state,

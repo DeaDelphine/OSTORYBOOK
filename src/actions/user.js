@@ -21,7 +21,7 @@ export const clearEdit = () => ({
 
 export const setUser = (userData) => ({
   type: SET_USER,
-  name: userData.name,
+  nickname: userData.nickname,
   mail: userData.mail,
 });
 

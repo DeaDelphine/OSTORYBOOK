@@ -1,6 +1,5 @@
 // == Import
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../Navigation/NavBar';
@@ -9,7 +8,7 @@ import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import Login from '../Login';
 import Profil from '../Profil';
-import ProfilEdit from '../ProfilEdit';
+import EditProfil from '../Profil/MyProfil/EditProfil';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/Contact';
 import LegalMentions from '../Footer/LegalMentions';
@@ -21,7 +20,6 @@ import Loading from './Loading';
 // == Styles
 import './styles.scss';
 // == Actions
-import { fetchStories } from '../../actions/stories';
 
 // == Component
 function App() {
@@ -38,7 +36,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
           <Route path="/mon-compte" element={<Profil />} />
-          <Route path="/mon-compte/edit" element={<ProfilEdit />} />
+          <Route path="/mon-compte/edit" element={<EditProfil />} />
           <Route path="/cgu" element={<CGU />} />
           <Route path="/nous-contacter" element={<ContactForm />} />
           <Route path="/mention-legales" element={<LegalMentions />} />
