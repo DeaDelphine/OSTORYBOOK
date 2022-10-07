@@ -17,7 +17,7 @@ function ContactForm() {
               <div className="field">
               <input
                 type="email"
-                className="field-input-email"
+                className="field-email"
                 name="email"
                 placeholder="Email"
               />

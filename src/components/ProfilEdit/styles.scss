@@ -81,14 +81,12 @@
   margin: .3em .3em .3em 0;
 
   &-left {
-    width: 100%;
     padding: 1em;
     height: 2.65em;
     font-size: 20px;
   }
 
   &-input-text {
-    width: 100%;
     padding: .7em;
     font-size: 1em;
     border: 1px solid #ddd;
@@ -106,7 +104,6 @@
   }
 
   &-input-email {
-    width: 100%;
     padding: .7em;
     font-size: 1em;
     border: 1px solid #ddd;
@@ -124,25 +121,6 @@
   }
 
   &-input-password {
-    width: 100%;
-    padding: .7em;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: .3em;
-    height: 2.5em;
-    margin-bottom: 1rem;
-
-    &:focus {
-      border-color: vars.$color;
-
-      & + .field-label {
-        color: vars.$color;
-      }
-    }
-  }
-
-  &-input-select {
-    width: 100%;
     padding: .7em;
     font-size: 1em;
     border: 1px solid #ddd;
