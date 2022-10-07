@@ -1,34 +1,36 @@
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Field from '../Field';
 
 import '../Login/styles.scss';
+
 /**
  * Display a form to log in, with inputs email and password.
  * It has two modes: "connected" and "not connected"
  *   - "connected": displays a message and a button to disconnect
  *   - "not connected": displays the form and a button to connect
  */
-function LoginForm({
+function SigninForm({
   changeField,
-  handleLogin,
+  handleSignin,
 }) {
-  const emailValue = useSelector((state) => state.user.email);
-  const passwordValue = useSelector((state) => state.user.password);
+  const emailValue = useSelector((state) => state.auth.email);
+  const nicknameValue = useSelector((state) => state.auth.nickname);
+  const passwordValue = useSelector((state) => state.auth.password);
+  const passwordCheckValue = useSelector((state) => state.auth.passwordcheck);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleLogin();
+    handleSignin();
   };
 
   return (
     <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-      <div className="login-form-right">
-        <h2 className="login-form-right-title">CONNEXION</h2>
-        <p className="login-form-right-message">Veuillez vous connecter pour jouer.</p>
-        <div className="login-form-right-container">
+      <div className="login-form-left">
+        <h2 className="login-form-left-title">INSCRIPTION</h2>
+        <p className="login-form-left-message">Pas encore de compte ? Inscrivez-vous pour pouvoir jouer.</p>
+        <div className="login-form-left-container">
           <Field
             name="email"
             placeholder="Email"
@@ -36,24 +38,33 @@ function LoginForm({
             value={emailValue}
           />
           <Field
+            name="nickname"
+            placeholder="Pseudonyme"
+            onChange={changeField}
+            value={nicknameValue}
+          />
+          <Field
             name="password"
             type="password"
             placeholder="Mot de passe"
-            value={passwordValue}
             onChange={changeField}
+            value={passwordValue}
           />
-
+          <Field
+            name="passwordcheck"
+            type="password"
+            placeholder="Confirmez le mot de passe"
+            onChange={changeField}
+            value={passwordCheckValue}
+          />
           <div className="login-form-button">
             <button
               type="submit"
               className="login-form-button--button"
-              to="/histoires"
+              to="/"
             >
-              SE CONNECTER
+              S'INSCRIRE
             </button>
-            <Link>
-              Mot de passe oublié ?
-            </Link>
           </div>
         </div>
       </div>
@@ -61,10 +72,10 @@ function LoginForm({
   );
 }
 
-LoginForm.propTypes = {
+SigninForm.propTypes = {
   changeField: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired,
+  handleSignin: PropTypes.func.isRequired,
 };
 
 // == Export
-export default LoginForm;
+export default SigninForm;

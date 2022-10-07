@@ -5,8 +5,10 @@ import ProfilForm from './ProfilForm';
 // == Component
 function Profil() {
   return (
-    <div className="container" >
-        <ProfilForm />
+
+    <div className="container">
+      <ProfilForm />
+
     </div>
   );
 }

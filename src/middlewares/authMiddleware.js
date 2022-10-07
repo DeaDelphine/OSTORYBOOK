@@ -1,36 +1,79 @@
+/* eslint-disable max-len */
 import axios from 'axios';
-import { fetchStories } from '../actions/stories';
-// import { fetchFavorites } from '../actions/stories';
-import { LOG_IN, saveUserData } from '../actions/user';
+import {
+  LOG_IN, saveUserData, SAVE_LOGIN, SIGN_IN, saveNewUser,
+} from '../actions/auth';
+
+// const cookies = new Cookies();
+
+const api = axios.create({
+  baseURL: 'http://0.0.0.0:8000',
+});
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
+  const state = store.getState();
+
   switch (action.type) {
     case LOG_IN:
+
       // console.log('authMiddleware voit passer une action LOG_IN');
-      axios.post(
-        'http://localhost:3001/login',
+      api.post(
+        '/api/login',
         {
-          email: store.getState().user.email,
-          password: store.getState().user.password,
+          email: state.user.email,
+          password: state.user.password,
+        },
+
+      )
+        .then((response) => {
+          api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+          localStorage.setItem('token', response.data.token);
+          const dataUser = response.data;
+          store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
+          // store.dispatch(RedirectLogin());
+        // return redirect('/histoires');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+    case SAVE_LOGIN:
+      api.get(
+        '/api/user/me',
+      )
+        .then(
+          (response) => console.log(response.data),
+        )
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+    case SIGN_IN:
+      console.log(state.user);
+      // console.log('authMiddleware voit passer une action LOG_IN');
+      api.post(
+        '/api/register',
+        {
+          email: state.auth.email.trim().toLowerCase(),
+          password: state.auth.password.trim(),
+          nickname: state.auth.nickname.trim(),
+
         },
       )
         .then((response) => {
-          // console.log(response);
-          // console.log(`nickname: ${response.data.pseudo}, token: ${response.data.token}, logged: ${response.data.logged}`);
-          store.dispatch(
-            saveUserData(response.data.pseudo, response.data.token, response.data.logged),
-          );
-
-          // on dispatch une action pour aller chercher les recettes préférées de l'utilisateur
-          // store.dispatch(fetchFavorites());
+          console.log(response);
+          if (response.status === 201) {
+            store.dispatch(saveNewUser());
+          }
         })
         .catch((error) => {
           console.log(error);
         });
 
       break;
-
     default:
   }
   // on passe l'action au suivant (middleware suivant ou reducer)

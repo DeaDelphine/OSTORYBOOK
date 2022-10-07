@@ -25,7 +25,7 @@ function Story({
             className="story story-container__button"
             onClick={(event) => {
               localStorage.setItem('id', id);
-              localStorage.setItem('startPage', startPage);
+              localStorage.setItem('page', startPage);
               dispatch(fetchPages(id, startPage));
             }}
           >Commencer

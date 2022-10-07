@@ -2,10 +2,10 @@
 @use 'sass:color';
 
 .home {
-  display: flex;
-  margin: 12rem;
+  margin: 0 auto;
 
   &__button {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +23,12 @@
     &:hover {
       background-color: vars.$medium-color;
     }
+  }
+
+  &__logo {
+    margin-top: -100px;
+    max-width: 80vw;
+    padding-bottom: 5rem;
   }
 
 }

@@ -7,29 +7,53 @@ import React, { useState } from 'react';
 
 // == Component
 function HeaderNavLinks() {
+
+  const isLogged = localStorage.getItem('token') ?? false;
+
+  const handleLogout = () => {
+    console.log('handleLogout');
+    localStorage.clear();
+  }
+
   return (
     <ul className="header header-navigation">
-      <NavLink
-        to="/mon-compte"
-        className="header__link"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
-      >
-        Mon compte
-      </NavLink>
+      { isLogged && (
+        <NavLink
+          onClick={() =>props.isMobile && props.closeMobileMenu()}
+          to="/mon-compte"
+          className="header__link"
+        > 
+          Mon compte
+        </NavLink>)
+      }
       <NavLink
         to="/"
-        className="header__link-logo"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
-      >
-        <img className="header header__logo" src={logo} alt="logo" />
-      </NavLink>
-      <NavLink
-        to="/connexion"
         className="header__link"
         onClick={() => props.isMobile && props.closeMobileMenu()}
       >
-        Connexion
+        Accueil
       </NavLink>
+      { !isLogged && (
+        <NavLink
+          onClick={() =>props.isMobile && props.closeMobileMenu()}
+          to="/connexion"
+          className="header__link"
+        > 
+          Connexion
+        </NavLink>)
+      }
+      { isLogged && (
+        <NavLink
+          onClick={(event) => {
+            handleLogout();
+            props.isMobile && props.closeMobileMenu();
+          }}
+          to="/"
+          className="header__link"
+        > 
+          Déconnexion
+        </NavLink>
+      )}
     </ul>
   );
 }

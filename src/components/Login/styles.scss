@@ -1,0 +1,189 @@
+@use 'src/styles/vars';
+
+.header__link--home {
+  display: block;
+}
+
+.login-form {
+
+  height: 100%; 
+  color: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &-container {
+    width: 100%;
+  }
+
+  &-left {
+    text-align: center;
+    margin: 0 auto;
+
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+    width: 80%;
+    height: 60vh;
+    border-top: 3px solid vars.$element-color;
+
+    &-title {
+      font-size: 28px;
+      font-weight: bold;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &-message {
+      font-size: 20px;
+      padding-bottom: 1rem;
+    }
+
+  }
+
+  &-right {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 0rem;
+    width: 80%;
+    height: 60vh;
+    border-bottom: 3px solid vars.$element-color;
+
+    &-title {
+      font-size: 28px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+      padding-top: 3rem;
+    }
+
+    &-message {
+      font-size: 20px;
+      padding-bottom: 1rem;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-logged {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+
+    &--button {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1em;
+      color: #fff;
+      background-color: vars.$element-color;
+      border-radius: .3em;
+      border: 0;
+      padding: 0.7em;
+      width: 170px;
+      height: 50px;
+      border-radius: 50px;
+    }
+
+    &--button:hover {
+      background-color: vars.$element-color-hover;
+    }
+
+    & a {
+      font-size: 20px;
+      padding-top: 1rem;
+    }
+  }
+}
+
+
+
+.login-form::-webkit-scrollbar {
+  width: 16px;
+}
+
+.login-form::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 50px;
+}
+
+.login-form::-webkit-scrollbar-thumb {
+  background-color: vars.$element-color;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;  
+}
+
+@media (min-width:600px) {
+  .login-form {
+
+    overflow-y: hidden;
+    padding: 0 2rem;
+    width: 100%;
+
+    &-container {
+      overflow-y: hidden;
+      &--container {
+        display: flex;
+
+      }
+
+      
+    }
+    &-left {
+      text-align: center;
+      padding: 3rem;
+      margin-top: 3rem;
+      float: left;
+      width: 100%;
+      height: 60vh;
+      border-top: none;
+      border-left: 2px solid vars.$element-color;
+  
+      &-title {
+        font-size: 28px;
+        font-weight: bold;
+        padding-top: 0rem;
+        padding-bottom: 1rem;
+      }
+    }
+  
+    &-right {  
+      padding: 3rem;
+      margin-top: 3rem;
+      width: 100%;
+      float: right;
+      height: 60vh;
+      border-bottom: none;
+      border-right: 2px solid vars.$element-color;
+
+      &-title {
+        font-size: 28px;
+        font-weight: bold;
+        padding-top: 0rem;
+        padding-bottom: 1rem;
+      }
+    }
+
+    &-element {
+      width: 100%;
+    }
+    
+  
+  }
+
+}

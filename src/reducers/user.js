@@ -1,19 +1,16 @@
-import { CHANGE_LOGIN_FIELD, SAVE_USER_DATA } from '../actions/user';
+import { CHANGE_USER_INPUT } from '../actions/user';
+import { SIGN_IN } from '../actions/auth';
 
 export const initialState = {
-  logged: false,
-  // contenu du champ email du formulaire de login
   email: '',
-  // contenu du champ password du formulaire de login
-  password: '',
-  // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
-  token: '',
+  password: '',
+  passwordcheck: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_LOGIN_FIELD:
+    case CHANGE_USER_INPUT:
       // si le champ concerné par le changement est celui de l'e-mail
       if (action.fieldIdentifier === 'email') {
         return {
@@ -21,23 +18,33 @@ const reducer = (state = initialState, action = {}) => {
           email: action.value,
         };
       }
-      // else implicite : si on arrive à cette ligne c'est que forcément on n'est pas
-      // passé dans le if
+
+      if (action.fieldIdentifier === 'nickname') {
+        return {
+          ...state,
+          nickname: action.value,
+        };
+      }
+
+      if (action.fieldIdentifier === 'password') {
+        return {
+          ...state,
+          password: action.value,
+        };
+      }
+
       return {
         ...state,
-        password: action.value,
+        passwordcheck: action.value,
       };
 
-    case SAVE_USER_DATA:
+    case SIGN_IN:
       return {
         ...state,
         nickname: action.nickname,
-        token: action.token,
-        logged: action.logged,
-        // pour la sécurité, on en profite pour effacer email
-        // et password (ils ne sont plus nécessaires)
         email: '',
         password: '',
+        passwordcheck: '',
       };
 
     default:
