@@ -3,7 +3,6 @@
 /* PROFIL EDIT FORM */
 .container {
   overflow: hidden;
-  position: relative;
 
   &-button--return {
       position: absolute;
@@ -81,12 +80,14 @@
   margin: .3em .3em .3em 0;
 
   &-left {
+    width: 100%;
     padding: 1em;
     height: 2.65em;
     font-size: 20px;
   }
 
   &-input-text {
+    width: 100%;
     padding: .7em;
     font-size: 1em;
     border: 1px solid #ddd;
@@ -104,6 +105,7 @@
   }
 
   &-input-email {
+    width: 100%;
     padding: .7em;
     font-size: 1em;
     border: 1px solid #ddd;
@@ -121,6 +123,7 @@
   }
 
   &-input-password {
+    width: 100%;
     padding: .7em;
     font-size: 1em;
     border: 1px solid #ddd;

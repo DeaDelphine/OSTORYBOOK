@@ -5,7 +5,11 @@ import './styles.scss';
 // == Component
 function Contact() {
   return (
-      <ContactForm />
+    <div className="container" >
+      <div className="contact-form">
+        <ContactForm />
+      </div>
+    </div>
   );
 }
 

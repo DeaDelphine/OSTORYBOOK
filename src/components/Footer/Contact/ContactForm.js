@@ -9,7 +9,7 @@ import './styles.scss';
 function ContactForm() {
 
   return (
-      <div className="contact-form">
+      
       <div className="contact-form-container">
         <h2 className="contact-form-title">NOUS CONTACTER</h2>
           <div className="contact-form-element">
@@ -36,7 +36,6 @@ function ContactForm() {
             </form>
           </div>
         </div>
-      </div>
   );
 };
 

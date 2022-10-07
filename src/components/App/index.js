@@ -34,7 +34,6 @@ function App() {
     <div className="app">
       <NavBar />
       <div className="app-container">
-        <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
@@ -48,7 +47,6 @@ function App() {
           <Route path="/histoires" element={<StoryList />} />
           <Route path="/histoire" element={<Pages />} />
         </Routes>
-        </div>
       </div>
       <Footer />
     </div>

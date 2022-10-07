@@ -1,8 +1,7 @@
 // == Import
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
-import logo from 'src/assets/images/logo.png';
-import React, { useState } from 'react';
+import React from 'react';
 /* eslint-disable react/button-has-type */
 
 // == Component
