@@ -12,13 +12,13 @@
   overflow-x: hidden;
 
   &-container {
+    overflow-y: scroll;
     width: 100%;
   }
 
   &-left {
     text-align: center;
     margin: 0 auto;
-
     padding-bottom: 2rem;
     padding-top: 3rem;
     width: 80%;
@@ -111,22 +111,6 @@
 }
 
 
-
-.login-form::-webkit-scrollbar {
-  width: 16px;
-}
-
-.login-form::-webkit-scrollbar-track {
-  background: black;
-  border-radius: 50px;
-}
-
-.login-form::-webkit-scrollbar-thumb {
-  background-color: vars.$element-color;
-  border: 4px solid transparent;
-  border-radius: 8px;
-  background-clip: padding-box;  
-}
 
 @media (min-width:600px) {
   .login-form {

@@ -34,7 +34,7 @@ function HeaderNavLinks() {
       </NavLink>
       { !isLogged && (
         <NavLink
-          onClick={() =>props.isMobile && props.closeMobileMenu()}
+          onClick={() => props.isMobile && props.closeMobileMenu()}
           to="/connexion"
           className="header__link"
         > 
