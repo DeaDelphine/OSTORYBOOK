@@ -1,7 +1,7 @@
 // == Import
 import { NavLink } from 'react-router-dom';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 import './styles.scss';
 
@@ -9,15 +9,14 @@ import './styles.scss';
 function ProfilForm({
   username,
 }) {
-  
   return (
     <div className="profil-form">
       <div className="profil-form-container">
-          <div className="profil-form-element">
-            <form className="profil-form--form">
-              <div className="field">
+        <div className="profil-form-element">
+          <form className="profil-form--form">
+            <div className="field">
               <p className="field-info-username">
-              Mon Profil
+                Mon Profil
               </p>
               <p className="field-info-email">
                 pseudo@user.com
@@ -27,7 +26,7 @@ function ProfilForm({
                   <NavLink
                     to="/mon-compte/edit"
                     type="submit"
-                    style={{fontFamily: 'arial'}}
+                    style={{ fontFamily: 'arial' }}
                   >
                     MODIFIER MON PROFIL
                   </NavLink>
@@ -39,17 +38,17 @@ function ProfilForm({
                   SUPPRIMER MON COMPTE
                 </button>
               </div>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
+    </div>
   );
 }
 
 ProfilForm.propTypes = {
   username: PropTypes.string.isRequired,
-}
+};
 
 // == Export
 export default ProfilForm;
