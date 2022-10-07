@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+ 
  .cgu {
    background-color: aqua;
  }
@@ -47,24 +49,32 @@
 
         &-name {
           font-size: 3rem;
-          padding: 1rem;
+          padding: 0.5rem;
 
         }
 
         &-role {
-          padding: 1rem;
+          padding: 0.5rem;
           font-size: 2rem;
         }
 
         &-link {
-          padding-top: 1rem;
-          padding-bottom: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 1rem 0;
+          line-height: 2rem;
+          
         }
 
         &-link a {
-          padding: 4rem;
           font-size: 1.5rem;
         }
+
+        &-link a:hover {
+          color: vars.$element-color;
+        }
+
       }
     }
   }
@@ -77,6 +87,7 @@
         &--card {
           width: 50vw;
         }
+        
       }
     }
   }
@@ -84,18 +95,17 @@
 
 @media (min-width:990px) {
   .container {
+    overflow: hidden;
+
     .credits{
+      
       &-container {
         display: flex;
+        justify-content: center;
 
         &--card {
           width: 15vw;
           margin: 0 1rem;
-        }
-
-        &-link {
-          padding: none;
-          font-size: 10px;
         }
 
       }
