@@ -48,14 +48,16 @@
         }
 
         &-name {
-          font-size: 3rem;
+          font-size: 2.5rem;
           padding: 0.5rem;
 
         }
 
         &-role {
           padding: 0.5rem;
-          font-size: 2rem;
+          font-size: 1.5rem;
+          line-height: 1.7rem;
+          height: 60px;
         }
 
         &-link {
@@ -68,7 +70,7 @@
         }
 
         &-link a {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
         }
 
         &-link a:hover {
