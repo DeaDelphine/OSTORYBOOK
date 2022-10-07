@@ -5,8 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import LoginForm from '../LoginForm';
 import SigninForm from '../SigninForm';
 
-import { changeLoginField, logIn } from '../../actions/auth';
-import { changeUserInput, SignIn } from '../../actions/user';
+import { changeLoginField, logIn, SignIn } from '../../actions/auth';
+import { changeUserInput } from '../../actions/user';
 
 import './styles.scss';
 

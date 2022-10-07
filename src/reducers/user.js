@@ -1,4 +1,5 @@
-import { CHANGE_USER_INPUT, SIGN_IN } from '../actions/user';
+import { CHANGE_USER_INPUT } from '../actions/user';
+import { SIGN_IN } from '../actions/auth';
 
 export const initialState = {
   email: '',

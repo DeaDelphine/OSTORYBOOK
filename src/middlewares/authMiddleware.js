@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 import axios from 'axios';
-import { LOG_IN, saveUserData, SAVE_LOGIN } from '../actions/auth';
+import {
+  LOG_IN, saveUserData, SAVE_LOGIN, SIGN_IN, saveNewUser,
+} from '../actions/auth';
 
 // const cookies = new Cookies();
 
@@ -49,9 +51,29 @@ const authMiddleware = (store) => (next) => (action) => {
         });
       break;
 
-    // case REDIRECT_LOGIN:
-    //   redirect('/histoires');
-    //   break;
+    case SIGN_IN:
+      console.log(state.user);
+      // console.log('authMiddleware voit passer une action LOG_IN');
+      api.post(
+        '/api/register',
+        {
+          email: state.auth.email.trim().toLowerCase(),
+          password: state.auth.password.trim(),
+          nickname: state.auth.nickname.trim(),
+
+        },
+      )
+        .then((response) => {
+          console.log(response);
+          if (response.status === 201) {
+            store.dispatch(saveNewUser());
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      break;
     default:
   }
   // on passe l'action au suivant (middleware suivant ou reducer)
