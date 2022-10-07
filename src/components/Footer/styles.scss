@@ -7,11 +7,98 @@
  .game-rules{
   background-color: aqua;
  }
-.credits{
-  background-color: aqua;
-}
+
 .legal-mentions{
   background-color: aqua;
 }
 
 
+/** CREDITS **/
+.container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  .credits{
+    color: #fff;
+
+    &-title {
+      padding: 2rem 0 0 0;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    &-container {
+      padding: 1rem;
+
+      &--card {
+        background-color: black;
+        width: 80vw;
+        margin: 1rem auto;
+        text-align: center;
+        border-radius: 40px;
+        padding: 1rem 1rem 0 1rem;
+
+        &-img {
+          background-color: antiquewhite;
+
+          width: 100%;
+          border-radius: 30px;
+        }
+
+        &-name {
+          font-size: 3rem;
+          padding: 1rem;
+
+        }
+
+        &-role {
+          padding: 1rem;
+          font-size: 2rem;
+        }
+
+        &-link {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+
+        &-link a {
+          padding: 4rem;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width:600px) {
+  .container {
+    .credits{
+      &-container {
+        &--card {
+          width: 50vw;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width:990px) {
+  .container {
+    .credits{
+      &-container {
+        display: flex;
+
+        &--card {
+          width: 15vw;
+          margin: 0 1rem;
+        }
+
+        &-link {
+          padding: none;
+          font-size: 10px;
+        }
+
+      }
+    }
+  }
+}
