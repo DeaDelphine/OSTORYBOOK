@@ -1,15 +1,13 @@
 // == Import
 import './styles.scss';
 import { NavLink } from 'react-router-dom';
-import MyProfil from './MyProfil/index';
-import EditProfil from './MyProfil/EditProfil';
+import MyProfil from '../MyProfil';
 
 // == Component
 function Profil() {
   return (
     <div className="container">
       <MyProfil />
-      <EditProfil />
       <NavLink
         to="/mon-compte"
         className="container-button--return"

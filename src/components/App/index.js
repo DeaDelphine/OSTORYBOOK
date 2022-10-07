@@ -8,7 +8,7 @@ import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import Login from '../Login';
 import Profil from '../Profil';
-import EditProfil from '../Profil/MyProfil/EditProfil';
+import EditProfil from '../EditProfil';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/Contact';
 import LegalMentions from '../Footer/LegalMentions';
