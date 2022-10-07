@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 import axios from 'axios';
+import { logIn } from '../actions/auth';
 
-import { FETCH_USER, setUser, USER_EDIT } from '../actions/user';
+import { SIGN_IN, USER_EDIT } from '../actions/user';
 
 const api = axios.create({
   baseURL: 'http://0.0.0.0:8000',
@@ -12,24 +13,27 @@ const authMiddleware = (store) => (next) => (action) => {
   const state = store.getState();
 
   switch (action.type) {
-    case FETCH_USER:
-
+    case SIGN_IN:
+      console.log(state.user);
       // console.log('authMiddleware voit passer une action LOG_IN');
-      api.get(
-        '/api/user',
+      api.post(
+        '/api/register',
         {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('user')}`,
-          },
+          email: state.user.email.trim().toLowerCase(),
+          password: state.user.password.trim(),
+          nickname: state.user.nickname.trim(),
         },
-
       )
         .then((response) => {
-          store.dispatch(setUser(response.data));
+          console.log(response);
+          if (response.status === 201) {
+            store.dispatch(logIn(response.data));
+          }
         })
         .catch((error) => {
           console.log(error);
         });
+
       break;
 
     case USER_EDIT:
@@ -37,7 +41,7 @@ const authMiddleware = (store) => (next) => (action) => {
         '/api/user/edit',
         {
           newName: state.user.username.trim(),
-          newMail: state.user.email.trim(),
+          newMail: state.user.email.toLowerCase().trim(),
           oldPassword: state.user.password.trim(),
           newPassword: state.user.newPassword.trim(),
         },

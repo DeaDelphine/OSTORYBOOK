@@ -1,4 +1,4 @@
-import { CHANGE_USER_INPUT, FETCH_USER } from '../actions/user';
+import { CHANGE_USER_INPUT, SIGN_IN } from '../actions/user';
 
 export const initialState = {
   email: '',
@@ -37,7 +37,7 @@ const reducer = (state = initialState, action = {}) => {
         passwordcheck: action.value,
       };
 
-    case FETCH_USER:
+    case SIGN_IN:
       return {
         ...state,
         nickname: action.nickname,

@@ -6,7 +6,7 @@ import LoginForm from '../LoginForm';
 import SigninForm from '../SigninForm';
 
 import { changeLoginField, logIn } from '../../actions/auth';
-import { changeUserInput, fetchUser, SignIn } from '../../actions/user';
+import { changeUserInput, SignIn } from '../../actions/user';
 
 import './styles.scss';
 

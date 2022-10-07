@@ -61,6 +61,7 @@ function SigninForm({
             <button
               type="submit"
               className="login-form-button--button"
+              to="/"
             >
               S'INSCRIRE
             </button>

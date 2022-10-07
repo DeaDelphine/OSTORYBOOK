@@ -1,14 +1,13 @@
 export const CHANGE_USER_INPUT = 'CHANGE_USER_INPUT';
 export const USER_EDIT = 'USER_EDIT';
 export const CLEAR_EDIT = 'CLEAR_EDIT';
-export const FETCH_USER = 'FETCH_USER';
 export const SET_USER = 'SET_USER';
 export const CLEAR_USER_INPUT = 'CLEAR_USER_INPUT';
 export const SIGN_IN = 'SIGN_IN';
 
-export const changeUserInput = (newvalue, fieldIdentifier) => ({
+export const changeUserInput = (newValue, fieldIdentifier) => ({
   type: CHANGE_USER_INPUT,
-  value: newvalue,
+  value: newValue,
   fieldIdentifier: fieldIdentifier,
 });
 
@@ -28,7 +27,6 @@ export const setUser = (userData) => ({
   type: SET_USER,
   name: userData.name,
   mail: userData.mail,
-  avatar: userData.avatar,
 });
 
 export const clearUserInput = (key) => ({
