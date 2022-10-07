@@ -1,41 +1,26 @@
 // == Import
 import { NavLink } from 'react-router-dom';
+
+import PropTypes from "prop-types";
+
 import './styles.scss';
 
 // == Component
-function ProfilForm() {
+function ProfilForm({
+  username,
+}) {
+  
   return (
     <div className="profil-form">
       <div className="profil-form-container">
           <div className="profil-form-element">
             <form className="profil-form--form">
               <div className="field">
-              <label 
-                htmlFor="#"
-                className="field-label"
-              >
-                Pseudo :
-              </label>
               <p className="field-info-username">
-                Mon Pseudo
+              Mon Profil
               </p>
-              <label 
-                htmlFor="#"
-                className="field-label"
-              >
-                Adresse mail :
-              </label>
               <p className="field-info-email">
                 pseudo@user.com
-              </p>
-              <label 
-                htmlFor="#"
-                className="field-label"
-              >
-                Mot de passe :
-              </label>
-              <p className="field-info-password">
-                ******************
               </p>
               <div className="profil-form-button">
                 <div className="profil-form-button--left">
@@ -60,6 +45,10 @@ function ProfilForm() {
         </div>
       </div>
   );
+}
+
+ProfilForm.propTypes = {
+  username: PropTypes.string.isRequired,
 }
 
 // == Export
