@@ -4,13 +4,13 @@ import { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import './styles.scss';
+
 import { fetchPages } from 'src/actions/pages';
 import { Link, NavLink } from 'react-router-dom';
 
-
 /* eslint-disable max-len */
 function Page({
-  id, title, content, image, choices, page_end
+  id, title, content, image, choices, page_end,
 }) {
   const dispatch = useDispatch();
 
@@ -48,6 +48,7 @@ function Page({
           }}
         > Retour à la liste des histoires
         </NavLink>
+
       </div>
     </div>
   );

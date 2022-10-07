@@ -1,15 +1,7 @@
 /* eslint-disable max-len */
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
-import { redirect } from 'react-router-dom';
-// import Cookies from 'universal-cookie';
-// import { fetchFavorites } from '../actions/stories';
 import {
-  LOG_IN,
-  RedirectLogin,
-  REDIRECT_LOGIN,
-  saveUserData,
-  SAVE_LOGIN,
+  LOG_IN, saveUserData, SAVE_LOGIN, SIGN_IN, saveNewUser,
 } from '../actions/auth';
 
 // const cookies = new Cookies();
@@ -27,7 +19,7 @@ const authMiddleware = (store) => (next) => (action) => {
 
       // console.log('authMiddleware voit passer une action LOG_IN');
       api.post(
-        '/login',
+        '/api/login',
         {
           email: state.user.email,
           password: state.user.password,
@@ -39,7 +31,7 @@ const authMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('token', response.data.token);
           const dataUser = response.data;
           store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
-          store.dispatch(RedirectLogin());
+          // store.dispatch(RedirectLogin());
         // return redirect('/histoires');
         })
         .catch((error) => {
@@ -59,8 +51,28 @@ const authMiddleware = (store) => (next) => (action) => {
         });
       break;
 
-    case REDIRECT_LOGIN:
-      redirect('/histoires');
+    case SIGN_IN:
+      console.log(state.user);
+      // console.log('authMiddleware voit passer une action LOG_IN');
+      api.post(
+        '/api/register',
+        {
+          email: state.auth.email.trim().toLowerCase(),
+          password: state.auth.password.trim(),
+          nickname: state.auth.nickname.trim(),
+
+        },
+      )
+        .then((response) => {
+          console.log(response);
+          if (response.status === 201) {
+            store.dispatch(saveNewUser());
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
       break;
     default:
   }

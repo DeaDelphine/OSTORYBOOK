@@ -1,14 +1,12 @@
 /* eslint-disable no-lone-blocks */
 
 import { Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import LoginForm from '../LoginForm';
 import SigninForm from '../SigninForm';
 
-import { useDispatch } from 'react-redux';
-
-import { changeLoginField, logIn } from '../../actions/auth';
-import { FETCH_USER, setUser, USER_EDIT, clearEdit } from '../../actions/user';
+import { changeLoginField, logIn, SignIn } from '../../actions/auth';
+import { changeUserInput } from '../../actions/user';
 
 import './styles.scss';
 
@@ -20,7 +18,6 @@ import './styles.scss';
  */
 
 function Login() {
-
   const isLogged = useSelector((state) => state.user.logged);
   const loggedMessage = useSelector((state) => state.user.loggedMessage);
 
@@ -44,30 +41,26 @@ function Login() {
           </div>
           )}
           {isLogged && <Navigate to="/histoires" replace /> }
-            {!isLogged && (
-              <div className="login-form-container--container">
-              <LoginForm
-                changeField={(newValue, identifier) => {
-                  // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
-                  // on veut aller enregistrer la nouvelle valeur dans le state
-                  dispatch(changeLoginField(newValue, identifier));
-                }}
-                handleLogin={() => {
-                  dispatch(logIn());
-                }}
-              />
-              <SigninForm 
-                changeField={(newValue, identifier) => {
-                  // console.log(`changeField, newValue=${newValue}, identifier=${identifier}`);
-                  // on veut aller enregistrer la nouvelle valeur dans le state
-                  dispatch(changeSigninField(newValue, identifier));
-                }}
-                handleSignin={() => {
-                  dispatch(signIn());
-                }}
-              />
-              </div>
-              )}   
+          {!isLogged && (
+          <div className="login-form-container--container">
+            <LoginForm
+              changeField={(newValue, identifier) => {
+                dispatch(changeLoginField(newValue, identifier));
+              }}
+              handleLogin={() => {
+                dispatch(logIn());
+              }}
+            />
+            <SigninForm
+              changeField={(newValue, identifier) => {
+                dispatch(changeUserInput(newValue, identifier));
+              }}
+              handleSignin={() => {
+                dispatch(SignIn());
+              }}
+            />
+          </div>
+          )}
         </div>
       </div>
     </div>

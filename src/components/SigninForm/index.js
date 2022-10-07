@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 
-import Field from '../Field';
-
 import { useSelector } from 'react-redux';
+import Field from '../Field';
 
 import '../Login/styles.scss';
 
@@ -16,7 +15,6 @@ function SigninForm({
   changeField,
   handleSignin,
 }) {
-
   const emailValue = useSelector((state) => state.auth.email);
   const nicknameValue = useSelector((state) => state.auth.nickname);
   const passwordValue = useSelector((state) => state.auth.password);
@@ -26,7 +24,6 @@ function SigninForm({
     evt.preventDefault();
     handleSignin();
   };
-
 
   return (
     <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
@@ -38,28 +35,33 @@ function SigninForm({
             name="email"
             placeholder="Email"
             onChange={changeField}
-            value={emailValue} />
+            value={emailValue}
+          />
           <Field
             name="nickname"
             placeholder="Pseudonyme"
             onChange={changeField}
-            value={nicknameValue} />
+            value={nicknameValue}
+          />
           <Field
             name="password"
             type="password"
             placeholder="Mot de passe"
             onChange={changeField}
-            value={passwordValue} />
+            value={passwordValue}
+          />
           <Field
             name="passwordcheck"
             type="password"
             placeholder="Confirmez le mot de passe"
             onChange={changeField}
-            value={passwordCheckValue} />
+            value={passwordCheckValue}
+          />
           <div className="login-form-button">
             <button
               type="submit"
               className="login-form-button--button"
+              to="/"
             >
               S'INSCRIRE
             </button>
@@ -74,7 +76,6 @@ SigninForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleSignin: PropTypes.func.isRequired,
 };
-
 
 // == Export
 export default SigninForm;

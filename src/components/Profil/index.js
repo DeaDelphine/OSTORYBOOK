@@ -14,8 +14,8 @@ function Profil() {
   const nicknameValue = useSelector((state) => state.user.nickname);
 
   return (
-    <div className="container" >
-        <ProfilForm />
+    <div className="container">
+      <ProfilForm />
     </div>
   );
 }

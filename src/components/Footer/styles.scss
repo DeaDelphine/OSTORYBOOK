@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+ 
  .cgu {
    background-color: aqua;
  }
@@ -7,11 +9,108 @@
  .game-rules{
   background-color: aqua;
  }
-.credits{
-  background-color: aqua;
-}
+
 .legal-mentions{
   background-color: aqua;
 }
 
 
+/** CREDITS **/
+.container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  .credits{
+    color: #fff;
+
+    &-title {
+      padding: 2rem 0 0 0;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    &-container {
+      padding: 1rem;
+
+      &--card {
+        background-color: black;
+        width: 80vw;
+        margin: 1rem auto;
+        text-align: center;
+        border-radius: 40px;
+        padding: 1rem 1rem 0 1rem;
+
+        &-img {
+          background-color: antiquewhite;
+
+          width: 100%;
+          border-radius: 30px;
+        }
+
+        &-name {
+          font-size: 2.5rem;
+          padding: 0.5rem;
+
+        }
+
+        &-role {
+          padding: 0.5rem;
+          font-size: 1.5rem;
+          line-height: 1.7rem;
+          height: 60px;
+        }
+
+        &-link {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 1rem 0;
+          line-height: 2rem;
+          
+        }
+
+        &-link a {
+          font-size: 1.2rem;
+        }
+
+        &-link a:hover {
+          color: vars.$element-color;
+        }
+
+      }
+    }
+  }
+}
+
+@media (min-width:600px) {
+  .container {
+    .credits{
+      &-container {
+        &--card {
+          width: 50vw;
+        }
+        
+      }
+    }
+  }
+}
+
+@media (min-width:990px) {
+  .container {
+    overflow: hidden;
+
+    .credits{
+      
+      &-container {
+        display: flex;
+        justify-content: center;
+
+        &--card {
+          width: 15vw;
+          margin: 0 1rem;
+        }
+
+      }
+    }
+  }
+}
