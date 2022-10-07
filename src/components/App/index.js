@@ -11,7 +11,7 @@ import Login from '../Login';
 import Profil from '../Profil';
 import ProfilEdit from '../ProfilEdit';
 import StoryList from '../StoryList';
-import ContactForm from '../Footer/ContactForm';
+import ContactForm from '../Footer/Contact';
 import LegalMentions from '../Footer/LegalMentions';
 import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
