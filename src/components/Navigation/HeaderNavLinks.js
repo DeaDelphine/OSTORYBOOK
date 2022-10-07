@@ -17,13 +17,15 @@ function HeaderNavLinks() {
 
   return (
     <ul className="header header-navigation">
-      <NavLink
-        to="/mon-compte"
-        className="header__link"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
-      >
-        Mon compte
-      </NavLink>
+      { isLogged && (
+        <NavLink
+          onClick={() =>props.isMobile && props.closeMobileMenu()}
+          to="/mon-compte"
+          className="header__link"
+        > 
+          Mon compte
+        </NavLink>)
+      }
       <NavLink
         to="/"
         className="header__link"
