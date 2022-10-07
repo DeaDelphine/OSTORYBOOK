@@ -20,8 +20,8 @@ function Page({
       <div className="page page-container" key={id}>
         <p className="page page-container--title">{title}</p>
         <div className="page-container--content">
-          <p className="page page-container--content__subtitle">{content}</p>
           <img className="page page-container--content__img" src={image} alt="story-img" />
+          <p className="page page-container--content__subtitle">{content}</p>
         </div>
         <div className="page page-container--choice">
           {choices ? choices.map((choice) => (

@@ -135,10 +135,11 @@
       
         &__img {
           background-color: none;
-          height: 10rem;
+          height: 53vh;
           padding: 1rem;
           object-fit: cover;
-          border-radius: 30px;
+          border-radius: 40px;
+          width: 83vw;
         }
       }
   
@@ -186,8 +187,6 @@
   .page-container {
     &--content {
 
-      display: flex;
-    
       &__subtitle {
         text-align: justify;
         font-size: 20px;
@@ -197,11 +196,11 @@
     
       &__img {
         background-color: none;
-        height: 10rem;
+        height: 52vh;
         padding: 1rem;
         object-fit: cover;
-        border-radius: 30px;
-        width: 50%;
+        border-radius: 40px;
+        width: 83vw;
       }
     }
   }
