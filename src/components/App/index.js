@@ -9,6 +9,7 @@ import Home from '../Home';
 import Footer from '../Navigation/FooterNavigation';
 import Login from '../Login';
 import Profil from '../Profil';
+import ProfilEdit from '../ProfilEdit';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/ContactForm';
 import LegalMentions from '../Footer/LegalMentions';
@@ -37,6 +38,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
           <Route path="/mon-compte" element={<Profil />} />
+          <Route path="/mon-compte/edit" element={<ProfilEdit />} />
           <Route path="/cgu" element={<CGU />} />
           <Route path="/nous-contacter" element={<ContactForm />} />
           <Route path="/mention-legales" element={<LegalMentions />} />

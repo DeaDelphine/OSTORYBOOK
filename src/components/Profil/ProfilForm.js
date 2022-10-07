@@ -1,70 +1,37 @@
 // == Import
+import { NavLink } from 'react-router-dom';
+
+import PropTypes from "prop-types";
+
 import './styles.scss';
 
 // == Component
-function ProfilForm() {
+function ProfilForm({
+  username,
+}) {
+  
   return (
     <div className="profil-form">
       <div className="profil-form-container">
-        <h2 className="profil-form-title">MON PROFIL</h2>
           <div className="profil-form-element">
             <form className="profil-form--form">
               <div className="field">
-              <label 
-                htmlFor="#"
-                className="field-left"
-              >
-                Pseudo :
-              </label>
-              <input
-                type="text"
-                className="field-input-text"
-                name="nickname"
-                placeholder="Pseudonyme"
-              />
-              <label 
-                htmlFor="#"
-                className="field-left"
-              >
-                Adresse mail :
-              </label>
-              <input
-                type="email"
-                className="field-input-email"
-                name="email"
-                placeholder="Email"
-              />
-              <label 
-                htmlFor="#"
-                className="field-left"
-              >
-                Mot de passe :
-              </label>
-              <input
-                type="password"
-                className="field-input-password"
-                name="password"
-                placeholder="**********"
-              />
-              <label 
-                htmlFor="#"
-                className="field-left"
-              >
-                Confirmez le mot de passe :
-              </label>
-              <input
-                type="password"
-                className="field-input-password"
-                name="password"
-                placeholder="**********"
-              />
+              <p className="field-info-username">
+              Mon Profil
+              </p>
+              <p className="field-info-email">
+                pseudo@user.com
+              </p>
               <div className="profil-form-button">
-                <button
-                  className="profil-form-button--left"
-                  type="submit"
-                >
-                  VALIDER LES MODIFICATIONS
-                </button>
+                <div className="profil-form-button--left">
+                  <NavLink
+                    to="/mon-compte/edit"
+                    type="submit"
+                    style={{fontFamily: 'arial'}}
+                  >
+                    MODIFIER MON PROFIL
+                  </NavLink>
+                </div>
                 <button
                   className="profil-form-button--right"
                   type="submit"
@@ -78,6 +45,10 @@ function ProfilForm() {
         </div>
       </div>
   );
+}
+
+ProfilForm.propTypes = {
+  username: PropTypes.string.isRequired,
 }
 
 // == Export
