@@ -10,7 +10,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 /* eslint-disable max-len */
 function Page({
-  id, title, content, image, choices, page_end,
+  id, title, image, content,  choices, page_end,
 }) {
   const dispatch = useDispatch();
 
@@ -57,8 +57,8 @@ function Page({
 Page.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
-  content: PropTypes.string,
   image: PropTypes.string,
+  content: PropTypes.string,
   choices: PropTypes.array,
   page_end: PropTypes.number,
 };
