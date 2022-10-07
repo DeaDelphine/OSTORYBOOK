@@ -80,8 +80,10 @@
       display: none;
     }
 
-  
+    &-navigation {
+      padding: 20px;
   }
+}
 }
 
 @media (min-width:990px) {
