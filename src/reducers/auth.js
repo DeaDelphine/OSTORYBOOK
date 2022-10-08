@@ -9,7 +9,7 @@ export const initialState = {
   // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
   token: '',
-  loggedMessage: 'Vous êtes bien connectés !'
+  loggedMessage: 'Vous êtes bien connectés !',
 };
 
 const reducer = (state = initialState, action = {}) => {

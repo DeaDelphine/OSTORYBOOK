@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import '../Profil/styles.scss';
 
 // == Component
-function MyProfil() {
+function MyProfil(nickname, email, roles) {
   return (
     <div className="profil-form">
       <div className="profil-form-container">
@@ -15,7 +15,13 @@ function MyProfil() {
                 Mon Profil
               </p>
               <p className="field-info-email">
-                pseudo@user.com
+                Bienvenue  {nickname}
+              </p>
+              <p className="field-info-email">
+                {email}
+              </p>
+              <p className="field-info-email">
+                {roles}
               </p>
               <div className="profil-form-button">
                 <div className="profil-form-button--left">

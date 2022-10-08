@@ -1,6 +1,6 @@
 import {
   CHANGE_USER_INPUT, SET_USER, CLEAR_EDIT,
-  CLEAR_USER_INPUT,
+  CLEAR_USER_INPUT, FETCH_USER,
 } from '../actions/user';
 import { SIGN_IN } from '../actions/auth';
 
@@ -9,6 +9,7 @@ export const initialState = {
   nickname: '',
   password: '',
   passwordcheck: '',
+  roles: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -40,14 +41,21 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordcheck: action.value,
       };
+    case FETCH_USER: {
+      return {
+        ...state,
+        nickname: action.nickname,
+        email: action.email,
+        roles: action.roles,
+      };
+    }
 
     case SET_USER: {
       return {
         ...state,
         nickname: action.nickname,
-        email: action.mail,
-        password: '',
-        passwordcheck: '',
+        email: action.email,
+        roles: action.roles,
       };
     }
     case CLEAR_EDIT: {

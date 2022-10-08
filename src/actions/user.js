@@ -19,10 +19,8 @@ export const clearEdit = () => ({
   type: CLEAR_EDIT,
 });
 
-export const setUser = (userData) => ({
+export const setUser = () => ({
   type: SET_USER,
-  nickname: userData.nickname,
-  mail: userData.mail,
 });
 
 export const fetchUser = () => ({

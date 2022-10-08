@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
   FETCH_USER, setUser, USER_EDIT, clearEdit,
+  fetchUser,
 } from 'src/actions/user';
 import { saveUserData } from 'src/actions/auth';
 // eslint-disable-next-line camelcase
@@ -15,8 +16,9 @@ const user = (store) => (next) => (action) => {
           'http://0.0.0.0:8000/api/user/me',
           {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('user')}`,
+              Authorization: `bearer ${localStorage.getItem('token')}`,
             },
+
           },
         )
         .then((response) => {

@@ -31,8 +31,6 @@ const authMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('token', response.data.token);
           const dataUser = response.data;
           store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
-          // store.dispatch(RedirectLogin());
-        // return redirect('/histoires');
         })
         .catch((error) => {
           console.log(error);

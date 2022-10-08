@@ -1,7 +1,6 @@
 export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
 export const LOG_IN = 'LOG_IN';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
-export const REDIRECT_LOGIN = 'REDIRECT_LOGIN';
 export const CHECK_IS_LOGGED = 'CHECK_IS_LOGGED';
 export const SAVE_LOGIN = 'SAVE_LOGIN';
 export const SAVE_NEW_USER = 'SAVE_NEW_USER';
@@ -22,10 +21,6 @@ export const saveUserData = (nickname, token, logged) => ({
   nickname: nickname,
   token: token,
   logged: logged,
-});
-
-export const RedirectLogin = () => ({
-  type: REDIRECT_LOGIN,
 });
 
 export const checkIsLogged = () => ({

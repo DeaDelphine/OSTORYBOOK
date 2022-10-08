@@ -20,7 +20,7 @@ const storiesMiddleware = (store) => (next) => (action) => {
 
       // eslint-disable-next-line no-case-declarations
       const reloadCount = localStorage.getItem('reloadCount');
-      if (reloadCount < 2) {
+      if (reloadCount < 1) {
         localStorage.setItem('reloadCount', (reloadCount + 1));
         window.location.reload();
       }

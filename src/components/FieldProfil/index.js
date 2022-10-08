@@ -1,35 +1,39 @@
-import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-function Field({
-
+function FieldProfil({
+  onChange,
   nickname,
   placeholder,
   inputValue,
-  setInputValue,
-  clearUserInput,
 }) {
-  useEffect(() => () => {
-    clearUserInput();
-  }, [clearUserInput]);
+  const handleChange = (evt) => {
+    onChange(evt.target.value, nickname);
+  };
+
   return (
     <input
-      className="field__input px-4 mb-2 h-12"
+      className="field-input"
       id={nickname}
       name={nickname}
       placeholder={placeholder}
       value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
+      onChange={handleChange}
+      nickname={nickname}
     />
   );
 }
 
-Field.propTypes = {
+FieldProfil.propTypes = {
   placeholder: PropTypes.string.isRequired,
-  nickname: PropTypes.string.isRequired,
-  inputValue: PropTypes.string.isRequired,
-  setInputValue: PropTypes.func.isRequired,
-  clearUserInput: PropTypes.func.isRequired,
+  nickname: PropTypes.string,
+  inputValue: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };
-export default Field;
+
+FieldProfil.defaultProps = {
+  inputValue: '',
+  nickname: '',
+};
+
+export default FieldProfil;
