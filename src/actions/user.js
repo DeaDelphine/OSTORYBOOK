@@ -19,12 +19,17 @@ export const clearEdit = () => ({
   type: CLEAR_EDIT,
 });
 
-export const setUser = () => ({
+export const setUser = (nickname, roles, email) => ({
   type: SET_USER,
+  nickname: nickname,
+  roles: roles,
+  email: email,
+
 });
 
 export const fetchUser = () => ({
   type: FETCH_USER,
+
 });
 
 export const clearUserInput = (key) => ({

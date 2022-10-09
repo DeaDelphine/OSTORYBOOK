@@ -1,10 +1,10 @@
 // == Import
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-
 import '../Profil/styles.scss';
 
 // == Component
-function MyProfil(nickname, email, roles) {
+function MyProfil({ email, nickname, roles }) {
   return (
     <div className="profil-form">
       <div className="profil-form-container">
@@ -47,6 +47,10 @@ function MyProfil(nickname, email, roles) {
     </div>
   );
 }
-
+MyProfil.propTypes = {
+  email: PropTypes.string.isRequired,
+  nickname: PropTypes.string.isRequired,
+  roles: PropTypes.string.isRequired,
+};
 // == Export
 export default MyProfil;

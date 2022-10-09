@@ -33,12 +33,12 @@ const storiesMiddleware = (store) => (next) => (action) => {
       // console.log(action.page_id);
       axios.get(`http://0.0.0.0:8000/api/histoire/${action.story}/page/${action.startPage}`, headers)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
 
           store.dispatch(savePage(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
 
       break;

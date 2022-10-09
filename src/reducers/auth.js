@@ -22,8 +22,6 @@ const reducer = (state = initialState, action = {}) => {
           email: action.value,
         };
       }
-      // else implicite : si on arrive à cette ligne c'est que forcément on n'est pas
-      // passé dans le if
       return {
         ...state,
         password: action.value,
@@ -35,8 +33,6 @@ const reducer = (state = initialState, action = {}) => {
         nickname: action.nickname,
         token: action.token,
         logged: action.logged,
-        // pour la sécurité, on en profite pour effacer email
-        // et password (ils ne sont plus nécessaires)
         email: '',
         password: '',
       };

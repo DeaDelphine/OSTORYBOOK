@@ -11,14 +11,12 @@ import './styles.scss';
 /* eslint-disable max-len */
 function Pages() {
   const pages = useSelector((state) => (state.pages.page));
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const id = localStorage.getItem('id');
     const startPage = localStorage.getItem('page');
     dispatch(fetchPages(id, startPage));
   }, []);
-
-  const dispatch = useDispatch();
 
   return (
     <div className="container">

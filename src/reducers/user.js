@@ -41,14 +41,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         passwordcheck: action.value,
       };
-    case FETCH_USER: {
-      return {
-        ...state,
-        nickname: action.nickname,
-        email: action.email,
-        roles: action.roles,
-      };
-    }
+      // case FETCH_USER: {
+      //   return {
+      //     ...state,
+      //     nickname: action.value,
+      //     email: action.value,
+      //     roles: action.value,
+      //   };
+      // }
 
     case SET_USER: {
       return {

@@ -9,10 +9,6 @@ import FieldProfil from '../FieldProfil';
 function EditProfil({
   changeField,
 }) {
-  const emailValue = useSelector((state) => state.user.email);
-  const nickname = useSelector((state) => state.user.nickname);
-  const passwordValue = useSelector((state) => state.user.password);
-
   return (
     <div className="container">
       <div className="profil-form">

@@ -1,6 +1,5 @@
 /* eslint-disable react/button-has-type */
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import './styles.scss';
@@ -10,7 +9,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 /* eslint-disable max-len */
 function Page({
-  id, title, content, image, choices, page_end,
+  id, title, content, image, choices,
 }) {
   const dispatch = useDispatch();
 
@@ -35,6 +34,7 @@ function Page({
                 }}
               > Aller à la page {choice.page_to_redirect}
               </button>
+
             </Link>
 
           )) : 'wrong way sorry ! ' }
@@ -60,7 +60,6 @@ Page.propTypes = {
   content: PropTypes.string,
   image: PropTypes.string,
   choices: PropTypes.array,
-  page_end: PropTypes.number,
 };
 
 Page.defaultProps = {
@@ -69,7 +68,6 @@ Page.defaultProps = {
   title: null,
   content: null,
   image: null,
-  page_end: null,
 };
 
 export default Page;
