@@ -29,7 +29,7 @@ function StoryList() {
       <div className="story-list">
         <p className="story-subtitle">Veuillez choisir une histoire</p>
         <div className="story-list__list">
-          <div className="scrollbar">
+          <div className="story-list__list-container">
             {stories.map((story) => (
               <Story {...story} />
             ))}

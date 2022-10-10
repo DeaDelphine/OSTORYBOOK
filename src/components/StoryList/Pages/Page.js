@@ -13,15 +13,18 @@ function Page({
   id, title, image, content,  choices, page_end,
 }) {
   const dispatch = useDispatch();
+  const winMessage = 'Vous avez atteint la fin de l\'histoire ! Félicitations';
+  const lossMessage = 'Malheureusement vous n\'avez pas réussi à aller au bout de l\'histoire ... Tentez à nouveau votre chance!';
 
   return (
 
-    <div>
-      <div className="page page-container" key={id}>
+    <div >
+      {(page_end==null || page_end==0) ? 
+      <div className="page page-container" key={id} style={{ backgroundImage: `url(${image})`,  backgroundSize:"cover", backgroundColor: "rgba(52, 52, 52, 0.8)"}}>
         <p className="page page-container--title">{title}</p>
         <div className="page-container--content">
-          <img className="page page-container--content__img" src={image} alt="story-img" />
           <p className="page page-container--content__subtitle">{content}</p>
+          
         </div>
         <div className="page page-container--choice">
           {choices ? choices.map((choice) => (
@@ -33,23 +36,57 @@ function Page({
                   localStorage.setItem('page', choice.page_to_redirect);
                   dispatch(fetchPages(localStorage.getItem('id'), localStorage.getItem('page')));
                 }}
-              > Aller à la page {choice.page_to_redirect}
+              > {choice.name}
               </button>
             </Link>
 
           )) : 'wrong way sorry ! ' }
         </div>
+        <div className="page-container--choice__button-return">
         <NavLink
           to="/histoires"
-          className="page-container--choice__button-return"
           onClick={(event) => {
             localStorage.removeItem('id');
             localStorage.removeItem('page');
           }}
         > Retour à la liste des histoires
         </NavLink>
+        </div>
 
-      </div>
+      </div> :
+           (<div className="page page-container" key={id}>
+             <p className="page page-container--title">{title}</p>
+           <div className="page-container--content">
+            <div className="page page-container--content__subtitle">
+             <p className="page page-container--content__subtitle">{page_end == 1 ? winMessage : lossMessage}</p>
+             <p className="page page-container--content__subtitle">{content}</p>
+            </div>
+             <img className="page page-container--content__img-end" src={image} alt="story-img-end" />
+           </div>
+           
+           <div className="page-container--choice__button-return-container">
+                <NavLink
+                  to="/histoires"
+                  className="page-container--choice__button-return"
+                  onClick={(event) => {
+                    localStorage.removeItem('id');
+                    localStorage.removeItem('page');
+                  }}
+                > Retour à la liste des histoires
+                </NavLink>
+                <NavLink
+                  to="/"
+                  className="page-container--choice__button-return"
+                  onClick={(event) => {
+                    localStorage.removeItem('id');
+                    localStorage.removeItem('page');
+                  }}
+                > Retour à la page d'accueil
+                </NavLink>
+            </div>
+          </div>)
+    }
+
     </div>
   );
 }

@@ -167,7 +167,7 @@ Principaux Outils
 - Plugins :
   - [`clean-webpack-plugin`](https://github.com/johnagan/clean-webpack-plugin) - Supprime/nettoie le dossier de build.
   - [`copy-webpack-plugin`](https://github.com/webpack-contrib/copy-webpack-plugin) - Copie des fichiers vers le dossier de build.
-  - [`html-webpack-plugin`](https://github.com/jantimon/html-webpack-plugin) - Génère un fichier HTML à partir d'un template.
+  - [`html-webpack-plugin`](https://githtml-webpack-plughub.com/jantimon/html-webpack-plugin) - Génère un fichier HTML à partir d'un template.
   - [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) - Extrait le CSS dans des fichiers séparés.
   - [`css-minimizer-webpack-plugin`](https://github.com/webpack-contrib/css-minimizer-webpack-plugin) - Optimise et minimise les ressources CSS.
   - [`terser-webpack-plugin`](https://github.com/webpack-contrib/terser-webpack-plugin) - Minimise le Javascript.
