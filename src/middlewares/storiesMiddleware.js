@@ -13,6 +13,7 @@ const storiesMiddleware = (store) => (next) => (action) => {
 
         .then((response) => {
           store.dispatch(saveStories(response.data));
+          console.log(response);
         })
         .catch((error) => {
           // console.log(error);

@@ -1,10 +1,12 @@
 // == Import
-import PropTypes from 'prop-types';
+
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import '../Profil/styles.scss';
 
 // == Component
-function MyProfil({ email, nickname, roles }) {
+function MyProfil() {
+  const nickname = useSelector((state) => state.auth.nickname);
   return (
     <div className="profil-form">
       <div className="profil-form-container">
@@ -47,10 +49,6 @@ function MyProfil({ email, nickname, roles }) {
     </div>
   );
 }
-MyProfil.propTypes = {
-  email: PropTypes.string.isRequired,
-  nickname: PropTypes.string.isRequired,
-  roles: PropTypes.string.isRequired,
-};
+
 // == Export
 export default MyProfil;

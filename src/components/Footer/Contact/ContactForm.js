@@ -7,14 +7,13 @@ import './styles.scss';
  *   - "not connected": displays the form and a button to connect
  */
 function ContactForm() {
-
   return (
-      <div className="contact-form">
+    <div className="contact-form">
       <div className="contact-form-container">
         <h2 className="contact-form-title">NOUS CONTACTER</h2>
-          <div className="contact-form-element">
-            <form className="contact-form--form">
-              <div className="field">
+        <div className="contact-form-element">
+          <form className="contact-form--form">
+            <div className="field">
               <input
                 type="email"
                 className="field-input-email"
@@ -32,13 +31,13 @@ function ContactForm() {
               >
                 ENVOYER
               </button>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
+    </div>
   );
-};
+}
 
 // == Export
 export default ContactForm;

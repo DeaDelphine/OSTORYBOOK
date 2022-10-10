@@ -3,9 +3,9 @@ import axios from 'axios';
 import {
   LOG_IN, saveUserData, SAVE_LOGIN, SIGN_IN, saveNewUser,
 } from '../actions/auth';
+import { FETCH_USER, setUser } from '../actions/user';
 
 // const cookies = new Cookies();
-
 const api = axios.create({
   baseURL: 'http://0.0.0.0:8000',
 });
@@ -31,7 +31,6 @@ const authMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('token', response.data.token);
           const dataUser = response.data;
           store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
-          console.log(saveUserData);
         })
         .catch((error) => {
           console.log(error);
@@ -51,7 +50,6 @@ const authMiddleware = (store) => (next) => (action) => {
       break;
 
     case SIGN_IN:
-      console.log(state.user);
       // console.log('authMiddleware voit passer une action LOG_IN');
       api.post(
         '/api/register',
