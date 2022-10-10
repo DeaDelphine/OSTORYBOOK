@@ -1,31 +1,19 @@
 // == Import
 import './styles.scss';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import MyProfil from '../MyProfil';
-import { fetchUser, setUser } from '../../actions/user';
-import { saveUserData } from '../../actions/auth';
 
 // == Component
-function Profil({ email, nickname, roles }) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    localStorage.setItem('nickname', 'email', 'roles', nickname, email, roles);
-    dispatch(setUser());
-  }, []);
-
+function Profil() {
+  const nickname = useSelector((state) => state.auth.nickname);
+  const email = useSelector((state) => state.auth.email);
+  const roles = useSelector((state) => state.auth.roles);
   return (
     <div className="container">
-      <MyProfil />
+      <MyProfil nickname={nickname} email={email} roles={roles} />
     </div>
   );
 }
-MyProfil.propTypes = {
-  email: PropTypes.string.isRequired,
-  nickname: PropTypes.string.isRequired,
-  roles: PropTypes.string.isRequired,
-};
 
 // == Export
 export default Profil;

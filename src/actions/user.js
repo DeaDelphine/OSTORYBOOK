@@ -24,7 +24,6 @@ export const setUser = (nickname, roles, email) => ({
   nickname: nickname,
   roles: roles,
   email: email,
-
 });
 
 export const fetchUser = () => ({

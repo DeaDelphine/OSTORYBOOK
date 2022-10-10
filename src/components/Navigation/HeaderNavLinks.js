@@ -2,12 +2,13 @@
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
 import logo from 'src/assets/images/logo.png';
+import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 /* eslint-disable react/button-has-type */
 
 // == Component
 function HeaderNavLinks() {
-  const isLogged = localStorage.getItem('token') ?? false;
+  const isLogged = useSelector((state) => state.user.logged);
 
   const handleLogout = () => {
     console.log('handleLogout');
@@ -18,7 +19,7 @@ function HeaderNavLinks() {
     <ul className="header header-navigation">
       { isLogged && (
         <NavLink
-          onClick={() => props.isMobile && props.closeMobileMenu()}
+          // onClick={() => props.isMobile && props.closeMobileMenu()}
           to="/mon-compte"
           className="header__link"
         >

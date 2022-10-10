@@ -19,6 +19,7 @@ function LoginForm({
   const passwordValue = useSelector((state) => state.user.password);
 
   const handleSubmit = (evt) => {
+    console.log(handleSubmit);
     evt.preventDefault();
     handleLogin();
   };

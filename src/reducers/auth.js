@@ -1,4 +1,6 @@
-import { CHANGE_LOGIN_FIELD, SAVE_USER_DATA } from '../actions/auth';
+import {
+  CHANGE_LOGIN_FIELD, LOG_IN, SAVE_USER_DATA, SET_TOKEN,
+} from '../actions/auth';
 
 export const initialState = {
   logged: false,
@@ -8,8 +10,8 @@ export const initialState = {
   password: '',
   // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
-  token: '',
   loggedMessage: 'Vous êtes bien connectés !',
+  roles: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -26,16 +28,30 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         password: action.value,
       };
-
-    case SAVE_USER_DATA:
+    case SET_TOKEN: {
       return {
         ...state,
-        nickname: action.nickname,
         token: action.token,
-        logged: action.logged,
-        email: '',
-        password: '',
+        logged: true,
       };
+    }
+    // case LOG_IN:
+    //   return {
+    //     ...state,
+    //     token: action.token,
+    //     logged: true,
+    //   };
+
+    // case SAVE_USER_DATA:
+    //   return {
+    //     ...state,
+    //     nickname: action.nickname,
+    //     // token: action.token,
+    //     logged: true,
+    //     email: '',
+    //     password: '',
+    //     roles: action.roles,
+    //   };
 
     default:
       return state;

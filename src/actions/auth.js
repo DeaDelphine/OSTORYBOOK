@@ -5,6 +5,7 @@ export const CHECK_IS_LOGGED = 'CHECK_IS_LOGGED';
 export const SAVE_LOGIN = 'SAVE_LOGIN';
 export const SAVE_NEW_USER = 'SAVE_NEW_USER';
 export const SIGN_IN = 'SIGN_IN';
+export const SET_TOKEN = 'SET_TOKEN';
 
 export const changeLoginField = (newValue, fieldIdentifier) => ({
   type: CHANGE_LOGIN_FIELD,
@@ -16,11 +17,16 @@ export const logIn = () => ({
   type: LOG_IN,
 });
 
-export const saveUserData = (nickname, token, logged) => ({
-  type: SAVE_USER_DATA,
-  nickname: nickname,
+export const setToken = (token) => ({
+  type: SET_TOKEN,
   token: token,
-  logged: logged,
+});
+
+export const saveUserData = (token, roles, nickname) => ({
+  type: SAVE_USER_DATA,
+  token: token,
+  nickname: nickname,
+  roles: roles,
 });
 
 export const checkIsLogged = () => ({

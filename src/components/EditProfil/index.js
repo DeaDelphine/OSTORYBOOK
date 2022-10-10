@@ -74,7 +74,10 @@ function EditProfil({
   );
 }
 EditProfil.propTypes = {
-  changeField: PropTypes.func.isRequired,
+  changeField: PropTypes.string,
+};
+EditProfil.defaultProps = {
+  changeField: '',
 };
 
 // == Export

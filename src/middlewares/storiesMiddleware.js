@@ -3,9 +3,8 @@ import axios from 'axios';
 import { FETCH_STORIES, saveStories } from '../actions/stories';
 import { FETCH_PAGES, savePage } from '../actions/pages';
 
-const headers = { headers: { Authorization: `bearer ${localStorage.getItem('token')}` } };
-
 const storiesMiddleware = (store) => (next) => (action) => {
+  const headers = { headers: { Authorization: `bearer ${store.getState().user.token}` } };
   switch (action.type) {
     case FETCH_STORIES:
 
@@ -20,14 +19,14 @@ const storiesMiddleware = (store) => (next) => (action) => {
         });
 
       // eslint-disable-next-line no-case-declarations
-      const reloadCount = localStorage.getItem('reloadCount');
-      if (reloadCount < 1) {
-        localStorage.setItem('reloadCount', (reloadCount + 1));
-        window.location.reload();
-      }
-      else {
-        localStorage.removeItem('reloadCount');
-      }
+      // const reloadCount = localStorage.getItem('reloadCount');
+      // if (reloadCount < 1) {
+      //   localStorage.setItem('reloadCount', (reloadCount + 1));
+      //   window.location.reload();
+      // }
+      // else {
+      //   localStorage.removeItem('reloadCount');
+      // }
 
       break;
     case FETCH_PAGES:

@@ -1,13 +1,13 @@
 // == Import
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import logo from '../../assets/images/logo.png';
-
 import './styles.scss';
 /* eslint-disable react/button-has-type */
 
 // == Component
 function Home() {
-  const isLogged = localStorage.getItem('token') ?? false;
+  const isLogged = useSelector((state) => state.user.logged);
 
   return (
     <div className="home">
