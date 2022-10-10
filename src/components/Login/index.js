@@ -24,23 +24,10 @@ function Login() {
   const dispatch = useDispatch();
 
   return (
+    isLogged && (window.location.href = '/histoires'),
     <div className="container">
       <div className="login-form">
         <div className="login-form-container">
-          {isLogged && (
-          <div className="login-form-logged">
-            <p className="login-form-message">
-              {loggedMessage}
-            </p>
-            <button
-              type="button"
-              className="login-form-button"
-            >
-              Déconnexion
-            </button>
-          </div>
-          )}
-          {isLogged && <Navigate to="/histoires" replace /> }
           {!isLogged && (
           <div className="login-form-container--container">
             <LoginForm

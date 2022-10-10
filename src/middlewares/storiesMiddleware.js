@@ -28,16 +28,7 @@ const storiesMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           // console.log(error);
         });
-
-      // eslint-disable-next-line no-case-declarations
-      const reloadCount = localStorage.getItem('reloadCount');
-      if (reloadCount < 2) {
-        localStorage.setItem('reloadCount', (reloadCount + 1));
-        window.location.reload();
-      }
-      else {
-        localStorage.removeItem('reloadCount');
-      }
+      
 
       break;
     case FETCH_PAGES:
