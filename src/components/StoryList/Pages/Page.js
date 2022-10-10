@@ -36,7 +36,7 @@ function Page({
                   localStorage.setItem('page', choice.page_to_redirect);
                   dispatch(fetchPages(localStorage.getItem('id'), localStorage.getItem('page')));
                 }}
-              > Aller à la page {choice.page_to_redirect}
+              > {choice.name}
               </button>
             </Link>
 
