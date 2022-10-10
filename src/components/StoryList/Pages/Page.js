@@ -18,13 +18,12 @@ function Page({
 
   return (
 
-    <div>
+    <div >
       {(page_end==null || page_end==0) ? 
-      <div className="page page-container" key={id}>
+      <div className="page page-container" key={id} style={{ backgroundImage: `url(${image})`,  backgroundSize:"cover", backgroundColor: "rgba(52, 52, 52, 0.8)"}}>
         <p className="page page-container--title">{title}</p>
         <div className="page-container--content">
           <p className="page page-container--content__subtitle">{content}</p>
-          <img className="page page-container--content__img" src={image} alt="story-img" />
           
         </div>
         <div className="page page-container--choice">
@@ -58,11 +57,14 @@ function Page({
            (<div className="page page-container" key={id}>
              <p className="page page-container--title">{title}</p>
            <div className="page-container--content">
+            <div className="page page-container--content__subtitle">
              <p className="page page-container--content__subtitle">{page_end == 1 ? winMessage : lossMessage}</p>
+             <p className="page page-container--content__subtitle">{content}</p>
+            </div>
              <img className="page page-container--content__img-end" src={image} alt="story-img-end" />
            </div>
-           <p className="page page-container--content__subtitle">{content}</p>
-           <div className="page-container--choice__button-return">
+           
+           <div className="page-container--choice__button-return-container">
                 <NavLink
                   to="/histoires"
                   className="page-container--choice__button-return"
