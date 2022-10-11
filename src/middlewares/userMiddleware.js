@@ -5,17 +5,15 @@ import {
 } from '../actions/user';
 
 // eslint-disable-next-line camelcase
-
 const user = (store) => (next) => (action) => {
-  const headers = { headers: { Authorization: `bearer ${store.getState().auth.token}` } };
+  const headers = { headers: { Authorization: `bearer ${localStorage.getItem('token') || store.getState().auth.token}` } };
+  // const headers = { headers: { Authorization: `bearer ${store.getState().auth.token}` } };
+
   const state = store.getState();
   switch (action.type) {
     case FETCH_USER:
 
-      axios.get(
-        'http://0.0.0.0:8000/api/user/me',
-        headers,
-      )
+      axios.get('http://0.0.0.0:8000/api/user/me', headers)
 
         .then((response) => {
           store.dispatch(setUser(response.data.nickname, response.data.roles, response.data.email));

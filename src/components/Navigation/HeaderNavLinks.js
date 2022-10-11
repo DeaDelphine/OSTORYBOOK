@@ -1,14 +1,15 @@
 // == Import
-import { NavLink } from 'react-router-dom';
-import './styles.scss';
-
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { fetchUser } from '../../actions/user';
+import './styles.scss';
 
 /* eslint-disable react/button-has-type */
 
 // == Component
 function HeaderNavLinks() {
-  const isLogged = useSelector((state) => state.auth.logged);
+  const token = !!localStorage.getItem('token');
+  const isLogged = (useSelector((state) => state.auth.logged) || token);
 
   const handleLogout = () => {
     console.log('handleLogout');
@@ -22,6 +23,9 @@ function HeaderNavLinks() {
           // onClick={() => props.isMobile && props.closeMobileMenu()}
           to="/mon-compte"
           className="header__link"
+          onClick={(event) => {
+            fetchUser();
+          }}
         >
           Mon compte
         </NavLink>

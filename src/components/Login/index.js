@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable no-lone-blocks */
 
 import { Navigate } from 'react-router-dom';
@@ -19,28 +20,15 @@ import './styles.scss';
 
 function Login() {
   const isLogged = useSelector((state) => state.auth.logged);
-  const loggedMessage = useSelector((state) => state.auth.loggedMessage);
 
   const dispatch = useDispatch();
 
   return (
+
     <div className="container">
       <div className="login-form">
         <div className="login-form-container">
-          {isLogged && (
-          <div className="login-form-logged">
-            <p className="login-form-message">
-              {loggedMessage}
-            </p>
-            <button
-              type="button"
-              className="login-form-button"
-            >
-              Déconnexion
-            </button>
-          </div>
-          )}
-          {isLogged && <Navigate to="/histoires" replace /> }
+          {isLogged && <Navigate to="/histoires" replace /> },
           {!isLogged && (
           <div className="login-form-container--container">
             <LoginForm
@@ -64,6 +52,7 @@ function Login() {
         </div>
       </div>
     </div>
+
   );
 }
 

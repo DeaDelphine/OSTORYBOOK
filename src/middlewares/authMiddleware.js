@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import axios from 'axios';
 import {
-  LOG_IN, SAVE_LOGIN, SIGN_IN, saveNewUser,
+  LOG_IN, SIGN_IN, saveNewUser,
   setToken,
 } from '../actions/auth';
 import { fetchUser } from '../actions/user';
@@ -24,25 +24,14 @@ const authMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           store.dispatch(setToken(response.data.token));
-          // api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
-          // localStorage.setItem('token', response.data.token);
-          store.dispatch(fetchUser());
-
+          axios.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+          localStorage.setItem('token', response.data.token);
           // const dataUser = response.data;
           // store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
         })
-        .catch((error) => {
-          console.log(error);
-        });
-      break;
-
-    case SAVE_LOGIN:
-      axios.get(
-        'http://0.0.0.0:8000/api/user/me',
-      )
-        .then(
-          (response) => console.log(response.data),
-        )
+        .then(() => {
+          store.dispatch(fetchUser());
+        })
         .catch((error) => {
           console.log(error);
         });
