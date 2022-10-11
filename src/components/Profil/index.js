@@ -7,24 +7,18 @@ import { fetchUser } from '../../actions/user';
 
 // == Component
 function Profil() {
-  const users = useSelector((state) => state.user);
-  console.log(users);
-  // const nickname = useSelector((state) => state.user.nickname);
-  // const email = useSelector((state) => state.user.email);
-  // const roles = useSelector((state) => state.user.roles);
+  const userInfo = useSelector((state) => state.user);
+  // console.log(users);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUser());
   }, []);
   return (
     <div className="container">
-      {users.map((user) => (
-        <MyProfil {...user} />
-      ))}
+      <MyProfil {...userInfo} />
     </div>
   );
 }
 
 // == Export
 export default Profil;
-// nickname={nickname} email={email} roles={roles}

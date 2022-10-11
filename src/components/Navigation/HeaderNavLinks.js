@@ -1,5 +1,5 @@
 // == Import
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { fetchUser } from '../../actions/user';
 import './styles.scss';
@@ -15,7 +15,7 @@ function HeaderNavLinks() {
     console.log('handleLogout');
     localStorage.clear();
   };
-
+  const dispatch = useDispatch();
   return (
     <ul className="header header-navigation">
       { isLogged && (
@@ -24,7 +24,7 @@ function HeaderNavLinks() {
           to="/mon-compte"
           className="header__link"
           onClick={(event) => {
-            fetchUser();
+            dispatch(fetchUser());
           }}
         >
           Mon compte

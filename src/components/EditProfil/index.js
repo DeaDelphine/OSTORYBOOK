@@ -1,26 +1,21 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // == Import
 import '../Profil/styles.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { fetchUser, userEdit } from '../../actions/user';
 
 // == Component
-function EditProfil({ changeField, handleEdit, handleClear }) {
+function EditProfil({ changeField }) {
   const nickname = useSelector((state) => state.user.nickname);
   const email = useSelector((state) => state.user.email);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, []);
 
-  // const handleSubmit1 = (evt) => {
-  //   console.log(handleSubmit1);
-  //   evt.preventDefault();
-  //   handleEdit();
-
-  // };
-  // const handleSubmit2 = (evt) => {
-  //   console.log(handleSubmit2);
-  //   evt.preventDefault();
-  //   handleClear();
-  // };
   return (
     <div className="container">
       <div className="profil-form">
@@ -39,7 +34,7 @@ function EditProfil({ changeField, handleEdit, handleClear }) {
                   type="text"
                   className="field-input-text"
                   name="nickname"
-                  placeholder={nickname}
+                  defaultValue={nickname}
                 />
                 <label
                   className="field-left"
@@ -51,7 +46,7 @@ function EditProfil({ changeField, handleEdit, handleClear }) {
                   type="email"
                   className="field-input-email"
                   name="email"
-                  placeholder={email}
+                  defaultValue={email}
                 />
                 <label
                   className="field-left"
@@ -81,7 +76,9 @@ function EditProfil({ changeField, handleEdit, handleClear }) {
                   <button
                     className="profil-form-button--left"
                     type="submit"
-
+                    onClick={(event) => {
+                      dispatch(userEdit());
+                    }}
                   >
                     VALIDER LES MODIFICATIONS
                   </button>
