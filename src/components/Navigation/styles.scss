@@ -1,4 +1,256 @@
 /* HEADER */
+
+.navbar {
+  
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+
+  &-header__links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding: 2rem;
+    top: 0; 
+    left: 0;
+    color: white;
+    width: 100%;
+    min-height: 75px;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  }
+
+  &-header__link {
+    padding: 0 0.3rem;
+    color: inherit;
+    font-size: 30px;
+  }
+
+  &__burger {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: inherit;
+    display: none;
+  }
+}
+
+
+
+/* clicked */
+
+
+@media screen and (max-width:768px) {
+  .navbar {
+  
+    &__links {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      right: -100vw;
+      bottom: 0;
+      height: 100vh;
+      padding: 1rem;
+      background-color: black;
+      visibility: hidden;
+    }
+
+    &-header__links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      padding: 3rem 0 0 0;
+    }
+
+    &__link {
+      display: block;
+      padding: 1.5rem;
+    }
+
+    &__burger {
+      display: block;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    &__burger:hover {
+      cursor: pointer;
+    }
+
+  }
+
+  .burger-bar,
+    .burger-bar::before,
+    .burger-bar::after {
+      display: block;
+      width: 30px;
+      height: 3px;
+      position: relative;
+      border-radius: 3px;
+      background-color: white;
+    }
+
+    .burger-bar::before,
+    .burger-bar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .burger-bar::before {
+      transform: translateY(-12px);
+    }
+
+    .burger-bar::after {
+      transform: translateY(12px);
+    }
+
+    .show-nav .burger-bar {
+      background: transparent;
+    }
+
+    .show-nav .burger-bar::before {
+      transform: rotate(45deg);
+    }
+
+    .show-nav .burger-bar::after{
+      transform: rotate(-45deg);
+    }
+
+    .show-nav .navbar__links {
+      width: 100vw;
+      right: 0;
+      visibility: visible;
+    }
+}
+
+
+/* FOOTER */
+
+.navbar {
+  
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+
+  &-footer__links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: fixed;
+    padding: 2rem;
+    bottom: 0; 
+    left: 0;
+    color: white;
+    width: 100%;
+    min-height: 75px;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  }
+
+  &__link {
+    padding: 0 1rem;
+    color: inherit;
+    font-size: 30px;
+  }
+
+  &__burger {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: inherit;
+    display: none;
+  }
+}
+
+
+
+/* clicked */
+
+
+@media screen and (max-width:768px) {
+  .navbar {
+  
+    &__links {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      right: -100vw;
+      bottom: 0;
+      height: 100vh;
+      padding: 1rem;
+      background-color: black;
+      visibility: hidden;
+    }
+
+    &-footer__links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      padding: 0 0 3rem 0;
+    }
+
+    &__link {
+      display: block;
+      padding: 1.5rem;
+    }
+
+    &__burger {
+      display: block;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    &__burger:hover {
+      cursor: pointer;
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+/*
+
+.nav-menu {
+  display: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding: 60px;
+}
+
 .header {
   position: absolute;
   top: 0; 
@@ -11,13 +263,6 @@
   width: 100%;
   color: white;
   right: 0;
-
-  &-navigation {
-    display: none;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding: 60px;
-  }
 }
 
 .mobile-navigation {
@@ -90,9 +335,13 @@
   }
 }
 
+*/
+
 
 
 /* FOOTER */
+
+/*
 .footer {
   position: absolute;
   bottom: 0; 
@@ -130,3 +379,5 @@
   
   }
 }
+
+*/

@@ -3,10 +3,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import NavBar from '../Navigation/NavBar';
+import Navigation from '../Navigation/Navigation';
 import Pages from '../StoryList/Pages';
 import Home from '../Home';
-import Footer from '../Navigation/FooterNavigation';
 import Login from '../Login';
 import Profil from '../Profil';
 import ProfilEdit from '../ProfilEdit';
@@ -32,7 +31,7 @@ function App() {
 
   return (
     <div className="app">
-      <NavBar />
+      <Navigation />
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -48,7 +47,6 @@ function App() {
           <Route path="/histoire" element={<Pages />} />
         </Routes>
       </div>
-      <Footer />
     </div>
   );
 }

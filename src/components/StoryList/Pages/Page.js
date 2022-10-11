@@ -21,6 +21,7 @@ function Page({
     <div >
       {(page_end==null || page_end==0) ? 
       <div className="page page-container" key={id} style={{ backgroundImage: `url(${image})`,  backgroundSize:"cover", backgroundColor: "rgba(52, 52, 52, 0.8)"}}>
+        <div className="page page-container--container">
         <p className="page page-container--title">{title}</p>
         <div className="page-container--content">
           <p className="page page-container--content__subtitle">{content}</p>
@@ -51,6 +52,7 @@ function Page({
           }}
         > Retour à la liste des histoires
         </NavLink>
+        </div>
         </div>
 
       </div> :
