@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 // == Import
 import '../Profil/styles.scss';
 import { useSelector } from 'react-redux';
@@ -5,9 +6,21 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // == Component
-function ProfilEdit({ changeField }) {
+function EditProfil({ changeField, handleEdit, handleClear }) {
   const nickname = useSelector((state) => state.user.nickname);
   const email = useSelector((state) => state.user.email);
+
+  // const handleSubmit1 = (evt) => {
+  //   console.log(handleSubmit1);
+  //   evt.preventDefault();
+  //   handleEdit();
+
+  // };
+  // const handleSubmit2 = (evt) => {
+  //   console.log(handleSubmit2);
+  //   evt.preventDefault();
+  //   handleClear();
+  // };
   return (
     <div className="container">
       <div className="profil-form">
@@ -17,7 +30,6 @@ function ProfilEdit({ changeField }) {
             <form className="profil-form--form">
               <div className="field">
                 <label
-                  htmlFor="#"
                   className="field-left"
                   onChange={changeField}
                 >
@@ -30,7 +42,6 @@ function ProfilEdit({ changeField }) {
                   placeholder={nickname}
                 />
                 <label
-                  htmlFor="#"
                   className="field-left"
                   onChange={changeField}
                 >
@@ -43,7 +54,6 @@ function ProfilEdit({ changeField }) {
                   placeholder={email}
                 />
                 <label
-                  htmlFor="#"
                   className="field-left"
                   onChange={changeField}
                 >
@@ -56,7 +66,6 @@ function ProfilEdit({ changeField }) {
                   placeholder="**********"
                 />
                 <label
-                  htmlFor="#"
                   className="field-left"
                   onChange={changeField}
                 >
@@ -72,6 +81,7 @@ function ProfilEdit({ changeField }) {
                   <button
                     className="profil-form-button--left"
                     type="submit"
+
                   >
                     VALIDER LES MODIFICATIONS
                   </button>
@@ -97,9 +107,9 @@ function ProfilEdit({ changeField }) {
     </div>
   );
 }
-ProfilEdit.propTypes = {
+EditProfil.propTypes = {
   changeField: PropTypes.func.isRequired,
 };
 
 // == Export
-export default ProfilEdit;
+export default EditProfil;

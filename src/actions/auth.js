@@ -1,5 +1,7 @@
 export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
 export const LOG_IN = 'LOG_IN';
+export const LOGOUT = 'LOGOUT';
+export const USER_DELETE = 'USER_DELETE';
 export const SAVE_LOGIN = 'SAVE_LOGIN';
 export const SAVE_NEW_USER = 'SAVE_NEW_USER';
 export const SIGN_IN = 'SIGN_IN';
@@ -25,10 +27,18 @@ export const logIn = () => ({
   type: LOG_IN,
 });
 
+export const logout = () => ({
+  type: LOGOUT,
+});
+
 export const saveLogin = () => ({
   type: SAVE_LOGIN,
 });
 
 export const SignIn = () => ({
   type: SIGN_IN,
+});
+
+export const deleteUser = () => ({
+  type: USER_DELETE,
 });

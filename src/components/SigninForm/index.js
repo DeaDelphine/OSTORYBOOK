@@ -61,7 +61,7 @@ function SigninForm({
             <button
               type="submit"
               className="login-form-button--button"
-              to="/"
+              to="/histoires"
             >
               S'INSCRIRE
             </button>
@@ -73,8 +73,8 @@ function SigninForm({
 }
 
 SigninForm.propTypes = {
-  changeField: PropTypes.func.isRequired,
   handleSignin: PropTypes.func.isRequired,
+  changeField: PropTypes.func.isRequired,
 };
 
 // == Export

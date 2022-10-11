@@ -1,6 +1,7 @@
 import {
   CHANGE_LOGIN_FIELD,
-  SIGN_IN, SET_TOKEN,
+  SIGN_IN, SET_TOKEN, SAVE_NEW_USER, LOGOUT,
+  USER_DELETE,
 } from '../actions/auth';
 
 export const initialState = {
@@ -39,11 +40,33 @@ const reducer = (state = initialState, action = {}) => {
     case SIGN_IN:
       return {
         ...state,
-        nickname: action.nickname,
+        email: action.value,
+        nickname: action.value,
+        password: action.value,
+        passwordcheck: action.value,
+      };
+    case SAVE_NEW_USER:
+      return {
+        ...state,
         email: '',
+        nickname: '',
         password: '',
         passwordcheck: '',
       };
+    case LOGOUT: {
+      return {
+        ...state,
+        username: '',
+        isLogged: false,
+      };
+    }
+    case USER_DELETE: {
+      return {
+        ...state,
+        isLogged: false,
+        connectedId: 0,
+      };
+    }
 
     default:
       return state;

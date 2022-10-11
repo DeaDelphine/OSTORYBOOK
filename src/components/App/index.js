@@ -1,5 +1,5 @@
 // == Import
-
+import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
 import NavBar from '../Navigation/NavBar';
@@ -19,6 +19,9 @@ import Loading from './Loading';
 
 // == Styles
 import './styles.scss';
+
+import { changeUserInput } from '../../actions/user';
+
 // == Actions
 
 // == Component
@@ -27,7 +30,7 @@ function App() {
   // if (!storiesLoaded) {
   //   return <Loading />;
   // }
-
+  const dispatch = useDispatch();
   return (
     <div className="app">
       <NavBar />
@@ -36,7 +39,16 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
           <Route path="/mon-compte" element={<Profil />} />
-          <Route path="/mon-compte/edit" element={<EditProfil />} />
+          <Route
+            path="/mon-compte/edit"
+            element={(
+              <EditProfil
+                changeField={(newValue, identifier) => {
+                  dispatch(changeUserInput(newValue, identifier));
+                }}
+              />
+)}
+          />
           <Route path="/cgu" element={<CGU />} />
           <Route path="/nous-contacter" element={<ContactForm />} />
           <Route path="/mention-legales" element={<LegalMentions />} />

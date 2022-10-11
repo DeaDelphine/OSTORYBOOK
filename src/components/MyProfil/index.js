@@ -50,7 +50,7 @@ function MyProfil({ email, nickname, roles }) {
 MyProfil.propTypes = {
   email: PropTypes.string,
   nickname: PropTypes.string,
-  roles: PropTypes.string,
+  roles: PropTypes.array,
 };
 
 MyProfil.defaultProps = {
