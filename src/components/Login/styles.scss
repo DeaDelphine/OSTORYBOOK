@@ -8,18 +8,16 @@
 
   height: 100%; 
   color: #fff;
-
   overflow-x: hidden;
 
   &-container {
-    overflow-y: scroll;
+    overflow-y: hidden;
     width: 100%;
   }
 
   &-left {
     text-align: center;
     margin: 0 auto;
-    padding-bottom: 2rem;
     padding-top: 3rem;
     width: 80%;
     height: 60vh;
@@ -42,7 +40,6 @@
   &-right {
     text-align: center;
     margin: 0 auto;
-    margin-top: 0rem;
     width: 80%;
     height: 60vh;
     border-bottom: 3px solid vars.$element-color;
