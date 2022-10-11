@@ -11,7 +11,7 @@ import Profil from '../Profil';
 import ProfilEdit from '../ProfilEdit';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/Contact';
-import LegalMentions from '../Footer/LegalMentions';
+import Policies from '../Footer/Policies';
 import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
@@ -40,7 +40,7 @@ function App() {
           <Route path="/mon-compte/edit" element={<ProfilEdit />} />
           <Route path="/cgu" element={<CGU />} />
           <Route path="/nous-contacter" element={<ContactForm />} />
-          <Route path="/mention-legales" element={<LegalMentions />} />
+          <Route path="/policies" element={<Policies />} />
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
