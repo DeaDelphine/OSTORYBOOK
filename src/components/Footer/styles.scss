@@ -18,12 +18,15 @@
 }
 
 
-/** CREDITS **/
+
 .container {
   overflow-y: scroll;
   overflow-x: hidden;
-
+  padding: 2rem;
+  
+  /** CREDITS **/
   .credits{
+    
 
     &-title {
       text-align: center;
