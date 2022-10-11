@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 // == Component
 function HeaderNavLinks() {
-  const isLogged = useSelector((state) => state.user.logged);
+  const isLogged = useSelector((state) => state.auth.logged);
 
   const handleLogout = () => {
     console.log('handleLogout');
@@ -29,13 +29,13 @@ function HeaderNavLinks() {
       <NavLink
         to="/"
         className="header__link"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
+        // onClick={() => props.isMobile && props.closeMobileMenu()}
       >
         Accueil
       </NavLink>
       { !isLogged && (
         <NavLink
-          onClick={() => props.isMobile && props.closeMobileMenu()}
+          // onClick={() => props.isMobile && props.closeMobileMenu()}
           to="/connexion"
           className="header__link"
         >

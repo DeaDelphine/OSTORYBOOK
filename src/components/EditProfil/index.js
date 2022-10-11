@@ -1,14 +1,13 @@
 // == Import
-import PropTypes from 'prop-types';
 import '../Profil/styles.scss';
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import FieldProfil from '../FieldProfil';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Component
-function EditProfil({
-  changeField,
-}) {
+function ProfilEdit({ changeField }) {
+  const nickname = useSelector((state) => state.user.nickname);
+  const email = useSelector((state) => state.user.email);
   return (
     <div className="container">
       <div className="profil-form">
@@ -17,33 +16,58 @@ function EditProfil({
           <div className="profil-form-element">
             <form className="profil-form--form">
               <div className="field">
-                <FieldProfil
+                <label
+                  htmlFor="#"
+                  className="field-left"
+                  onChange={changeField}
+                >
+                  Pseudo :
+                </label>
+                <input
+                  type="text"
+                  className="field-input-text"
                   name="nickname"
-                  placeholder="Pseudonyme"
-                  onChange={changeField}
-                  value={nickname}
+                  placeholder={nickname}
                 />
-                <FieldProfil
+                <label
+                  htmlFor="#"
+                  className="field-left"
+                  onChange={changeField}
+                >
+                  Adresse mail :
+                </label>
+                <input
+                  type="email"
+                  className="field-input-email"
                   name="email"
-                  placeholder="Email"
-                  onChange={changeField}
-                  value={emailValue}
+                  placeholder={email}
                 />
-                <FieldProfil
-                  name="password"
+                <label
+                  htmlFor="#"
+                  className="field-left"
+                  onChange={changeField}
+                >
+                  Mot de passe :
+                </label>
+                <input
                   type="password"
-                  placeholder="Mot de passe"
-                  value={passwordValue}
-                  onChange={changeField}
-                />
-                <FieldProfil
+                  className="field-input-password"
                   name="password"
-                  type="password"
-                  placeholder="Mot de passe"
-                  value={passwordValue}
-                  onChange={changeField}
+                  placeholder="**********"
                 />
-
+                <label
+                  htmlFor="#"
+                  className="field-left"
+                  onChange={changeField}
+                >
+                  Confirmez le mot de passe :
+                </label>
+                <input
+                  type="password"
+                  className="field-input-password"
+                  name="password"
+                  placeholder="**********"
+                />
                 <div className="profil-form-button">
                   <button
                     className="profil-form-button--left"
@@ -57,28 +81,25 @@ function EditProfil({
                   >
                     SUPPRIMER MON COMPTE
                   </button>
-                  <NavLink
-                    to="/mon-compte"
-                    className="container-button--return"
-                    style={{ fontFamily: 'arial', display: 'flex', justifyContent: 'center' }}
-                  >
-                    Retour à mon profil
-                  </NavLink>
                 </div>
               </div>
             </form>
           </div>
         </div>
+        <NavLink
+          to="/mon-compte"
+          className="container-button--return"
+          style={{ fontFamily: 'arial', display: 'flex', justifyContent: 'center' }}
+        >
+          Retour à mon profil
+        </NavLink>
       </div>
     </div>
   );
 }
-EditProfil.propTypes = {
-  changeField: PropTypes.string,
-};
-EditProfil.defaultProps = {
-  changeField: '',
+ProfilEdit.propTypes = {
+  changeField: PropTypes.func.isRequired,
 };
 
 // == Export
-export default EditProfil;
+export default ProfilEdit;

@@ -11,7 +11,7 @@ function FooterNavLinks() {
       <NavLink
         to="/nous-contacter"
         className="footer__links"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
+        // onClick={() => props.isMobile && props.closeMobileMenu()}
       >
         Nous contacter
       </NavLink>
@@ -19,28 +19,28 @@ function FooterNavLinks() {
       <NavLink
         to="/cgu"
         className="footer__links"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
+        // onClick={() => props.isMobile && props.closeMobileMenu()}
       >
         CGU
       </NavLink>
       <NavLink
         to="/mention-legales"
         className="footer__links"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
+        // onClick={() => props.isMobile && props.closeMobileMenu()}
       >
         Mentions légales
       </NavLink>
       <NavLink
         to="/credits"
         className="footer__links"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
+        // onClick={() => props.isMobile && props.closeMobileMenu()}
       >
         Crédits
       </NavLink>
       <NavLink
         to="/regles-du-jeu"
         className="footer__links"
-        onClick={() => props.isMobile && props.closeMobileMenu()}
+        // onClick={() => props.isMobile && props.closeMobileMenu()}
       >
         Règles du jeu
       </NavLink>

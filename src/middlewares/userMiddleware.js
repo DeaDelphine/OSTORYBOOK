@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { saveUserData, SAVE_USER_DATA } from '../actions/auth';
-import { fetchUser, FETCH_USER, setUser } from '../actions/user';
+
+import { FETCH_USER, setUser } from '../actions/user';
 
 // eslint-disable-next-line camelcase
 
 const user = (store) => (next) => (action) => {
-  const headers = { headers: { Authorization: `bearer ${store.getState().user.token}` } };
+  const headers = { headers: { Authorization: `bearer ${store.getState().auth.token}` } };
   switch (action.type) {
     case FETCH_USER:
-      console.log('FETCH_USER');
+
       axios.get(
         'http://0.0.0.0:8000/api/user/me',
         headers,

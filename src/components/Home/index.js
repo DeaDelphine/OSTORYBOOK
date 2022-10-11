@@ -7,7 +7,7 @@ import './styles.scss';
 
 // == Component
 function Home() {
-  const isLogged = useSelector((state) => state.user.logged);
+  const isLogged = useSelector((state) => state.auth.logged);
 
   return (
     <div className="home">

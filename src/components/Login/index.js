@@ -18,8 +18,8 @@ import './styles.scss';
  */
 
 function Login() {
-  const isLogged = useSelector((state) => state.user.logged);
-  const loggedMessage = useSelector((state) => state.user.loggedMessage);
+  const isLogged = useSelector((state) => state.auth.logged);
+  const loggedMessage = useSelector((state) => state.auth.loggedMessage);
 
   const dispatch = useDispatch();
 

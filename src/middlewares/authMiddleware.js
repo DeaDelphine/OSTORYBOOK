@@ -5,10 +5,6 @@ import {
   setToken,
 } from '../actions/auth';
 import { fetchUser } from '../actions/user';
-// const cookies = new Cookies();
-const api = axios.create({
-  baseURL: 'http://0.0.0.0:8000',
-});
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -18,18 +14,18 @@ const authMiddleware = (store) => (next) => (action) => {
     case LOG_IN:
 
       // console.log('authMiddleware voit passer une action LOG_IN');
-      api.post(
-        '/api/login',
+      axios.post(
+        'http://0.0.0.0:8000/api/login',
         {
-          email: state.user.email,
-          password: state.user.password,
+          email: state.auth.email,
+          password: state.auth.password,
         },
 
       )
         .then((response) => {
           store.dispatch(setToken(response.data.token));
           // api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
-          // localStorage.setItem('token', response.data.token);
+          localStorage.setItem('token', response.data.token);
           store.dispatch(fetchUser());
 
           // const dataUser = response.data;
@@ -41,8 +37,8 @@ const authMiddleware = (store) => (next) => (action) => {
       break;
 
     case SAVE_LOGIN:
-      api.get(
-        '/api/user/me',
+      axios.get(
+        'http://0.0.0.0:8000/api/user/me',
       )
         .then(
           (response) => console.log(response.data),
@@ -54,12 +50,15 @@ const authMiddleware = (store) => (next) => (action) => {
 
     case SIGN_IN:
       // console.log('authMiddleware voit passer une action LOG_IN');
-      api.post(
-        '/api/register',
+      axios.post(
+        'http://0.0.0.0:8000/api/register',
         {
-          email: state.auth.email.trim().toLowerCase(),
-          password: state.auth.password.trim(),
-          nickname: state.auth.nickname.trim(),
+          email: state.user.email.trim().toLowerCase(),
+          password: state.user.password.trim(),
+          nickname: state.user.nickname.trim(),
+          // eslint-disable-next-line no-dupe-keys
+          password: state.user.password,
+          passwordCheck: state.user.passwordCheck,
 
         },
       )

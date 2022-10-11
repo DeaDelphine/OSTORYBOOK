@@ -2,15 +2,16 @@ import {
   CHANGE_USER_INPUT, SET_USER, CLEAR_EDIT,
   CLEAR_USER_INPUT,
 } from '../actions/user';
-import { SIGN_IN } from '../actions/auth';
 
 export const initialState = {
-  email: '',
+  // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
+  // contenu du champ email du formulaire de profil
+  email: '',
+  // contenu du champ password du formulaire de login
   password: '',
   passwordcheck: '',
   roles: '',
-  token: '',
   logged: false,
 };
 
@@ -65,14 +66,6 @@ const reducer = (state = initialState, action = {}) => {
         [action.key]: '',
       };
     }
-    case SIGN_IN:
-      return {
-        ...state,
-        nickname: action.nickname,
-        email: '',
-        password: '',
-        passwordcheck: '',
-      };
 
     default:
       return state;
