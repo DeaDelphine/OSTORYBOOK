@@ -6,7 +6,7 @@ function Policies() {
   return (
     <div className="container" >
       <div className="legal-mentions">
-      <h1>Politique de confidentialité</h1>
+      <h1>POLITIQUES DE CONFIDENTIALITE</h1>
         <p className="footer-p">Objet : information des utilisateurs sur la politique de traitement des données personnelles et la gestion des cookies</p>
   
 

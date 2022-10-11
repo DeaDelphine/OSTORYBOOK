@@ -6,8 +6,8 @@ function CGU() {
   return (
     <div className="container" >
       <div className="cgu">
-        <h1>Conditions générales d'utilisation</h1>
-        <h2>AVERTISSEMENT</h2>
+        <h1>CONDITIONS GENERALES D'UTILISATION</h1>
+        <h2>Avertissement</h2>
         <p className="footer-p">Dernière mise à jour : 11 Octobre 2022</p>
 
         <p className="footer-p">Les présentes conditions générales d'utilisation du site « o'Story Book » dont l'adresse est : https://ostorybook.fr et ci-après désigné « le Site », définissent les conditions d'utilisation du Site par les internautes.</p>
@@ -75,7 +75,7 @@ function CGU() {
 
         
 
-        <h2>CONTACT</h2>
+        <h2>Contact</h2>
         <p className="footer-p">Pour tout renseignement, vous pouvez adresser un courriel à l'adresse suivante : ostoryb@gmail.com</p>
 
         <p className="footer-p">Cette prise de contact fait l’objet d’un traitement de données à caractère personnel par l'équipe administrative'. Pour en savoir plus, cf l’article 5 « Données à caractère personnel et cookies ».</p>
