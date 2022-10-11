@@ -54,3 +54,8 @@ yarn add redux-devtools-extension
 ```shell
 yarn add axios
 ```
+
+## react icons install
+```shell
+yarn add react-icons
+```
