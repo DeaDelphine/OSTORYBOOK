@@ -6,6 +6,8 @@
   src: url('../assets/fonts/Pompiere-Regular.ttf');
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap');
+
 * {
   box-sizing: border-box;
   outline: none;
@@ -25,6 +27,8 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 100%;
+  color: white;
+  
 
 }  // or you can import your own font
 
@@ -33,6 +37,57 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+h1 {
+  font-weight: 300;
+    color: vars.$element-color;
+    font-size: 50px;
+    line-height: 1.12;
+    letter-spacing: 0.73px;
+    margin: 25px;
+    font-family: "Frank Ruhl Libre",serif;
+    text-align: center;
+}
+
+h2 {
+  font-family: "Frank Ruhl Libre",serif;
+  font-weight: 400;
+  color: #f1d180;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.51px;
+  margin: 25px 0;
+}
+
+h3 {
+  font-family: "Frank Ruhl Libre",serif;
+    font-weight: 400;
+    color: vars.$element-color;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: 0.51px;
+    margin: 25px 0;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0.33px;
+  font-weight: bold;
+}
+
+.footer-link {
+  color: inherit;
+  border-bottom: 1px solid #f1d180;
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+  border-bottom: 2px solid #f1d180;
+  transition: all 0.2s ease;
+}
+
  
 
   // body {

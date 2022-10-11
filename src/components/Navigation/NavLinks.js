@@ -87,10 +87,10 @@ function HeaderNavLinks() {
         </li>
         <li className="navbar__item">
           <NavLink
-            to="/mention-legales"
+            to="/policies"
             className="navbar__link"
           >
-            Mentions légales
+            Politiques de confidentialité
           </NavLink>
         </li>
         <li className="navbar__item">

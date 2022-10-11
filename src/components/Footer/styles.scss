@@ -1,14 +1,9 @@
 @use 'src/styles/vars';
- 
- .cgu {
-   background-color: aqua;
- }
- .game-rules{
-  background-color: aqua;
- }
 
-.legal-mentions{
-  background-color: aqua;
+.footer-p {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 25px 0;
 }
 
 
@@ -20,11 +15,6 @@
   .credits{
     color: #fff;
 
-    &-title {
-      padding: 2rem 0 0 0;
-      text-align: center;
-      font-size: 25px;
-    }
 
     &-container {
       padding: 1rem;
@@ -62,7 +52,7 @@
           flex-direction: column;
           justify-content: center;
           padding: 1rem 0;
-          line-height: 2rem;
+          line-height: 1.5rem;
           
         }
 
@@ -76,6 +66,20 @@
 
       }
     }
+  }
+
+  .credits::-webkit-scrollbar {
+    width: 16px;
+  }
+  .credits::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 50px;
+  }
+  .credits::-webkit-scrollbar-thumb {
+    background-color: vars.$element-color;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
   }
 }
 
@@ -94,7 +98,7 @@
 
 @media (min-width:990px) {
   .container {
-    overflow: hidden;
+    overflow-y: scroll;
 
     .credits{
       

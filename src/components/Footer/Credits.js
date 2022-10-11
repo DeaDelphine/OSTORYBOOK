@@ -11,11 +11,11 @@ function Credits() {
   return (
     <div className="container" >
       <div className="credits">
-        <h2 className="credits credits-title">Les cerveaux du projet</h2>
+        <h1 className="credits credits-title">Les cerveaux du projet</h1>
         <div className="credits credits-container">
         <div className="credits credits-container--card">
             <img className="credits credits-container--card-img" src={hitotsumekozo} alt="Xavier" />
-            <h3 className="credits credits-container--card-name">Prado Xavier</h3>
+            <h5 className="credits credits-container--card-name">Prado Xavier</h5>
             <div className="credits credits-container--card-role" >
               <p>Product Owner</p>
               <p>Dev back</p>
@@ -27,7 +27,7 @@ function Credits() {
           </div>
           <div className="credits credits-container--card">
             <img className="credits credits-container--card-img" src={kappa} alt="Coralie" />
-            <h3 className="credits credits-container--card-name">Fleury Coralie</h3>
+            <h5 className="credits credits-container--card-name">Fleury Coralie</h5>
             <div className="credits credits-container--card-role" >
               <p>Scrum Master</p>
               <p>Dev Back</p>
@@ -39,7 +39,7 @@ function Credits() {
           </div>
           <div className="credits credits-container--card">
             <img className="credits credits-container--card-img" src={oni} alt="Thomas" />
-            <h3 className="credits credits-container--card-name">Chantreuil Thomas</h3>
+            <h5 className="credits credits-container--card-name">Chantreuil Thomas</h5>
             <div className="credits credits-container--card-role" >
               <p>Lead dev back</p>
             </div>
@@ -51,7 +51,7 @@ function Credits() {
           
           <div className="credits credits-container--card">
             <img className="credits credits-container--card-img" src={amefurikozo} alt="Camille" />
-            <h3 className="credits credits-container--card-name">Yamamoto Camille</h3>
+            <h5 className="credits credits-container--card-name">Yamamoto Camille</h5>
             <div className="credits credits-container--card-role" >
               <p>Lead dev front</p>
             </div>
@@ -62,7 +62,7 @@ function Credits() {
           </div>
           <div className="credits credits-container--card">
             <img className="credits credits-container--card-img" src={aonyobo} alt="Delphine" />
-            <h3 className="credits credits-container--card-name">De Alba Delphine</h3>
+            <h5 className="credits credits-container--card-name">De Alba Delphine</h5>
             <div className="credits credits-container--card-role" >
               <p>Référente technique Git</p>
               <p>Dev front</p>
