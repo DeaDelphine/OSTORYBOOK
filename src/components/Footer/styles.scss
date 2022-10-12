@@ -1,5 +1,10 @@
+// import
 @use 'src/styles/vars';
 
+
+// FOOTER COMPONENT
+
+/*----- TEXT AND LINK STYLE -----*/
 .footer-p {
   font-size: 20px;
   line-height: 1.2;
@@ -8,88 +13,28 @@
 
 .footer-link {
   color: inherit;
-  border-bottom: 1px solid #f1d180;
+  border-bottom: 1px solid vars.$linkUnderline;
   transition: all 0.2s ease;
 }
 
 .footer-link:hover {
-  border-bottom: 2px solid #f1d180;
+  border-bottom: 2px solid vars.$linkUnderline;
   transition: all 0.2s ease;
 }
 
-
-
+/*----- CONTAINER WITH SCROLL -----*/
 .container {
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 2rem;
-  
-  /** CREDITS **/
-  .credits{
-    
-
-    &-title {
-      text-align: center;
-    }
-
-
-    &-container {
-
-      &--card {
-        background-color: black;
-        width: 80vw;
-        margin: 1rem auto;
-        text-align: center;
-        border-radius: 40px;
-        padding: 1rem 1rem 0 1rem;
-
-        &-img {
-          background-color: antiquewhite;
-
-          width: 100%;
-          border-radius: 30px;
-        }
-
-        &-name {
-          font-size: 2.5rem;
-          padding: 0.5rem;
-
-        }
-
-        &-role {
-          padding: 0.5rem;
-          font-size: 1.5rem;
-          line-height: 1.7rem;
-          height: 60px;
-        }
-
-        &-link {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 1rem 0;
-          line-height: 1.5rem;
-          
-        }
-
-        &-link a {
-          font-size: 1.2rem;
-        }
-
-        &-link a:hover {
-          color: vars.$element-color;
-        }
-
-      }
-    }
-  }
 }
 
+/*----- SCROLLBAR STYLE -----*/
 .container::-webkit-scrollbar {
   width: 16px;
 }
 .container::-webkit-scrollbar-track {
-  background: black;
+  background: vars.$dark-color;
   border-radius: 50px;
 }
 .container::-webkit-scrollbar-thumb {
@@ -99,6 +44,63 @@
   background-clip: padding-box;
 }
 
+
+// CREDITS PAGE 
+
+/* Mobile version */
+.credits{
+  &-title {
+    text-align: center;
+  }
+
+  &-container {
+    &--card {
+      background-color: vars.$dark-color;
+      width: 80vw;
+      margin: 1rem auto;
+      text-align: center;
+      border-radius: 40px;
+      padding: 1rem 1rem 0 1rem;
+
+      &-img {
+        background-color: vars.$imageBackground;
+        width: 100%;
+        border-radius: 30px;
+      }
+
+      &-name {
+        font-size: 2.5rem;
+        padding: 0.5rem;
+      }
+
+      &-role {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        line-height: 1.7rem;
+        height: 60px;
+      }
+
+      &-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 0;
+        line-height: 1.5rem;    
+      }
+
+      &-link a {
+        font-size: 1.2rem;
+      }
+
+      &-link a:hover {
+        color: vars.$element-color;
+      }
+
+    }
+  }
+}
+
+/* Tablet version */
 @media (min-width:600px) {
   .container {
     .credits{
@@ -112,12 +114,12 @@
   }
 }
 
+/* Desktop version */
 @media (min-width:990px) {
   .container {
     overflow-y: auto;
 
     .credits{
-      
       &-container {
         display: flex;
         justify-content: center;
@@ -126,7 +128,6 @@
           width: 15vw;
           margin: 0 1rem;
         }
-
       }
     }
   }
