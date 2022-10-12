@@ -2,7 +2,7 @@ import axios from 'axios';
 import { deleteUser, USER_DELETE } from '../actions/auth';
 
 import {
-  CHANGE_USER_INPUT, CLEAR_USER_INPUT, FETCH_USER, setUser, userEdit,
+  CHANGE_USER_INPUT, CLEAR_USER_INPUT, FETCH_USER, setUser, userEdit, USER_EDIT,
 } from '../actions/user';
 
 // eslint-disable-next-line camelcase
@@ -24,19 +24,20 @@ const user = (store) => (next) => (action) => {
         });
       break;
 
-    case CHANGE_USER_INPUT:
+    case USER_EDIT:
       axios.put(
-        'http://0.0.0.0:8000/api/me/edit',
+        'http://0.0.0.0:8000/api/user/me/edit',
+
         {
-          newNickname: state.user.nickname.toLowerCase(),
-          newMail: state.user.email.toLowerCase(),
-          oldPassword: state.user.password,
-          newPassword: state.user.Password,
+          newNickname: state.user.Newnickname,
+          newMail: state.user.Newemail,
+          oldPassword: state.user.Oldpassword,
+          newPassword: state.user.Newpassword,
         },
+        headers,
       )
 
         .then((response) => {
-          store.dispatch(userEdit());
           console.log(response);
         })
         .catch((error) => {
@@ -45,7 +46,7 @@ const user = (store) => (next) => (action) => {
       break;
 
     case USER_DELETE:
-      axios.delete('http://0.0.0.0:8000/api/me/delete')
+      axios.delete('http://0.0.0.0:8000/api/user/me/delete', headers)
 
         .then((response) => {
           // store.dispatch(deleteUser());

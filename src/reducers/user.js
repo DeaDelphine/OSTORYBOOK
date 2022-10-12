@@ -18,30 +18,30 @@ const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_USER_INPUT:
       // si le champ concerné par le changement est celui de l'e-mail
-      if (action.fieldIdentifier === 'email') {
+      if (action.fieldIdentifier === 'newemail') {
         return {
           ...state,
-          email: action.value,
+          Newemail: action.value,
         };
       }
 
-      if (action.fieldIdentifier === 'nickname') {
+      if (action.fieldIdentifier === 'newnickname') {
         return {
           ...state,
-          nickname: action.value,
+          Newnickname: action.value,
         };
       }
 
-      if (action.fieldIdentifier === 'password') {
+      if (action.fieldIdentifier === 'oldpassword') {
         return {
           ...state,
-          password: action.value,
+          Oldpassword: action.value,
         };
       }
 
       return {
         ...state,
-        Oldpassword: action.value,
+        Newpassword: action.value,
       };
 
     case SET_USER: {

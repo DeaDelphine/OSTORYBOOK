@@ -1,6 +1,8 @@
 // == Import
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { deleteUser } from '../../actions/auth';
 import '../Profil/styles.scss';
 
 function linkToBackOffice() {
@@ -9,8 +11,11 @@ function linkToBackOffice() {
 
   return null;
 }
+
 // == Component
 function MyProfil({ email, nickname, roles }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="profil-form">
       <div className="profil-form-container">
@@ -47,12 +52,16 @@ function MyProfil({ email, nickname, roles }) {
                   </NavLink>
                 </div>
                 )}
-                <button
+                <NavLink
                   className="profil-form-button--right"
                   type="submit"
+                  onClick={(event) => {
+                    dispatch(deleteUser());
+                  }}
+                  to="/"
                 >
                   SUPPRIMER MON COMPTE
-                </button>
+                </NavLink>
               </div>
             </div>
           </form>
