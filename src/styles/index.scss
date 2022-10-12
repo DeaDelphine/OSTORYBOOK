@@ -6,7 +6,9 @@
 
 * {
   box-sizing: border-box;
-  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -25,6 +27,7 @@ body {
   max-width: 100%;
   color: vars.$light-color;
 }  
+
 
 ul {
   list-style: none;

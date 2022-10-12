@@ -20,8 +20,11 @@ import Loading from './Loading';
 
 // == Styles
 import './styles.scss';
+import AnimCursor from '../AnimCursor';
+
 // == Actions
 import { fetchStories } from '../../actions/stories';
+
 
 // == Component
 function App() {
@@ -30,26 +33,31 @@ function App() {
   //   return <Loading />;
   // }
 
+
   return (
-    <div className="app">
-      <Navigation />
-      <div className="app-container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/connexion" element={<Login />} />
-          <Route path="/mon-compte" element={<Profil />} />
-          <Route path="/mon-compte/edit" element={<ProfilEdit />} />
-          <Route path="/cgu" element={<CGU />} />
-          <Route path="/nous-contacter" element={<ContactForm />} />
-          <Route path="/policies" element={<Policies />} />
-          <Route path="/credits" element={<Credits />} />
-          <Route path="/regles-du-jeu" element={<GameRules />} />
-          <Route path="/histoires" element={<StoryList />} />
-          <Route path="/histoire" element={<Pages />} />
-          <Route path="/*" element={<Error404 />} />
-        </Routes>
-      </div>
+    
+      <div className="app">
+        <AnimCursor />
+        <Navigation />
+        <div className="app-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/connexion" element={<Login />} />
+            <Route path="/mon-compte" element={<Profil />} />
+            <Route path="/mon-compte/edit" element={<ProfilEdit />} />
+            <Route path="/cgu" element={<CGU />} />
+            <Route path="/nous-contacter" element={<ContactForm />} />
+            <Route path="/policies" element={<Policies />} />
+            <Route path="/credits" element={<Credits />} />
+            <Route path="/regles-du-jeu" element={<GameRules />} />
+            <Route path="/histoires" element={<StoryList />} />
+            <Route path="/histoire" element={<Pages />} />
+            <Route path="/*" element={<Error404 />} />
+          </Routes>
+        </div>
     </div>
+    
+    
   );
 }
 // == Export
