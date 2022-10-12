@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { deleteUser, USER_DELETE } from '../actions/auth';
+import { USER_DELETE } from '../actions/auth';
 
 import {
-  CHANGE_USER_INPUT, CLEAR_USER_INPUT, FETCH_USER, setUser, userEdit, USER_EDIT,
+  FETCH_USER, setUser, USER_EDIT,
 } from '../actions/user';
 
 // eslint-disable-next-line camelcase
@@ -29,10 +29,10 @@ const user = (store) => (next) => (action) => {
         'http://0.0.0.0:8000/api/user/me/edit',
 
         {
-          newNickname: state.user.Newnickname,
-          newMail: state.user.Newemail,
-          oldPassword: state.user.Oldpassword,
-          newPassword: state.user.Newpassword,
+          nickname: state.user.Newnickname,
+          email: state.user.Newemail,
+          // oldPassword: state.user.Oldpassword,
+          password: state.user.Newpassword,
         },
         headers,
       )

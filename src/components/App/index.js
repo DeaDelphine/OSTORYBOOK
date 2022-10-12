@@ -15,22 +15,17 @@ import LegalMentions from '../Footer/LegalMentions';
 import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
-import Loading from './Loading';
 
 // == Styles
 import './styles.scss';
 
-import { changeUserInput, clearUserInput, userEdit } from '../../actions/user';
+import { changeUserInput } from '../../actions/user';
 import { deleteUser } from '../../actions/auth';
 
 // == Actions
 
 // == Component
 function App() {
-  // const storiesLoaded = useSelector((state) => state.stories.storiesLoaded);
-  // if (!storiesLoaded) {
-  //   return <Loading />;
-  // }
   const dispatch = useDispatch();
   return (
     <div className="app">
