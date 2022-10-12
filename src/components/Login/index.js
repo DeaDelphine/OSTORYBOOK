@@ -25,7 +25,7 @@ function Login() {
 
   return (
     isLogged && (window.location.href = '/histoires'),
-    <div className="container">
+    <div className="container-scrolly-mobile-only">
       <div className="login-form">
         <div className="login-form-container">
           {!isLogged && (

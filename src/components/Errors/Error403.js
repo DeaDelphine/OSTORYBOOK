@@ -7,7 +7,7 @@ import './styles.scss';
 // == Component
 function Error403() {
   return (
-    <div className="container">
+    <div className="container-scrolly">
       <div className="error-403">
         <div className = "error-container">
             <h1 className = "error-container--title" > ERROR 403 </h1> 

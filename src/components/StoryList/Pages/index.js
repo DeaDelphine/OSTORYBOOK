@@ -21,7 +21,7 @@ function Pages() {
   const dispatch = useDispatch();
 
   return (
-    <div className="container">
+    <div className="container-scrolly">
       <div className="page">
         <div className="page page-list">
           <Page {...pages} />

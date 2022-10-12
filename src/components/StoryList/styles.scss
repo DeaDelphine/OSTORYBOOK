@@ -2,29 +2,6 @@
 @use 'src/styles/vars';
 
 
-/*----- CONTAINER WITH SCROLL -----*/
-.container {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-/*----- SCROLLBAR STYLE -----*/
-.container::-webkit-scrollbar {
-  width: 16px;
-}
-
-.container::-webkit-scrollbar-track {
-  background: vars.$dark-color;
-  border-radius: 50px;
-}
-
-.container::-webkit-scrollbar-thumb {
-  background-color: vars.$element-color;
-  border: 4px solid transparent;
-  border-radius: 8px;
-  background-clip: padding-box;
-}
-
 // STORYLIST COMPONENT
 
 .story-list {
@@ -158,11 +135,11 @@
   }
 
 /* Desktop version */
-  @media (min-width:990px) {
+  @media (min-width:900px) {
 
     // STRORYLIST COMPONENT
     .story-list {
-      margin-top: 0;
+      margin-top: -1rem;
       height: 75vh;
       width: 78vw;
 

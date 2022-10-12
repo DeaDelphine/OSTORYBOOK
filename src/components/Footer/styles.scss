@@ -22,29 +22,6 @@
   transition: all 0.2s ease;
 }
 
-/*----- CONTAINER WITH SCROLL -----*/
-.container {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-/*----- SCROLLBAR STYLE -----*/
-.container::-webkit-scrollbar {
-  width: 16px;
-}
-
-.container::-webkit-scrollbar-track {
-  background: vars.$dark-color;
-  border-radius: 50px;
-}
-
-.container::-webkit-scrollbar-thumb {
-  background-color: vars.$element-color;
-  border: 4px solid transparent;
-  border-radius: 8px;
-  background-clip: padding-box;
-}
-
 
 // CREDITS PAGE 
 
@@ -101,38 +78,22 @@
   }
 }
 
-/* Tablet version */
-@media (min-width:600px) {
-  .container {
-    .credits{
-      &-container {
-        &--card {
-          width: 50vw;
-        }
-        
-      }
-    }
-  }
-}
 
 /* Desktop version */
-@media (min-width:990px) {
-  .container {
-    overflow-y: auto;
+@media (min-width:900px) {
+  .credits{
+    &-container {
+      display: flex;
+      justify-content: center;
 
-    .credits{
-      &-container {
-        display: flex;
-        justify-content: center;
-
-        &--card {
-          width: 15vw;
-          margin: 0 1rem;
-        }
+      &--card {
+        width: 15vw;
+        margin: 0 1rem;
       }
     }
   }
 }
+
 
 
 // CONTACT PAGE
