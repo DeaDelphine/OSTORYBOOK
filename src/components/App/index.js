@@ -15,6 +15,7 @@ import Policies from '../Footer/Policies';
 import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
+import Error404 from '../Errors/Error404';
 import Loading from './Loading';
 
 // == Styles
@@ -45,6 +46,7 @@ function App() {
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
           <Route path="/histoire" element={<Pages />} />
+          <Route path="/*" element={<Error404 />} />
         </Routes>
       </div>
     </div>
