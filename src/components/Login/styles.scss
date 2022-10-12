@@ -1,17 +1,37 @@
+// import
 @use 'src/styles/vars';
 
-.header__link--home {
-  display: block;
+
+// LOGIN COMPONENT
+
+/*----- CONTAINER WITH SCROLL -----*/
+.container {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-.login-form {
+/*----- SCROLLBAR STYLE -----*/
+.container::-webkit-scrollbar {
+  width: 16px;
+}
 
+.container::-webkit-scrollbar-track {
+  background: vars.$dark-color;
+  border-radius: 50px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: vars.$element-color;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+/* Mobile version */
+.login-form {
   height: 100%; 
-  color: #fff;
-  overflow-x: hidden;
 
   &-container {
-    overflow-y: hidden;
     width: 100%;
   }
 
@@ -84,7 +104,7 @@
       margin-top: 1rem;
       margin-bottom: 2rem;
       font-size: 1em;
-      color: #fff;
+      color: vars.$light-color;
       background-color: vars.$element-color;
       border-radius: .3em;
       border: 0;
@@ -106,23 +126,18 @@
 }
 
 
-
+/* Tablet and Desktop version */
 @media (min-width:600px) {
   .login-form {
-
-    overflow-y: hidden;
     padding: 0 2rem;
     width: 100%;
 
     &-container {
-      overflow-y: hidden;
       &--container {
         display: flex;
-
       }
-
-      
     }
+
     &-left {
       padding: 3rem;
       margin-top: 3rem;
@@ -152,8 +167,5 @@
     &-element {
       width: 100%;
     }
-    
-  
   }
-
 }
