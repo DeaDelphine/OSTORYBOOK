@@ -52,10 +52,10 @@
     margin-bottom: 1rem;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }
@@ -70,10 +70,10 @@
     font-family: Arial, Helvetica, sans-serif;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }

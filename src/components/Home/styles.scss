@@ -11,7 +11,7 @@
     align-items: center;
     width: 200px;
     height: 80px;
-    background-color: vars.$dark-color;
+    background-color: vars.$element-color;
     color: vars.$light-color;
     border: none;
     border-radius: 50px;
@@ -21,7 +21,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
     &:hover {
-      background-color: vars.$medium-color;
+      background-color: vars.$element-color-hover;
     }
   }
 

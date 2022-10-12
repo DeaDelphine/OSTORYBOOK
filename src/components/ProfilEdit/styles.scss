@@ -90,10 +90,10 @@
     margin-bottom: 1rem;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }
@@ -108,10 +108,10 @@
     margin-bottom: 1rem;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }
@@ -126,10 +126,10 @@
     margin-bottom: 1rem;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }
