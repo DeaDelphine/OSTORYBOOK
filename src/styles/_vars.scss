@@ -1,15 +1,18 @@
 @use 'sass:math';
 
-$dark-color: #000000;
-$medium-color: rgb(29, 28, 28);
+// BASIC COLORS
 $light-color: #fff;
+$dark-color: #000;
+
+// BUTTON AND BORDER COLORS
 $element-color: #d06d6d;
 $element-color-hover: #ac5858;
 
+// TITLE COLORS
+$h1Color:#d06d6d;
+$h2Color:#f1d180;
+$h3Color:#d06d6d;
 
-$menuWidth: 250px;
-$smallMenuWidth: 150px;
-$small: 700px;
-$gutter: 1.5rem;
-$halfGutter: math.div($gutter, 2);
-$color: #209CEE;
+// FONTS
+$titleFont: "Frank Ruhl Libre",serif;
+$textFont: "Pompiere", sans-serif;
