@@ -6,6 +6,15 @@
 /* Responsive */
 .home {
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-container {
+    background-color: rgba(0,0,0,0.3);
+    width: 100vw;
+    height: 100vh;
+  }
 
   &__button {
     display: flex;
@@ -28,7 +37,8 @@
   }
 
   &__logo {
-    margin-top: -100px;
+    margin: 0 auto;
+    margin-top: 3rem;
     max-width: 80vw;
     padding-bottom: 5rem;
   }

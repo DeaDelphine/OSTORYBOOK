@@ -4,11 +4,22 @@
 
 // FOOTER COMPONENT
 
+.cgu, .policies, .game-rules {
+  padding: 2rem;
+}
+
 /*----- TEXT AND LINK STYLE -----*/
 .footer-p {
   font-size: 20px;
   line-height: 1.2;
   margin: 25px 0;
+}
+
+.footer-rules-p {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 25px 0;
+  text-align: center;
 }
 
 .footer-link {

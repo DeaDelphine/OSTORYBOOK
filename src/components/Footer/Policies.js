@@ -5,7 +5,7 @@ import './styles.scss';
 function Policies() {
   return (
     <div className="container-scrolly" >
-      <div className="legal-mentions">
+      <div className="policies">
       <h1>POLITIQUES DE CONFIDENTIALITE</h1>
         <p className="footer-p">Objet : information des utilisateurs sur la politique de traitement des données personnelles et la gestion des cookies</p>
   

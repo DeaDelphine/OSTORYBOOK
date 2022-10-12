@@ -11,7 +11,7 @@ function Credits() {
   return (
     <div className="container-scrolly-mobile-only" >
       <div className="credits">
-        <h1 className="credits credits-title">LES CERVEAUX DU PROJET</h1>
+        <h1 className="credits credits-title">Les cerveaux du projet</h1>
         <div className="credits credits-container">
         <div className="credits credits-container--card">
             <img className="credits credits-container--card-img" src={hitotsumekozo} alt="Xavier" />
