@@ -8,7 +8,7 @@ import { fetchUser } from '../../actions/user';
 // == Component
 function Profil() {
   const userInfo = useSelector((state) => state.user);
-  // console.log(users);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUser());

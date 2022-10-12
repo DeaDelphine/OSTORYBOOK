@@ -41,7 +41,7 @@ function Login() {
             />
             <SigninForm
               changeField={(newValue, identifier) => {
-                dispatch(changeUserInput(newValue, identifier));
+                dispatch(changeLoginField(newValue, identifier));
               }}
               handleSignin={() => {
                 dispatch(SignIn());

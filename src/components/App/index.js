@@ -42,10 +42,9 @@ function App() {
           <Route
             path="/mon-compte/edit"
             element={(
-              <EditProfil
-                changeField={(newValue, identifier) => {
-                  dispatch(changeUserInput(newValue, identifier));
-                }}
+              <EditProfil onClick={(event) => {
+                dispatch(changeUserInput());
+              }}
               />
 )}
           />

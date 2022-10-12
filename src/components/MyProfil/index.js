@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import '../Profil/styles.scss';
 
+function linkToBackOffice() {
+  // 👇️ redirect to external URL
+  window.location.href = 'http://localhost:8000/login';
+
+  return null;
+}
 // == Component
 function MyProfil({ email, nickname, roles }) {
   return (
@@ -20,9 +26,6 @@ function MyProfil({ email, nickname, roles }) {
               <p className="field-info-email">
                 {email}
               </p>
-              <p className="field-info-email">
-                {roles}
-              </p>
               <div className="profil-form-button">
                 <div className="profil-form-button--left">
                   <NavLink
@@ -33,6 +36,17 @@ function MyProfil({ email, nickname, roles }) {
                     MODIFIER MON PROFIL
                   </NavLink>
                 </div>
+                {roles == 'ROLE_ADMIN' && (
+                <div className="profil-form-button--left">
+                  <NavLink
+                    to="/"
+                    onClick={linkToBackOffice}
+                    style={{ fontFamily: 'arial' }}
+                  >
+                    ACCEDER AU BACK-OFFICE
+                  </NavLink>
+                </div>
+                )}
                 <button
                   className="profil-form-button--right"
                   type="submit"

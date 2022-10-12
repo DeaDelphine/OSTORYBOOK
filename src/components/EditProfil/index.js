@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { fetchUser, userEdit } from '../../actions/user';
+import { changeUserInput, fetchUser } from '../../actions/user';
 
 // == Component
 function EditProfil({ changeField }) {
@@ -77,7 +77,7 @@ function EditProfil({ changeField }) {
                     className="profil-form-button--left"
                     type="submit"
                     onClick={(event) => {
-                      dispatch(userEdit());
+                      dispatch(changeUserInput());
                     }}
                   >
                     VALIDER LES MODIFICATIONS
