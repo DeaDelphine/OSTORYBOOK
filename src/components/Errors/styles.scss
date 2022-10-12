@@ -1,7 +1,10 @@
+// import
 @use 'src/styles/vars';
 
 
-// ERROR 404 //
+// ERRORS
+
+/* Mobile version */
 .error {
   &-container {
     &--title {
@@ -51,6 +54,7 @@
 
 }
 
+/* Tablet version */
 @media (min-width:800px) {
   .error {
     &-container {
@@ -66,6 +70,8 @@
     }
   }
 }
+
+/* Desktop version */
 
 @media (min-width:1200px) {
   .error {
