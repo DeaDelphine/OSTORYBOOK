@@ -1,49 +1,62 @@
 @use 'src/styles/vars';
 
-.page {
-  color: #fff;
+/*----- CONTAINER WITH SCROLL -----*/
+.container {
+  overflow-y: scroll;
   overflow-x: hidden;
+}
+
+/*----- SCROLLBAR STYLE -----*/
+.container::-webkit-scrollbar {
+  width: 16px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: vars.$dark-color;
+  border-radius: 50px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: vars.$element-color;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+
+// PAGE COMPONENT
+
+/* Mobile version */
+.page {
   margin: 0 auto; 
   
-
   &-list {
     margin-top: 0rem;
   }
-  
 
   &-container {
-    opacity: 2;
     width: 100%;
-    height: 100vh;
-    position: relative;
-    bottom: 0;
 
     &--container {
       background-color: rgba(52, 52, 52, 0.5);
-      height: 95vh;
-      
+      height: 100%;
     }
-
-   
 
     &--title {
       text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
+      padding-top: 4rem;
       font-size: 35px;
+      color: vars.$light-color;
     }
 
     &--content {
       padding: 2rem;
-      
-
   
       &__subtitle {
         text-align: justify;
         font-size: 20px;
         padding: 1rem 0;
         font-size: 25px;
-
       }
     
       &__img {
@@ -53,12 +66,11 @@
         width: 50vh;
         object-fit: cover;
         border-radius: 30px;
-
       }
 
       &__img-end {
         display: flex;
-        background-color: antiquewhite;
+        background-color: vars.$imageBackground;
         height: 46.4vh;
         width: 50vh;
         object-fit: contain;
@@ -74,18 +86,18 @@
       &__content {
         margin: 2rem;
         text-align: center;
-        width: 60vh;
       }
 
       &__button {
         margin: 2rem auto;
         width: 300px;
         height: 50px;
+        font-size: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: vars.$element-color;
-        color: #fff;
+        color: vars.$light-color;
         border: none;
         border-radius: 50px;
       }
@@ -95,8 +107,6 @@
       }
 
       &__button-return {
-        position: absolute;
-        bottom: 0;
         margin: 4rem auto 0 auto;
         width: 100%;
         height: 50px;
@@ -104,76 +114,35 @@
         align-items: center;
         justify-content: center;
         background-color: vars.$element-color;
-        color: #fff;
         border: none;
         font-size: 20px;
+        font-family: vars.$buttonFont;
       }
-
-
 
       &__button-return:hover {
         background-color: vars.$element-color-hover;
       }
-
     }
- 
-
   }
-
-
-
 }
 
 
 
-
+/* Tablet version */
 @media (min-width:500px) {
   .page {
-
-    opacity: 1;
-    color: #fff;
-    overflow-x: hidden;
-    margin: 0 auto; 
-    
-  
     &-container {
-      opacity: 2;
       width: 87vw;
       height: 78vh;
       border-radius: 30px;
 
       &--container {
-        background-color: rgba(52, 52, 52, 0.5);
         height: 78vh;
-        
-      }
-
-  
-      &--title {
-        text-align: center;
-        margin-top: 2rem;
       }
   
       &--content {
-
-  
         &__subtitle {
-          text-align: justify;
           padding: 1rem;
-        }
-      
-        &__img {
-          object-fit: cover;
-          border-radius: 30px;
-  
-        }
-
-        &__img-end {
-          display: flex;
-          background-color: antiquewhite;
-          object-fit: contain;
-          border-radius: 30px;
-          justify-content: center;
         }
       }
   
@@ -187,69 +156,30 @@
   
         &__button {
           margin: 0 auto;
-          width: 300px;
-          height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
         }
 
-        &__button-return {
-          margin: 4rem auto 0 auto;
-        }
-  
       }
-   
-  
-    }
-  
-    &-container::-webkit-scrollbar {
-      width: 16px;
-    }
-    
-    &-container::-webkit-scrollbar-track {
-      background: black;
-      border-radius: 50px;
-    }
-    
-    &-container::-webkit-scrollbar-thumb {
-      background-color: #cf5b3b;
-      border: 4px solid transparent;
-      border-radius: 8px;
-      background-clip: padding-box;  
     }
   }
 }
 
+
+/* Desktop version */
 @media (min-width:990px) {
   .page-container {
     &--content {
       display: flex;
       padding: 1rem;
-
-      &__subtitle {
-        text-align: justify;
-      }
     
       &__img {
-        height: 46.4vh;
         width: 100vw;
-        object-fit: cover;
-        border-radius: 30px;
-
       }
 
       &__img-end {
-        display: flex;
-        background-color: antiquewhite;
         height: 40.7vh;
-        width: 50vw;
-        object-fit: contain;
-        border-radius: 30px;
-        justify-content: center;
       }
-    
     }
+
     &--choice {
       display: flex;
 

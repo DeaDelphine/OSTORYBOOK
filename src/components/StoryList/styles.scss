@@ -31,7 +31,6 @@
   opacity: 1;
   width: 100vw;
   height: 100%;
-  color: #fff;
   margin-top: 3rem;
 
   &__list {
@@ -61,13 +60,13 @@
     }
     &-container {
       margin: 1rem;
-      background-color: black;
+      background-color: vars.$dark-color;
       width: 90%;
       height: 430px;
       border-radius: 40px;
 
       &__img {
-        background-color: antiquewhite;
+        background-color: vars.$imageBackground;
         width: 100%;
         height: 10rem;
         object-fit: contain;
@@ -94,7 +93,7 @@
         width: 16px;
       }
       &__excerpt::-webkit-scrollbar-track {
-        background: black;
+        background: vars.$dark-color;
         border-radius: 50px;
       }
       &__excerpt::-webkit-scrollbar-thumb {
@@ -114,10 +113,12 @@
         background-color: vars.$element-color;
         border: none;
         border-radius: 50px;
+        color: vars.$light-color;
+        text-transform: uppercase;
       }
       &__button:hover {
         background-color: vars.$element-color-hover;
-        color: #fff;
+
       }
     }
   }
