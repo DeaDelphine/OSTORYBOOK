@@ -10,7 +10,7 @@ function AnimCursor() {
       color='241, 209, 128'
       outerAlpha={0.2}
       innerScale={0.7}
-      outerScale={5}
+      outerScale={2.5}
       clickables={[
         'a',
         'input[type="text"]',
@@ -18,7 +18,6 @@ function AnimCursor() {
         'input[type="submit"]',
         'input[type="image"]',
         'input[type="number"]',
-        'label[for]',
         'select',
         'textarea',
         'button',
