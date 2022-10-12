@@ -10,7 +10,6 @@ export const initialState = {
   email: '',
   // contenu du champ password du formulaire de login
   password: '',
-  passwordcheck: '',
   roles: '',
   logged: false,
 };
@@ -42,7 +41,7 @@ const reducer = (state = initialState, action = {}) => {
 
       return {
         ...state,
-        passwordcheck: action.value,
+        Oldpassword: action.value,
       };
 
     case SET_USER: {

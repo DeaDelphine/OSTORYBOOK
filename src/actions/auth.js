@@ -1,4 +1,5 @@
 export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
+export const CHANGE_SIGN_FIELD = 'CHANGE_SIGN_FIELD';
 export const LOG_IN = 'LOG_IN';
 export const LOGOUT = 'LOGOUT';
 export const USER_DELETE = 'USER_DELETE';
@@ -16,6 +17,12 @@ export const changeLoginField = (newValue, fieldIdentifier) => ({
   type: CHANGE_LOGIN_FIELD,
   value: newValue,
   fieldIdentifier: fieldIdentifier,
+});
+
+export const changeSignField = (newValue, fieldIdentify) => ({
+  type: CHANGE_SIGN_FIELD,
+  value: newValue,
+  fieldIdentify: fieldIdentify,
 });
 
 // action type from auth middleware, got to auth reducer

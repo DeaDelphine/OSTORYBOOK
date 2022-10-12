@@ -2,13 +2,16 @@
 // == Import
 import '../Profil/styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { changeUserInput, fetchUser } from '../../actions/user';
+import {
+  changeUserInput, clearUserInput, fetchUser,
+} from '../../actions/user';
+import FieldProfil from './FieldProfil';
+import { deleteUser } from '../../actions/auth';
 
 // == Component
-function EditProfil({ changeField }) {
+function EditProfil() {
   const nickname = useSelector((state) => state.user.nickname);
   const email = useSelector((state) => state.user.email);
   const dispatch = useDispatch();
@@ -22,56 +25,63 @@ function EditProfil({ changeField }) {
         <div className="profil-form-container">
           <h2 className="profil-form-title">MODIFIER MON PROFIL</h2>
           <div className="profil-form-element">
-            <form className="profil-form--form">
+            <form
+              className="profil-form--form"
+            >
               <div className="field">
                 <label
                   className="field-left"
-                  onChange={changeField}
+
                 >
                   Pseudo :
                 </label>
-                <input
+                <FieldProfil
                   type="text"
-                  className="field-input-text"
-                  name="nickname"
+                  name="username"
+                  placeholder="Nom d'utilisateur"
                   defaultValue={nickname}
                 />
+
                 <label
                   className="field-left"
-                  onChange={changeField}
+
                 >
                   Adresse mail :
                 </label>
-                <input
+                <FieldProfil
                   type="email"
-                  className="field-input-email"
                   name="email"
+                  className="field-input-email"
+                  placeholder="Email"
                   defaultValue={email}
                 />
+
                 <label
                   className="field-left"
-                  onChange={changeField}
+
                 >
                   Mot de passe :
                 </label>
-                <input
+                <FieldProfil
                   type="password"
-                  className="field-input-password"
                   name="password"
-                  placeholder="**********"
+                  className="field-input-password"
+                  placeholder="Mot de passe"
                 />
+
                 <label
                   className="field-left"
-                  onChange={changeField}
+
                 >
                   Confirmez le mot de passe :
                 </label>
-                <input
+                <FieldProfil
                   type="password"
                   className="field-input-password"
-                  name="password"
-                  placeholder="**********"
+                  name="newPassword"
+                  placeholder="Nouveau mot de passe"
                 />
+
                 <div className="profil-form-button">
                   <button
                     className="profil-form-button--left"
@@ -79,12 +89,17 @@ function EditProfil({ changeField }) {
                     onClick={(event) => {
                       dispatch(changeUserInput());
                     }}
+                    to="/mon-compte"
                   >
                     VALIDER LES MODIFICATIONS
                   </button>
                   <button
                     className="profil-form-button--right"
                     type="submit"
+                    onClick={(event) => {
+                      dispatch(deleteUser());
+                    }}
+                    to="/"
                   >
                     SUPPRIMER MON COMPTE
                   </button>
@@ -104,9 +119,6 @@ function EditProfil({ changeField }) {
     </div>
   );
 }
-EditProfil.propTypes = {
-  changeField: PropTypes.func.isRequired,
-};
 
 // == Export
 export default EditProfil;

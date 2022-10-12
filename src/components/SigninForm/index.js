@@ -15,10 +15,10 @@ function SigninForm({
   changeField,
   handleSignin,
 }) {
-  const emailValue = useSelector((state) => state.user.email);
-  const nicknameValue = useSelector((state) => state.user.nickname);
-  const passwordValue = useSelector((state) => state.user.password);
-  const passwordCheckValue = useSelector((state) => state.user.passwordcheck);
+  const email = useSelector((state) => state.auth.email);
+  const nicknameValue = useSelector((state) => state.auth.nickname);
+  const passwordValue = useSelector((state) => state.auth.password);
+  const passwordCheckValue = useSelector((state) => state.auth.passwordcheck);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -35,7 +35,7 @@ function SigninForm({
             name="email"
             placeholder="Email"
             onChange={changeField}
-            value={emailValue}
+            value={email}
           />
           <Field
             name="nickname"

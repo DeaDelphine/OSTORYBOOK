@@ -15,8 +15,8 @@ function LoginForm({
   changeField,
   handleLogin,
 }) {
-  const emailValue = useSelector((state) => state.auth.email);
-  const passwordValue = useSelector((state) => state.auth.password);
+  const emailValue = useSelector((state) => state.auth.emailAuth);
+  const passwordValue = useSelector((state) => state.auth.passwordAuth);
 
   const handleSubmit = (evt) => {
     console.log(handleSubmit);

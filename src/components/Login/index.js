@@ -6,8 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import LoginForm from '../LoginForm';
 import SigninForm from '../SigninForm';
 
-import { changeLoginField, logIn, SignIn } from '../../actions/auth';
-import { changeUserInput } from '../../actions/user';
+import {
+  changeLoginField, changeSignField, logIn, SignIn,
+} from '../../actions/auth';
 
 import './styles.scss';
 
@@ -40,8 +41,8 @@ function Login() {
               }}
             />
             <SigninForm
-              changeField={(newValue, identifier) => {
-                dispatch(changeLoginField(newValue, identifier));
+              changeField={(newValue, identify) => {
+                dispatch(changeSignField(newValue, identify));
               }}
               handleSignin={() => {
                 dispatch(SignIn());

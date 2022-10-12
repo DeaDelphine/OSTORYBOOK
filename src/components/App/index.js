@@ -20,7 +20,8 @@ import Loading from './Loading';
 // == Styles
 import './styles.scss';
 
-import { changeUserInput } from '../../actions/user';
+import { changeUserInput, clearUserInput, userEdit } from '../../actions/user';
+import { deleteUser } from '../../actions/auth';
 
 // == Actions
 
@@ -42,11 +43,15 @@ function App() {
           <Route
             path="/mon-compte/edit"
             element={(
-              <EditProfil onClick={(event) => {
-                dispatch(changeUserInput());
-              }}
+              <EditProfil
+                changeField={(newValue, identifier) => {
+                  dispatch(changeUserInput(newValue, identifier));
+                }}
+                handleDeleteUser={() => {
+                  dispatch(deleteUser());
+                }}
               />
-)}
+          )}
           />
           <Route path="/cgu" element={<CGU />} />
           <Route path="/nous-contacter" element={<ContactForm />} />

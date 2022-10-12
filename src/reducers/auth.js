@@ -2,6 +2,7 @@ import {
   CHANGE_LOGIN_FIELD,
   SIGN_IN, SET_TOKEN, SAVE_NEW_USER, LOGOUT,
   USER_DELETE,
+  CHANGE_SIGN_FIELD,
 } from '../actions/auth';
 
 export const initialState = {
@@ -21,12 +22,12 @@ const reducer = (state = initialState, action = {}) => {
       if (action.fieldIdentifier === 'email') {
         return {
           ...state,
-          email: action.value,
+          emailAuth: action.value,
         };
       }
       return {
         ...state,
-        password: action.value,
+        passwordAuth: action.value,
       };
 
     case SET_TOKEN: {
@@ -36,11 +37,38 @@ const reducer = (state = initialState, action = {}) => {
         logged: true,
       };
     }
+    case CHANGE_SIGN_FIELD:
+      // si le champ concerné par le changement est celui de l'e-mail
+      if (action.fieldIdentify === 'email') {
+        return {
+          ...state,
+          email: action.value,
+        };
+      }
+
+      if (action.fieldIdentify === 'nickname') {
+        return {
+          ...state,
+          nickname: action.value,
+        };
+      }
+
+      if (action.fieldIdentify === 'password') {
+        return {
+          ...state,
+          password: action.value,
+        };
+      }
+
+      return {
+        ...state,
+        passwordcheck: action.value,
+      };
 
     case SIGN_IN:
       return {
         ...state,
-        email: action.value,
+        email: action.email,
         nickname: action.value,
         password: action.value,
         passwordcheck: action.value,
@@ -64,7 +92,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: false,
-        connectedId: 0,
       };
     }
 

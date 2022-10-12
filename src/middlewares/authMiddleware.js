@@ -17,8 +17,8 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.post(
         'http://0.0.0.0:8000/api/login',
         {
-          email: state.auth.email,
-          password: state.auth.password,
+          email: state.auth.emailAuth,
+          password: state.auth.passwordAuth,
         },
 
       )
@@ -42,12 +42,10 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.post(
         'http://0.0.0.0:8000/api/register',
         {
-          email: state.user.email.trim().toLowerCase(),
-          password: state.user.password.trim(),
-          nickname: state.user.nickname.trim(),
-          // eslint-disable-next-line no-dupe-keys
-          password: state.user.password,
-          passwordCheck: state.user.passwordCheck,
+          email: state.auth.email.toLowerCase(),
+          nickname: state.auth.nickname,
+          password: state.auth.password,
+          passwordCheck: state.auth.passwordCheck,
 
         },
       )
