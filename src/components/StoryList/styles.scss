@@ -1,12 +1,38 @@
+// import
 @use 'src/styles/vars';
+
+
+/*----- CONTAINER WITH SCROLL -----*/
+.container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/*----- SCROLLBAR STYLE -----*/
+.container::-webkit-scrollbar {
+  width: 16px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: vars.$dark-color;
+  border-radius: 50px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: vars.$element-color;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+// STORYLIST COMPONENT
 
 .story-list {
   opacity: 1;
   width: 100vw;
   height: 100%;
   color: #fff;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  margin-top: 3rem;
 
   &__list {
     margin: 0 auto;
@@ -17,9 +43,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      
     }
   }
 }
+
+// STORY COMPONENT
+
 .story {
     &-subtitle {
       padding-top: 6rem;
@@ -30,7 +60,7 @@
       margin-top: 20px;
     }
     &-container {
-      margin: 1rem 0;
+      margin: 1rem;
       background-color: black;
       width: 90%;
       height: 430px;
@@ -47,6 +77,7 @@
 
       &__title {
         text-align: center;
+       
       }
       &__excerpt {
         width: 100%;
@@ -56,6 +87,7 @@
         margin-top: -15px;
         margin-bottom: 15px;
         padding: 1rem;
+        
       }
 
       &__excerpt::-webkit-scrollbar {
@@ -89,14 +121,14 @@
       }
     }
   }
+
+/* Tablet version */
   @media (min-width:500px) {
-    .container {
-      width: 87vw;
-      height: 100vh;
-      border-radius: 40px;
-    }
+
+  // STORYLIST COMPONENT
+
     .story-list {
-      width: 90vw;
+      width: 85vw;
       height: 100vh;
       padding: 1rem;
 
@@ -106,6 +138,9 @@
         height: 100%;
       }
     }
+
+  // STOPY COMPONENT
+
     .story {
       &-container {
         width: 80%;
@@ -120,19 +155,15 @@
       }
     }
   }
+
+/* Desktop version */
   @media (min-width:990px) {
-    .container {
-      width: 87vw;
-      height: 70vh;
-      border-radius: 40px;
-      margin-top: -80px;
-    }
+
+    // STRORYLIST COMPONENT
     .story-list {
       margin-top: 0;
-      height: 70vh;
-      width: 86vw;
-      overflow-y: hidden;
-      overflow-x: hidden;
+      height: 75vh;
+      width: 78vw;
 
       &__list {
 
@@ -143,27 +174,13 @@
         }
       }
     }
-    .story-list::-webkit-scrollbar {
-      width: 16px;
-    }
-    .story-list::-webkit-scrollbar-track {
-      background: black;
-      border-radius: 50px;
-    }
-    .story-list::-webkit-scrollbar-thumb {
-      background-color: vars.$element-color;
-      border: 4px solid transparent;
-      border-radius: 8px;
-      background-clip: padding-box;
-    }
     .story-list__list {
       margin: 0 auto;
       max-width: 85vw;
       height: 65vh;
     }
-    .scrollbar {
-      display: flex;
-    }
+
+    // STORY COMPONENT
     .story {
       &-subtitle {
         margin-top: -10px;
@@ -173,8 +190,6 @@
       }
       &-container {
         margin-top: 0;
-        margin-left: 1rem;
-        margin-right: 1rem;
         width: 400px;
       }
     }
