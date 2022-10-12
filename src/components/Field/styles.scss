@@ -1,5 +1,9 @@
+// import
 @use 'src/styles/vars';
 
+// FIELD COMPONENT
+
+/*----- FORM INPUT -----*/
 .field {
   margin: .3em .3em .3em 0;
 
@@ -7,15 +11,15 @@
     width: 100%;
     padding: .7em;
     font-size: 1em;
-    border: 1px solid #ddd;
+    border: vars.$inputBorder;
     border-radius: .3em;
     height: 2.5em;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }
@@ -25,7 +29,7 @@
     position: absolute;
     top: .2rem;
     left: .7rem;
-    color: #999;
+    color: vars.$inputColor;
     font-size: .7em;
     text-transform: uppercase;
     animation: labelSlideUpAndShow .3s;
@@ -39,8 +43,43 @@
       padding: 1.4em .7em .4em;
     }
   }
-}
 
+  &-email {
+    width: 100%;
+    padding: .7em;
+    font-size: 1em;
+    border: vars.$inputBorder;
+    border-radius: .3em;
+    height: 2.5em;
+    margin-bottom: 1rem;
+
+    &:focus {
+      border-color: vars.$element-color;
+
+      & + .field-label {
+        color: vars.$dark-color;
+      }
+    }
+  }
+
+  &-textarea {
+    width: 100%;
+    padding: .7em;
+    font-size: 1em;
+    border: vars.$inputBorder;
+    border-radius: .3em;
+    height: 10em;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &:focus {
+      border-color: vars.$element-color;
+
+      & + .field-label {
+        color: vars.$dark-color;
+      }
+    }
+  }
+}
 
 @keyframes labelSlideUpAndShow{
   0% {

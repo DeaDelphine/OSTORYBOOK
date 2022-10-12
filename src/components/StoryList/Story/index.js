@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPages } from 'src/actions/pages';
-import './styles.scss';
+import '../styles.scss';
 // == Composant
 function Story({
   id, image, title, content, startPage,

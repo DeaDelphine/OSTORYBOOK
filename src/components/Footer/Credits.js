@@ -9,7 +9,7 @@ import oni from '../../assets/images/personnages-freebie-ac.jp/oni.png';
 // == Component
 function Credits() {
   return (
-    <div className="container" >
+    <div className="container-scrolly-mobile-only" >
       <div className="credits">
         <h1 className="credits credits-title">LES CERVEAUX DU PROJET</h1>
         <div className="credits credits-container">

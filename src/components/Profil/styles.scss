@@ -1,13 +1,10 @@
+// import
 @use 'src/styles/vars';
 
-/* PROFIL FORM */
-.container {
-  overflow: hidden;
-}
+// PROFIL FORM COMPONENT
 
+/* Responsive */
 .profil-form {
-
-  color: #fff;
   padding: 2rem;
   text-align: center;
 
@@ -21,7 +18,6 @@
   }
 
   &-button {
-  
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -29,7 +25,6 @@
     &--left {
       margin-top: 1rem;
       font-size: 1em;
-      color: #fff;
       background-color: vars.$element-color;
       border: 0;
       width: 200px;
@@ -40,7 +35,6 @@
     &--right {
       margin-top: 1rem;
       font-size: 1em;
-      color: #fff;
       background-color: vars.$element-color;
       border: none;
       width: 200px;
@@ -55,7 +49,7 @@
   
 }
 
-.field {
+.user {
   margin: .3em .3em .3em 0;
 
   &-label {
@@ -92,5 +86,4 @@
     height: 2.5em;
     margin-bottom: 1rem;
   }
-
 }

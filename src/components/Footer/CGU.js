@@ -4,7 +4,7 @@ import './styles.scss';
 // == Component
 function CGU() {
   return (
-    <div className="container" >
+    <div className="container-scrolly" >
       <div className="cgu">
         <h1>CONDITIONS GENERALES D'UTILISATION</h1>
         <h2>Avertissement</h2>

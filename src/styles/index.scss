@@ -1,12 +1,8 @@
 @use 'reset';
 @use 'vars';
 
-@font-face {
-  font-family: 'Pompiere';
-  src: url('../assets/fonts/Pompiere-Regular.ttf');
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
 
 * {
   box-sizing: border-box;
@@ -17,7 +13,7 @@
 
 body {
   position: relative;
-  font-family:'Pompiere', sans-serif;
+  font-family: vars.$textFont;
   background: url(src/assets/images/home-backgroud-tawatchai07.jpg) no-repeat center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -29,10 +25,8 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  color: white;
-  
-
-}  // or you can import your own font
+  color: vars.$light-color;
+}  
 
 
 ul {
@@ -48,14 +42,14 @@ h1 {
     line-height: 1.12;
     letter-spacing: 0.73px;
     margin: 25px;
-    font-family: "Frank Ruhl Libre",serif;
+    font-family: vars.$titleFont;
     text-align: center;
 }
 
 h2 {
-  font-family: "Frank Ruhl Libre",serif;
+  font-family: vars.$titleFont;
   font-weight: 400;
-  color: #f1d180;
+  color: vars.$h2Color;
   font-size: 36px;
   line-height: 1.2;
   letter-spacing: 0.51px;
@@ -63,7 +57,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Frank Ruhl Libre",serif;
+  font-family: vars.$titleFont;
     font-weight: 400;
     color: vars.$element-color;
     font-size: 36px;
@@ -79,10 +73,3 @@ h4 {
   letter-spacing: 0.33px;
   font-weight: bold;
 }
-
- 
-
-  // body {
-  //   font-family: 'Roboto', sans-serif;
-  // }
-

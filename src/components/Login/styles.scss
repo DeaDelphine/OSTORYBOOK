@@ -1,17 +1,14 @@
+// import
 @use 'src/styles/vars';
 
-.header__link--home {
-  display: block;
-}
 
+// LOGIN COMPONENT
+
+/* Mobile version */
 .login-form {
-
   height: 100%; 
-  color: #fff;
-  overflow-x: hidden;
 
   &-container {
-    overflow-y: hidden;
     width: 100%;
   }
 
@@ -84,7 +81,7 @@
       margin-top: 1rem;
       margin-bottom: 2rem;
       font-size: 1em;
-      color: #fff;
+      color: vars.$light-color;
       background-color: vars.$element-color;
       border-radius: .3em;
       border: 0;
@@ -106,23 +103,18 @@
 }
 
 
-
+/* Tablet and Desktop version */
 @media (min-width:600px) {
   .login-form {
-
-    overflow-y: hidden;
     padding: 0 2rem;
     width: 100%;
 
     &-container {
-      overflow-y: hidden;
       &--container {
         display: flex;
-
       }
-
-      
     }
+
     &-left {
       padding: 3rem;
       margin-top: 3rem;
@@ -152,8 +144,5 @@
     &-element {
       width: 100%;
     }
-    
-  
   }
-
 }

@@ -1,4 +1,4 @@
-import './styles.scss';
+import '../styles.scss';
 
 /**
  * Display a form to log in, with inputs email and password.
