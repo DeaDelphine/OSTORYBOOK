@@ -1,6 +1,6 @@
 // == Import
 import ContactForm from './ContactForm';
-import './styles.scss';
+import '../styles.scss';
 
 // == Component
 function Contact() {

@@ -25,7 +25,7 @@ function StoryList() {
   //   return <Navigate to="/error" replace />;
   // }
   return (
-    <div className="container">
+    <div className="container-scrollx">
       <div className="story-list">
         <h1>Veuillez choisir une histoire</h1>
         <div className="story-list__list">

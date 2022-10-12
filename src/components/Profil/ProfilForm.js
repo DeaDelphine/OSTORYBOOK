@@ -15,11 +15,11 @@ function ProfilForm({
       <div className="profil-form-container">
           <div className="profil-form-element">
             <form className="profil-form--form">
-              <div className="field">
-              <p className="field-info-username">
+              <div className="user-info">
+              <p className="user-info-username">
               Mon Profil
               </p>
-              <p className="field-info-email">
+              <p className="user-info-email">
                 pseudo@user.com
               </p>
               <div className="profil-form-button">
