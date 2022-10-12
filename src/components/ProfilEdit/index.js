@@ -9,11 +9,10 @@ function Profil() {
     <div className="container" >
         <ProfilEdit />
         <NavLink
-          to="/mon-compte"
-          className="container-button--return"
-          style={{fontFamily: 'arial', display: 'flex', justifyContent: 'center'}}
-        > 
-          Retour à mon profil     
+              to="/mon-compte"
+              className="container-button--return"
+            > 
+              Retour à mon profil     
         </NavLink>
     </div>
   );
