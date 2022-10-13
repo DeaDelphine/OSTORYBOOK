@@ -31,7 +31,7 @@ function StoryList() {
         <div className="story-list__list">
           <div className="story-list__list-container">
             {stories.map((story) => (
-              <Story {...story} />
+              <Story {...story} key={story.id} />
             ))}
           </div>
         </div>
