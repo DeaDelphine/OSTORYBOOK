@@ -119,6 +119,7 @@
 @media (min-width:600px) {
   .field-container {
     width: 100%;
+
   }
 
   .field {
@@ -130,6 +131,28 @@
       float: left;
       width: 30%;
       text-align: right;
+    }
+  }
+}
+
+/*  Desktop Version */
+@media (min-width:1000px) {
+
+  .field {
+
+    &-left {
+      width: 25%;
+    }
+  }
+}
+
+/*  Desktop Version */
+@media (min-width:1410px) {
+
+  .field {
+
+    &-left {
+      width: 15%;
     }
   }
 }
