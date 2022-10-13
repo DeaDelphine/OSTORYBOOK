@@ -9,6 +9,7 @@ import './styles.scss';
 // == Component
 function HeaderNavLinks() {
   const token = !!localStorage.getItem('token');
+
   const isLogged = (useSelector((state) => state.auth.logged) || token);
 
   const handleLogout = () => {
@@ -20,13 +21,12 @@ function HeaderNavLinks() {
       <NavLink
         to="/"
         className="header__link"
-        // onClick={() => props.isMobile && props.closeMobileMenu()}
+
       >
         Accueil
       </NavLink>
       { isLogged && (
         <NavLink
-          // onClick={() => props.isMobile && props.closeMobileMenu()}
           to="/mon-compte"
           className="header__link"
           onClick={(event) => {

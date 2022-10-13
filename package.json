@@ -55,6 +55,7 @@
     "proptypes": "^1.1.0",
     "react": "^18.2.0",
     "react-animated-cursor": "^2.5.2",
+    "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.2.0",
     "react-icon": "^1.0.0",
     "react-icons": "^4.4.0",

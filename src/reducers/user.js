@@ -3,6 +3,7 @@ import {
   CLEAR_USER_INPUT,
   SAVE_ERROR_DATA,
   SAVE_ERROR_PROFIL_EDIT,
+  SAVE_ERROR_PROFIL_DELETE,
 } from '../actions/user';
 
 export const initialState = {
@@ -75,6 +76,12 @@ const reducer = (state = initialState, action = {}) => {
         errors: action.errors,
       };
     case SAVE_ERROR_PROFIL_EDIT:
+      return {
+        ...state,
+        errors: action.errors,
+      };
+
+    case SAVE_ERROR_PROFIL_DELETE:
       return {
         ...state,
         errors: action.errors,

@@ -85,7 +85,6 @@ const reducer = (state = initialState, action = {}) => {
     case LOGOUT: {
       return {
         ...state,
-        username: '',
         isLogged: false,
       };
     }

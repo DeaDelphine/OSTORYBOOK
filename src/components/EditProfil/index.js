@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { fetchUser, userEdit } from '../../actions/user';
+
+import { userEdit } from '../../actions/user';
 import FieldProfil from './FieldProfil';
 
 // == Component
@@ -150,12 +151,12 @@ function EditProfil({ changeField }) {
                 >
                   VALIDER LES MODIFICATIONS
                 </button>
-                <button
+                {/* <button
                   className="profil-form-button--right"
                   type="submit"
                 >
                   SUPPRIMER MON COMPTE
-                </button>
+                </button> */}
               </div>
             </form>
           </div>

@@ -13,7 +13,9 @@ function linkToBackOffice() {
 }
 
 // == Component
-function MyProfil({ email, nickname, roles }) {
+function MyProfil({
+  email, nickname, roles,
+}) {
   const dispatch = useDispatch();
 
   return (
@@ -56,7 +58,9 @@ function MyProfil({ email, nickname, roles }) {
                   className="profil-form-button--right"
                   type="submit"
                   onClick={(event) => {
-                    dispatch(deleteUser());
+                    if (window.confirm('Êtes-vous sûr de vouloir supprimer votre profil utilisateur ?')) {
+                      dispatch(deleteUser());
+                    }
                   }}
                   to="/"
                 >
