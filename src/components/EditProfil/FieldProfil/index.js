@@ -14,7 +14,7 @@ function FieldProfil({
   return (
     <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
       <input
-        className="field-input"
+        className="field-profil-input"
         id={name}
         type={type}
         name={name}
