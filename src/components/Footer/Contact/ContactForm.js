@@ -15,16 +15,15 @@ function ContactForm() {
         <h1 className="contact-form-title">NOUS CONTACTER</h1>
         <div className="contact-form-element">
           <form className="contact-form--form">
-            <div className="field">
-
+            <div className="contact-field">
               <input
                 type="email"
-                className="field-email"
+                className="contact-field-email"
                 name="email"
                 placeholder="Email"
               />
               <textarea
-                className="field-textarea"
+                className="contact-field-textarea"
                 name="message"
                 placeholder="Votre message"
               />
@@ -37,7 +36,6 @@ function ContactForm() {
             </div>
           </form>
         </div>
-
       </div>
     </div>
   );
