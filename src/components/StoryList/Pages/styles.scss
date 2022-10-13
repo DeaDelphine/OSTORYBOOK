@@ -33,6 +33,7 @@
         font-size: 20px;
         padding: 1rem 0;
         font-size: 25px;
+        margin-bottom: 2rem;
       }
     
       &__img {
@@ -114,11 +115,11 @@
   .page {
     &-container {
       width: 87vw;
-      height: 110vh;
+      height: 100%;
       border-radius: 30px;
 
       &--container {
-        height: 110vh;
+        height: 100%;
       }
 
       &--title {
@@ -146,7 +147,7 @@
         }
 
         &__button-return {
-          margin-top: 8rem;
+          margin-top: 5rem;
         }
       }
     }
@@ -156,10 +157,11 @@
 /* Desktop version */
 @media (min-width:800px) {
   .page-container {
-    height: 105vh;
 
-    &--container {
-      height: 105vh;
+    &--choice {
+      &__button-return-container {
+        display: flex;
+      }
     }
   }
 }
@@ -226,8 +228,10 @@
       }
 
       &__button-return {
-        margin-top: 6rem;
+        margin-top: 4rem;
       }
     }
+
+    
   }
 }
