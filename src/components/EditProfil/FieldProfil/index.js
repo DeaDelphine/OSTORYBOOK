@@ -7,13 +7,13 @@ function FieldProfil({
   onChange,
   value,
 }) {
+  // this function handlechange is here for all the input and also for the control fields
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
   };
   return (
     <input
       className="field__input px-4 mb-2 h-12"
-      id={name}
       type={type}
       name={name}
       placeholder={placeholder}

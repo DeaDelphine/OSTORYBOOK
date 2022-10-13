@@ -1,22 +1,12 @@
 /* eslint-disable react/button-has-type */
 
-import {
-  useDispatch,
-} from 'react-redux';
-import {
-  useEffect,
-} from 'react';
+import { useDispatch } from 'react-redux';
 
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-import {
-  fetchPages,
-} from 'src/actions/pages';
-import {
-  Link,
-  NavLink,
-} from 'react-router-dom';
+import { fetchPages } from 'src/actions/pages';
+import { Link, NavLink } from 'react-router-dom';
 
 /* eslint-disable max-len */
 function Page({
@@ -72,6 +62,7 @@ function Page({
                         dispatch(fetchPages(localStorage.getItem('id'), localStorage.getItem('page')));
                       }
                     }
+                    key={choice.id}
                   >
                     {
                       choice.name
@@ -90,6 +81,7 @@ function Page({
                     localStorage.removeItem('page');
                   }
                 }
+
               >
                 Retour à la liste des histoires
               </NavLink>

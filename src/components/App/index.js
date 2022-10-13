@@ -29,6 +29,7 @@ import AnimCursor from '../AnimCursor';
 
 // == Component
 function App() {
+  // as we need to dispatch action to some composant we use the Hook UseDispatch
   const dispatch = useDispatch();
   return (
     <div className="app">
@@ -36,6 +37,7 @@ function App() {
       <Navigation />
       <div className="app-container">
         <Routes>
+          {/* if URL / then we will display home composant */}
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
           <Route path="/mon-compte" element={<Profil />} />
@@ -43,6 +45,7 @@ function App() {
             path="/mon-compte/edit"
             element={(
               <EditProfil
+              // we use changeField fonction with property to change the value of input form
                 changeField={(newValue, identifier) => {
                   dispatch(changeUserInput(newValue, identifier));
                 }}
