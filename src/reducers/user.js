@@ -1,51 +1,70 @@
-import { CHANGE_USER_INPUT } from '../actions/user';
-import { SIGN_IN } from '../actions/auth';
+import {
+  CHANGE_USER_INPUT, SET_USER, CLEAR_EDIT,
+  CLEAR_USER_INPUT,
+} from '../actions/user';
 
 export const initialState = {
-  email: '',
+  // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
+  // contenu du champ email du formulaire de profil
+  email: '',
+  // contenu du champ password du formulaire de login
   password: '',
-  passwordcheck: '',
+  roles: '',
+  logged: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_USER_INPUT:
       // si le champ concerné par le changement est celui de l'e-mail
-      if (action.fieldIdentifier === 'email') {
+      if (action.fieldIdentifier === 'newemail') {
         return {
           ...state,
-          email: action.value,
+          Newemail: action.value,
         };
       }
 
-      if (action.fieldIdentifier === 'nickname') {
+      if (action.fieldIdentifier === 'newnickname') {
         return {
           ...state,
-          nickname: action.value,
+          Newnickname: action.value,
         };
       }
 
-      if (action.fieldIdentifier === 'password') {
+      if (action.fieldIdentifier === 'oldpassword') {
         return {
           ...state,
-          password: action.value,
+          Oldpassword: action.value,
         };
       }
 
       return {
         ...state,
-        passwordcheck: action.value,
+        Newpassword: action.value,
       };
 
-    case SIGN_IN:
+    case SET_USER: {
       return {
         ...state,
         nickname: action.nickname,
-        email: '',
-        password: '',
-        passwordcheck: '',
+        email: action.email,
+        roles: action.roles,
+        logged: true,
       };
+    }
+    case CLEAR_EDIT: {
+      return {
+        ...state,
+        password: '',
+      };
+    }
+    case CLEAR_USER_INPUT: {
+      return {
+        ...state,
+        [action.key]: '',
+      };
+    }
 
     default:
       return state;

@@ -1,15 +1,18 @@
-import { CHANGE_LOGIN_FIELD, SAVE_USER_DATA } from '../actions/auth';
+import {
+  CHANGE_LOGIN_FIELD,
+  SIGN_IN, SET_TOKEN, SAVE_NEW_USER, LOGOUT,
+  USER_DELETE,
+  CHANGE_SIGN_FIELD,
+} from '../actions/auth';
 
 export const initialState = {
-  logged: false,
-  // contenu du champ email du formulaire de login
   email: '',
-  // contenu du champ password du formulaire de login
-  password: '',
-  // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
+  password: '',
+  passwordcheck: '',
   token: '',
-  loggedMessage: 'Vous êtes bien connectés !'
+  logged: false,
+  loggedMessage: 'Vous êtes bien connectés !',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -19,27 +22,78 @@ const reducer = (state = initialState, action = {}) => {
       if (action.fieldIdentifier === 'email') {
         return {
           ...state,
+          emailAuth: action.value,
+        };
+      }
+      return {
+        ...state,
+        passwordAuth: action.value,
+      };
+
+    case SET_TOKEN: {
+      return {
+        ...state,
+        token: action.token,
+        logged: true,
+      };
+    }
+    case CHANGE_SIGN_FIELD:
+      // si le champ concerné par le changement est celui de l'e-mail
+      if (action.fieldIdentify === 'email') {
+        return {
+          ...state,
           email: action.value,
         };
       }
-      // else implicite : si on arrive à cette ligne c'est que forcément on n'est pas
-      // passé dans le if
+
+      if (action.fieldIdentify === 'nickname') {
+        return {
+          ...state,
+          nickname: action.value,
+        };
+      }
+
+      if (action.fieldIdentify === 'password') {
+        return {
+          ...state,
+          password: action.value,
+        };
+      }
+
       return {
         ...state,
-        password: action.value,
+        passwordcheck: action.value,
       };
 
-    case SAVE_USER_DATA:
+    case SIGN_IN:
       return {
         ...state,
-        nickname: action.nickname,
-        token: action.token,
-        logged: action.logged,
-        // pour la sécurité, on en profite pour effacer email
-        // et password (ils ne sont plus nécessaires)
-        email: '',
-        password: '',
+        email: action.email,
+        nickname: action.value,
+        password: action.value,
+        passwordcheck: action.value,
       };
+    case SAVE_NEW_USER:
+      return {
+        ...state,
+        email: '',
+        nickname: '',
+        password: '',
+        passwordcheck: '',
+      };
+    case LOGOUT: {
+      return {
+        ...state,
+        username: '',
+        isLogged: false,
+      };
+    }
+    case USER_DELETE: {
+      return {
+        ...state,
+        isLogged: false,
+      };
+    }
 
     default:
       return state;

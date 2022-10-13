@@ -15,10 +15,11 @@ function LoginForm({
   changeField,
   handleLogin,
 }) {
-  const emailValue = useSelector((state) => state.user.email);
-  const passwordValue = useSelector((state) => state.user.password);
+  const emailValue = useSelector((state) => state.auth.emailAuth);
+  const passwordValue = useSelector((state) => state.auth.passwordAuth);
 
   const handleSubmit = (evt) => {
+    console.log(handleSubmit);
     evt.preventDefault();
     handleLogin();
   };
@@ -62,8 +63,8 @@ function LoginForm({
 }
 
 LoginForm.propTypes = {
-  changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
+  changeField: PropTypes.func.isRequired,
 };
 
 // == Export

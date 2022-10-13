@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable no-lone-blocks */
 
 import { Navigate } from 'react-router-dom';
@@ -5,8 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import LoginForm from '../LoginForm';
 import SigninForm from '../SigninForm';
 
-import { changeLoginField, logIn, SignIn } from '../../actions/auth';
-import { changeUserInput } from '../../actions/user';
+import {
+  changeLoginField, changeSignField, logIn, SignIn,
+} from '../../actions/auth';
 
 import './styles.scss';
 
@@ -18,16 +20,15 @@ import './styles.scss';
  */
 
 function Login() {
-  const isLogged = useSelector((state) => state.user.logged);
-  const loggedMessage = useSelector((state) => state.user.loggedMessage);
+  const isLogged = useSelector((state) => state.auth.logged);
 
   const dispatch = useDispatch();
 
   return (
-    isLogged && (window.location.href = '/histoires'),
     <div className="container">
       <div className="login-form">
         <div className="login-form-container">
+          {isLogged && <Navigate to="/histoires" replace /> },
           {!isLogged && (
           <div className="login-form-container--container">
             <LoginForm
@@ -39,8 +40,8 @@ function Login() {
               }}
             />
             <SigninForm
-              changeField={(newValue, identifier) => {
-                dispatch(changeUserInput(newValue, identifier));
+              changeField={(newValue, identify) => {
+                dispatch(changeSignField(newValue, identify));
               }}
               handleSignin={() => {
                 dispatch(SignIn());
@@ -51,6 +52,7 @@ function Login() {
         </div>
       </div>
     </div>
+
   );
 }
 

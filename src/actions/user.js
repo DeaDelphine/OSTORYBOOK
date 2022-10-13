@@ -5,6 +5,18 @@ export const SET_USER = 'SET_USER';
 export const CLEAR_USER_INPUT = 'CLEAR_USER_INPUT';
 export const FETCH_USER = 'FETCH_USER';
 
+export const setUser = (nickname, roles, email) => ({
+  type: SET_USER,
+  nickname: nickname,
+  roles: roles,
+  email: email,
+});
+
+export const fetchUser = () => ({
+  type: FETCH_USER,
+
+});
+
 export const changeUserInput = (newValue, fieldIdentifier) => ({
   type: CHANGE_USER_INPUT,
   value: newValue,
@@ -17,16 +29,6 @@ export const userEdit = () => ({
 
 export const clearEdit = () => ({
   type: CLEAR_EDIT,
-});
-
-export const setUser = (userData) => ({
-  type: SET_USER,
-  name: userData.name,
-  mail: userData.mail,
-});
-
-export const fetchUser = () => ({
-  type: FETCH_USER,
 });
 
 export const clearUserInput = (key) => ({

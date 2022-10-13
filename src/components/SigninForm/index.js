@@ -15,7 +15,7 @@ function SigninForm({
   changeField,
   handleSignin,
 }) {
-  const emailValue = useSelector((state) => state.auth.email);
+  const email = useSelector((state) => state.auth.email);
   const nicknameValue = useSelector((state) => state.auth.nickname);
   const passwordValue = useSelector((state) => state.auth.password);
   const passwordCheckValue = useSelector((state) => state.auth.passwordcheck);
@@ -35,7 +35,7 @@ function SigninForm({
             name="email"
             placeholder="Email"
             onChange={changeField}
-            value={emailValue}
+            value={email}
           />
           <Field
             name="nickname"
@@ -61,7 +61,7 @@ function SigninForm({
             <button
               type="submit"
               className="login-form-button--button"
-              to="/"
+              to="/histoires"
             >
               S'INSCRIRE
             </button>
@@ -73,8 +73,8 @@ function SigninForm({
 }
 
 SigninForm.propTypes = {
-  changeField: PropTypes.func.isRequired,
   handleSignin: PropTypes.func.isRequired,
+  changeField: PropTypes.func.isRequired,
 };
 
 // == Export

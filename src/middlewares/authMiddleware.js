@@ -1,14 +1,10 @@
 /* eslint-disable max-len */
 import axios from 'axios';
 import {
-  LOG_IN, saveUserData, SAVE_LOGIN, SIGN_IN, saveNewUser,
+  LOG_IN, SIGN_IN, saveNewUser,
+  setToken,
 } from '../actions/auth';
-
-// const cookies = new Cookies();
-
-const api = axios.create({
-  baseURL: 'http://0.0.0.0:8000',
-});
+import { fetchUser } from '../actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -18,48 +14,38 @@ const authMiddleware = (store) => (next) => (action) => {
     case LOG_IN:
 
       // console.log('authMiddleware voit passer une action LOG_IN');
-      api.post(
-        '/api/login',
+      axios.post(
+        'http://0.0.0.0:8000/api/login',
         {
-          email: state.user.email,
-          password: state.user.password,
+          email: state.auth.emailAuth,
+          password: state.auth.passwordAuth,
         },
 
       )
         .then((response) => {
-          api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+          store.dispatch(setToken(response.data.token));
+          axios.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
           localStorage.setItem('token', response.data.token);
-          const dataUser = response.data;
-          store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
-          // store.dispatch(RedirectLogin());
-        // return redirect('/histoires');
+          // const dataUser = response.data;
+          // store.dispatch(saveUserData(dataUser.nickname, localStorage.getItem('token'), true));
+        })
+        .then(() => {
+          store.dispatch(fetchUser());
         })
         .catch((error) => {
           console.log(error);
         });
       break;
 
-    case SAVE_LOGIN:
-      api.get(
-        '/api/user/me',
-      )
-        .then(
-          (response) => console.log(response.data),
-        )
-        .catch((error) => {
-          console.log(error);
-        });
-      break;
-
     case SIGN_IN:
-      console.log(state.user);
       // console.log('authMiddleware voit passer une action LOG_IN');
-      api.post(
-        '/api/register',
+      axios.post(
+        'http://0.0.0.0:8000/api/register',
         {
-          email: state.auth.email.trim().toLowerCase(),
-          password: state.auth.password.trim(),
-          nickname: state.auth.nickname.trim(),
+          email: state.auth.email.toLowerCase(),
+          nickname: state.auth.nickname,
+          password: state.auth.password,
+          passwordCheck: state.auth.passwordCheck,
 
         },
       )

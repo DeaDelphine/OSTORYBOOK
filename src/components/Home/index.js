@@ -1,7 +1,6 @@
 // == Import
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-
 import './styles.scss';
 /* eslint-disable react/button-has-type */
 

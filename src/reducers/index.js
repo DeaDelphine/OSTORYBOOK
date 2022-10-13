@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 
 import storiesReducer from './stories';
 import pagesReducer from './pages';
-import userReducer from './auth';
-import authReducer from './user';
+import authReducer from './auth';
+import userReducer from './user';
 
 const rootReducer = combineReducers({
   // nom du tiroir : reducer qui s'en occupe
