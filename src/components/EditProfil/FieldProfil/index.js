@@ -13,16 +13,16 @@ function FieldProfil({
   };
 
   return (
-
-    <input
-      className="field__input px-4 mb-2 h-12"
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={handleChange}
-    />
-
+  <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+      <input
+        className="field-input"
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+      />
+  </div>
   );
 }
 
