@@ -15,6 +15,8 @@ function EditProfil({ changeField }) {
   const email = useSelector((state) => state.user.Newemail);
   const newpassword = useSelector((state) => state.user.Newpassword);
   const oldpassword = useSelector((state) => state.user.Oldpassword);
+  const oldNickname = useSelector((state) => state.user.nickname);
+  const oldEmail = useSelector((state) => state.user.email);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -51,6 +53,7 @@ function EditProfil({ changeField }) {
                   value={nickname}
                   onChange={changeField}
                   className="field-input-text"
+                  placeholder={oldNickname}
                 />
                 </div>
                 <div className="field">
@@ -65,6 +68,7 @@ function EditProfil({ changeField }) {
                   className="field-input-email"
                   value={email}
                   onChange={changeField}
+                  placeholder={oldEmail}
                 />
                 </div>
                 <div className="field">
@@ -77,7 +81,7 @@ function EditProfil({ changeField }) {
                   type="password"
                   name="oldpassword"
                   className="field-input-password"
-                  placeholder="Mot de passe"
+                  placeholder="Ancien mot de passe"
                   onChange={changeField}
                   value={oldpassword}
                 />
