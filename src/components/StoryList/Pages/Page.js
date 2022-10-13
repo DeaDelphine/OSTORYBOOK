@@ -89,11 +89,6 @@ function Page({
         <div
           className="page page-container"
           key={id}
-          style={
-          {
-            backgroundColor: 'rgba(52, 52, 52, 0.8)',
-          }
-        }
         >
           <h2 className="page page-container--title"> {title} </h2>
           <div className="page-container--content">
