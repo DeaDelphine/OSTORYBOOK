@@ -1,12 +1,22 @@
 /* eslint-disable react/button-has-type */
 
-import { useDispatch } from 'react-redux';
+import {
+  useDispatch,
+} from 'react-redux';
+import {
+  useEffect,
+} from 'react';
 
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-import { fetchPages } from 'src/actions/pages';
-import { Link, NavLink } from 'react-router-dom';
+import {
+  fetchPages,
+} from 'src/actions/pages';
+import {
+  Link,
+  NavLink,
+} from 'react-router-dom';
 
 /* eslint-disable max-len */
 function Page({
@@ -39,27 +49,6 @@ function Page({
             <div className="page-container--content">
               <p className="page page-container--content__subtitle"> {content} </p>
             </div>
-
-            <div className="page page-container--choice"> {
-              choices ? choices.map((choice) => (
-                <Link to="/histoire">
-                  <div className="page-container--choice__content"> {choice.description} </div>
-                  <button
-                    className="page-container--choice__button"
-                    onClick={
-                      (event) => {
-                        localStorage.setItem('page', choice.page_to_redirect);
-                        dispatch(fetchPages(localStorage.getItem('id'), localStorage.getItem('page')));
-                      }
-                    }
-                    key={choice.id}
-                  >
-                    {
-                      choice.name
-                    }
-                  </button>
-                </Link>
-
             <div className="page page-container--choice"> 
                  { choices ? choices.map((choice) => (
                   <div className="page-container--choice__content"> 
@@ -78,7 +67,6 @@ function Page({
                       </button>
                     </Link>
                   </div>
-
               )) : 'wrong way sorry ! '
             }
             </div>
@@ -88,7 +76,10 @@ function Page({
                 (event) => {
                   localStorage.removeItem('id');
                   localStorage.removeItem('page');
-
+                }
+              }
+            >
+              <div className="page-container--choice__button-return">
                 Retour à la liste des histoires
               </div>
             </NavLink>
