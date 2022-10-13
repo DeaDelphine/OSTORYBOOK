@@ -10,16 +10,21 @@ function FieldProfil({
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
   };
+
+  const inputId = `field-${name}`;
+
   return (
-    <input
-      className="field__input px-4 mb-2 h-12"
-      id={name}
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={handleChange}
-    />
+    <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+      <input
+        className="field-input"
+        id={name}
+        type={type}
+        name={inputId}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+      />
+    </div>
   );
 }
 
