@@ -2,7 +2,7 @@ import axios from 'axios';
 import { USER_DELETE } from '../actions/auth';
 
 import {
-  FETCH_USER, setUser, USER_EDIT,
+  FETCH_USER, saveErrorsProfilEdit, setUser, USER_EDIT,
 } from '../actions/user';
 
 // eslint-disable-next-line camelcase
@@ -38,10 +38,12 @@ const user = (store) => (next) => (action) => {
       )
 
         .then((response) => {
-          console.log(response);
+          // console.log(response);
+          store.dispatch(saveErrorsProfilEdit(response));
         })
         .catch((error) => {
-          // console.log(error);
+          // console.log(error.response);
+          store.dispatch(saveErrorsProfilEdit(error.response));
         });
       break;
 

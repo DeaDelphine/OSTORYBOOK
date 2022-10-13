@@ -4,6 +4,8 @@ export const CLEAR_EDIT = 'CLEAR_EDIT';
 export const SET_USER = 'SET_USER';
 export const CLEAR_USER_INPUT = 'CLEAR_USER_INPUT';
 export const FETCH_USER = 'FETCH_USER';
+export const SAVE_ERROR_DATA = 'SAVE_ERROR_DATA';
+export const SAVE_ERROR_PROFIL_EDIT = 'SAVE_ERROR_PROFIL_EDIT';
 
 export const setUser = (nickname, roles, email) => ({
   type: SET_USER,
@@ -34,4 +36,14 @@ export const clearEdit = () => ({
 export const clearUserInput = (key) => ({
   type: CLEAR_USER_INPUT,
   key,
+});
+
+export const saveErrors = (errors) => ({
+  type: SAVE_ERROR_DATA,
+  errors: errors,
+});
+
+export const saveErrorsProfilEdit = (errors) => ({
+  type: SAVE_ERROR_PROFIL_EDIT,
+  errors: errors,
 });

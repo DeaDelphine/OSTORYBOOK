@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 
+import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Field from '../Field';
 
 import '../Login/styles.scss';
+
 /**
  * Display a form to log in, with inputs email and password.
  * It has two modes: "connected" and "not connected"
@@ -18,16 +21,26 @@ function LoginForm({
   const emailValue = useSelector((state) => state.auth.emailAuth);
   const passwordValue = useSelector((state) => state.auth.passwordAuth);
 
+  const errors = useSelector((state) => state.user.errors);
+  const [isAlertVisible, setIsAlertVisible] = React.useState(true);
+  const message = 'Mot de passe ou email incorrect';
+
+  const handleVisibility = () => {
+    setIsAlertVisible(false);
+  };
+
   const handleSubmit = (evt) => {
-    console.log(handleSubmit);
     evt.preventDefault();
-    handleLogin();
+    if (!handleLogin()) {
+      setIsAlertVisible(true);
+    }
   };
 
   return (
-    <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+    <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit} onBlur={handleVisibility}>
       <div className="login-form-right">
         <h2 className="login-form-right-title">CONNEXION</h2>
+        {isAlertVisible && <div className="login-form-right-title">{ errors ? message : '' }</div>}
         <p className="login-form-right-message">Veuillez vous connecter pour jouer.</p>
         <div className="login-form-right-container">
           <Field

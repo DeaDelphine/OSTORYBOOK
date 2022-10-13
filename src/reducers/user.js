@@ -1,6 +1,8 @@
 import {
   CHANGE_USER_INPUT, SET_USER, CLEAR_EDIT,
   CLEAR_USER_INPUT,
+  SAVE_ERROR_DATA,
+  SAVE_ERROR_PROFIL_EDIT,
 } from '../actions/user';
 
 export const initialState = {
@@ -12,6 +14,7 @@ export const initialState = {
   password: '',
   roles: '',
   logged: false,
+  passwordcheck: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -32,10 +35,10 @@ const reducer = (state = initialState, action = {}) => {
         };
       }
 
-      if (action.fieldIdentifier === 'oldpassword') {
+      if (action.fieldIdentifier === 'passwordcheck') {
         return {
           ...state,
-          Oldpassword: action.value,
+          passwordcheck: action.value,
         };
       }
 
@@ -65,6 +68,17 @@ const reducer = (state = initialState, action = {}) => {
         [action.key]: '',
       };
     }
+
+    case SAVE_ERROR_DATA:
+      return {
+        ...state,
+        errors: action.errors,
+      };
+    case SAVE_ERROR_PROFIL_EDIT:
+      return {
+        ...state,
+        errors: action.errors,
+      };
 
     default:
       return state;

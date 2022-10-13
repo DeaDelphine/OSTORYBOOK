@@ -3,6 +3,7 @@ import {
   SIGN_IN, SET_TOKEN, SAVE_NEW_USER, LOGOUT,
   USER_DELETE,
   CHANGE_SIGN_FIELD,
+  SAVE_ERROR_SIGNIN_DATA,
 } from '../actions/auth';
 
 export const initialState = {
@@ -94,6 +95,11 @@ const reducer = (state = initialState, action = {}) => {
         isLogged: false,
       };
     }
+    case SAVE_ERROR_SIGNIN_DATA:
+      return {
+        ...state,
+        errors: action.errorsSignin,
+      };
 
     default:
       return state;

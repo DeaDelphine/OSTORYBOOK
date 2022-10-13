@@ -7,6 +7,7 @@ export const SAVE_LOGIN = 'SAVE_LOGIN';
 export const SAVE_NEW_USER = 'SAVE_NEW_USER';
 export const SIGN_IN = 'SIGN_IN';
 export const SET_TOKEN = 'SET_TOKEN';
+export const SAVE_ERROR_SIGNIN_DATA = 'SAVE_ERROR_SIGNIN_DATA';
 
 export const setToken = (token) => ({
   type: SET_TOKEN,
@@ -48,4 +49,9 @@ export const SignIn = () => ({
 
 export const deleteUser = () => ({
   type: USER_DELETE,
+});
+
+export const saveErrorsSignIn = (errorsSignin) => ({
+  type: SAVE_ERROR_SIGNIN_DATA,
+  errorsSignin: errorsSignin,
 });
