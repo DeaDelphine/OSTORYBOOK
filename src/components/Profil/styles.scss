@@ -74,13 +74,7 @@
     height: 2.5em;
     margin-bottom: 1rem;
 
-    &:focus {
-      border-color: vars.$color;
-
-      & + .field-label {
-        color: vars.$color;
-      }
-    }
+    
   }
 
   &-input-email {
@@ -92,13 +86,7 @@
     height: 2.5em;
     margin-bottom: 1rem;
 
-    &:focus {
-      border-color: vars.$color;
-
-      & + .field-label {
-        color: vars.$color;
-      }
-    }
+    
   }
 
   &-input-password {
@@ -110,13 +98,7 @@
     height: 2.5em;
     margin-bottom: 1rem;
 
-    &:focus {
-      border-color: vars.$color;
-
-      & + .field-label {
-        color: vars.$color;
-      }
-    }
+    
   }
 
   &-input-select {
@@ -128,12 +110,5 @@
     height: 2.5em;
     margin-bottom: 1rem;
 
-    &:focus {
-      border-color: vars.$color;
-
-      & + .field-label {
-        color: vars.$color;
-      }
-    }
   }
 }
