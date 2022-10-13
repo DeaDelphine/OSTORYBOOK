@@ -10,7 +10,7 @@
 
 /*----- TEXT AND LINK STYLE -----*/
 .footer-p {
-  font-size: 20px;
+  font-size: 26px;
   line-height: 1.2;
   margin: 25px 0;
 }
@@ -115,6 +115,7 @@
 
   &-container {
     width: 100%;
+    margin-top: 5rem;
   }
 
   &-message {
@@ -144,6 +145,49 @@
   }
   &-button:hover {
     background-color: vars.$element-color-hover;
+  }
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+
+  .contact-field-email {
+    width: 100%;
+    padding: .7em;
+    font-size: 1em;
+    border: vars.$inputBorder;
+    border-radius: .3em;
+    height: 2.5em;
+    margin-bottom: 1rem;
+
+    &:focus {
+      border-color: vars.$element-color;
+
+      & + .field-label {
+        color: vars.$dark-color;
+      }
+    }
+  }
+
+  .contact-field-textarea {
+    width: 100%;
+    padding: .7em;
+    font-size: 1em;
+    border: vars.$inputBorder;
+    border-radius: .3em;
+    height: 16em;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &:focus {
+      border-color: vars.$element-color;
+
+      & + .field-label {
+        color: vars.$dark-color;
+      }
+    } 
   }
 }
 

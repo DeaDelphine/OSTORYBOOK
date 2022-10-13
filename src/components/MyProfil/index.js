@@ -21,14 +21,14 @@ function MyProfil({ email, nickname, roles }) {
       <div className="profil-form-container">
         <div className="profil-form-element">
           <form className="profil-form--form">
-            <div className="field">
-              <p className="field-info-username">
+            <div className="user">
+              <h1 className="user-info-title">
                 Mon Profil
-              </p>
-              <p className="field-info-email">
+              </h1>
+              <h2 className="user-info-username">
                 Bienvenue  {nickname}
-              </p>
-              <p className="field-info-email">
+              </h2>
+              <p className="user-info-email">
                 {email}
               </p>
               <div className="profil-form-button">

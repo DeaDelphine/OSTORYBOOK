@@ -4,26 +4,33 @@
 
 // PROFIL FORM COMPONENT
 
-
-/* Responsive */
+/* Mobile version */
 .profil-form {
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
   &-container {
     width: 100%;
+    margin-top: 6rem;
   }
 
-  &-title {
-    text-align: center;
+  .user-info-email {
+    font-size: 32px;
+    height: 100px;
   }
-
-
 
   &-button {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    font-family: vars.$buttonFont;
+    margin-top:4rem;
+
 
     &--left {
       margin-top: 1rem;
@@ -48,67 +55,31 @@
     &-button:hover {
       background-color: vars.$element-color-hover;
     }
-    
   }
-
-  
-  
 }
 
 .user {
   margin: .3em .3em .3em 0;
+}
 
-  &-left {
-    width: 100%;
-    padding: 1em;
-    height: 2.65em;
-    font-size: 20px;
+/* Tablet version */
+@media (min-width:500px) {
+
+  .profil-form {
+    .profil-form-container {
+      margin-top: 0;
+    }
+
+    .user-info-email {
+      height: 200px;
+    }
   }
+}
 
-  &-input-text {
-    width: 100%;
-    padding: .7em;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: .3em;
-    height: 2.5em;
-    margin-bottom: 1rem;
-
-    
-  }
-
-  &-input-email {
-    width: 100%;
-    padding: .7em;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: .3em;
-    height: 2.5em;
-    margin-bottom: 1rem;
-
-    
-  }
-
-  &-input-password {
-    width: 100%;
-    padding: .7em;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: .3em;
-    height: 2.5em;
-    margin-bottom: 1rem;
-
-    
-  }
-
-  &-input-select {
-    width: 100%;
-    padding: .7em;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: .3em;
-    height: 2.5em;
-    margin-bottom: 1rem;
-
+/* Tablet and Desktop version */
+@media (min-width:700px) {
+  .profil-form-button {
+    flex-direction: row;
+    justify-content: space-around;
   }
 }

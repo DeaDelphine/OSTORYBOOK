@@ -13,13 +13,6 @@ function AnimCursor() {
       outerScale={2.5}
       clickables={[
         'a',
-        'input[type="text"]',
-        'input[type="email"]',
-        'input[type="submit"]',
-        'input[type="image"]',
-        'input[type="number"]',
-        'select',
-        'textarea',
         'button',
         '.link'
       ]}

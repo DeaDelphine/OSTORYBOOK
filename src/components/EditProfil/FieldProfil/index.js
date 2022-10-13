@@ -11,7 +11,9 @@ function FieldProfil({
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
   };
+
   return (
+
     <input
       className="field__input px-4 mb-2 h-12"
       type={type}
@@ -20,6 +22,7 @@ function FieldProfil({
       value={value}
       onChange={handleChange}
     />
+
   );
 }
 

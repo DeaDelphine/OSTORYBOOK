@@ -58,15 +58,20 @@
     &--choice {
       font-size: 25px;
       justify-content: center;
+      
+      
 
       &__content {
-        margin: 2rem;
         text-align: center;
+      }
+
+      &__description {
+        padding: 2rem;
       }
 
       &__button {
         margin: 2rem auto;
-        width: 300px;
+        width: 350px;
         height: 50px;
         font-size: 20px;
         display: flex;
@@ -109,32 +114,52 @@
   .page {
     &-container {
       width: 87vw;
-      height: 78vh;
+      height: 110vh;
       border-radius: 30px;
 
       &--container {
-        height: 78vh;
+        height: 110vh;
+      }
+
+      &--title {
+        margin-bottom: 2rem;
       }
   
       &--content {
         &__subtitle {
-          padding: 1rem;
+          padding: 0 2rem;
         }
       }
   
       &--choice {
-        padding: 1rem;
+        margin: 0 auto;
   
         &__content {
-          height: 100px;
+          height: 160px;
           width: 90%;
+          margin: 0 auto;
         }
   
         &__button {
           margin: 0 auto;
+          width: 350px;
         }
 
+        &__button-return {
+          margin-top: 8rem;
+        }
       }
+    }
+  }
+}
+
+/* Desktop version */
+@media (min-width:800px) {
+  .page-container {
+    height: 105vh;
+
+    &--container {
+      height: 105vh;
     }
   }
 }
@@ -143,9 +168,16 @@
 /* Desktop version */
 @media (min-width:990px) {
   .page-container {
+    height: 78vh;
+
+    &--container {
+      height: 78vh;
+    }
+
+
     &--content {
       display: flex;
-      padding: 1rem;
+      padding: 2rem;
     
       &__img {
         width: 100vw;
@@ -158,9 +190,43 @@
 
     &--choice {
       display: flex;
+      margin-top: -1rem;
 
       &__content {
         width: 90%;
+      }
+
+      &__button {
+        margin: 0 auto;
+        width: 400px;
+      }
+
+      &__button-return {
+        margin-top: 6rem;
+      }
+    }
+  }
+}
+
+/* Desktop version */
+@media (min-width:1600px) {
+  .page-container {
+
+    &--choice {
+      display: flex;
+      margin-top: 4rem;
+
+      &__content {
+        width: 90%;
+      }
+
+      &__button {
+        margin: 0 auto;
+        width: 400px;
+      }
+
+      &__button-return {
+        margin-top: 6rem;
       }
     }
   }

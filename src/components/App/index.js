@@ -19,7 +19,6 @@ import { changeUserInput } from '../../actions/user';
 import { deleteUser } from '../../actions/auth';
 
 import Error404 from '../Errors/Error404';
-import Loading from './Loading';
 
 // == Styles
 import './styles.scss';
