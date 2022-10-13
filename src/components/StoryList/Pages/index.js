@@ -19,14 +19,13 @@ function Pages() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container-scrolly">
       <div className="page">
         <div className="page page-list">
           <Page {...pages} />
         </div>
       </div>
     </div>
-
   );
 }
 

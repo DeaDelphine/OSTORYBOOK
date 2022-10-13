@@ -1,25 +1,26 @@
+// import
 @use 'src/styles/vars';
 
+
 /* PROFIL EDIT FORM */
+
+/* Mobile version */
 .container {
-  overflow: hidden;
-
   &-button--return {
-      margin-top: 1rem;
-      font-size: 1em;
-      color: #fff;
-      background-color: vars.$element-color;
-      border: 0;
-      width: 100%;
-      padding: 1rem;
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: vars.$element-color;
+    border: none;
+    font-size: 20px;
+    font-family: vars.$buttonFont;
   }
-
 }
 
 .profil-form {
-
-  color: #fff;
-  padding: 2rem;
   text-align: center;
 
   &-container {
@@ -27,19 +28,13 @@
   }
 
   &-title {
-    margin-top: 6rem;
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    padding-bottom: 1rem;
+    margin-top: -0.1rem ;
   }
 
-
-
   &-button {
-  
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 
     &--left {
@@ -67,11 +62,7 @@
     &-button:hover {
       background-color: vars.$element-color-hover;
     }
-    
   }
-
-  
-  
 }
 
 .field {
@@ -94,10 +85,10 @@
     margin-bottom: 1rem;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }
@@ -112,10 +103,10 @@
     margin-bottom: 1rem;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }
@@ -130,26 +121,25 @@
     margin-bottom: 1rem;
 
     &:focus {
-      border-color: vars.$color;
+      border-color: vars.$element-color;
 
       & + .field-label {
-        color: vars.$color;
+        color: vars.$dark-color;
       }
     }
   }
 
 }
 
-@media (min-width:500px) {
 
+/* Tablet Version */
+@media (min-width:500px) {
   .profil-form {
-  
     &-title {
-      margin-top: 1rem;
+      margin-top: 3rem ;
     }
 
     &-button {
-  
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -158,7 +148,6 @@
       &--left {
         margin-top: 1rem;
         font-size: 1em;
-        color: #fff;
         background-color: vars.$element-color;
         border: 0;
         width: 200px;
@@ -169,7 +158,6 @@
       &--right {
         margin-top: 1rem;
         font-size: 1em;
-        color: #fff;
         background-color: vars.$element-color;
         border: none;
         width: 200px;
@@ -184,15 +172,8 @@
   }
 }
 
+/* Tablet Version */
 @media (min-width:600px) {
-
-  .profil-form {
-  
-    &-title {
-      margin-top: 3rem;
-    }
-  }
-  
   .field {
   
     &-left {
@@ -222,15 +203,8 @@
     }
   }
 }
-
+/* Desktop Version */
 @media (min-width:990px) {
-
-  .profil-form {
-  
-    &-title {
-      margin-top: 3rem;
-    }
-  }
   
   .field {
   

@@ -2,25 +2,28 @@
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import NavBar from '../Navigation/NavBar';
+import Navigation from '../Navigation/Navigation';
 import Pages from '../StoryList/Pages';
 import Home from '../Home';
-import Footer from '../Navigation/FooterNavigation';
 import Login from '../Login';
 import Profil from '../Profil';
 import EditProfil from '../EditProfil';
 import StoryList from '../StoryList';
 import ContactForm from '../Footer/Contact';
-import LegalMentions from '../Footer/LegalMentions';
+import Policies from '../Footer/Policies';
 import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
 
-// == Styles
-import './styles.scss';
-
 import { changeUserInput } from '../../actions/user';
 import { deleteUser } from '../../actions/auth';
+
+import Error404 from '../Errors/Error404';
+import Loading from './Loading';
+
+// == Styles
+import './styles.scss';
+import AnimCursor from '../AnimCursor';
 
 // == Actions
 
@@ -29,7 +32,8 @@ function App() {
   const dispatch = useDispatch();
   return (
     <div className="app">
-      <NavBar />
+      <AnimCursor />
+      <Navigation />
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -50,15 +54,17 @@ function App() {
           />
           <Route path="/cgu" element={<CGU />} />
           <Route path="/nous-contacter" element={<ContactForm />} />
-          <Route path="/mention-legales" element={<LegalMentions />} />
+          <Route path="/policies" element={<Policies />} />
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
           <Route path="/histoires" element={<StoryList />} />
           <Route path="/histoire" element={<Pages />} />
+          <Route path="/*" element={<Error404 />} />
         </Routes>
       </div>
-      <Footer />
+
     </div>
+
   );
 }
 // == Export

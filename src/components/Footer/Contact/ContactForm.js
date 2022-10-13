@@ -1,4 +1,4 @@
-import './styles.scss';
+import '../styles.scss';
 
 /**
  * Display a form to log in, with inputs email and password.
@@ -11,10 +11,12 @@ function ContactForm() {
     <div className="contact-form">
 
       <div className="contact-form-container">
-        <h2 className="contact-form-title">NOUS CONTACTER</h2>
+
+        <h1 className="contact-form-title">NOUS CONTACTER</h1>
         <div className="contact-form-element">
           <form className="contact-form--form">
             <div className="field">
+
               <input
                 type="email"
                 className="field-email"

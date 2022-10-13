@@ -25,7 +25,7 @@ function Login() {
   const dispatch = useDispatch();
 
   return (
-    <div className="container">
+    <div className="container-scrolly-mobile-only">
       <div className="login-form">
         <div className="login-form-container">
           {isLogged && <Navigate to="/histoires" replace /> },
