@@ -19,6 +19,9 @@ function ProfilForm({
               <p className="user-info-username">
               Mon Profil
               </p>
+              <p className="user-info-username">
+              {username}
+              </p>
               <p className="user-info-email">
                 pseudo@user.com
               </p>
@@ -35,6 +38,7 @@ function ProfilForm({
                 <button
                   className="profil-form-button--right"
                   type="submit"
+                  style={{fontFamily: 'arial'}}
                 >
                   SUPPRIMER MON COMPTE
                 </button>

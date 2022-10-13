@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // == Import
-import '../Profil/styles.scss';
+import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -27,16 +27,17 @@ function EditProfil({ changeField }) {
   };
 
   return (
-    <div className="container">
+    <div className="container-scrolly-mobile-only">
       <div className="profil-form">
         <div className="profil-form-container">
-          <h2 className="profil-form-title">MODIFIER MON PROFIL</h2>
+          <h1 className="profil-form-title">MODIFIER MON PROFIL</h1>
           <div className="profil-form-element">
             <form
               className="profil-form--form"
               onSubmit={handleSubmit}
             >
-              <div className="field">
+              <div className="field-container">
+                <div className="field">
                 <label
                   className="field-left"
                 >
@@ -47,11 +48,12 @@ function EditProfil({ changeField }) {
                   name="newnickname"
                   value={nickname}
                   onChange={changeField}
+                  className="field-input-text"
                 />
-
+                </div>
+                <div className="field">
                 <label
                   className="field-left"
-
                 >
                   Adresse mail :
                 </label>
@@ -62,10 +64,10 @@ function EditProfil({ changeField }) {
                   value={email}
                   onChange={changeField}
                 />
-
+                </div>
+                <div className="field">
                 <label
                   className="field-left"
-
                 >
                   Mot de passe :
                 </label>
@@ -77,7 +79,8 @@ function EditProfil({ changeField }) {
                   onChange={changeField}
                   value={oldpassword}
                 />
-
+                </div>
+                <div className="field">
                 <label
                   className="field-left"
 
@@ -92,28 +95,32 @@ function EditProfil({ changeField }) {
                   onChange={changeField}
                   value={newpassword}
                 />
-
-                <div className="profil-form-button">
-                  <button
-                    className="profil-form-button--left"
-                    type="submit"
-
-                  >
-                    VALIDER LES MODIFICATIONS
-                  </button>
                 </div>
               </div>
-            </form>
-          </div>
+              <div className="profil-form-button">
+                <button
+                  className="profil-form-button--left"
+                  type="submit"
+                >
+                  VALIDER LES MODIFICATIONS
+                </button>
+                <button
+                  className="profil-form-button--right"
+                  type="submit"
+                >
+                SUPPRIMER MON COMPTE
+                </button>
+              </div>
+          </form>
         </div>
-        <NavLink
-          to="/mon-compte"
-          className="container-button--return"
-          style={{ fontFamily: 'arial', display: 'flex', justifyContent: 'center' }}
-        >
-          Retour à mon profil
-        </NavLink>
       </div>
+      </div>
+      <NavLink
+              to="/mon-compte"
+              className="container-button--return"
+            > 
+              Retour à mon profil     
+        </NavLink>
     </div>
   );
 }
