@@ -5,13 +5,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  changeUserInput, fetchUser, userEdit,
-} from '../../actions/user';
+import { fetchUser, userEdit } from '../../actions/user';
 import FieldProfil from './FieldProfil';
 
 // == Component
 function EditProfil({ changeField }) {
+  // we use the hook useSelector to get the parameters from the state
   const nickname = useSelector((state) => state.user.Newnickname);
   const email = useSelector((state) => state.user.Newemail);
   const newpassword = useSelector((state) => state.user.Newpassword);
@@ -21,6 +20,9 @@ function EditProfil({ changeField }) {
   useEffect(() => {
     dispatch(fetchUser());
   }, []);
+  // we use preventDefault to avoid refresh page
+  // Also the handlesubmit function is here for the form submit, then the useredit action is called
+  // to edit form
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(userEdit());
@@ -127,6 +129,12 @@ function EditProfil({ changeField }) {
 
 EditProfil.propTypes = {
   changeField: PropTypes.func.isRequired,
+  /**
+   * this function is trigger when we add a new caracters into one of the fields
+   * two parameters :
+   * - new value taking into account the character entered
+   * - id of the fields :  'email' or 'password'
+   */
 };
 
 // == Export
