@@ -42,8 +42,10 @@ function EditProfil({ changeField }) {
   }
 
   const handleVisibility = () => {
-    setIsAlertVisible(false);
-    setIsAlertMessageVisible(false);
+    setTimeout(() => {
+      setIsAlertVisible(false);
+      setIsAlertMessageVisible(false);
+    }, 2000);
   };
   // this function is here for checking password there is a condition when the user enter password
   // it has to be the same to enter into the condition
