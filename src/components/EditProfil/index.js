@@ -43,15 +43,15 @@ function EditProfil({ changeField }) {
   };
 
   const checkPassword = () => {
-    if (newpassword && passwordcheck) {
+    if (newpassword || passwordcheck) {
       if (newpassword == passwordcheck) {
         return true;
       }
       setIsAlertMessageVisible(true);
       return false;
     }
-    setIsAlertMessageVisible(true);
-    return false;
+    setIsAlertMessageVisible(false);
+    return true;
   };
 
   const dispatch = useDispatch();
