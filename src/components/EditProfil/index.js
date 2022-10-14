@@ -15,7 +15,7 @@ function EditProfil({ changeField }) {
   const nickname = useSelector((state) => state.user.Newnickname);
   const email = useSelector((state) => state.user.Newemail);
   const newpassword = useSelector((state) => state.user.Newpassword);
-  const oldpassword = useSelector((state) => state.user.Oldpassword);
+
   const oldNickname = useSelector((state) => state.user.nickname);
   const oldEmail = useSelector((state) => state.user.email);
   const passwordcheck = useSelector((state) => state.user.passwordcheck);
@@ -89,49 +89,49 @@ function EditProfil({ changeField }) {
             >
               <div className="field-container">
                 <div className="field">
-                <label
-                  className="field-left"
-                >
-                  Pseudo :
-                </label>
-                <FieldProfil
-                  type="text"
-                  name="newnickname"
-                  value={nickname}
-                  onChange={changeField}
-                  className="field-input-text"
-                  placeholder={oldNickname}
-                />
+                  <label
+                    className="field-left"
+                  >
+                    Pseudo :
+                  </label>
+                  <FieldProfil
+                    type="text"
+                    name="newnickname"
+                    value={nickname}
+                    onChange={changeField}
+                    className="field-input-text"
+                    placeholder={oldNickname}
+                  />
                 </div>
                 <div className="field">
-                <label
-                  className="field-left"
-                >
-                  Adresse mail :
-                </label>
-                <FieldProfil
-                  type="email"
-                  name="newemail"
-                  className="field-input-email"
-                  value={email}
-                  onChange={changeField}
-                  placeholder={oldEmail}
-                />
+                  <label
+                    className="field-left"
+                  >
+                    Adresse mail :
+                  </label>
+                  <FieldProfil
+                    type="email"
+                    name="newemail"
+                    className="field-input-email"
+                    value={email}
+                    onChange={changeField}
+                    placeholder={oldEmail}
+                  />
                 </div>
                 <div className="field">
-                <label
-                  className="field-left"
-                >
-                  Mot de passe :
-                </label>
-                <FieldProfil
-                  type="password"
+                  <label
+                    className="field-left"
+                  >
+                    Mot de passe :
+                  </label>
+                  <FieldProfil
+                    type="password"
                     name="passwordcheck"
                     className="field-input-password"
                     placeholder="Mot de passe"
                     onChange={changeField}
                     value={passwordcheck}
-                />
+                  />
                 </div>
                 <div className="field">
                   <label
