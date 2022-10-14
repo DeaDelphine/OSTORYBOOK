@@ -53,6 +53,7 @@
         object-fit: contain;
         border-radius: 30px;
         justify-content: center;
+        margin-bottom: 5rem;
       }
     }
 
@@ -89,22 +90,23 @@
       }
 
       &__button-return-container {
-        flex-direction: column;
-        margin: 4rem auto 0 auto;
+        margin: 0 auto;
         width: 100%;
         height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         border: none;
         font-size: 20px;
         font-family: vars.$buttonFont;
       }
+
       &__button-return {
-        padding: 0.5rem;
         background-color: vars.$element-color;
         width: 100%;
         text-align: center;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
 
       &__button-return:hover {
@@ -156,6 +158,17 @@
           text-align: center;
           margin-bottom: 2rem;
         }
+
+        &__img-end {
+          display: flex;
+          background-color: vars.$imageBackground;
+          height: 46.4vh;
+          width: 40vh;
+          object-fit: contain;
+          border-radius: 30px;
+          justify-content: center;
+          margin-bottom: 0;
+        }
       }
   
       &--choice {
@@ -173,7 +186,7 @@
         }
 
         &__button-return-container {
-          margin-top: -5rem;
+          margin-top: 0rem;
           flex-direction: row;
         }
       }
