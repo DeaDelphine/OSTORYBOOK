@@ -122,11 +122,11 @@ function EditProfil({ changeField }) {
       </div>
       </div>
       <NavLink
-              to="/mon-compte"
-              className="container-button--return"
-            > 
-              Retour à mon profil     
-        </NavLink>
+        to="/mon-compte"
+        className="container-button--return"
+      > 
+        Retour à mon profil     
+      </NavLink>
     </div>
   );
 }

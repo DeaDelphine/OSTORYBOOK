@@ -93,8 +93,8 @@ function Page({
           <h2 className="page page-container--title"> {title} </h2>
           <div className="page-container--content">
             <div className="page page-container--content__subtitle">
-              <p className="page page-container--content__subtitle"> {page_end == 1 ? winMessage : lossMessage} </p>
-              <p className="page page-container--content__subtitle"> {content} </p>
+              <p className="page page-container--content__winmessage"> {page_end == 1 ? winMessage : lossMessage} </p>
+              <p className="page page-container--content__content"> {content} </p>
             </div>
             <img className="page page-container--content__img-end" src={image} alt="story-img-end" />
           </div>
