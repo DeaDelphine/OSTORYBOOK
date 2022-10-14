@@ -23,7 +23,7 @@ function LoginForm({
 
   const errors = useSelector((state) => state.user.errors);
   const [isAlertVisible, setIsAlertVisible] = React.useState(true);
-  const message = 'Mot de passe ou email incorrect';
+  const message = <div className="login-form-right-title-error">Mot de passe ou email incorrect</div>;
 
   const handleVisibility = () => {
     setIsAlertVisible(false);

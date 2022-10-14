@@ -23,16 +23,16 @@ function SigninForm({
   const errors = useSelector((state) => state.auth.errors);
   const [isAlertVisible, setIsAlertVisible] = React.useState(false);
   const [isAlertMessageVisible, setIsAlertMessageVisible] = React.useState(false);
-  const message = <div className="login-form-right-title">Les deux mots de passent doivent être identiques</div>;
+  const message = <div className="login-form-right-title-error">Les deux mots de passent doivent être identiques</div>;
 
   let showErrors = '';
   if (errors) {
     switch (errors.status) {
       case 422:
-        showErrors = Object.keys(errors.data).map((key) => <div className="login-form-right-title">{`${key} : ${errors.data[key][0]}`}</div>);
+        showErrors = Object.keys(errors.data).map((key) => <div className="login-form-right-title-error">{`${key} : ${errors.data[key]}`}</div>);
         break;
       case 201:
-        showErrors = <div className="login-form-right-title">Félicitations vous êtes bien inscrits ! Veuillez vous connecter pour participer à l'aventure</div>;
+        showErrors = <div className="login-form-right-title-congrat">Félicitations vous êtes bien inscrits ! Veuillez vous connecter pour participer à l'aventure</div>;
         break;
       default:
         showErrors = <div>''</div>;
@@ -70,9 +70,9 @@ function SigninForm({
   return (
     <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit} onBlur={handleVisibility}>
       <div className="login-form-left">
+        <h2 className="login-form-left-title">INSCRIPTION</h2>
         {isAlertMessageVisible && message}
         {isAlertVisible && showErrors}
-        <h2 className="login-form-left-title">INSCRIPTION</h2>
         <p className="login-form-left-message">Pas encore de compte ? Inscrivez-vous pour pouvoir jouer.</p>
         <div className="login-form-left-container">
           <Field
