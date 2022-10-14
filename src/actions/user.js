@@ -8,6 +8,7 @@ export const SAVE_ERROR_DATA = 'SAVE_ERROR_DATA';
 export const SAVE_ERROR_PROFIL_EDIT = 'SAVE_ERROR_PROFIL_EDIT';
 export const SAVE_ERROR_PROFIL_DELETE = 'SAVE_ERROR_PROFIL_DELETE';
 
+// action type for user middleware
 export const setUser = (nickname, roles, email) => ({
   type: SET_USER,
   nickname: nickname,
@@ -15,11 +16,13 @@ export const setUser = (nickname, roles, email) => ({
   email: email,
 });
 
+// action type for user middleware
 export const fetchUser = () => ({
   type: FETCH_USER,
 
 });
 
+// action type for user middleware
 export const changeUserInput = (newValue, fieldIdentifier) => ({
   type: CHANGE_USER_INPUT,
   value: newValue,

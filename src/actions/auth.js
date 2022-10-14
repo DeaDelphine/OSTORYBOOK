@@ -9,11 +9,12 @@ export const SIGN_IN = 'SIGN_IN';
 export const SET_TOKEN = 'SET_TOKEN';
 export const SAVE_ERROR_SIGNIN_DATA = 'SAVE_ERROR_SIGNIN_DATA';
 
+// action type for auth middleware
 export const setToken = (token) => ({
   type: SET_TOKEN,
   token: token,
 });
-
+// action type for auth middleware
 export const changeLoginField = (newValue, fieldIdentifier) => ({
   type: CHANGE_LOGIN_FIELD,
   value: newValue,

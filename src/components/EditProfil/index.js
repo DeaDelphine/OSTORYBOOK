@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // == Import
 import './styles.scss';
@@ -44,10 +45,11 @@ function EditProfil({ changeField }) {
     setIsAlertVisible(false);
     setIsAlertMessageVisible(false);
   };
-
+  // this function is here for checking password there is a condition when the user enter password
+  // it has to be the same to enter into the condition
   const checkPassword = () => {
     if (newpassword || passwordcheck) {
-      if (newpassword == passwordcheck) {
+      if (newpassword === passwordcheck) {
         return true;
       }
       setIsAlertMessageVisible(true);
@@ -94,6 +96,8 @@ function EditProfil({ changeField }) {
                   >
                     Pseudo :
                   </label>
+                  {/* this composant is use for a better controlled of the fields we need to check if
+                   the name is exacly the same as in the reducer associated */}
                   <FieldProfil
                     type="text"
                     name="newnickname"
@@ -156,12 +160,6 @@ function EditProfil({ changeField }) {
                 >
                   VALIDER LES MODIFICATIONS
                 </button>
-                {/* <button
-                  className="profil-form-button--right"
-                  type="submit"
-                >
-                  SUPPRIMER MON COMPTE
-                </button> */}
               </div>
             </form>
           </div>

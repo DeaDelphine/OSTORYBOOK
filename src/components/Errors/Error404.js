@@ -17,6 +17,8 @@ function Error404() {
               <div className="error-container--choice">
                 <p className="error-container--choice__subtitle"> Oups, je crois que tu t'es perdu dans les méandres des enfers. Rassure-toi, nous te donnons une deuxième chance de te sortir de là. Tu as le choix entre :</p>
                 <div className="error-container--choice__content"> Prendre la fuite avant que les Oni te rattrape (fais attention, tu n'auras pas beaucoup de temps devant toi, ils sont très rusés et ont pour seul but de faire le ménage dans cet endroits) </div>
+                {/* this composant is here to redirect and replace
+                the element a href , this is from react router Dom */}
                 <NavLink
                   className="error-container--choice__button"
                   to="/"
