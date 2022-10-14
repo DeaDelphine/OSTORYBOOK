@@ -30,6 +30,7 @@ function HeaderNavLinks() {
             <NavLink
               to="/"
               className="navbar__link"
+              onClick={handleShowLinks}
             >
               Accueil
             </NavLink>
@@ -42,6 +43,7 @@ function HeaderNavLinks() {
               className="navbar__link"
               onClick={(event) => {
                 fetchUser();
+                handleShowLinks();
               }}
             >
               Mon compte
@@ -54,6 +56,7 @@ function HeaderNavLinks() {
             <NavLink
               to="/connexion"
               className="navbar__link"
+              onClick={handleShowLinks}
             >
               Connexion
             </NavLink>
@@ -65,6 +68,7 @@ function HeaderNavLinks() {
               onClick={(event) => {
                 handleLogout();
                 props.isMobile && props.closeMobileMenu();
+                handleShowLinks();
               }}
               to="/"
               className="navbar__link"
@@ -80,6 +84,7 @@ function HeaderNavLinks() {
             <NavLink
               to="/nous-contacter"
               className="navbar__link"
+              onClick={handleShowLinks}
             >
               Nous contacter
             </NavLink>
@@ -88,6 +93,7 @@ function HeaderNavLinks() {
             <NavLink
               to="/cgu"
               className="navbar__link"
+              onClick={handleShowLinks}
             >
               CGU
             </NavLink>
@@ -96,6 +102,7 @@ function HeaderNavLinks() {
             <NavLink
               to="/policies"
               className="navbar__link"
+              onClick={handleShowLinks}
             >
               Politiques de confidentialité
             </NavLink>
@@ -104,6 +111,7 @@ function HeaderNavLinks() {
             <NavLink
               to="/credits"
               className="navbar__link"
+              onClick={handleShowLinks}
             >
               Crédits
             </NavLink>
@@ -112,6 +120,7 @@ function HeaderNavLinks() {
             <NavLink
               to="/regles-du-jeu"
               className="navbar__link"
+              onClick={handleShowLinks}
             >
               Règles du jeu
             </NavLink>
