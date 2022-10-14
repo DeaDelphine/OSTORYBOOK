@@ -30,8 +30,9 @@ function Page({
 
 }) {
   const dispatch = useDispatch();
-  const winMessage = 'Vous avez atteint la fin de l\'histoire ! Félicitations';
-  const lossMessage = 'Malheureusement vous n\'avez pas réussi à aller au bout de l\'histoire ... Tentez à nouveau votre chance!';
+  const winMessage = <p className="page page-container--content__win-message">Vous avez atteint la fin de l'histoire ! Félicitations !</p>;
+  const lossMessage = <p className="page page-container--content__loss-message">Malheureusement vous n'avez pas réussi à aller au bout de l'histoire... Tentez à nouveau votre chance !</p>;
+  
 
   return (
     <div> {(page_end == null || page_end == 0)
@@ -93,7 +94,7 @@ function Page({
           <h2 className="page page-container--title"> {title} </h2>
           <div className="page-container--content">
             <div className="page page-container--content__subtitle">
-              <p className="page page-container--content__winmessage"> {page_end == 1 ? winMessage : lossMessage} </p>
+              {page_end == 1 ? winMessage : lossMessage}
               <p className="page page-container--content__content"> {content} </p>
             </div>
             <img className="page page-container--content__img-end" src={image} alt="story-img-end" />
