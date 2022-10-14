@@ -43,6 +43,8 @@ function MyProfil({
                     MODIFIER MON PROFIL
                   </NavLink>
                 </div>
+                {/* this is a condition for the Back office display
+                button it appear only if admin is connected */}
                 {roles == 'ROLE_ADMIN' && (
                 <div className="profil-form-button--left">
                   <NavLink
@@ -58,6 +60,7 @@ function MyProfil({
                   className="profil-form-button--right"
                   type="submit"
                   onClick={(event) => {
+                    // eslint-disable-next-line no-alert
                     if (window.confirm('Êtes-vous sûr de vouloir supprimer votre profil utilisateur ?')) {
                       dispatch(deleteUser());
                     }

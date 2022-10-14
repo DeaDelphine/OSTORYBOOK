@@ -54,6 +54,7 @@ const user = (store) => (next) => (action) => {
           // store.dispatch(deleteUser());
           // localStorage.removeItem('user');
           localStorage.clear();
+          window.location.href = '/';
           // console.log(response);
         })
         .catch((error) => {
