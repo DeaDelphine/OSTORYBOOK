@@ -50,3 +50,12 @@ yarn add react-redux
 ```shell
 yarn add redux-devtools-extension
 ```
+## axios install
+```shell
+yarn add axios
+```
+
+## react icons install
+```shell
+yarn add react-icons
+```
