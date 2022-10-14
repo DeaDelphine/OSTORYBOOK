@@ -23,7 +23,7 @@ function EditProfil({ changeField }) {
   const errors = useSelector((state) => state.user.errors);
   const [isAlertVisible, setIsAlertVisible] = React.useState(false);
   const [isAlertMessageVisible, setIsAlertMessageVisible] = React.useState(false);
-  const message = <div className="login-form-right-title">Les deux mots de passent doivent être identiques</div>;
+  const message = <div className="login-form-right-title-error">Les deux mots de passent doivent être identiques</div>;
 
   let showErrors = '';
   if (errors) {
@@ -33,7 +33,7 @@ function EditProfil({ changeField }) {
         showErrors = Object.keys(errors.data).map((key) => <div className="login-form-right-title">{`${errors.data[key]}`}</div>);
         break;
       case 204:
-        showErrors = <div className="login-form-right-title">Bravo ! Vos modifications sont bien prises en compte !</div>;
+        showErrors = <div className="login-form-right-title-congrat">Bravo ! Vos modifications sont bien prises en compte !</div>;
         break;
       default:
         showErrors = <div>''</div>;
