@@ -3,8 +3,9 @@ import axios from 'axios';
 import {
   LOG_IN, SIGN_IN, saveNewUser,
   setToken,
+  saveErrorsSignIn,
 } from '../actions/auth';
-import { fetchUser } from '../actions/user';
+import { fetchUser, saveErrors } from '../actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -33,7 +34,8 @@ const authMiddleware = (store) => (next) => (action) => {
           store.dispatch(fetchUser());
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
+          store.dispatch(saveErrors(error.response.data));
         });
       break;
 
@@ -50,13 +52,15 @@ const authMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
+        // console.log(response);
           if (response.status === 201) {
             store.dispatch(saveNewUser());
+            store.dispatch(saveErrorsSignIn(response));
           }
         })
         .catch((error) => {
-          console.log(error);
+          store.dispatch(saveErrorsSignIn(error.response));
+        // console.log(error);
         });
 
       break;

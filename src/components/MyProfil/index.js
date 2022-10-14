@@ -13,7 +13,9 @@ function linkToBackOffice() {
 }
 
 // == Component
-function MyProfil({ email, nickname, roles }) {
+function MyProfil({
+  email, nickname, roles,
+}) {
   const dispatch = useDispatch();
 
   return (
@@ -41,6 +43,8 @@ function MyProfil({ email, nickname, roles }) {
                     MODIFIER MON PROFIL
                   </NavLink>
                 </div>
+                {/* this is a condition for the Back office display
+                button it appear only if admin is connected */}
                 {roles == 'ROLE_ADMIN' && (
                 <div className="profil-form-button--left">
                   <NavLink
@@ -56,7 +60,10 @@ function MyProfil({ email, nickname, roles }) {
                   className="profil-form-button--right"
                   type="submit"
                   onClick={(event) => {
-                    dispatch(deleteUser());
+                    // eslint-disable-next-line no-alert
+                    if (window.confirm('Êtes-vous sûr de vouloir supprimer votre profil utilisateur ?')) {
+                      dispatch(deleteUser());
+                    }
                   }}
                   to="/"
                 >
@@ -73,7 +80,7 @@ function MyProfil({ email, nickname, roles }) {
 MyProfil.propTypes = {
   email: PropTypes.string,
   nickname: PropTypes.string,
-  roles: PropTypes.array,
+  roles: PropTypes.string,
 };
 
 MyProfil.defaultProps = {

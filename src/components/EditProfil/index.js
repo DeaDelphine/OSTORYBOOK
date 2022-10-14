@@ -2,10 +2,11 @@
 // == Import
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { fetchUser, userEdit } from '../../actions/user';
+
+import { userEdit } from '../../actions/user';
 import FieldProfil from './FieldProfil';
 
 // == Component
@@ -17,28 +18,74 @@ function EditProfil({ changeField }) {
   const oldpassword = useSelector((state) => state.user.Oldpassword);
   const oldNickname = useSelector((state) => state.user.nickname);
   const oldEmail = useSelector((state) => state.user.email);
+  const passwordcheck = useSelector((state) => state.user.passwordcheck);
+  const errors = useSelector((state) => state.user.errors);
+  const [isAlertVisible, setIsAlertVisible] = React.useState(false);
+  const [isAlertMessageVisible, setIsAlertMessageVisible] = React.useState(false);
+  const message = <div className="login-form-right-title">Les deux mots de passent doivent être identiques</div>;
+
+  let showErrors = '';
+  if (errors) {
+    console.log(errors);
+    switch (errors.status) {
+      case 422:
+        showErrors = Object.keys(errors.data).map((key) => <div className="login-form-right-title">{`${errors.data[key]}`}</div>);
+        break;
+      case 204:
+        showErrors = <div className="login-form-right-title">Bravo ! Vos modifications sont bien prises en compte !</div>;
+        break;
+      default:
+        showErrors = <div>''</div>;
+        break;
+    }
+  }
+
+  const handleVisibility = () => {
+    setIsAlertVisible(false);
+    setIsAlertMessageVisible(false);
+  };
+
+  const checkPassword = () => {
+    if (newpassword || passwordcheck) {
+      if (newpassword == passwordcheck) {
+        return true;
+      }
+      setIsAlertMessageVisible(true);
+      return false;
+    }
+    setIsAlertMessageVisible(false);
+    return true;
+  };
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchUser());
+  // }, []);
+
   // we use preventDefault to avoid refresh page
   // Also the handlesubmit function is here for the form submit, then the useredit action is called
   // to edit form
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(userEdit());
+    if (checkPassword()) {
+      setIsAlertMessageVisible(false);
+      dispatch(userEdit());
+      setIsAlertVisible(true);
+    }
   };
 
   return (
     <div className="container-scrolly-mobile-only">
       <div className="profil-form">
         <div className="profil-form-container">
+          {isAlertMessageVisible && message}
+          {isAlertVisible && showErrors}
           <h1 className="profil-form-title">MODIFIER MON PROFIL</h1>
           <div className="profil-form-element">
             <form
               className="profil-form--form"
               onSubmit={handleSubmit}
+              onBlur={handleVisibility}
             >
               <div className="field-container">
                 <div className="field">
@@ -79,28 +126,27 @@ function EditProfil({ changeField }) {
                 </label>
                 <FieldProfil
                   type="password"
-                  name="oldpassword"
-                  className="field-input-password"
-                  placeholder="Ancien mot de passe"
-                  onChange={changeField}
-                  value={oldpassword}
+                    name="passwordcheck"
+                    className="field-input-password"
+                    placeholder="Mot de passe"
+                    onChange={changeField}
+                    value={passwordcheck}
                 />
                 </div>
                 <div className="field">
-                <label
-                  className="field-left"
-
-                >
-                  Nouveau mot de passe :
-                </label>
-                <FieldProfil
-                  type="password"
-                  className="field-input-password"
-                  name="newPassword"
-                  placeholder="Nouveau mot de passe"
-                  onChange={changeField}
-                  value={newpassword}
-                />
+                  <label
+                    className="field-left"
+                  >
+                    Confirmer votre mot de passe :
+                  </label>
+                  <FieldProfil
+                    type="password"
+                    className="field-input-password"
+                    name="newPassword"
+                    placeholder="Nouveau mot de passe"
+                    onChange={changeField}
+                    value={newpassword}
+                  />
                 </div>
               </div>
               <div className="profil-form-button">
@@ -110,22 +156,22 @@ function EditProfil({ changeField }) {
                 >
                   VALIDER LES MODIFICATIONS
                 </button>
-                <button
+                {/* <button
                   className="profil-form-button--right"
                   type="submit"
                 >
-                SUPPRIMER MON COMPTE
-                </button>
+                  SUPPRIMER MON COMPTE
+                </button> */}
               </div>
-          </form>
+            </form>
+          </div>
         </div>
-      </div>
       </div>
       <NavLink
         to="/mon-compte"
         className="container-button--return"
-      > 
-        Retour à mon profil     
+      >
+        Retour à mon profil
       </NavLink>
     </div>
   );
