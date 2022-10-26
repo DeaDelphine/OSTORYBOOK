@@ -1,7 +1,11 @@
+/* eslint-disable no-return-assign */
 // == Import
-import { useDispatch } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  Routes, Route, Navigate, redirect,
+} from 'react-router-dom';
 
+import PropTypes from 'prop-types';
 import Navigation from '../Navigation/Navigation';
 import Pages from '../StoryList/Pages';
 import Home from '../Home';
@@ -30,12 +34,17 @@ import AnimCursor from '../AnimCursor';
 function App() {
   // as we need to dispatch action to some composant we use the Hook UseDispatch
   const dispatch = useDispatch();
+  const isLogged = useSelector((state) => state.auth.logged);
+
   return (
+
     <div className="app">
       <AnimCursor />
       <Navigation />
       <div className="app-container">
+
         <Routes>
+
           {/* if URL / then we will display home composant */}
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
@@ -59,8 +68,19 @@ function App() {
           <Route path="/policies" element={<Policies />} />
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />
-          <Route path="/histoires" element={<StoryList />} />
-          <Route path="/histoire" element={<Pages />} />
+
+          <Route
+            path="/histoires"
+            element={
+              isLogged
+                ? <StoryList />
+                : <Navigate to="/connexion" />
+            }
+          />
+          <Route
+            path="/histoire"
+            element={<Pages />}
+          />
           <Route path="/*" element={<Error404 />} />
         </Routes>
       </div>
@@ -69,5 +89,6 @@ function App() {
 
   );
 }
+
 // == Export
 export default App;

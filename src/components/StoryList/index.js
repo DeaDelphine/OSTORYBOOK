@@ -1,6 +1,6 @@
 // == Import
 import { useSelector, useDispatch } from 'react-redux';
-
+import { Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import { fetchStories } from '../../actions/stories';
@@ -14,6 +14,7 @@ import './styles.scss';
 
 function StoryList() {
   const stories = useSelector((state) => state.stories.stories);
+
   const dispatch = useDispatch();
 
   useEffect(() => {

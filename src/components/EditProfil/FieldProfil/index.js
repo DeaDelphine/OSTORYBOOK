@@ -13,7 +13,7 @@ function FieldProfil({
   };
 
   return (
-  <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+    <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
       <input
         className="field-input"
         type={type}
@@ -22,7 +22,7 @@ function FieldProfil({
         value={value}
         onChange={handleChange}
       />
-  </div>
+    </div>
   );
 }
 

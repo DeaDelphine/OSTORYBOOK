@@ -32,7 +32,6 @@ function Page({
   const dispatch = useDispatch();
   const winMessage = <p className="page page-container--content__win-message">Vous avez atteint la fin de l'histoire ! Félicitations !</p>;
   const lossMessage = <p className="page page-container--content__loss-message">Malheureusement vous n'avez pas réussi à aller au bout de l'histoire... Tentez à nouveau votre chance !</p>;
-  
 
   return (
     <div> {(page_end == null || page_end == 0)
@@ -40,36 +39,35 @@ function Page({
         <div
           className="page page-container"
           key={id}
-          style={{backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundColor: 'rgba(52, 52, 52, 0.8)',}}
+          style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundColor: 'rgba(52, 52, 52, 0.8)' }}
         >
           <div
             className="page page-container--container"
-            style={{backgroundColor: 'rgba(52, 52, 52, 0.5)',}}
+            style={{ backgroundColor: 'rgba(52, 52, 52, 0.5)' }}
           >
             <h2 className="page page-container--title"> {title} </h2>
             <div className="page-container--content">
               <p className="page page-container--content__subtitle"> {content} </p>
             </div>
-            <div className="page page-container--choice"> 
-                 { choices ? choices.map((choice) => (
-                  <div className="page-container--choice__content"> 
-                    <div className="page-container--choice__description">{choice.description}</div> 
-                    <Link to="/histoire">
-                      <button
-                        className="page-container--choice__button"
-                        onClick={
+            <div className="page page-container--choice">
+              { choices ? choices.map((choice) => (
+                <div className="page-container--choice__content">
+                  <div className="page-container--choice__description">{choice.description}</div>
+                  <Link to="/histoire">
+                    <button
+                      className="page-container--choice__button"
+                      onClick={
                           (event) => {
                             localStorage.setItem('page', choice.page_to_redirect);
                             dispatch(fetchPages(localStorage.getItem('id'), localStorage.getItem('page')));
                           }
                         }
-                      >
-                        {choice.name}
-                      </button>
-                    </Link>
-                  </div>
-              )) : 'wrong way sorry ! '
-            }
+                    >
+                      {choice.name}
+                    </button>
+                  </Link>
+                </div>
+              )) : 'wrong way sorry ! '}
             </div>
             <NavLink
               to="/histoires"
