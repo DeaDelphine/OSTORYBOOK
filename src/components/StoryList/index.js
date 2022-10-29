@@ -1,6 +1,6 @@
 // == Import
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+
 import { useEffect } from 'react';
 
 import { fetchStories } from '../../actions/stories';
@@ -20,11 +20,7 @@ function StoryList() {
   useEffect(() => {
     dispatch(fetchStories());
   }, []);
-  // console.log(stories);
-  // const { slug } = useParams();
-  // if (!storylist) {
-  //   return <Navigate to="/error" replace />;
-  // }
+
   return (
     <div className="container-scrollx">
       <div className="story-list">

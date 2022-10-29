@@ -88,6 +88,15 @@
     }
   }
 }
+.contact-form-right-title-congrat {
+  font-size: 24px;
+  padding: 0.5rem;
+  background-color: rgba($color: vars.$winMessage, $alpha: 0.5);
+  border: rgba($color: vars.$winMessage, $alpha: 0.8) 5px solid;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
 
 /* Desktop version */

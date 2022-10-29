@@ -1,11 +1,13 @@
 import axios from 'axios';
-import { deleteUser, USER_DELETE } from '../actions/auth';
+
+import { USER_DELETE } from '../actions/auth';
 
 import {
-  FETCH_USER, saveErrorsProfilDelete, saveErrorsProfilEdit, setUser, USER_EDIT,
+  FETCH_USER, saveErrorsProfilEdit, setUser, USER_EDIT,
 } from '../actions/user';
 
 // eslint-disable-next-line camelcase
+
 const user = (store) => (next) => (action) => {
   const headers = { headers: { Authorization: `bearer ${localStorage.getItem('token') || store.getState().auth.token}` } };
   // const headers = { headers: { Authorization: `bearer ${store.getState().auth.token}` } };

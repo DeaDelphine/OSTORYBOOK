@@ -45,7 +45,7 @@ function MyProfil({
                 </div>
                 {/* this is a condition for the Back office display
                 button it appear only if admin is connected */}
-                {roles == 'ROLE_ADMIN' && (
+                {roles === 'ROLE_ADMIN' && (
                 <div className="profil-form-button--left">
                   <NavLink
                     to="/"

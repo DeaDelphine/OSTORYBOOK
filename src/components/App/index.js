@@ -19,7 +19,7 @@ import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
 
-import { changeUserInput } from '../../actions/user';
+import { changeUserInput, mailUser } from '../../actions/user';
 import { deleteUser } from '../../actions/auth';
 
 import Error404 from '../Errors/Error404';
@@ -64,7 +64,12 @@ function App() {
           )}
           />
           <Route path="/cgu" element={<CGU />} />
-          <Route path="/nous-contacter" element={<ContactForm />} />
+          <Route
+            path="/nous-contacter"
+            element={(
+              <ContactForm />
+)}
+          />
           <Route path="/policies" element={<Policies />} />
           <Route path="/credits" element={<Credits />} />
           <Route path="/regles-du-jeu" element={<GameRules />} />

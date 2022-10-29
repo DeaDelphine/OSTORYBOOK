@@ -1,4 +1,4 @@
-📦 React Modele test
+📦 React Modele 
 ===============
 
 Bienvenue dans ce modèle/template de projet React !
