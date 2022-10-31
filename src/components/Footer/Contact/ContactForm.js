@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import { NavLink } from 'react-router-dom';
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import '../styles.scss';
@@ -16,7 +15,8 @@ function ContactForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_du03ta9', 'template_8v1vg6f', form.current, 'M6Jibsq8pCUoo0Sjv')
+    // eslint-disable-next-line max-len
+    emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, process.env.PUBLIC_KEY)
       .then((result) => {
         alert('Votre Message a bien été bien envoyé !');
         console.log(result.text);
