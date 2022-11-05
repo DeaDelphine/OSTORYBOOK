@@ -19,7 +19,7 @@ import GameRules from '../Footer/GameRules';
 import Credits from '../Footer/Credits';
 import CGU from '../Footer/CGU';
 
-import { changeUserInput, mailUser } from '../../actions/user';
+import { changeContactInput, changeUserInput } from '../../actions/user';
 import { deleteUser } from '../../actions/auth';
 
 import Error404 from '../Errors/Error404';
@@ -67,7 +67,10 @@ function App() {
           <Route
             path="/nous-contacter"
             element={(
-              <ContactForm />
+              <ContactForm handleChange={(value) => {
+                dispatch(changeContactInput(value));
+              }}
+              />
 )}
           />
           <Route path="/policies" element={<Policies />} />

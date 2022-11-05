@@ -1,8 +1,42 @@
-function parseJwt(token) {
-  const base64Url = token.split('.')[1];
-  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  const jsonPayload = decodeURIComponent(window.atob(base64).split('').map((c) => `%${(`00${c.charCodeAt(0).toString(16)}`).slice(-2)}`).join(''));
-  return JSON.parse(jsonPayload);
-}
+import './styles.scss';
 
-export default parseJwt;
+const utils = {
+  checkPassword: (newpassword, passwordcheck) => {
+    if (newpassword || passwordcheck) {
+      if (newpassword === passwordcheck) {
+        return true;
+      }
+      return false;
+    }
+    return true;
+  },
+
+  errorMessage: (errors) => {
+    let showErrors = '';
+
+    if (errors) {
+      switch (errors.status) {
+        case 422:
+          showErrors = Object.keys(errors.data).map((key) => <div className="login-form-right-title-error">{`${key} : ${errors.data[key]}`}</div>);
+          break;
+        case 204:
+          showErrors = <div className="login-form-right-title-congrat">Bravo ! Vos modifications sont bien prises en compte !</div>;
+          break;
+        case 201:
+          showErrors = <div className="login-form-right-title-congrat">Vous êtes bien inscrits ! Veuillez vous connecter pour jouer !</div>;
+          break;
+        default:
+          showErrors = <div> </div>;
+          break;
+      }
+    }
+
+    return (
+      <div>
+        {showErrors}
+      </div>
+    );
+  },
+};
+
+export default utils;

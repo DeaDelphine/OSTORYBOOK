@@ -7,6 +7,7 @@ export const FETCH_USER = 'FETCH_USER';
 export const SAVE_ERROR_DATA = 'SAVE_ERROR_DATA';
 export const SAVE_ERROR_PROFIL_EDIT = 'SAVE_ERROR_PROFIL_EDIT';
 export const SAVE_ERROR_PROFIL_DELETE = 'SAVE_ERROR_PROFIL_DELETE';
+export const CHANGE_CONTACT_INPUT = 'CHANGE_CONTACT_INPUT';
 
 // action type for user middleware
 export const setUser = (nickname, roles, email) => ({
@@ -27,6 +28,10 @@ export const changeUserInput = (newValue, fieldIdentifier) => ({
   type: CHANGE_USER_INPUT,
   value: newValue,
   fieldIdentifier: fieldIdentifier,
+});
+export const changeContactInput = (value) => ({
+  type: CHANGE_CONTACT_INPUT,
+  value: value,
 });
 
 export const userEdit = () => ({

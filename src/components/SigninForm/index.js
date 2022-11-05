@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import { useSelector } from 'react-redux';
+import { Await } from 'react-router-dom';
+import utils from '../../utils/function';
+
 import Field from '../Field';
 
 import '../Login/styles.scss';
@@ -25,54 +27,34 @@ function SigninForm({
   const [isAlertMessageVisible, setIsAlertMessageVisible] = React.useState(false);
   const message = <div className="login-form-right-title-error">Les deux mots de passent doivent être identiques</div>;
 
-  let showErrors = '';
+  let showError = '';
+
   if (errors) {
-    switch (errors.status) {
-      case 422:
-        showErrors = Object.keys(errors.data).map((key) => <div className="login-form-right-title-error">{`${key} : ${errors.data[key]}`}</div>);
-        break;
-      case 201:
-        showErrors = <div className="login-form-right-title-congrat">Félicitations vous êtes bien inscrits ! Veuillez vous connecter pour participer à l'aventure</div>;
-        break;
-      default:
-        showErrors = <div>''</div>;
-        break;
-    }
+    showError = utils.errorMessage(errors);
   }
-
-  const handleVisibility = () => {
-    setIsAlertVisible(false);
-    setIsAlertMessageVisible(false);
-  };
-
-  const checkPassword = () => {
-    if (passwordValue && passwordCheckValue) {
-      if (passwordValue == passwordCheckValue) {
-        return true;
-      }
-      setIsAlertMessageVisible(true);
-      return false;
-    }
-    setIsAlertMessageVisible(true);
-    return false;
-  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (checkPassword()) {
+    if (utils.checkPassword(passwordValue, passwordCheckValue)) {
       setIsAlertMessageVisible(false);
-      if (!handleSignin()) {
-        setIsAlertVisible(true);
-      }
+      setTimeout(() => {
+        if (!handleSignin()) {
+          setIsAlertVisible(true);
+        }
+      }, 420);
+    }
+    else {
+      setIsAlertMessageVisible(true);
     }
   };
 
   return (
-    <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit} onBlur={handleVisibility}>
+    <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
       <div className="login-form-left">
         <h2 className="login-form-left-title">INSCRIPTION</h2>
         {isAlertMessageVisible && message}
-        {isAlertVisible && showErrors}
+        {isAlertVisible && showError}
+
         <p className="login-form-left-message">Pas encore de compte ? Inscrivez-vous pour pouvoir jouer.</p>
         <div className="login-form-left-container">
           <Field

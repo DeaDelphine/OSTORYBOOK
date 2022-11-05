@@ -4,6 +4,7 @@ import {
   SAVE_ERROR_DATA,
   SAVE_ERROR_PROFIL_EDIT,
   SAVE_ERROR_PROFIL_DELETE,
+  CHANGE_CONTACT_INPUT,
 } from '../actions/user';
 
 export const initialState = {
@@ -46,6 +47,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         Newpassword: action.value,
+      };
+    case CHANGE_CONTACT_INPUT:
+      return {
+        ...state,
+        email: '',
+        subject: '',
+        message: '',
       };
 
     case SET_USER: {

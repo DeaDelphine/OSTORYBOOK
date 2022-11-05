@@ -1,5 +1,7 @@
+/* eslint-disable max-len */
 /* eslint-disable import/no-unresolved */
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+
 import emailjs from '@emailjs/browser';
 import '../styles.scss';
 
@@ -10,15 +12,48 @@ import '../styles.scss';
 //  */
 
 function ContactForm() {
-  const form = useRef();
+  const initialValues = { email: '', subject: '', message: '' };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
+  const handlechange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    console.log(formValues);
+  };
+  const form = useRef();
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (!values.email) {
+      errors.email = "L'email ne doit pas être vide ";
+    }
+    else if (!regex.test(values.email)) {
+      errors.email = "Le format d'email n'est pas valide ";
+    }
+    if (!values.subject) {
+      errors.subject = 'Le sujet ne doit pas être vide ';
+    }
+    if (!values.message) {
+      errors.message = 'Le message ne doit pas être vide ';
+    }
+    return errors;
+  };
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
+    }
+  }, [formErrors]);
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
     // eslint-disable-next-line max-len
     emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, process.env.PUBLIC_KEY)
       .then((result) => {
-        alert('Votre Message a bien été bien envoyé !');
+        // alert('Votre Message a bien été bien envoyé !');
         console.log(result.text);
         e.target.reset();
       }, (error) => {
@@ -38,27 +73,46 @@ function ContactForm() {
             onSubmit={sendEmail}
             ref={form}
           >
+            <p>{ formErrors.email }</p>
             <div className="contact-field">
+
               <input
+                // required="required"
                 type="email"
                 className="contact-field-email"
                 name="email"
                 placeholder="Email"
+                value={formValues.email}
+                onChange={handlechange}
               />
+              <p>{ formErrors.subject }</p>
               <input
                 type="text"
                 className="contact-field-email"
                 name="subject"
                 placeholder="Objet"
+                value={formValues.subject}
+                onChange={handlechange}
               />
+              <p>{ formErrors.message }</p>
               <textarea
+                // required="required"
+                id="message"
                 className="contact-field-textarea"
                 name="message"
                 placeholder="Votre message"
+                value={formValues.message}
+                onChange={handlechange}
               />
+              {/* {Object.keys(formErrors).length === 0 && isSubmit ?
+              (<div className="contact-form-right-title-congrat">Votre message est bien envoyé ! </div>
+              ) : (
+                <div className="contact-form-right-title-error">Vérifiez vos informations !  </div>
+              ) } */}
               <button
                 type="submit"
                 className="contact-form-button"
+
               >ENVOYER
               </button>
 

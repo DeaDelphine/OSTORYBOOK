@@ -7,6 +7,12 @@
 .cgu, .policies, .game-rules {
   padding: 2rem;
 }
+.cgu{
+  &-title {
+    text-align: center;
+    font-size: 33px;
+  }
+}
 
 /*----- TEXT AND LINK STYLE -----*/
 .footer-p {
@@ -37,11 +43,12 @@
 // CREDITS PAGE 
 
 /* Mobile version */
+
 .credits{
   &-title {
     text-align: center;
   }
-
+  
   &-container {
     &--card {
       background-color: vars.$dark-color;
@@ -97,6 +104,18 @@
   text-align: center;
   margin-bottom: 2rem;
 }
+
+.contact-form-right-title-error {
+  font-size: 24px;
+  padding: 0.5rem;
+  background-color: rgba($color: vars.$lossMessage, $alpha: 0.5);
+  border: rgba($color: vars.$lossMessage, $alpha: 0.8) 5px solid;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
 
 
 /* Desktop version */

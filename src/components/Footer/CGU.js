@@ -7,7 +7,7 @@ function CGU() {
   return (
     <div className="container-scrolly">
       <div className="cgu">
-        <h1>CONDITIONS GENERALES D'UTILISATION</h1>
+        <h1 className="cgu-title">CONDITIONS GENERALES D'UTILISATION</h1>
         <h2>Avertissement</h2>
         <p className="footer-p">Dernière mise à jour : 11 Octobre 2022</p>
 

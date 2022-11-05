@@ -10,7 +10,7 @@ import {
 
 const user = (store) => (next) => (action) => {
   const headers = { headers: { Authorization: `bearer ${localStorage.getItem('token') || store.getState().auth.token}` } };
-  // const headers = { headers: { Authorization: `bearer ${store.getState().auth.token}` } };
+
   const state = store.getState();
   switch (action.type) {
     case FETCH_USER:

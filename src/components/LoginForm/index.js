@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -25,19 +25,26 @@ function LoginForm({
   const [isAlertVisible, setIsAlertVisible] = React.useState(false);
   const message = <div className="login-form-right-title-error">Mot de passe ou email incorrect</div>;
 
-  const handleVisibility = () => {
-    setIsAlertVisible(false);
-  };
+  // const handleVisibility = () => {
+  //   setIsAlertVisible(false);
+  // };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (!handleLogin()) {
-      setIsAlertVisible(true);
+      setTimeout(() => {
+        setIsAlertVisible(true);
+      }, 420);
     }
   };
 
   return (
-    <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit} onBlur={handleVisibility}>
+    <form
+      autoComplete="off"
+      className="login-form-element"
+      onSubmit={handleSubmit}
+
+    >
       <div className="login-form-right">
         <h2 className="login-form-right-title">CONNEXION</h2>
         {isAlertVisible && message}
