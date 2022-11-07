@@ -48,17 +48,17 @@ function ContactForm() {
   }, [formErrors]);
   const sendEmail = (e) => {
     e.preventDefault();
+
     setFormErrors(validate(formValues));
     setIsSubmit(true);
     // eslint-disable-next-line max-len
-    emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, process.env.PUBLIC_KEY)
-      .then((result) => {
-        // alert('Votre Message a bien été bien envoyé !');
-        console.log(result.text);
-        e.target.reset();
-      }, (error) => {
-        console.log(error.text);
-      });
+    if (Object.keys(validate(formValues)).length === 0) {
+      emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, process.env.PUBLIC_KEY)
+        .then((result) => {
+          alert('Votre Message a bien été bien envoyé !');
+          setFormValues({ email: '', subject: '', message: '' });
+        });
+    }
   };
 
   return (
