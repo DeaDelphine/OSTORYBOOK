@@ -104,7 +104,7 @@ function HeaderNavLinks() {
               className="navbar__link"
               onClick={handleShowLinks}
             >
-              Politiques de confidentialité
+              Politique de confidentialité
             </NavLink>
           </li>
           <li className="navbar__item">

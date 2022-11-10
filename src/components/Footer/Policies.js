@@ -7,12 +7,12 @@ function Policies() {
   return (
     <div className="container-scrolly">
       <div className="policies">
-        <h1>POLITIQUES DE CONFIDENTIALITE</h1>
+        <h1 className="policies-title">Politique de confidentialité</h1>
         <p className="footer-p">Objet : information des utilisateurs sur la politique de traitement des données personnelles et la gestion des cookies</p>
 
         <p className="footer-p">La présente politique de confidentialité a pour objet d’informer les utilisateurs du site « o'Story Book » de la politique de traitement des données personnelles et de gestion des cookies de l'équipe administrative via ce site.</p>
 
-        <h3>Politique de traitement des données personnelles</h3>
+        <h3 className="policies-title">Politique de traitement des données personnelles</h3>
         <p className="footer-p">L'équipe administrative s'engage à ce que les traitements de données personnelles effectués sur  https://ostrorybook.fr/ soient conformes à la réglementation en vigueur en matière de protection des données à caractère personnel, notamment le règlement général sur la protection des données (RGPD) 2016/679 du 27 avril 2016 et la loi Informatique et Libertés n° 78-17 du 6 janvier 1978 modifiée.</p>
 
         <h4>Objet du traitement de données</h4>
@@ -58,7 +58,7 @@ function Policies() {
           Pour toute demande relative à l’exercice de vos droits sur vos données personnelles, vous pouvez vous adresser à l’adresse suivante : ostoryb@gmail.com, en précisant l’objet de votre demande et en justifiant de votre identité. Si vous estimez, après avoir contacté l'équipe administrative, que vos droits relatifs à vos données personnelles ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL.
         </p>
 
-        <h3>A propos des cookies</h3>
+        <h3 className="policies-title">A propos des cookies</h3>
         <h4>Définition du terme cookie</h4>
         <p className="footer-p">Un cookie est une information déposée automatiquement sur le disque dur de l'ordinateur, du mobile ou de la tablette de l'utilisateur par le serveur du site visité ou par un serveur tiers. Il contient plusieurs données : le nom du serveur qui l'a déposé, un identifiant sous forme de numéro unique et éventuellement une date d'expiration.
           Un cookie a une durée de validité limitée. Son dépôt et son stockage sur votre terminal se font dans le respect de la législation applicable.

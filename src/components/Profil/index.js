@@ -8,7 +8,7 @@ import { fetchUser } from '../../actions/user';
 // == Component
 function Profil() {
   const userInfo = useSelector((state) => state.user);
-
+  // console.log(userInfo);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUser());
@@ -16,6 +16,7 @@ function Profil() {
   return (
     <div className="container">
       <MyProfil {...userInfo} />
+
     </div>
   );
 }

@@ -14,7 +14,7 @@ function linkToBackOffice() {
 
 // == Component
 function MyProfil({
-  email, nickname, roles,
+  email, nickname, roles, profilePicture,
 }) {
   const dispatch = useDispatch();
 
@@ -33,6 +33,8 @@ function MyProfil({
               <p className="user-info-email">
                 {email}
               </p>
+              { profilePicture
+                ? <img src={`http://0.0.0.0:8000/assets/images/personnages/${profilePicture}`} alt="avatar" height="200px" /> : console.log('patate') }
               <div className="profil-form-button">
                 <div className="profil-form-button--left">
                   <NavLink
@@ -80,14 +82,15 @@ function MyProfil({
 MyProfil.propTypes = {
   email: PropTypes.string,
   nickname: PropTypes.string,
-  roles: PropTypes.string,
+  roles: PropTypes.array,
+  profilePicture: PropTypes.array,
 };
 
 MyProfil.defaultProps = {
   email: '',
   nickname: '',
-  roles: '',
-
+  roles: [],
+  profilePicture: '',
 };
 // == Export
 export default MyProfil;

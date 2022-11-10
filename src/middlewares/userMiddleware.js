@@ -1,9 +1,12 @@
+/* eslint-disable max-len */
 import axios from 'axios';
+import { useState } from 'react';
 
 import { USER_DELETE } from '../actions/auth';
 
 import {
-  FETCH_USER, saveErrorsProfilEdit, setUser, USER_EDIT,
+  FETCH_AVATAR,
+  FETCH_USER, saveErrorsProfilEdit, SetAvatar, setUser, USER_EDIT,
 } from '../actions/user';
 
 // eslint-disable-next-line camelcase
@@ -18,8 +21,7 @@ const user = (store) => (next) => (action) => {
       axios.get('http://0.0.0.0:8000/api/user/me', headers)
 
         .then((response) => {
-          store.dispatch(setUser(response.data.nickname, response.data.roles, response.data.email));
-          console.log(response);
+          store.dispatch(setUser(response.data.nickname, response.data.roles, response.data.email, response.data.profilePicture));
         })
         .catch((error) => {
           // console.log(error);
@@ -35,12 +37,13 @@ const user = (store) => (next) => (action) => {
           email: state.user.Newemail,
           // oldPassword: state.user.Oldpassword,
           password: state.user.Newpassword,
+          profilePicture: state.user.profilePicture,
         },
         headers,
       )
 
         .then((response) => {
-          // console.log(response);
+          console.log(response);
           store.dispatch(saveErrorsProfilEdit(response));
         })
         .catch((error) => {
@@ -58,6 +61,17 @@ const user = (store) => (next) => (action) => {
           localStorage.clear();
           window.location.href = '/';
           // console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case FETCH_AVATAR:
+      axios.get('http://0.0.0.0:8000/api/personnages', headers)
+
+        .then((response) => {
+          store.dispatch(SetAvatar(response.data));
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);

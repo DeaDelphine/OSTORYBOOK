@@ -7,10 +7,11 @@
 .cgu, .policies, .game-rules {
   padding: 2rem;
 }
-.cgu{
+
+.cgu, .policies{
   &-title {
     text-align: center;
-    font-size: 33px;
+    font-size: 2.5rem;
   }
 }
 
@@ -131,6 +132,13 @@
       }
     }
   }
+  .cgu, .policies, .credits, .game-rules, .contact-form {
+    &-title {
+      text-align: center;
+      font-size: 3.5em;
+    }
+  }
+  
 }
 
 

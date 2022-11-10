@@ -5,6 +5,7 @@ import {
   SAVE_ERROR_PROFIL_EDIT,
   SAVE_ERROR_PROFIL_DELETE,
   CHANGE_CONTACT_INPUT,
+  SET_AVATAR,
 } from '../actions/user';
 
 export const initialState = {
@@ -17,6 +18,8 @@ export const initialState = {
   roles: '',
   logged: false,
   passwordcheck: '',
+  image: [],
+  profilePicture: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -55,6 +58,11 @@ const reducer = (state = initialState, action = {}) => {
         subject: '',
         message: '',
       };
+    case SET_AVATAR:
+      return {
+        ...state,
+        image: action.image,
+      };
 
     case SET_USER: {
       return {
@@ -62,6 +70,7 @@ const reducer = (state = initialState, action = {}) => {
         nickname: action.nickname,
         email: action.email,
         roles: action.roles,
+        profilePicture: action.profilePicture,
         logged: true,
       };
     }

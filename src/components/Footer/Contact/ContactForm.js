@@ -66,7 +66,7 @@ function ContactForm() {
 
       <div className="contact-form-container">
 
-        <h1 className="contact-form-title">NOUS CONTACTER</h1>
+        <h1 className="contact-form-title">Nous contacter</h1>
         <div className="contact-form-element">
           <form
             className="contact-form--form"
@@ -104,11 +104,7 @@ function ContactForm() {
                 value={formValues.message}
                 onChange={handlechange}
               />
-              {/* {Object.keys(formErrors).length === 0 && isSubmit ?
-              (<div className="contact-form-right-title-congrat">Votre message est bien envoyé ! </div>
-              ) : (
-                <div className="contact-form-right-title-error">Vérifiez vos informations !  </div>
-              ) } */}
+
               <button
                 type="submit"
                 className="contact-form-button"
