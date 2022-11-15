@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import axios from 'axios';
-import { useState } from 'react';
 
 import { USER_DELETE } from '../actions/auth';
 
@@ -37,13 +36,12 @@ const user = (store) => (next) => (action) => {
           email: state.user.Newemail,
           // oldPassword: state.user.Oldpassword,
           password: state.user.Newpassword,
-          profilePicture: state.user.profilePicture,
+
         },
         headers,
       )
 
         .then((response) => {
-          console.log(response);
           store.dispatch(saveErrorsProfilEdit(response));
         })
         .catch((error) => {

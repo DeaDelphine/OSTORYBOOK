@@ -34,7 +34,7 @@ function MyProfil({
                 {email}
               </p>
               { profilePicture
-                ? <img src={`http://0.0.0.0:8000/assets/images/personnages/${profilePicture}`} alt="avatar" height="200px" /> : console.log('patate') }
+                ? <img src={`http://0.0.0.0:8000/assets/images/personnages/${profilePicture}`} alt="avatar" height="200px" /> : null }
               <div className="profil-form-button">
                 <div className="profil-form-button--left">
                   <NavLink
@@ -47,7 +47,7 @@ function MyProfil({
                 </div>
                 {/* this is a condition for the Back office display
                 button it appear only if admin is connected */}
-                {roles === 'ROLE_ADMIN' && (
+                {roles[0] === 'ROLE_ADMIN' && (
                 <div className="profil-form-button--left">
                   <NavLink
                     to="/"

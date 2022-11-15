@@ -35,6 +35,7 @@ export const changeUserInput = (newValue, fieldIdentifier) => ({
   value: newValue,
   fieldIdentifier: fieldIdentifier,
 });
+
 export const changeContactInput = (value) => ({
   type: CHANGE_CONTACT_INPUT,
   value: value,
@@ -42,6 +43,7 @@ export const changeContactInput = (value) => ({
 
 export const userEdit = () => ({
   type: USER_EDIT,
+
 });
 
 export const clearEdit = () => ({
@@ -51,9 +53,9 @@ export const fetchAvatar = () => ({
   type: FETCH_AVATAR,
 
 });
-export const SaveAvatar = () => ({
+export const SaveAvatar = (profilePicture) => ({
   type: SAVE_AVATAR,
-
+  value: profilePicture,
 });
 export const SetAvatar = (image) => ({
   type: SET_AVATAR,

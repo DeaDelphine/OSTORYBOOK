@@ -6,6 +6,7 @@ import {
   SAVE_ERROR_PROFIL_DELETE,
   CHANGE_CONTACT_INPUT,
   SET_AVATAR,
+  USER_EDIT,
 } from '../actions/user';
 
 export const initialState = {
@@ -74,6 +75,7 @@ const reducer = (state = initialState, action = {}) => {
         logged: true,
       };
     }
+
     case CLEAR_EDIT: {
       return {
         ...state,
