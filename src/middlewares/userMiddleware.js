@@ -36,7 +36,7 @@ const user = (store) => (next) => (action) => {
           email: state.user.Newemail,
           // oldPassword: state.user.Oldpassword,
           password: state.user.Newpassword,
-
+          profilePicture: state.user.newProfilePicture,
         },
         headers,
       )

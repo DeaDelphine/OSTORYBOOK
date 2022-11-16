@@ -53,9 +53,8 @@ export const fetchAvatar = () => ({
   type: FETCH_AVATAR,
 
 });
-export const SaveAvatar = (profilePicture) => ({
+export const SaveAvatar = () => ({
   type: SAVE_AVATAR,
-  value: profilePicture,
 });
 export const SetAvatar = (image) => ({
   type: SET_AVATAR,

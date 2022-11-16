@@ -20,7 +20,6 @@ function ContactForm() {
   const handlechange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
   };
   const form = useRef();
   const validate = (values) => {
@@ -41,7 +40,6 @@ function ContactForm() {
     return errors;
   };
   useEffect(() => {
-    console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(formValues);
     }
@@ -77,7 +75,6 @@ function ContactForm() {
             <div className="contact-field">
 
               <input
-                // required="required"
                 type="email"
                 className="contact-field-email"
                 name="email"
@@ -96,7 +93,6 @@ function ContactForm() {
               />
               <p>{ formErrors.message }</p>
               <textarea
-                // required="required"
                 id="message"
                 className="contact-field-textarea"
                 name="message"

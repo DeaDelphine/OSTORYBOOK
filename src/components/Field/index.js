@@ -1,4 +1,4 @@
-// == Import : npm
+// == Import
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -41,7 +41,7 @@ Field.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-// Valeurs par défaut pour les props
+// default value for props
 Field.defaultProps = {
   value: '',
   type: 'text',

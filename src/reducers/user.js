@@ -21,6 +21,7 @@ export const initialState = {
   passwordcheck: '',
   image: [],
   profilePicture: '',
+  newProfilePicture: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -45,6 +46,12 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           passwordcheck: action.value,
+        };
+      }
+      if (action.fieldIdentifier === 'image') {
+        return {
+          ...state,
+          newProfilePicture: action.value,
         };
       }
 

@@ -2,10 +2,9 @@
 // == Import
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Routes, Route, Navigate, redirect,
+  Routes, Route, Navigate,
 } from 'react-router-dom';
 
-import PropTypes from 'prop-types';
 import Navigation from '../Navigation/Navigation';
 import Pages from '../StoryList/Pages';
 import Home from '../Home';
@@ -55,6 +54,7 @@ function App() {
               <EditProfil
               // we use changeField fonction with property to change the value of input form
                 changeField={(newValue, identifier) => {
+                  // we also need to dispatch an action in order to call her
                   dispatch(changeUserInput(newValue, identifier));
                 }}
                 handleDeleteUser={() => {
@@ -80,6 +80,7 @@ function App() {
           <Route
             path="/histoires"
             element={
+              // If the user isn't Logged he will not be able to access to those components
               isLogged
                 ? <StoryList />
                 : <Navigate to="/connexion" />
