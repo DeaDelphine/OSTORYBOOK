@@ -20,22 +20,21 @@ function LoginForm({
 }) {
   const emailValue = useSelector((state) => state.auth.emailAuth);
   const passwordValue = useSelector((state) => state.auth.passwordAuth);
-
   const errors = useSelector((state) => state.user.errors);
   const [isAlertVisible, setIsAlertVisible] = React.useState(false);
   const message = <div className="login-form-right-title-error">Mot de passe ou email incorrect</div>;
 
-  // const handleVisibility = () => {
-  //   setIsAlertVisible(false);
-  // };
+  useEffect(() => {
+    if (errors && errors.status === 400) setIsAlertVisible(true);
+  }, [errors]);
+
+  const handleVisibility = () => {
+    setIsAlertVisible(false);
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (!handleLogin()) {
-      setTimeout(() => {
-        setIsAlertVisible(true);
-      }, 420);
-    }
+    handleLogin();
   };
 
   return (
@@ -43,7 +42,7 @@ function LoginForm({
       autoComplete="off"
       className="login-form-element"
       onSubmit={handleSubmit}
-
+      onBlur={handleVisibility}
     >
       <div className="login-form-right">
         <h2 className="login-form-right-title">CONNEXION</h2>

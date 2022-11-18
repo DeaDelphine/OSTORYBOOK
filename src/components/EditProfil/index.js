@@ -9,43 +9,46 @@ import PropTypes from 'prop-types';
 
 import utils from '../../utils/function';
 
-import { fetchAvatar, fetchUser, userEdit } from '../../actions/user';
+import {
+  fetchAvatar, fetchUser, userEdit,
+} from '../../actions/user';
 import FieldProfil from './FieldProfil';
 
 // == Component
 function EditProfil({ changeField }) {
   const dispatch = useDispatch();
 
+  // we use the hook useSelector to get the parameters from the state
+  const oldNickname = useSelector((state) => state.user.nickname);
+  const nickname = useSelector((state) => state.user.Newnickname);
+
+  const newpassword = useSelector((state) => state.user.Newpassword);
+  const passwordcheck = useSelector((state) => state.user.passwordcheck);
+
+  const oldEmail = useSelector((state) => state.user.email);
+  const email = useSelector((state) => state.user.Newemail);
+  const errors = useSelector((state) => state.user.errors);
+  const [isAlertVisible, setIsAlertVisible] = React.useState(false);
+  const [isAlertMessageVisible, setIsAlertMessageVisible] = React.useState(false);
+  const message = <div className="login-form-right-title-error">Les deux mots de passent doivent être identiques</div>;
+  const images = useSelector((state) => (state.user.image));
+  const oldProfilePicture = useSelector((state) => (state.user.profilePicture));
+  const [newProfilePicture, setProfilePicture] = React.useState(null);
+  const parsedName = oldProfilePicture ? oldProfilePicture.split('.') : ['pas d\'image'];
+
   useEffect(() => {
     dispatch(fetchUser());
     dispatch(fetchAvatar());
   }, []);
 
-  // we use the hook useSelector to get the parameters from the state
-  const oldNickname = useSelector((state) => state.user.nickname);
-  const nickname = useSelector((state) => state.user.Newnickname);
-  const newpassword = useSelector((state) => state.user.Newpassword);
-  const passwordcheck = useSelector((state) => state.user.passwordcheck);
-  const images = useSelector((state) => (state.user.image));
-  const oldProfilePicture = useSelector((state) => (state.user.profilePicture));
-  const oldEmail = useSelector((state) => state.user.email);
-  const email = useSelector((state) => state.user.Newemail);
-  const errors = useSelector((state) => state.user.errors);
-
-  // As long as we need other function to upload the state we use UseState hook
-  const [isAlertVisible, setIsAlertVisible] = React.useState(false);
-  const [isAlertMessageVisible, setIsAlertMessageVisible] = React.useState(false);
-  const [newProfilePicture, setProfilePicture] = React.useState(null);
-
-  const message = <div className="login-form-right-title-error">Les deux mots de passent doivent être identiques</div>;
-  const parsedName = oldProfilePicture.split('.');
-
-  // we use the hook useEffect in order to use a function who will modify the state
   useEffect(() => {
     setProfilePicture(oldProfilePicture);
   }, [oldProfilePicture]);
 
-  // we use this function when the input need to be controlled, we can see an onChange property on it
+  useEffect(() => {
+    setIsAlertVisible(true);
+  }, [errors]);
+
   const handleChange = (evt) => {
     const optionValue = evt.target.value;
     setProfilePicture(optionValue);
@@ -53,14 +56,11 @@ function EditProfil({ changeField }) {
   };
 
   const handleVisibility = () => {
-    setTimeout(() => {
-      setIsAlertVisible(false);
-      setIsAlertMessageVisible(false);
-    }, 1000);
+    setIsAlertVisible(false);
+    setIsAlertMessageVisible(false);
   };
 
   let showError = '';
-
   if (errors) {
     showError = utils.errorMessage(errors);
   }
@@ -72,11 +72,11 @@ function EditProfil({ changeField }) {
     evt.preventDefault();
 
     if (utils.checkPassword(newpassword, passwordcheck)) {
-      setTimeout(() => {
-        setIsAlertMessageVisible(false);
-        dispatch(userEdit());
-        setIsAlertVisible(true);
-      }, 420);
+      dispatch(userEdit()); setIsAlertMessageVisible(false);
+      setIsAlertVisible(false);
+    }
+    else {
+      setIsAlertMessageVisible(true);
     }
   };
 
@@ -171,7 +171,6 @@ function EditProfil({ changeField }) {
                       name="image"
                       onChange={handleChange}
                       className="field-input"
-                      widht
                     >
                       <option selected="selected" value={oldProfilePicture}>{parsedName[0]}</option>
                       {images.map((image) => (
@@ -183,15 +182,14 @@ function EditProfil({ changeField }) {
                       ))}
                     </select>
 
-                    <img
-                      src={`http://0.0.0.0:8000/assets/images/personnages/${newProfilePicture}`}
-                      id="id_img"
-                      alt={`${parsedName[0]}`}
-                      height="100px"
-                    />
-
                   </div>
                 </div>
+                <img
+                  src={`http://0.0.0.0:8000/assets/images/personnages/${newProfilePicture}`}
+                  id="id_img"
+                  alt={`${parsedName[0]}`}
+                  height="100px"
+                />
                 <div className="profil-form-button">
                   <button
                     className="profil-form-button--left"

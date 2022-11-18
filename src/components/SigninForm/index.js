@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Await } from 'react-router-dom';
 import utils from '../../utils/function';
 
 import Field from '../Field';
@@ -28,20 +27,23 @@ function SigninForm({
   const message = <div className="login-form-right-title-error">Les deux mots de passent doivent être identiques</div>;
 
   let showError = '';
-
   if (errors) {
     showError = utils.errorMessage(errors);
   }
+
+  const handleVisibility = () => {
+    setIsAlertVisible(false);
+  };
+
+  useEffect(() => {
+    setIsAlertVisible(true);
+  }, [errors]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (utils.checkPassword(passwordValue, passwordCheckValue)) {
       setIsAlertMessageVisible(false);
-      setTimeout(() => {
-        if (!handleSignin()) {
-          setIsAlertVisible(true);
-        }
-      }, 420);
+      handleSignin();
     }
     else {
       setIsAlertMessageVisible(true);
@@ -49,7 +51,7 @@ function SigninForm({
   };
 
   return (
-    <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+    <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit} onBlur={handleVisibility}>
       <div className="login-form-left">
         <h2 className="login-form-left-title">INSCRIPTION</h2>
         {isAlertMessageVisible && message}
