@@ -216,12 +216,6 @@ function EditProfil({ changeField }) {
 EditProfil.propTypes = {
   changeField: PropTypes.func.isRequired,
 
-  /**
-   * this function is trigger when we add a new caracters into one of the fields
-   * two parameters :
-   * - new value taking into account the character entered
-   * - id of the fields :  'email' or 'password'
-   */
 };
 
 // == Export

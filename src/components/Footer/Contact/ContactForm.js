@@ -5,12 +5,6 @@ import { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import '../styles.scss';
 
-//  * Display a form to log in, with inputs email and password.
-//  * It has two modes: "connected" and "not connected"
-//  *   - "connected": displays a message and a button to disconnect
-//  *   - "not connected": displays the form and a button to connect
-//  */
-
 function ContactForm() {
   const initialValues = { email: '', subject: '', message: '' };
   const [formValues, setFormValues] = useState(initialValues);

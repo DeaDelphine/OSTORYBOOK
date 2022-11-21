@@ -14,6 +14,8 @@ function Home() {
         <img className="home home__logo" src={logo} alt="logo" />
         { isLogged
           ? (
+            /* NavLink and Link  are the components provided by react-router-dom
+            to navigate arount the app */
             <NavLink
               to="/histoires"
               className="home home__button"
