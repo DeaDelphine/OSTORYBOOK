@@ -8,7 +8,7 @@ function Policies() {
     <div className="container-scrolly">
       <div className="policies">
         <h1 className="policies-title">Politique de confidentialité</h1>
-        <p className="footer-p">Objet : information des utilisateurs sur la politique de traitement des données personnelles et la gestion des cookies</p>
+        <h2 className="footer-p">Objet : information des utilisateurs sur la politique de traitement des données personnelles et la gestion des cookies</h2>
 
         <p className="footer-p">La présente politique de confidentialité a pour objet d’informer les utilisateurs du site « o'Story Book » de la politique de traitement des données personnelles et de gestion des cookies de l'équipe administrative via ce site.</p>
 
@@ -90,7 +90,7 @@ function Policies() {
           <a href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/conseils-aux-internautes/firefox">http://www.cnil.fr/vos-droits/vos-traces/les-cookies/conseils-aux-internautes/firefox</a>
         </p>
 
-        <p className="footer-p">Sur Safari : choisissez « Safari > Préférences» puis cliquez sur «Sécurité» ; Dans la section «Accepter les cookies» choisissez les options souhaitées ou suivez ce lien :
+        <p className="footer-p">Sur Safari : choisissez « Safari &gt; Préférences» puis cliquez sur «Sécurité» ; Dans la section «Accepter les cookies» choisissez les options souhaitées ou suivez ce lien :
           <a className="footer-link" href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac">https://support.apple.com/fr-fr/guide/safari/sfri11471/mac</a>
           Pour plus de précisions, vous pouvez également consulter le site de la CNIL et notamment la page :
           <a className="footer-link" href="http://www.cnil.fr/vos-droits/vos-traces/les-cookies/conseils-aux-internautes/safari">http://www.cnil.fr/vos-droits/vos-traces/les-cookies/conseils-aux-internautes/safari</a>

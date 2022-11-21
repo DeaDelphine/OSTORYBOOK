@@ -1,20 +1,14 @@
 import {
-  CHANGE_USER_INPUT, SET_USER, CLEAR_EDIT,
-  CLEAR_USER_INPUT,
+  CHANGE_USER_INPUT, SET_USER,
   SAVE_ERROR_DATA,
   SAVE_ERROR_PROFIL_EDIT,
-  SAVE_ERROR_PROFIL_DELETE,
   CHANGE_CONTACT_INPUT,
   SET_AVATAR,
-  USER_EDIT,
 } from '../actions/user';
 
 export const initialState = {
-  // le pseudo de l'utilisateur (disponible quand il est connecté)
   nickname: '',
-  // contenu du champ email du formulaire de profil
   email: '',
-  // contenu du champ password du formulaire de login
   password: '',
   roles: '',
   logged: false,
@@ -27,7 +21,6 @@ export const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_USER_INPUT:
-      // si le champ concerné par le changement est celui de l'e-mail
       if (action.fieldIdentifier === 'newemail') {
         return {
           ...state,
@@ -83,31 +76,12 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
-    case CLEAR_EDIT: {
-      return {
-        ...state,
-        password: '',
-      };
-    }
-    case CLEAR_USER_INPUT: {
-      return {
-        ...state,
-        [action.key]: '',
-      };
-    }
-
     case SAVE_ERROR_DATA:
       return {
         ...state,
         errors: action.errors,
       };
     case SAVE_ERROR_PROFIL_EDIT:
-      return {
-        ...state,
-        errors: action.errors,
-      };
-
-    case SAVE_ERROR_PROFIL_DELETE:
       return {
         ...state,
         errors: action.errors,

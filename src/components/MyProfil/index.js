@@ -61,7 +61,7 @@ function MyProfil({
                 <NavLink
                   className="profil-form-button--right"
                   type="submit"
-                  onClick={(event) => {
+                  onClick={() => {
                     // eslint-disable-next-line no-alert
                     if (window.confirm('Êtes-vous sûr de vouloir supprimer votre profil utilisateur ?')) {
                       dispatch(deleteUser());
@@ -82,14 +82,15 @@ function MyProfil({
 MyProfil.propTypes = {
   email: PropTypes.string,
   nickname: PropTypes.string,
-  roles: PropTypes.array,
-  profilePicture: PropTypes.array,
+  roles: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+    .isRequired,
+  profilePicture: PropTypes.string,
+
 };
 
 MyProfil.defaultProps = {
   email: '',
   nickname: '',
-  roles: [],
   profilePicture: '',
 };
 // == Export

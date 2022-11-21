@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-expressions */
 // == Import
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { fetchUser } from '../../actions/user';
 /* eslint-disable react/button-has-type */
@@ -13,7 +14,6 @@ function HeaderNavLinks() {
 
   const handleLogout = () => {
     localStorage.clear();
-    console.log('handleLogout');
   };
 
   const [showLinks, setShowLinks] = useState(false);
@@ -41,7 +41,7 @@ function HeaderNavLinks() {
             <NavLink
               to="/mon-compte"
               className="navbar__link"
-              onClick={(event) => {
+              onClick={() => {
                 fetchUser();
                 handleShowLinks();
               }}
@@ -65,10 +65,11 @@ function HeaderNavLinks() {
           { isLogged && (
           <li className="navbar__item">
             <NavLink
-              onClick={(event) => {
+              onClick={() => {
                 handleLogout();
-                props.isMobile && props.closeMobileMenu();
-                handleShowLinks();
+                useEffect(() => {
+                  handleShowLinks();
+                });
               }}
               to="/"
               className="navbar__link"

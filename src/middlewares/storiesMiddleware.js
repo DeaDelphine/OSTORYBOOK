@@ -13,23 +13,14 @@ const storiesMiddleware = (store) => (next) => (action) => {
 
         .then((response) => {
           store.dispatch(saveStories(response.data));
-          console.log(response);
-        })
-        .catch((error) => {
-          // console.log(error);
         });
 
       break;
     case FETCH_PAGES:
-      // console.log(action.page_id);
+
       axios.get(`http://0.0.0.0:8000/api/histoire/${action.story}/page/${action.startPage}`, headers)
         .then((response) => {
-          // console.log(response.data);
-
           store.dispatch(savePage(response.data));
-        })
-        .catch((error) => {
-          // console.log(error);
         });
 
       break;

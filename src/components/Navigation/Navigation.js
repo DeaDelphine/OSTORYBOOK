@@ -1,6 +1,5 @@
 // == Import
 import './styles.scss';
-import React, { useState } from 'react';
 import NavLinks from './NavLinks';
 /* eslint-disable react/button-has-type */
 

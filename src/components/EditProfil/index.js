@@ -172,7 +172,7 @@ function EditProfil({ changeField }) {
                       onChange={handleChange}
                       className="field-input"
                     >
-                      <option selected="selected" value={oldProfilePicture}>{parsedName[0]}</option>
+                      <option defaultValue="selected" value={oldProfilePicture}>{parsedName[0]}</option>
                       {images.map((image) => (
                         <option
                           value={image.image}

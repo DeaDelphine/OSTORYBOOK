@@ -8,12 +8,6 @@ import Field from '../Field';
 
 import '../Login/styles.scss';
 
-/**
- * Display a form to log in, with inputs email and password.
- * It has two modes: "connected" and "not connected"
- *   - "connected": displays a message and a button to disconnect
- *   - "not connected": displays the form and a button to connect
- */
 function LoginForm({
   changeField,
   handleLogin,
@@ -21,6 +15,7 @@ function LoginForm({
   const emailValue = useSelector((state) => state.auth.emailAuth);
   const passwordValue = useSelector((state) => state.auth.passwordAuth);
   const errors = useSelector((state) => state.user.errors);
+  // In order to change a copy of the state we will set a changing function
   const [isAlertVisible, setIsAlertVisible] = React.useState(false);
   const message = <div className="login-form-right-title-error">Mot de passe ou email incorrect</div>;
 
@@ -50,13 +45,13 @@ function LoginForm({
         <p className="login-form-right-message">Veuillez vous connecter pour jouer.</p>
         <div className="login-form-right-container">
           <Field
-            name="email"
+            name="email_login"
             placeholder="Email"
             onChange={changeField}
             value={emailValue}
           />
           <Field
-            name="password"
+            name="password_login"
             type="password"
             placeholder="Mot de passe"
             value={passwordValue}

@@ -23,7 +23,7 @@ function Story({
         <Link to="/histoire">
           <button
             className="story story-container__button"
-            onClick={(event) => {
+            onClick={() => {
               localStorage.setItem('id', id);
               localStorage.setItem('page', startPage);
               dispatch(fetchPages(id, startPage));

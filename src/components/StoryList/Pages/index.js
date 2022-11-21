@@ -2,8 +2,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Page from './Page';
-
 import { fetchPages } from '../../../actions/pages';
+
 // Style
 import './styles.scss';
 

@@ -13,14 +13,13 @@ export const initialState = {
   passwordcheck: '',
   token: '',
   logged: false,
-  loggedMessage: 'Vous êtes bien connectés !',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_LOGIN_FIELD:
-      // si le champ concerné par le changement est celui de l'e-mail
-      if (action.fieldIdentifier === 'email') {
+
+      if (action.fieldIdentifier === 'email_login') {
         return {
           ...state,
           emailAuth: action.value,
@@ -39,8 +38,8 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case CHANGE_SIGN_FIELD:
-      // si le champ concerné par le changement est celui de l'e-mail
-      if (action.fieldIdentify === 'email') {
+
+      if (action.fieldIdentify === 'email_signin') {
         return {
           ...state,
           email: action.value,
@@ -54,7 +53,7 @@ const reducer = (state = initialState, action = {}) => {
         };
       }
 
-      if (action.fieldIdentify === 'password') {
+      if (action.fieldIdentify === 'password_signin') {
         return {
           ...state,
           password: action.value,

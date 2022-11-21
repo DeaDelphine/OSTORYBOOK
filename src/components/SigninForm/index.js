@@ -7,12 +7,6 @@ import Field from '../Field';
 
 import '../Login/styles.scss';
 
-/**
- * Display a form to log in, with inputs email and password.
- * It has two modes: "connected" and "not connected"
- *   - "connected": displays a message and a button to disconnect
- *   - "not connected": displays the form and a button to connect
- */
 function SigninForm({
   changeField,
   handleSignin,
@@ -60,7 +54,7 @@ function SigninForm({
         <p className="login-form-left-message">Pas encore de compte ? Inscrivez-vous pour pouvoir jouer.</p>
         <div className="login-form-left-container">
           <Field
-            name="email"
+            name="email_signin"
             placeholder="Email"
             onChange={changeField}
             value={email}
@@ -72,7 +66,7 @@ function SigninForm({
             value={nicknameValue}
           />
           <Field
-            name="password"
+            name="password_signin"
             type="password"
             placeholder="Mot de passe"
             onChange={changeField}

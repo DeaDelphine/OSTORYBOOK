@@ -6,7 +6,7 @@ import authReducer from './auth';
 import userReducer from './user';
 
 const rootReducer = combineReducers({
-  // nom du tiroir : reducer qui s'en occupe
+
   stories: storiesReducer,
   pages: pagesReducer,
   user: userReducer,

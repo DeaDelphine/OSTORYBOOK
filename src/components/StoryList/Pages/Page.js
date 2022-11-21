@@ -16,7 +16,7 @@ function Page({
   image,
   content,
   choices,
-  page_end,
+  pageEnd,
 
 }) {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function Page({
   const lossMessage = <p className="page page-container--content__loss-message">Malheureusement vous n'avez pas réussi à aller au bout de l'histoire... Tentez à nouveau votre chance !</p>;
 
   return (
-    <div> {(page_end == null || page_end == 0)
+    <div> {(pageEnd == null || pageEnd === 0)
       ? (
         <div
           className="page page-container"
@@ -41,7 +41,10 @@ function Page({
             </div>
             <div className="page page-container--choice">
               { choices ? choices.map((choice) => (
-                <div className="page-container--choice__content">
+                <div
+                  className="page-container--choice__content"
+                  key={choice.id}
+                >
                   <div
                     className="page-container--choice__description"
                   >{choice.description}
@@ -50,7 +53,7 @@ function Page({
                     <button
                       className="page-container--choice__button"
                       onClick={
-                          (event) => {
+                          () => {
                             localStorage.setItem('page', choice.page_to_redirect);
                             dispatch(fetchPages(localStorage.getItem('id'), localStorage.getItem('page')));
                           }
@@ -65,7 +68,7 @@ function Page({
             <NavLink
               to="/histoires"
               onClick={
-                (event) => {
+                () => {
                   localStorage.removeItem('id');
                   localStorage.removeItem('page');
                 }
@@ -85,7 +88,7 @@ function Page({
           <h2 className="page page-container--title"> {title} </h2>
           <div className="page-container--content">
             <div className="page page-container--content__subtitle">
-              {page_end == 1 ? winMessage : lossMessage}
+              {pageEnd === 1 ? winMessage : lossMessage}
               <p className="page page-container--content__content"> {content} </p>
             </div>
             <img className="page page-container--content__img-end" src={image} alt="story-img-end" />
@@ -95,7 +98,7 @@ function Page({
               to="/histoires"
               className="page-container--choice__button-return"
               onClick={
-                (event) => {
+                () => {
                   localStorage.removeItem('id');
                   localStorage.removeItem('page');
                 }
@@ -107,7 +110,7 @@ function Page({
               to="/"
               className="page-container--choice__button-return"
               onClick={
-                (event) => {
+                () => {
                   localStorage.removeItem('id');
                   localStorage.removeItem('page');
                 }
@@ -128,7 +131,7 @@ Page.propTypes = {
   image: PropTypes.string,
   content: PropTypes.string,
   choices: PropTypes.array,
-  page_end: PropTypes.number,
+  pageEnd: PropTypes.number,
 };
 
 Page.defaultProps = {
@@ -137,7 +140,7 @@ Page.defaultProps = {
   title: null,
   content: null,
   image: null,
-  page_end: null,
+  pageEnd: null,
 };
 
 export default Page;

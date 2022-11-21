@@ -15,17 +15,17 @@ function CGU() {
 
         <p className="footer-p">En navigant sur le Site, l'internaute du Site (ci-après désigné « l'internaute » ou « l'utilisateur ») reconnaît avoir pris connaissance des mentions légales du Site et accepter les présentes conditions générales d'utilisation (ci-après désignées « les CGU »). Les CGU applicables sont celles qui sont accessibles en ligne sur le Site au jour de la connexion des internautes au Site.</p>
 
-        <p className="footer-p">L'équipe de concesption du site se réserve le droit de modifier à tout moment les CGU pour les adapter aux évolutions législatives et règlementaires ou aux nouvelles fonctionnalités du Site qui pourraient être proposées aux internautes, en publiant une nouvelle version sur le Site. La date de dernière mise à jour des CGU est indiquée à la première ligne des présentes.</p>
+        <p className="footer-p">L'équipe de conception du site se réserve le droit de modifier à tout moment les CGU pour les adapter aux évolutions législatives et règlementaires ou aux nouvelles fonctionnalités du Site qui pourraient être proposées aux internautes, en publiant une nouvelle version sur le Site. La date de dernière mise à jour des CGU est indiquée à la première ligne des présentes.</p>
 
         <h3 className="cgu-title">1. Objet</h3>
         <p className="footer-p">Les présentes CGU ont pour objet de déterminer et d'encadrer les modalités d'utilisation du Site par les internautes.</p>
 
         <h3 className="cgu-title">2. Conditions et modalités d'utilisation du site</h3>
-        <p className="footer-p">Le Site permet aux internautes de faire défiler des histoires appartenant et/ou inspirées de la mythologie japonaise grâce à des choix lui permettant de changer de page à son gré.L'internaute a en outre la possibilité de :
-          <p className="footer-p">- contacter les administrateurs du Site,</p>
-          <p className="footer-p">- jouer au jeu « o'Story Book » après s'être inscrit,</p>
-          <p className="footer-p">- avoir accès à une version mobile du Site.</p>
-        </p>
+        <ul className="footer-p">Le Site permet aux internautes de faire défiler des histoires appartenant et/ou inspirées de la mythologie japonaise grâce à des choix lui permettant de changer de page à son gré.L'internaute a en outre la possibilité de :
+          <li className="footer-p">- contacter les administrateurs du Site,</li>
+          <li className="footer-p">- jouer au jeu « o'Story Book » après s'être inscrit,</li>
+          <li className="footer-p">- avoir accès à une version mobile du Site.</li>
+        </ul>
 
         <h3 className="cgu-title">3. Conditions d'accès au site</h3>
         <p className="footer-p">L'utilisation du Site nécessite une connexion à Internet.

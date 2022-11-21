@@ -1,4 +1,5 @@
-## Front-office
+# Front-office
+
 | URL                            | HTTP Method | Controller              | Method       | Title                  | Content            | Comment |
 | ------------------------------ | ----------- | ----------------------- | ------------ | ---------------------- | ------------------ | ------- |
 | `/`                            | `GET`       | `Front/MainController`  | `home`       | Accueil                | homepage           | -       |
@@ -17,6 +18,7 @@
 | `/histoire/[id]/supprimer`     | `POST`      | `Front/StoryController` | `delete`     | Supprimer une histoire | delete a story     | V2      |
 
 ## Back-office
+
 | URL                      | HTTP Method | Controller             | Method   | Title                                        | Content       | Comment                                            |
 | ------------------------ | ----------- | ---------------------- | -------- | -------------------------------------------- | ------------- | -------------------------------------------------- |
 | `back/`                  | `GET`       | `Back/MainController`  | `home`   | Accueil                                      | story list    | -                                                  |

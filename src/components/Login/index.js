@@ -12,13 +12,6 @@ import {
 
 import './styles.scss';
 
-/**
- * Display a form to log in, with inputs email and password.
- * It has two modes: "connected" and "not connected"
- *   - "connected": displays a message and a button to disconnect
- *   - "not connected": displays the form and a button to connect
- */
-
 function Login() {
   const isLogged = useSelector((state) => state.auth.logged);
 
@@ -28,6 +21,8 @@ function Login() {
     <div className="container-scrolly-mobile-only">
       <div className="login-form">
         <div className="login-form-container">
+          {/* we use isLogged variable to found if user is connected or not,
+          in this case the user can navigate to storylist */}
           {isLogged && <Navigate to="/histoires" replace /> },
           {!isLogged && (
           <div className="login-form-container--container">

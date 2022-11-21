@@ -21,10 +21,8 @@ const user = (store) => (next) => (action) => {
 
         .then((response) => {
           store.dispatch(setUser(response.data.nickname, response.data.roles, response.data.email, response.data.profilePicture));
-        })
-        .catch((error) => {
-          // console.log(error);
         });
+
       break;
 
     case USER_EDIT:
@@ -34,7 +32,6 @@ const user = (store) => (next) => (action) => {
         {
           nickname: state.user.Newnickname,
           email: state.user.Newemail,
-          // oldPassword: state.user.Oldpassword,
           password: state.user.Newpassword,
           profilePicture: state.user.newProfilePicture,
         },
@@ -45,7 +42,6 @@ const user = (store) => (next) => (action) => {
           store.dispatch(saveErrorsProfilEdit(response));
         })
         .catch((error) => {
-          // console.log(error.response);
           store.dispatch(saveErrorsProfilEdit(error.response));
         });
       break;
@@ -53,27 +49,19 @@ const user = (store) => (next) => (action) => {
     case USER_DELETE:
       axios.delete('http://0.0.0.0:8000/api/user/me/delete', headers)
 
-        .then((response) => {
-          // store.dispatch(deleteUser());
-          // localStorage.removeItem('user');
+        .then(() => {
           localStorage.clear();
           window.location.href = '/';
-          // console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
         });
+
       break;
     case FETCH_AVATAR:
       axios.get('http://0.0.0.0:8000/api/personnages', headers)
 
         .then((response) => {
           store.dispatch(SetAvatar(response.data));
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
         });
+
       break;
 
     default:

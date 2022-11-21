@@ -14,7 +14,7 @@ export const setToken = (token) => ({
   type: SET_TOKEN,
   token: token,
 });
-// action type for auth middleware
+
 export const changeLoginField = (newValue, fieldIdentifier) => ({
   type: CHANGE_LOGIN_FIELD,
   value: newValue,
@@ -27,7 +27,6 @@ export const changeSignField = (newValue, fieldIdentify) => ({
   fieldIdentify: fieldIdentify,
 });
 
-// action type from auth middleware, got to auth reducer
 export const saveNewUser = () => ({
   type: SAVE_NEW_USER,
 });
